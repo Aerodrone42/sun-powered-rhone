@@ -389,6 +389,120 @@ const BorneRecharge = () => {
           </div>
         </section>
 
+        {/* SEO Content Section */}
+        <section className="py-24 bg-muted/20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-3 gap-12">
+              <article className="lg:col-span-2 space-y-6 text-muted-foreground">
+                <header>
+                  <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
+                    Installation de borne de recharge électrique : tout ce qu'il faut savoir
+                  </h2>
+                </header>
+                
+                <p>
+                  L'installation d'une borne de recharge électrique à domicile représente un investissement stratégique pour tout propriétaire de véhicule électrique. 
+                  Chez WN Energies, nous proposons des solutions complètes d'installation de bornes de recharge certifiées IRVE (Infrastructure de Recharge pour Véhicules Électriques) 
+                  pour particuliers et professionnels.
+                </p>
+                
+                <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">
+                  Pourquoi installer une borne de recharge à domicile ?
+                </h3>
+                <p>
+                  Une borne de recharge domestique offre de nombreux avantages par rapport à une prise domestique classique. 
+                  La puissance de charge peut atteindre 22 kW (contre 2,3 kW sur une prise standard), divisant par 10 le temps de recharge. 
+                  De plus, nos bornes intelligentes permettent de programmer la recharge pendant les heures creuses, optimisant ainsi vos coûts énergétiques.
+                </p>
+                
+                <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">
+                  Certification IRVE : un gage de sécurité et de qualité
+                </h3>
+                <p>
+                  Tous nos électriciens sont certifiés IRVE, garantissant une installation conforme aux normes de sécurité en vigueur. 
+                  Cette certification est obligatoire pour l'installation de bornes de recharge de plus de 3,7 kW et conditionne l'obtention des aides financières. 
+                  Elle assure également la prise en charge par votre assurance habitation en cas de sinistre.
+                </p>
+                
+                <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">
+                  Aides financières et crédit d'impôt
+                </h3>
+                <p>
+                  L'installation d'une borne de recharge électrique ouvre droit à plusieurs dispositifs d'aide : crédit d'impôt de 300€, 
+                  TVA réduite à 5,5%, et selon votre région, des subventions locales complémentaires. Nous vous accompagnons dans toutes vos démarches 
+                  pour optimiser le financement de votre projet.
+                </p>
+                
+                <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">
+                  Types de bornes et puissances disponibles
+                </h3>
+                <p>
+                  Nous proposons trois gammes principales : les bornes 3,7 kW pour un usage occasionnel, les bornes 7,4 kW (monophasé) 
+                  idéales pour un usage quotidien, et les bornes 22 kW (triphasé) pour une recharge rapide. Le choix dépend de votre véhicule, 
+                  de vos habitudes de conduite et de votre installation électrique existante.
+                </p>
+              </article>
+              
+              <aside className="space-y-8">
+                <Card className="p-6 border-border/50">
+                  <h3 className="text-xl font-semibold mb-4">Nos prestations</h3>
+                  <ul className="space-y-3 text-sm">
+                    <li className="flex items-center gap-3">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      Étude électrique préalable
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      Installation certifiée IRVE
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      Mise aux normes électriques
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      Configuration et formation
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      SAV et maintenance
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <CheckCircle className="w-4 h-4 text-primary" />
+                      Aide aux démarches administratives
+                    </li>
+                  </ul>
+                </Card>
+                
+                <Card className="p-6 border-border/50">
+                  <h3 className="text-xl font-semibold mb-4">Temps de recharge indicatifs</h3>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span>Prise domestique (2,3 kW)</span>
+                      <span className="font-semibold">20-30h</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Borne 3,7 kW</span>
+                      <span className="font-semibold">12-18h</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Borne 7,4 kW</span>
+                      <span className="font-semibold">6-9h</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Borne 22 kW</span>
+                      <span className="font-semibold">2-4h</span>
+                    </div>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-3">
+                    *Pour une batterie de 50 kWh (citadine électrique type)
+                  </p>
+                </Card>
+              </aside>
+            </div>
+          </div>
+        </section>
+
         {/* Process Section */}
         <section className="py-24 bg-muted/20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
