@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Sun, Zap, Home, Calculator, MapPin, Battery, Leaf, TrendingUp } from 'lucide-react';
-import RealMap from '../components/RealMap';
 
 const SolarSimulator = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  const [selectedLocation, setSelectedLocation] = useState<{lat: number; lng: number} | null>(null);
-  const [locationData, setLocationData] = useState<any>(null);
+  const [selectedLocation, setSelectedLocation] = useState(null);
+  const [locationData, setLocationData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState<any>(null);
+  const [results, setResults] = useState(null);
+  const [map, setMap] = useState(null);
+  const [marker, setMarker] = useState(null);
+  const mapRef = useRef(null);
 
   // Form data
   const [formData, setFormData] = useState({
@@ -24,6 +26,54 @@ const SolarSimulator = () => {
   });
 
   const totalSteps = 4;
+
+  // Initialisation de la carte Leaflet
+  useEffect(() => {
+    // Charger Leaflet depuis CDN
+    if (!(window as any).L) {
+      // Ajouter le CSS de Leaflet
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css';
+      document.head.appendChild(link);
+
+      // Ajouter le JS de Leaflet
+      const script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+      script.onload = () => initializeMap();
+      document.head.appendChild(script);
+    } else {
+      initializeMap();
+    }
+  }, []);
+
+  const initializeMap = () => {
+    if (mapRef.current && (window as any).L && !map) {
+      const leafletMap = (window as any).L.map(mapRef.current).setView([46.603354, 1.888334], 6);
+      
+      (window as any).L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(leafletMap);
+
+      leafletMap.on('click', (e: any) => {
+        handleMapClick(e.latlng);
+      });
+
+      setMap(leafletMap);
+    }
+  };
+
+  const handleMapClick = (latlng: any) => {
+    setSelectedLocation(latlng);
+    fetchLocationData(latlng.lat, latlng.lng);
+    
+    // Ajouter/déplacer le marqueur
+    if (marker) {
+      (map as any).removeLayer(marker);
+    }
+    const newMarker = (window as any).L.marker([latlng.lat, latlng.lng]).addTo(map);
+    setMarker(newMarker);
+  };
 
   // Récupération des données de localisation via GéoAPI
   const fetchLocationData = async (lat, lng) => {
@@ -121,9 +171,17 @@ const SolarSimulator = () => {
     };
 
     const city = cities[cityKey];
-    if (city) {
+    if (city && map) {
+      (map as any).setView([city.lat, city.lng], 12);
       setSelectedLocation({ lat: city.lat, lng: city.lng });
       fetchLocationData(city.lat, city.lng);
+      
+      // Ajouter/déplacer le marqueur
+      if (marker) {
+        (map as any).removeLayer(marker);
+      }
+      const newMarker = (window as any).L.marker([city.lat, city.lng]).addTo(map);
+      setMarker(newMarker);
     }
   };
 
@@ -149,23 +207,23 @@ const SolarSimulator = () => {
     const orientationFactor = orientationFactors[formData.roofOrientation] || 1.0;
     const irradiationFactor = irradiation / 1000;
 
-    // PANNEAUX CLASSIQUES (300-400W)
-    const classicPower = Math.min(Math.ceil(roofSurface / 7) * 0.35, 9);
-    const classicPanels = Math.ceil(classicPower * 1000 / 350);
-    const classicSurface = classicPanels * 2;
-    const classicProductionMin = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * 0.95);
-    const classicProductionMax = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * 1.05);
-    const classicSavingsMin = Math.round(classicProductionMin * 0.7 * 0.17);
-    const classicSavingsMax = Math.round(classicProductionMax * 0.7 * 0.17);
+    // PANNEAUX 700-850W STANDARDS (technologie actuelle)
+    const classicPower = Math.min(Math.ceil(roofSurface / 5.5) * 0.775, 12); // 775W moyenne
+    const classicPanels = Math.ceil(classicPower * 1000 / 775);
+    const classicSurface = classicPanels * 2.4; // Panneaux 700-850W font ≈2.4m²
+    const classicProductionMin = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * 0.98);
+    const classicProductionMax = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * 1.02);
+    const classicSavingsMin = Math.round(classicProductionMin * 0.70 * 0.17);
+    const classicSavingsMax = Math.round(classicProductionMax * 0.70 * 0.17);
 
-    // PANNEAUX NOUVELLE GÉNÉRATION (700-850W, rendement +25-30%)
-    const newGenPower = Math.min(Math.ceil(roofSurface / 4.5) * 0.775, 15);
-    const newGenPanels = Math.ceil(newGenPower * 1000 / 775);
-    const newGenSurface = newGenPanels * 2.2;
-    const newGenProductionMin = Math.round(newGenPower * 1000 * irradiationFactor * orientationFactor * 1.25);
-    const newGenProductionMax = Math.round(newGenPower * 1000 * irradiationFactor * orientationFactor * 1.30);
-    const newGenSavingsMin = Math.round(newGenProductionMin * 0.75 * 0.17);
-    const newGenSavingsMax = Math.round(newGenProductionMax * 0.75 * 0.17);
+    // PANNEAUX 700-850W NOUVELLE GÉNÉRATION (même puissance + 25-30% rendement supplémentaire)
+    const newGenPower = classicPower; // Même puissance installée
+    const newGenPanels = classicPanels; // Même nombre de panneaux
+    const newGenSurface = classicSurface; // Même surface utilisée
+    const newGenProductionMin = Math.round(classicProductionMin * 1.25); // +25% de rendement
+    const newGenProductionMax = Math.round(classicProductionMax * 1.30); // +30% de rendement
+    const newGenSavingsMin = Math.round(newGenProductionMin * 0.72 * 0.17);
+    const newGenSavingsMax = Math.round(newGenProductionMax * 0.72 * 0.17);
 
     // Avantages
     const productionGainMin = newGenProductionMin - classicProductionMax;
@@ -228,6 +286,13 @@ const SolarSimulator = () => {
     setSelectedLocation(null);
     setLocationData(null);
     setResults(null);
+    
+    // Réinitialiser le marqueur sur la carte
+    if (marker && map) {
+      (map as any).removeLayer(marker);
+      setMarker(null);
+    }
+    
     setFormData({
       city: '',
       postalCode: '',
@@ -240,20 +305,6 @@ const SolarSimulator = () => {
       residents: '4',
       heating: 'electrique'
     });
-  };
-
-  // Simulation de carte simple (sans react-leaflet pour éviter les dépendances)
-  const handleMapClick = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    // Conversion approximative pixel vers coordonnées (France)
-    const lat = 50.5 - (y / rect.height) * 10; // Approximation
-    const lng = -5 + (x / rect.width) * 15; // Approximation
-    
-    setSelectedLocation({ lat, lng });
-    fetchLocationData(lat, lng);
   };
 
   const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
@@ -339,14 +390,19 @@ const SolarSimulator = () => {
                 Puis cliquez sur la carte pour affiner votre position exacte
               </p>
 
-              {/* Vraie carte interactive */}
-              <RealMap 
-                onLocationSelect={(lat, lng) => {
-                  setSelectedLocation({ lat, lng });
-                  fetchLocationData(lat, lng);
-                }}
-                selectedLocation={selectedLocation}
+              {/* Carte Leaflet */}
+              <div 
+                ref={mapRef}
+                className="h-96 rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200"
+                style={{ minHeight: '400px' }}
               />
+
+              {!map && (
+                <div className="text-center py-4">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500 mx-auto"></div>
+                  <p className="text-gray-600 mt-2">Chargement de la carte...</p>
+                </div>
+              )}
 
               {/* Données de localisation */}
               {locationData && (
@@ -583,61 +639,61 @@ const SolarSimulator = () => {
 
                 {/* Comparatif technologies */}
                 <h3 className="text-2xl font-bold text-gray-800 mt-8">
-                  🔬 Comparatif des technologies
+                  🔬 Panneaux 700-850W : Standard vs Nouvelle Génération
                 </h3>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-gradient-to-br from-orange-50 to-red-50 border-2 border-orange-200 rounded-2xl p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">🔶 Panneaux Classiques</h3>
+                    <h3 className="text-xl font-bold text-gray-800 mb-4">🔶 Panneaux 700-850W Standards</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                         <span>Puissance</span>
-                        <span className="font-bold">300-400W</span>
+                        <span className="font-bold">700-850W</span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span>Technologie</span>
+                        <span className="font-bold">Standard actuelle</span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span>Surface par panneau</span>
+                        <span className="font-bold">≈ 2.4 m²</span>
                       </div>
                       <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                         <span>Rendement</span>
-                        <span className="font-bold">18-20%</span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                        <span>Surface nécessaire</span>
-                        <span className="font-bold">6-8 m²/kWc</span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                        <span>Durée de vie</span>
-                        <span className="font-bold">20-25 ans</span>
+                        <span className="font-bold">Standard</span>
                       </div>
                     </div>
                   </div>
 
                   <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-400 rounded-2xl p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">⚡ Nouvelle Génération</h3>
+                    <h3 className="text-xl font-bold text-gray-800 mb-4">⚡ Panneaux 700-850W Nouvelle Génération</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                         <span>Puissance</span>
                         <span className="font-bold">
                           700-850W 
-                          <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">+100%</span>
+                          <span className="ml-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs">Même</span>
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span>Technologie</span>
+                        <span className="font-bold">
+                          Nouvelle génération 
+                          <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">2024</span>
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span>Surface par panneau</span>
+                        <span className="font-bold">
+                          ≈ 2.4 m² 
+                          <span className="ml-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs">Même</span>
                         </span>
                       </div>
                       <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                         <span>Rendement</span>
                         <span className="font-bold">
-                          25-30% 
-                          <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">+30%</span>
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                        <span>Surface nécessaire</span>
-                        <span className="font-bold">
-                          4-5 m²/kWc 
-                          <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">-40%</span>
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                        <span>Durée de vie</span>
-                        <span className="font-bold">
-                          30+ ans 
-                          <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">+25%</span>
+                          +25% à +30% 
+                          <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">NOUVEAU</span>
                         </span>
                       </div>
                     </div>
@@ -651,7 +707,7 @@ const SolarSimulator = () => {
                     </div>
                     <div className="ml-3">
                       <p className="text-sm text-blue-700">
-                        Les panneaux nouvelle génération produisent 2x plus d'énergie sur la même surface !
+                        Les panneaux nouvelle génération offrent 25-30% de rendement supplémentaire à puissance égale !
                       </p>
                     </div>
                   </div>
@@ -687,7 +743,7 @@ const SolarSimulator = () => {
               {/* Comparatif des résultats */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-gradient-to-br from-orange-50 to-red-50 border-2 border-orange-200 rounded-2xl p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-6">🔶 Résultats Technologie Classique</h3>
+                  <h3 className="text-xl font-bold text-gray-800 mb-6">🔶 Panneaux 700-850W Standards</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                       <span>Puissance installée</span>
@@ -713,7 +769,7 @@ const SolarSimulator = () => {
                 </div>
 
                 <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-400 rounded-2xl p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-6">⚡ Résultats Nouvelle Génération</h3>
+                  <h3 className="text-xl font-bold text-gray-800 mb-6">⚡ Panneaux 700-850W Nouvelle Génération</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                       <span>Puissance installée</span>
@@ -775,11 +831,11 @@ const SolarSimulator = () => {
                 </div>
 
                 <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all border-2 border-transparent hover:border-orange-500">
-                  <Sun className="w-12 h-12 text-orange-500 mx-auto mb-4" />
+                  <TrendingUp className="w-12 h-12 text-purple-500 mx-auto mb-4" />
                   <div className="text-3xl font-bold text-gray-800 mb-2">
-                    {results.advantages.spaceSaved} m²
+                    {results.advantages.efficiency}
                   </div>
-                  <div className="text-gray-600 font-medium">d'espace libre en plus</div>
+                  <div className="text-gray-600 font-medium">de rendement supérieur</div>
                 </div>
 
                 <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all border-2 border-transparent hover:border-orange-500">
