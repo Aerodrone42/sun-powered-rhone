@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import OpenStreetMap from '../components/OpenStreetMap';
 import { MonthlyProductionChart } from '../components/MonthlyProductionChart';
+import { Skeleton } from '../components/ui/skeleton';
 
 const SolarSimulator = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -689,9 +690,54 @@ const SolarSimulator = () => {
                 selectedLocation={selectedLocation}
               />
 
-              {/* Données de localisation */}
-              {locationData && (
+              {/* État de chargement */}
+              {loading && selectedLocation && (
                 <div className="bg-gray-50 rounded-2xl p-6">
+                  <div className="flex items-center justify-center mb-4">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                    <span className="ml-3 text-lg font-semibold text-primary">
+                      Analyse de votre localisation en cours...
+                    </span>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-2">
+                      <Skeleton className="h-4 w-4 rounded-full" />
+                      <Skeleton className="h-4 w-48" />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Skeleton className="h-4 w-4 rounded-full" />
+                      <Skeleton className="h-4 w-64" />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Skeleton className="h-4 w-4 rounded-full" />
+                      <Skeleton className="h-4 w-56" />
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div key={i} className="text-center bg-white rounded-xl p-4">
+                        <Skeleton className="h-8 w-16 mx-auto mb-2" />
+                        <Skeleton className="h-4 w-20 mx-auto" />
+                        <Skeleton className="h-3 w-16 mx-auto mt-1" />
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-4 bg-blue-50 border-2 border-blue-200 rounded-xl p-3">
+                    <div className="flex items-center gap-2">
+                      <div className="animate-pulse w-3 h-3 bg-blue-400 rounded-full"></div>
+                      <span className="text-blue-600 font-bold">Récupération des données PVGIS...</span>
+                    </div>
+                    <Skeleton className="h-4 w-full mt-2" />
+                  </div>
+                </div>
+              )}
+
+              {/* Données de localisation */}
+              {locationData && !loading && (
+                <div className="bg-gray-50 rounded-2xl p-6 animate-fade-in">
                   <h4 className="font-bold text-lg mb-2">📍 Localisation sélectionnée</h4>
                   <p className="text-gray-700 mb-2">{locationData.address}</p>
                   <div className="text-xs text-blue-600 mb-4 font-semibold">
@@ -699,7 +745,7 @@ const SolarSimulator = () => {
                   </div>
                   
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="text-center bg-white rounded-xl p-4">
+                    <div className="text-center bg-white rounded-xl p-4 hover-scale">
                       <div className="text-2xl font-bold text-orange-500">
                         {locationData.irradiation}
                       </div>
@@ -707,7 +753,7 @@ const SolarSimulator = () => {
                         kWh/m²/an<br/>Irradiation
                       </div>
                     </div>
-                    <div className="text-center bg-white rounded-xl p-4">
+                    <div className="text-center bg-white rounded-xl p-4 hover-scale">
                       <div className="text-2xl font-bold text-orange-500">
                         {locationData.sunshine}
                       </div>
@@ -715,7 +761,7 @@ const SolarSimulator = () => {
                         heures/an<br/>Ensoleillement
                       </div>
                     </div>
-                    <div className="text-center bg-white rounded-xl p-4">
+                    <div className="text-center bg-white rounded-xl p-4 hover-scale">
                       <div className="text-2xl font-bold text-orange-500">
                         {locationData.solarScore}
                       </div>
@@ -723,7 +769,7 @@ const SolarSimulator = () => {
                         / 10<br/>Potentiel solaire
                       </div>
                     </div>
-                    <div className="text-center bg-white rounded-xl p-4">
+                    <div className="text-center bg-white rounded-xl p-4 hover-scale">
                       <div className="text-2xl font-bold text-blue-500">
                         {locationData.optimalAngle}°
                       </div>
@@ -734,7 +780,7 @@ const SolarSimulator = () => {
                   </div>
 
                   {locationData.dataSource.includes('PVGIS') && (
-                    <div className="mt-4 bg-green-50 border-2 border-green-200 rounded-xl p-3">
+                    <div className="mt-4 bg-green-50 border-2 border-green-200 rounded-xl p-3 animate-scale-in">
                       <div className="flex items-center gap-2">
                         <span className="text-green-600 font-bold">✅ DONNÉES OFFICIELLES</span>
                         <span className="text-xs bg-green-500 text-white px-2 py-1 rounded">
