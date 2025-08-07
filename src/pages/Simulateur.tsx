@@ -344,11 +344,14 @@ const SolarSimulator = () => {
     const autoconsumptionRate = Math.min(annualConsumption / classicProductionMin, 1); // % autoconsommé
     const classicAutoconsumed = classicProductionMin * autoconsumptionRate;
     const classicSurplus = Math.max(0, classicProductionMin - annualConsumption);
-    const classicSavingsMin = Math.round(classicAutoconsumed * 0.17 + classicSurplus * 0.10); // 0.17€ autoconso + 0.10€ revente
+    
+    // Tarifs EDF officiels 2025 selon puissance installée
+    const surplusSellPrice = classicPower <= 9 ? 0.04 : 0.0731; // 4 c€/kWh si ≤9kWc, sinon 7,31 c€/kWh
+    const classicSavingsMin = Math.round(classicAutoconsumed * 0.17 + classicSurplus * surplusSellPrice);
     
     const classicAutoconsumedMax = classicProductionMax * autoconsumptionRate;
     const classicSurplusMax = Math.max(0, classicProductionMax - annualConsumption);
-    const classicSavingsMax = Math.round(classicAutoconsumedMax * 0.17 + classicSurplusMax * 0.10);
+    const classicSavingsMax = Math.round(classicAutoconsumedMax * 0.17 + classicSurplusMax * surplusSellPrice);
 
     // PANNEAUX 700-850W NOUVELLE GÉNÉRATION (même puissance + 25-30% rendement supplémentaire)
     const newGenPower = classicPower; // Même puissance installée
@@ -357,14 +360,15 @@ const SolarSimulator = () => {
     const newGenProductionMin = Math.round(classicProductionMin * 1.25); // +25% de rendement
     const newGenProductionMax = Math.round(classicProductionMax * 1.30); // +30% de rendement
     
-    // Calcul économies nouvelle génération
+    // Calcul économies nouvelle génération avec tarifs officiels EDF
+    const newGenSurplusSellPrice = newGenPower <= 9 ? 0.04 : 0.0731; // Même tarification selon puissance
     const newGenAutoconsumed = Math.min(newGenProductionMin, annualConsumption);
     const newGenSurplus = Math.max(0, newGenProductionMin - annualConsumption);
-    const newGenSavingsMin = Math.round(newGenAutoconsumed * 0.17 + newGenSurplus * 0.10);
+    const newGenSavingsMin = Math.round(newGenAutoconsumed * 0.17 + newGenSurplus * newGenSurplusSellPrice);
     
     const newGenAutoconsumedMax = Math.min(newGenProductionMax, annualConsumption);
     const newGenSurplusMax = Math.max(0, newGenProductionMax - annualConsumption);
-    const newGenSavingsMax = Math.round(newGenAutoconsumedMax * 0.17 + newGenSurplusMax * 0.10);
+    const newGenSavingsMax = Math.round(newGenAutoconsumedMax * 0.17 + newGenSurplusMax * newGenSurplusSellPrice);
 
     // Avantages
     const productionGainMin = newGenProductionMin - classicProductionMax;
