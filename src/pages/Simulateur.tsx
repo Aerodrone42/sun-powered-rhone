@@ -619,19 +619,20 @@ const SolarSimulator = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <label className="block text-sm font-semibold text-foreground drop-shadow-md">
-                    Surface habitable
+                   <label className="block text-sm font-semibold text-foreground drop-shadow-md">
+                     Surface de toit disponible
                   </label>
                   <select 
                     value={formData.houseSurface}
                     onChange={(e) => setFormData({...formData, houseSurface: e.target.value})}
                     className="w-full p-3 bg-background/90 backdrop-blur-xl border border-border rounded-xl focus:border-primary focus:outline-none text-foreground shadow-xl"
                   >
-                    <option value="80">Moins de 80 m²</option>
-                    <option value="100">80 - 100 m²</option>
-                    <option value="150">100 - 150 m²</option>
-                    <option value="200">150 - 200 m²</option>
-                    <option value="250">Plus de 200 m²</option>
+                     <option value="80">Moins de 80 m²</option>
+                     <option value="100">80 - 120 m²</option>
+                     <option value="150">120 - 180 m²</option>
+                     <option value="200">180 - 250 m²</option>
+                     <option value="300">250 - 350 m²</option>
+                     <option value="500">Plus de 350 m²</option>
                   </select>
                 </div>
 
@@ -716,20 +717,25 @@ const SolarSimulator = () => {
 
               <div className="space-y-6">
                 <div className="space-y-4">
-                  <label className="block text-sm font-semibold text-foreground">
-                    Montant de votre facture électrique mensuelle: {formData.monthlyBill} €/mois
-                  </label>
-                  <input 
-                    type="range" 
-                    min="50" 
-                    max="400" 
-                    value={formData.monthlyBill}
-                    onChange={(e) => setFormData({...formData, monthlyBill: parseInt(e.target.value)})}
-                    className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer"
-                  />
-                  <div className="text-center font-semibold text-primary">
-                    {formData.monthlyBill} €/mois
-                  </div>
+                   <label className="block text-sm font-semibold text-foreground">
+                     Montant de votre facture électrique mensuelle
+                   </label>
+                   <div className="flex gap-2 items-center">
+                     <input 
+                       type="number" 
+                       min="50" 
+                       max="5000"
+                       step="10"
+                       value={formData.monthlyBill}
+                       onChange={(e) => setFormData({...formData, monthlyBill: parseInt(e.target.value) || 50})}
+                       className="flex-1 p-3 bg-background/90 backdrop-blur-xl border border-border rounded-xl focus:border-primary focus:outline-none text-foreground shadow-xl"
+                       placeholder="Ex: 150"
+                     />
+                     <span className="text-foreground font-semibold">€/mois</span>
+                   </div>
+                   <div className="text-sm text-muted-foreground">
+                     💡 Pour les entreprises agricoles, indiquez votre facture totale mensuelle
+                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
