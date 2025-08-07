@@ -989,14 +989,6 @@ const SolarSimulator = () => {
                        <span>Économies annuelles</span>
                        <span className="font-bold">{results.classic.savingsMin} - {results.classic.savingsMax} €</span>
                      </div>
-                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                       <span>Coût d'installation</span>
-                       <span className="font-bold">{results.classic.installationCost.toLocaleString()} € TTC</span>
-                     </div>
-                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                       <span>Retour sur investissement</span>
-                       <span className="font-bold text-primary">{results.classic.roi} ans</span>
-                     </div>
                   </div>
                 </div>
 
@@ -1022,14 +1014,6 @@ const SolarSimulator = () => {
                      <div className="flex justify-between items-center p-3 bg-background rounded-lg">
                        <span>Économies annuelles</span>
                        <span className="font-bold">{results.newGen.savingsMin} - {results.newGen.savingsMax} €</span>
-                     </div>
-                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                       <span>Coût d'installation</span>
-                       <span className="font-bold">{results.newGen.installationCost.toLocaleString()} € TTC</span>
-                     </div>
-                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                       <span>Retour sur investissement</span>
-                       <span className="font-bold text-green-600">{results.newGen.roi} ans</span>
                      </div>
                      <div className="flex justify-between items-center p-3 bg-background rounded-lg">
                        <span>Rendement supérieur</span>
