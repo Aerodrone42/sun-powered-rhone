@@ -31,37 +31,79 @@ const SolarSimulator = () => {
 
   // Initialisation de la carte Leaflet
   useEffect(() => {
-    // Charger Leaflet depuis CDN
-    if (!(window as any).L) {
-      // Ajouter le CSS de Leaflet
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css';
-      document.head.appendChild(link);
+    const loadLeaflet = async () => {
+      // Charger Leaflet depuis CDN
+      if (!(window as any).L) {
+        console.log('📦 Chargement de Leaflet...');
+        
+        // Ajouter le CSS de Leaflet
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+        link.integrity = 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=';
+        link.crossOrigin = '';
+        document.head.appendChild(link);
 
-      // Ajouter le JS de Leaflet
-      const script = document.createElement('script');
-      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
-      script.onload = () => initializeMap();
-      document.head.appendChild(script);
-    } else {
-      initializeMap();
-    }
+        // Ajouter le JS de Leaflet
+        const script = document.createElement('script');
+        script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+        script.integrity = 'sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=';
+        script.crossOrigin = '';
+        
+        script.onload = () => {
+          console.log('✅ Leaflet chargé');
+          setTimeout(initializeMap, 100); // Petit délai pour s'assurer du chargement
+        };
+        script.onerror = () => {
+          console.error('❌ Erreur chargement Leaflet');
+        };
+        document.head.appendChild(script);
+      } else {
+        console.log('✅ Leaflet déjà présent');
+        initializeMap();
+      }
+    };
+
+    loadLeaflet();
   }, []);
 
   const initializeMap = () => {
+    console.log('🗺️ Initialisation de la carte...');
+    
     if (mapRef.current && (window as any).L && !map) {
-      const leafletMap = (window as any).L.map(mapRef.current).setView([46.603354, 1.888334], 6);
-      
-      (window as any).L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-      }).addTo(leafletMap);
+      try {
+        const leafletMap = (window as any).L.map(mapRef.current, {
+          center: [46.603354, 1.888334],
+          zoom: 6,
+          zoomControl: true
+        });
+        
+        (window as any).L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors',
+          maxZoom: 19
+        }).addTo(leafletMap);
 
-      leafletMap.on('click', (e: any) => {
-        handleMapClick(e.latlng);
+        leafletMap.on('click', (e: any) => {
+          console.log('🎯 Clic sur carte:', e.latlng);
+          handleMapClick(e.latlng);
+        });
+
+        // Force le redimensionnement après un court délai
+        setTimeout(() => {
+          leafletMap.invalidateSize();
+          console.log('✅ Carte initialisée et redimensionnée');
+        }, 200);
+
+        setMap(leafletMap);
+      } catch (error) {
+        console.error('❌ Erreur initialisation carte:', error);
+      }
+    } else {
+      console.log('⚠️ Conditions non remplies pour initialiser la carte:', {
+        mapRef: !!mapRef.current,
+        leaflet: !!(window as any).L,
+        mapExists: !!map
       });
-
-      setMap(leafletMap);
     }
   };
 
@@ -469,19 +511,32 @@ const SolarSimulator = () => {
                 👇 Cliquez sur la carte pour affiner votre position exacte 👇
               </p>
 
-              {/* Carte Leaflet */}
-              <div 
-                ref={mapRef}
-                className="h-96 rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200"
-                style={{ minHeight: '400px' }}
-              />
-
-              {!map && (
-                <div className="text-center py-4">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500 mx-auto"></div>
-                  <p className="text-gray-600 mt-2">Chargement de la carte...</p>
-                </div>
-              )}
+              {/* Carte Leaflet avec debugging */}
+              <div className="relative">
+                <div 
+                  ref={mapRef}
+                  className="h-96 rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 bg-gray-100"
+                  style={{ minHeight: '400px' }}
+                />
+                
+                {/* Indicateur de chargement */}
+                {!map && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-2xl">
+                    <div className="text-center">
+                      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
+                      <p className="text-gray-600 font-medium">Chargement de la carte...</p>
+                      <p className="text-sm text-gray-500">Vérifiez votre connexion internet</p>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Message d'erreur si la carte ne se charge pas */}
+                {map && (
+                  <div className="absolute top-4 left-4 bg-green-500 text-white px-3 py-2 rounded-lg text-sm font-medium">
+                    ✅ Carte chargée
+                  </div>
+                )}
+              </div>
 
               {/* Données de localisation */}
               {locationData && (
