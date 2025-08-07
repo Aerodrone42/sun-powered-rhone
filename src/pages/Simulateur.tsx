@@ -340,8 +340,15 @@ const SolarSimulator = () => {
     const classicSurface = availableSurface; // Utilise la surface calculée correctement
     const classicProductionMin = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * inclinationFactor * temperatureFactor * 0.98);
     const classicProductionMax = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * inclinationFactor * temperatureFactor * 1.02);
-    const classicSavingsMin = Math.round(classicProductionMin * 0.70 * 0.17);
-    const classicSavingsMax = Math.round(classicProductionMax * 0.70 * 0.17);
+    // Calcul des économies réalistes (autoconsommation + revente surplus)
+    const autoconsumptionRate = Math.min(annualConsumption / classicProductionMin, 1); // % autoconsommé
+    const classicAutoconsumed = classicProductionMin * autoconsumptionRate;
+    const classicSurplus = Math.max(0, classicProductionMin - annualConsumption);
+    const classicSavingsMin = Math.round(classicAutoconsumed * 0.17 + classicSurplus * 0.10); // 0.17€ autoconso + 0.10€ revente
+    
+    const classicAutoconsumedMax = classicProductionMax * autoconsumptionRate;
+    const classicSurplusMax = Math.max(0, classicProductionMax - annualConsumption);
+    const classicSavingsMax = Math.round(classicAutoconsumedMax * 0.17 + classicSurplusMax * 0.10);
 
     // PANNEAUX 700-850W NOUVELLE GÉNÉRATION (même puissance + 25-30% rendement supplémentaire)
     const newGenPower = classicPower; // Même puissance installée
@@ -349,8 +356,15 @@ const SolarSimulator = () => {
     const newGenSurface = classicSurface; // Même surface utilisée
     const newGenProductionMin = Math.round(classicProductionMin * 1.25); // +25% de rendement
     const newGenProductionMax = Math.round(classicProductionMax * 1.30); // +30% de rendement
-    const newGenSavingsMin = Math.round(newGenProductionMin * 0.72 * 0.17);
-    const newGenSavingsMax = Math.round(newGenProductionMax * 0.72 * 0.17);
+    
+    // Calcul économies nouvelle génération
+    const newGenAutoconsumed = Math.min(newGenProductionMin, annualConsumption);
+    const newGenSurplus = Math.max(0, newGenProductionMin - annualConsumption);
+    const newGenSavingsMin = Math.round(newGenAutoconsumed * 0.17 + newGenSurplus * 0.10);
+    
+    const newGenAutoconsumedMax = Math.min(newGenProductionMax, annualConsumption);
+    const newGenSurplusMax = Math.max(0, newGenProductionMax - annualConsumption);
+    const newGenSavingsMax = Math.round(newGenAutoconsumedMax * 0.17 + newGenSurplusMax * 0.10);
 
     // Avantages
     const productionGainMin = newGenProductionMin - classicProductionMax;
