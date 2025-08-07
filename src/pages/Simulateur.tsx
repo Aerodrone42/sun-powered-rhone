@@ -1026,6 +1026,7 @@ const SolarSimulator = () => {
           )}
         </div>
       </div>
+      </div>
       <Footer />
     </div>
   );
