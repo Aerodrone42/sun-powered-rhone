@@ -298,34 +298,34 @@ const SolarSimulator = () => {
       // Données basées sur le tableau officiel de moyennes nationales françaises
       if (houseSurfaceNum <= 50) {
         maxPanels = 3; // 2 à 3 panneaux pour 50m²
-        availableSurface = 7.2; // 3 panneaux × 2.4m²
+        availableSurface = 9.28; // 3 panneaux × 3.094m²
       } else if (houseSurfaceNum <= 75) {
         maxPanels = 4; // 3 à 4 panneaux pour 75m²
-        availableSurface = 9.6; // 4 panneaux × 2.4m²
+        availableSurface = 12.38; // 4 panneaux × 3.094m²
       } else if (houseSurfaceNum <= 100) {
         maxPanels = 5; // 4 à 5 panneaux pour 100m²
-        availableSurface = 12; // 5 panneaux × 2.4m²
+        availableSurface = 15.47; // 5 panneaux × 3.094m²
       } else if (houseSurfaceNum <= 120) {
         maxPanels = 6; // 5 à 6 panneaux pour 120m²
-        availableSurface = 14.4; // 6 panneaux × 2.4m²
+        availableSurface = 18.56; // 6 panneaux × 3.094m²
       } else if (houseSurfaceNum <= 150) {
         maxPanels = 7; // 6 à 7 panneaux pour 150m²
-        availableSurface = 16.8; // 7 panneaux × 2.4m²
+        availableSurface = 21.66; // 7 panneaux × 3.094m²
       } else if (houseSurfaceNum <= 180) {
         maxPanels = 9; // 8 à 9 panneaux pour 180m²
-        availableSurface = 21.6; // 9 panneaux × 2.4m²
+        availableSurface = 27.85; // 9 panneaux × 3.094m²
       } else if (houseSurfaceNum <= 200) {
         maxPanels = 10; // 9 à 10 panneaux pour 200m²
-        availableSurface = 24; // 10 panneaux × 2.4m²
+        availableSurface = 30.94; // 10 panneaux × 3.094m²
       } else {
         maxPanels = 12; // 11 à 12 panneaux pour 250m² et plus
-        availableSurface = 28.8; // 12 panneaux × 2.4m² max
+        availableSurface = 37.13; // 12 panneaux × 3.094m² max
       }
     }
     
     const classicPower = Math.min(maxPanels * 0.775, 15.5); // 775W moyenne, max 15.5kWc
     const classicPanels = Math.ceil(classicPower * 1000 / 775);
-    const classicSurface = classicPanels * 2.4; // Panneaux 700-850W font ≈2.4m²
+    const classicSurface = classicPanels * 3.094; // Panneaux 2380mm×1300mm = 3.094m²
     const classicProductionMin = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * 0.98);
     const classicProductionMax = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * 1.02);
     const classicSavingsMin = Math.round(classicProductionMin * 0.70 * 0.17);
