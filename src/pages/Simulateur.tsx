@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Sun, Zap, Home, Calculator, MapPin, Battery, Leaf, TrendingUp } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import FreeMap from '../components/FreeMap';
 
 const SolarSimulator = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -441,37 +442,14 @@ const SolarSimulator = () => {
                 </span>
               </div>
 
-              {/* Carte interactive simplifiée */}
-              <div className="relative">
-                <div 
-                  ref={mapRef}
-                  className="h-96 rounded-2xl overflow-hidden shadow-lg border-2 border-gray-200 bg-gradient-to-br from-green-100 via-blue-100 to-green-200"
-                  style={{ minHeight: '400px' }}
-                />
-
-                {!map && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-green-100 via-blue-100 to-green-200 rounded-2xl">
-                    <div className="text-center">
-                      <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-orange-500 mx-auto mb-4"></div>
-                      <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                      <p className="text-gray-700 font-semibold text-lg">Carte Interactive France</p>
-                      <p className="text-sm text-gray-500 mt-2">Utilisez la recherche d'adresse ci-dessus</p>
-                    </div>
-                  </div>
-                )}
-                
-                {selectedLocation && (
-                  <div className="absolute top-4 right-4 bg-white rounded-lg p-3 shadow-lg border-2 border-orange-500">
-                    <div className="flex items-center gap-2 text-sm">
-                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                      <span className="font-semibold">Position sélectionnée</span>
-                    </div>
-                    <div className="text-xs text-gray-600 mt-1">
-                      {selectedLocation.lat.toFixed(4)}, {selectedLocation.lng.toFixed(4)}
-                    </div>
-                  </div>
-                )}
-              </div>
+              {/* Carte interactive */}
+              <FreeMap 
+                onLocationSelect={(lat, lng) => {
+                  setSelectedLocation({ lat, lng });
+                  fetchLocationData(lat, lng);
+                }}
+                selectedLocation={selectedLocation}
+              />
 
               {/* Données de localisation */}
               {locationData && (
