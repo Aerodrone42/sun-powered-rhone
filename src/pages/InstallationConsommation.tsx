@@ -134,9 +134,9 @@ const InstallationConsommation = () => {
                   Autoconsommation intelligente
                 </div>
                 
-                <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
                   Installation &
-                  <span className="text-primary block">Autoconsommation</span>
+                  <span className="text-primary block break-words">Autoconsommation</span>
                 </h1>
                 
                 <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
