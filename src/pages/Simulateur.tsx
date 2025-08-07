@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Sun, Zap, Home, Calculator, MapPin, Battery, Leaf, TrendingUp, ArrowRight, ArrowLeft, RotateCcw } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Sun, Zap, Home, Calculator, MapPin, Battery, Leaf, TrendingUp } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import OpenStreetMap from '../components/OpenStreetMap';
@@ -255,6 +253,7 @@ const SolarSimulator = () => {
     }
   };
 
+  // Calcul des résultats solaires
   const calculateSolarResults = async () => {
     setLoading(true);
     
@@ -422,553 +421,592 @@ const SolarSimulator = () => {
   const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
+    <div className="min-h-screen flex flex-col">
       <Header />
-      
-      {/* Hero Section */}
-      <div className="relative py-20 bg-gradient-to-br from-primary/5 via-blue-50/50 to-white overflow-hidden">
-        <div className="absolute top-10 left-10 w-20 h-20 bg-gradient-primary opacity-20 rounded-full blur-xl animate-float"></div>
-        <div className="absolute bottom-10 right-10 w-32 h-32 bg-gradient-accent opacity-20 rounded-full blur-2xl animate-float" style={{animationDelay: '1s'}}></div>
-        
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-hero-gradient bg-clip-text text-transparent">
-              Simulateur Solaire
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-light">
-              Découvrez le potentiel solaire de votre toiture avec notre technologie nouvelle génération
-            </p>
-            <div className="inline-flex items-center bg-white/80 backdrop-blur-md border border-white/30 text-primary px-6 py-3 rounded-2xl text-lg font-semibold shadow-soft">
-              <Zap className="w-5 h-5 mr-2" />
-              Panneaux 700-850W | Rendement +30%
-            </div>
+      <div className="flex-1 bg-gradient-to-br from-blue-600 via-purple-600 to-orange-500 p-4">
+      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
+        {/* Header */}
+        <div className="bg-gradient-to-r from-orange-400 to-red-500 text-white p-8 text-center">
+          <h1 className="text-4xl font-bold mb-3 flex items-center justify-center gap-3">
+            <Sun className="w-10 h-10" />
+            Simulateur Panneaux Solaires
+          </h1>
+          <p className="text-xl opacity-90">
+            Découvrez la puissance des panneaux nouvelle génération !
+          </p>
+          <div className="inline-flex items-center bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold mt-3">
+            <Zap className="w-4 h-4 mr-2" />
+            700-850W | Rendement +30%
           </div>
         </div>
-      </div>
 
-      {/* Main Simulator */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="max-w-6xl mx-auto bg-white/80 backdrop-blur-xl border border-white/20 rounded-3xl shadow-premium overflow-hidden">
-          
-          {/* Progress Bar */}
-          <div className="p-8 pb-0">
-            <div className="h-3 bg-gradient-to-r from-gray-100 to-gray-200 rounded-2xl mb-8 overflow-hidden shadow-inner">
-              <div 
-                className="h-full bg-hero-gradient rounded-2xl transition-all duration-700 ease-out shadow-glow"
-                style={{ width: `${progressPercentage}%` }}
-              />
-            </div>
+        {/* Progress Bar */}
+        <div className="p-8">
+          <div className="h-2 bg-gray-200 rounded-full mb-8 overflow-hidden">
+            <div 
+              className="h-full bg-gradient-to-r from-orange-400 to-red-500 rounded-full transition-all duration-500"
+              style={{ width: `${progressPercentage}%` }}
+            />
           </div>
 
           {/* Étape 1: Localisation */}
           {currentStep === 1 && (
-            <div className="p-8 space-y-8">
-              <div className="text-center mb-12">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-2xl mb-4 shadow-medium">
-                  <MapPin className="w-8 h-8 text-white" />
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-                  Où se situe votre logement ?
-                </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Nous utilisons l'API PVGIS (Commission Européenne) pour des données d'irradiation précises
-                </p>
-              </div>
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold text-gray-800 flex items-center gap-3">
+                <MapPin className="w-8 h-8 text-orange-500" />
+                Localisez votre logement
+              </h2>
               
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* Form */}
-                <div className="space-y-6">
-                  <Card className="bg-white/50 backdrop-blur-md border-white/30">
-                    <CardHeader>
-                      <CardTitle className="text-xl">Recherche par adresse</CardTitle>
-                      <CardDescription>Saisissez votre adresse exacte</CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="flex gap-3">
-                        <input 
-                          type="text" 
-                          value={formData.address || ''}
-                          onChange={(e) => setFormData({...formData, address: e.target.value})}
-                          placeholder="Ex: 123 rue de la République 69000 Lyon" 
-                          className="flex-1 p-4 bg-white/70 border border-gray-200 rounded-xl focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-                        />
-                        <Button 
-                          onClick={searchAddress}
-                          disabled={loading}
-                          className="px-6"
-                        >
-                          {loading ? (
-                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                          ) : (
-                            'Chercher'
-                          )}
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="bg-white/50 backdrop-blur-md border-white/30">
-                    <CardHeader>
-                      <CardTitle className="text-xl">Ou sélectionnez une ville</CardTitle>
-                      <CardDescription>Choisissez parmi les principales villes</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="grid grid-cols-2 gap-3">
-                        {[
-                          { key: 'paris', name: 'Paris' },
-                          { key: 'marseille', name: 'Marseille' },
-                          { key: 'lyon', name: 'Lyon' },
-                          { key: 'toulouse', name: 'Toulouse' },
-                          { key: 'nice', name: 'Nice' },
-                          { key: 'nantes', name: 'Nantes' },
-                          { key: 'montpellier', name: 'Montpellier' },
-                          { key: 'strasbourg', name: 'Strasbourg' },
-                          { key: 'bordeaux', name: 'Bordeaux' },
-                          { key: 'lille', name: 'Lille' }
-                        ].map((city) => (
-                          <Button
-                            key={city.key}
-                            variant="outline"
-                            onClick={() => handleCitySelect(city.key)}
-                            className="h-12 bg-white/70 hover:bg-white/90 border-gray-200 hover:border-primary transition-all"
-                          >
-                            {city.name}
-                          </Button>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
+              <div className="space-y-4">
+                <label className="block text-sm font-semibold text-gray-700">
+                  Tapez votre adresse exacte
+                </label>
+                <div className="flex gap-2">
+                  <input 
+                    type="text" 
+                    value={formData.address || ''}
+                    onChange={(e) => setFormData({...formData, address: e.target.value})}
+                    placeholder="Ex: 123 rue de la République 69000 Lyon" 
+                    className="flex-1 p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                  />
+                  <button 
+                    onClick={searchAddress}
+                    disabled={loading}
+                    className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-semibold disabled:opacity-50 transition-all flex items-center gap-2"
+                  >
+                    🔍 {loading ? 'Recherche...' : 'Rechercher'}
+                  </button>
                 </div>
+              </div>
 
-                {/* Map and Location Data */}
-                <div className="space-y-6">
-                  <Card className="bg-white/50 backdrop-blur-md border-white/30">
-                    <CardContent className="p-6">
-                      <div className="w-full h-80 bg-gradient-to-br from-blue-100 to-green-100 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300">
-                        <OpenStreetMap 
-                          selectedLocation={selectedLocation}
-                          onLocationSelect={(lat, lng) => {
-                            setSelectedLocation({ lat, lng });
-                            fetchLocationData(lat, lng);
-                          }}
-                        />
+              <p className="text-center text-gray-600 mb-4">
+                Saisissez votre adresse complète avec le code postal pour une localisation précise
+              </p>
+
+              <div className="text-center mb-4">
+                <span className="inline-flex items-center text-orange-600 font-semibold">
+                  👆 Cliquez sur la carte pour affiner votre position exacte 👆
+                </span>
+              </div>
+
+              {/* Carte interactive */}
+              <OpenStreetMap 
+                onLocationSelect={(lat, lng) => {
+                  setSelectedLocation({ lat, lng });
+                  fetchLocationData(lat, lng);
+                }}
+                selectedLocation={selectedLocation}
+              />
+
+              {/* Données de localisation */}
+              {locationData && (
+                <div className="bg-gray-50 rounded-2xl p-6">
+                  <h4 className="font-bold text-lg mb-2">📍 Localisation sélectionnée</h4>
+                  <p className="text-gray-700 mb-2">{locationData.address}</p>
+                  <div className="text-xs text-blue-600 mb-4 font-semibold">
+                    🔬 {locationData.dataSource}
+                  </div>
+                  
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="text-center bg-white rounded-xl p-4">
+                      <div className="text-2xl font-bold text-orange-500">
+                        {locationData.irradiation}
                       </div>
-                    </CardContent>
-                  </Card>
+                      <div className="text-sm text-gray-600">
+                        kWh/m²/an<br/>Irradiation
+                      </div>
+                    </div>
+                    <div className="text-center bg-white rounded-xl p-4">
+                      <div className="text-2xl font-bold text-orange-500">
+                        {locationData.sunshine}
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        heures/an<br/>Ensoleillement
+                      </div>
+                    </div>
+                    <div className="text-center bg-white rounded-xl p-4">
+                      <div className="text-2xl font-bold text-orange-500">
+                        {locationData.solarScore}
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        / 10<br/>Potentiel solaire
+                      </div>
+                    </div>
+                    <div className="text-center bg-white rounded-xl p-4">
+                      <div className="text-2xl font-bold text-blue-500">
+                        {locationData.optimalAngle}°
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        Angle<br/>optimal
+                      </div>
+                    </div>
+                  </div>
 
-                  {locationData && (
-                    <Card className="bg-gradient-to-br from-green-50 to-blue-50 border-green-200">
-                      <CardContent className="p-6">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                          <h3 className="font-semibold text-green-800">Localisation confirmée</h3>
-                        </div>
-                        <div className="space-y-2 text-sm">
-                          <div><strong>Adresse:</strong> {locationData.address}</div>
-                          <div><strong>Irradiation:</strong> {locationData.irradiation} kWh/m²/an</div>
-                          <div><strong>Score solaire:</strong> {locationData.solarScore}/10</div>
-                          <div><strong>Source:</strong> {locationData.dataSource}</div>
-                        </div>
-                      </CardContent>
-                    </Card>
+                  {locationData.dataSource.includes('PVGIS') && (
+                    <div className="mt-4 bg-green-50 border-2 border-green-200 rounded-xl p-3">
+                      <div className="flex items-center gap-2">
+                        <span className="text-green-600 font-bold">✅ DONNÉES OFFICIELLES</span>
+                        <span className="text-xs bg-green-500 text-white px-2 py-1 rounded">
+                          Commission Européenne
+                        </span>
+                      </div>
+                      <p className="text-sm text-green-700 mt-1">
+                        Production estimée: <strong>{locationData.production} kWh/kWc/an</strong> | 
+                        Température moy.: <strong>{locationData.temperature}°C</strong>
+                      </p>
+                    </div>
                   )}
                 </div>
+              )}
+
+              <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <Sun className="h-5 w-5 text-blue-400" />
+                  </div>
+                  <div className="ml-3">
+                    <p className="text-sm text-blue-700">
+                      Plus votre localisation est précise, plus nos calculs seront exacts !
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              <div className="flex justify-center pt-6">
-                <Button 
+              <div className="flex justify-end">
+                <button 
                   onClick={nextStep}
                   disabled={!locationData}
-                  size="lg"
-                  className="px-8"
+                  className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-3 rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg transition-all"
                 >
-                  Étape suivante
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
+                  Continuer
+                </button>
               </div>
             </div>
           )}
 
-          {/* Étape 2: Informations logement */}
+          {/* Étape 2: Caractéristiques du logement */}
           {currentStep === 2 && (
-            <div className="p-8 space-y-8">
-              <div className="text-center mb-12">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-2xl mb-4 shadow-medium">
-                  <Home className="w-8 h-8 text-white" />
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold text-gray-800 flex items-center gap-3">
+                <Home className="w-8 h-8 text-orange-500" />
+                Caractéristiques de votre logement
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <label className="block text-sm font-semibold text-gray-700">
+                    Type de logement
+                  </label>
+                  <select 
+                    value={formData.houseType}
+                    onChange={(e) => setFormData({...formData, houseType: e.target.value})}
+                    className="w-full p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                  >
+                    <option value="maison">Maison individuelle</option>
+                    <option value="appartement">Appartement</option>
+                  </select>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-                  Parlez-nous de votre logement
-                </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Ces informations nous permettent de calculer la solution optimale pour vous
-                </p>
+
+                <div className="space-y-4">
+                  <label className="block text-sm font-semibold text-gray-700">
+                    Surface habitable
+                  </label>
+                  <select 
+                    value={formData.houseSurface}
+                    onChange={(e) => setFormData({...formData, houseSurface: e.target.value})}
+                    className="w-full p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                  >
+                    <option value="80">Moins de 80 m²</option>
+                    <option value="100">80 - 100 m²</option>
+                    <option value="150">100 - 150 m²</option>
+                    <option value="200">150 - 200 m²</option>
+                    <option value="250">Plus de 200 m²</option>
+                  </select>
+                </div>
+
+                <div className="space-y-4">
+                  <label className="block text-sm font-semibold text-gray-700">
+                    Orientation principale du toit
+                  </label>
+                  <select 
+                    value={formData.roofOrientation}
+                    onChange={(e) => setFormData({...formData, roofOrientation: e.target.value})}
+                    className="w-full p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                  >
+                    <option value="sud">Sud (idéal)</option>
+                    <option value="sud-est">Sud-Est</option>
+                    <option value="sud-ouest">Sud-Ouest</option>
+                    <option value="est">Est</option>
+                    <option value="ouest">Ouest</option>
+                    <option value="nord">Nord</option>
+                  </select>
+                </div>
+
+                <div className="space-y-4">
+                  <label className="block text-sm font-semibold text-gray-700">
+                    Inclinaison du toit
+                  </label>
+                  <select 
+                    value={formData.roofInclination}
+                    onChange={(e) => setFormData({...formData, roofInclination: e.target.value})}
+                    className="w-full p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                  >
+                    <option value="30">30° (optimale)</option>
+                    <option value="25">25°</option>
+                    <option value="35">35°</option>
+                    <option value="40">40°</option>
+                    <option value="45">45°</option>
+                    <option value="plat">Toit plat</option>
+                  </select>
+                </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <Card className="bg-white/50 backdrop-blur-md border-white/30">
-                  <CardHeader>
-                    <CardTitle>Type de logement</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      {[
-                        { value: 'maison', label: 'Maison' },
-                        { value: 'appartement', label: 'Appartement' }
-                      ].map((type) => (
-                        <button
-                          key={type.value}
-                          onClick={() => setFormData({...formData, houseType: type.value})}
-                          className={`p-4 rounded-xl border-2 transition-all ${
-                            formData.houseType === type.value 
-                              ? 'border-primary bg-primary/5 text-primary' 
-                              : 'border-gray-200 bg-white/70 hover:border-primary/50'
-                          }`}
-                        >
-                          {type.label}
-                        </button>
-                      ))}
-                    </div>
-
-                    <div className="space-y-3">
-                      <label className="block text-sm font-medium text-gray-700">
-                        Surface habitable (m²)
-                      </label>
-                      <input 
-                        type="number" 
-                        value={formData.houseSurface}
-                        onChange={(e) => setFormData({...formData, houseSurface: e.target.value})}
-                        className="w-full p-4 bg-white/70 border border-gray-200 rounded-xl focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-                        placeholder="100"
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-white/50 backdrop-blur-md border-white/30">
-                  <CardHeader>
-                    <CardTitle>Informations toiture</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="space-y-3">
-                      <label className="block text-sm font-medium text-gray-700">
-                        Orientation principale
-                      </label>
-                      <select 
-                        value={formData.roofOrientation}
-                        onChange={(e) => setFormData({...formData, roofOrientation: e.target.value})}
-                        className="w-full p-4 bg-white/70 border border-gray-200 rounded-xl focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-                      >
-                        <option value="sud">Sud (optimal)</option>
-                        <option value="sud-est">Sud-Est</option>
-                        <option value="sud-ouest">Sud-Ouest</option>
-                        <option value="est">Est</option>
-                        <option value="ouest">Ouest</option>
-                        <option value="nord">Nord</option>
-                      </select>
-                    </div>
-
-                    <div className="space-y-3">
-                      <label className="block text-sm font-medium text-gray-700">
-                        Surface toiture disponible (m²)
-                      </label>
-                      <input 
-                        type="number" 
-                        value={formData.roofSurface}
-                        onChange={(e) => setFormData({...formData, roofSurface: parseFloat(e.target.value) || 0})}
-                        className="w-full p-4 bg-white/70 border border-gray-200 rounded-xl focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-                        placeholder="60"
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
+              <div className="space-y-4">
+                <label className="block text-sm font-semibold text-gray-700">
+                  Surface disponible sur le toit: {formData.roofSurface} m²
+                </label>
+                <input 
+                  type="range" 
+                  min="20" 
+                  max="200" 
+                  value={formData.roofSurface}
+                  onChange={(e) => setFormData({...formData, roofSurface: parseInt(e.target.value)})}
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                />
+                <div className="text-center font-semibold text-orange-500">
+                  {formData.roofSurface} m²
+                </div>
               </div>
 
-              <div className="flex justify-between pt-6 max-w-4xl mx-auto">
-                <Button 
+              <div className="flex justify-between">
+                <button 
                   onClick={prevStep}
-                  variant="outline"
-                  size="lg"
-                  className="px-8"
+                  className="bg-gray-500 text-white px-8 py-3 rounded-xl font-semibold hover:bg-gray-600 transition-all"
                 >
-                  <ArrowLeft className="w-5 h-5 mr-2" />
                   Retour
-                </Button>
-                <Button 
+                </button>
+                <button 
                   onClick={nextStep}
-                  size="lg"
-                  className="px-8"
+                  className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
                 >
-                  Étape suivante
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
+                  Continuer
+                </button>
               </div>
             </div>
           )}
 
           {/* Étape 3: Consommation */}
           {currentStep === 3 && (
-            <div className="p-8 space-y-8">
-              <div className="text-center mb-12">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-2xl mb-4 shadow-medium">
-                  <Zap className="w-8 h-8 text-white" />
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-                  Votre consommation énergétique
-                </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Aidez-nous à dimensionner parfaitement votre installation
-                </p>
-              </div>
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold text-gray-800 flex items-center gap-3">
+                <Zap className="w-8 h-8 text-orange-500" />
+                Votre consommation électrique
+              </h2>
 
-              <div className="max-w-2xl mx-auto space-y-6">
-                <Card className="bg-white/50 backdrop-blur-md border-white/30">
-                  <CardHeader>
-                    <CardTitle>Facture électricité</CardTitle>
-                    <CardDescription>Montant mensuel moyen TTC</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-center space-x-4">
-                      <input 
-                        type="number" 
-                        value={formData.monthlyBill}
-                        onChange={(e) => setFormData({...formData, monthlyBill: parseFloat(e.target.value) || 0})}
-                        className="flex-1 p-4 bg-white/70 border border-gray-200 rounded-xl focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-center text-2xl font-bold"
-                        placeholder="120"
-                      />
-                      <span className="text-xl font-semibold text-gray-600">€/mois</span>
-                    </div>
-                  </CardContent>
-                </Card>
+              <div className="space-y-6">
+                <div className="space-y-4">
+                  <label className="block text-sm font-semibold text-gray-700">
+                    Montant de votre facture électrique mensuelle: {formData.monthlyBill} €/mois
+                  </label>
+                  <input 
+                    type="range" 
+                    min="50" 
+                    max="400" 
+                    value={formData.monthlyBill}
+                    onChange={(e) => setFormData({...formData, monthlyBill: parseInt(e.target.value)})}
+                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  />
+                  <div className="text-center font-semibold text-orange-500">
+                    {formData.monthlyBill} €/mois
+                  </div>
+                </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
-                  <Card className="bg-white/50 backdrop-blur-md border-white/30">
-                    <CardHeader>
-                      <CardTitle>Nombre d'habitants</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <select 
-                        value={formData.residents}
-                        onChange={(e) => setFormData({...formData, residents: e.target.value})}
-                        className="w-full p-4 bg-white/70 border border-gray-200 rounded-xl focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-                      >
-                        <option value="1">1 personne</option>
-                        <option value="2">2 personnes</option>
-                        <option value="3">3 personnes</option>
-                        <option value="4">4 personnes</option>
-                        <option value="5">5+ personnes</option>
-                      </select>
-                    </CardContent>
-                  </Card>
+                  <div className="space-y-4">
+                    <label className="block text-sm font-semibold text-gray-700">
+                      Nombre de personnes dans le foyer
+                    </label>
+                    <select 
+                      value={formData.residents}
+                      onChange={(e) => setFormData({...formData, residents: e.target.value})}
+                      className="w-full p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                    >
+                      <option value="1">1 personne</option>
+                      <option value="2">2 personnes</option>
+                      <option value="3">3 personnes</option>
+                      <option value="4">4 personnes</option>
+                      <option value="5">5 personnes ou plus</option>
+                    </select>
+                  </div>
 
-                  <Card className="bg-white/50 backdrop-blur-md border-white/30">
-                    <CardHeader>
-                      <CardTitle>Type de chauffage</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <select 
-                        value={formData.heating}
-                        onChange={(e) => setFormData({...formData, heating: e.target.value})}
-                        className="w-full p-4 bg-white/70 border border-gray-200 rounded-xl focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-                      >
-                        <option value="electrique">Électrique</option>
-                        <option value="gaz">Gaz</option>
-                        <option value="fioul">Fioul</option>
-                        <option value="bois">Bois</option>
-                        <option value="pompe-chaleur">Pompe à chaleur</option>
-                      </select>
-                    </CardContent>
-                  </Card>
+                  <div className="space-y-4">
+                    <label className="block text-sm font-semibold text-gray-700">
+                      Mode de chauffage
+                    </label>
+                    <select 
+                      value={formData.heating}
+                      onChange={(e) => setFormData({...formData, heating: e.target.value})}
+                      className="w-full p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                    >
+                      <option value="electrique">Électrique</option>
+                      <option value="gaz">Gaz</option>
+                      <option value="fioul">Fioul</option>
+                      <option value="pompe-chaleur">Pompe à chaleur</option>
+                      <option value="bois">Bois</option>
+                    </select>
+                  </div>
                 </div>
 
-                <Card className="bg-gradient-to-br from-blue-50 to-green-50 border-blue-200">
-                  <CardContent className="p-6 text-center">
-                    <h3 className="font-semibold text-blue-800 mb-2">Estimation de votre consommation annuelle</h3>
-                    <div className="text-3xl font-bold text-blue-600">
-                      {Math.round(formData.monthlyBill * 12 / 0.17).toLocaleString()} kWh/an
-                    </div>
-                    <p className="text-sm text-blue-600 mt-2">Basé sur un tarif moyen de 0,17€/kWh</p>
-                  </CardContent>
-                </Card>
-              </div>
+                {/* Comparatif technologies */}
+                <h3 className="text-2xl font-bold text-gray-800 mt-8">
+                  🔬 Panneaux 700-850W : Standard vs Nouvelle Génération
+                </h3>
 
-              <div className="flex justify-between pt-6 max-w-2xl mx-auto">
-                <Button 
-                  onClick={prevStep}
-                  variant="outline"
-                  size="lg"
-                  className="px-8"
-                >
-                  <ArrowLeft className="w-5 h-5 mr-2" />
-                  Retour
-                </Button>
-                <Button 
-                  onClick={calculateSolarResults}
-                  disabled={loading}
-                  size="lg"
-                  className="px-8"
-                >
-                  {loading ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
-                      Calcul en cours...
-                    </>
-                  ) : (
-                    <>
-                      Calculer mes résultats
-                      <Calculator className="w-5 h-5 ml-2" />
-                    </>
-                  )}
-                </Button>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-gradient-to-br from-orange-50 to-red-50 border-2 border-orange-200 rounded-2xl p-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-4">🔶 Panneaux 700-850W Standards</h3>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span>Puissance</span>
+                        <span className="font-bold">700-850W</span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span>Technologie</span>
+                        <span className="font-bold">Standard actuelle</span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span>Surface par panneau</span>
+                        <span className="font-bold">≈ 2.4 m²</span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span>Rendement</span>
+                        <span className="font-bold">Standard</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-400 rounded-2xl p-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-4">⚡ Panneaux 700-850W Nouvelle Génération</h3>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span>Puissance</span>
+                        <span className="font-bold">
+                          700-850W 
+                          <span className="ml-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs">Même</span>
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span>Technologie</span>
+                        <span className="font-bold">
+                          Nouvelle génération 
+                          <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">2024</span>
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span>Surface par panneau</span>
+                        <span className="font-bold">
+                          ≈ 2.4 m² 
+                          <span className="ml-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs">Même</span>
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                        <span>Rendement</span>
+                        <span className="font-bold">
+                          +25% à +30% 
+                          <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">NOUVEAU</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <TrendingUp className="h-5 w-5 text-blue-400" />
+                    </div>
+                    <div className="ml-3">
+                      <p className="text-sm text-blue-700">
+                        Les panneaux nouvelle génération offrent 25-30% de rendement supplémentaire à puissance égale !
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex justify-between">
+                  <button 
+                    onClick={prevStep}
+                    className="bg-gray-500 text-white px-8 py-3 rounded-xl font-semibold hover:bg-gray-600 transition-all"
+                  >
+                    Retour
+                  </button>
+                  <button 
+                    onClick={calculateSolarResults}
+                    disabled={loading}
+                    className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50"
+                  >
+                    {loading ? 'Calcul en cours...' : 'Calculer mon potentiel'}
+                  </button>
+                </div>
               </div>
             </div>
           )}
 
           {/* Étape 4: Résultats */}
           {currentStep === 4 && results && (
-            <div className="p-8 space-y-8">
-              <div className="text-center mb-12">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-2xl mb-4 shadow-medium">
-                  <Sun className="w-8 h-8 text-white" />
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-                  Vos résultats personnalisés
-                </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Découvrez les bénéfices de notre technologie nouvelle génération
-                </p>
-              </div>
+            <div className="space-y-8">
+              <h2 className="text-3xl font-bold text-gray-800 flex items-center gap-3">
+                <Calculator className="w-8 h-8 text-orange-500" />
+                Votre simulation personnalisée
+              </h2>
 
-              <div className="grid lg:grid-cols-2 gap-8">
-                {/* Solution Standard */}
-                <Card className="bg-gradient-to-br from-gray-50 to-white border-gray-200">
-                  <CardHeader className="text-center">
-                    <CardTitle className="text-2xl text-gray-700">Panneaux Standards</CardTitle>
-                    <CardDescription>Technologie actuelle du marché</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="text-center p-4 bg-white rounded-xl">
-                        <div className="text-2xl font-bold text-gray-700">{results.classic.panels}</div>
-                        <div className="text-sm text-gray-600">panneaux</div>
-                      </div>
-                      <div className="text-center p-4 bg-white rounded-xl">
-                        <div className="text-2xl font-bold text-gray-700">{results.classic.power} kWc</div>
-                        <div className="text-sm text-gray-600">puissance</div>
-                      </div>
+              {/* Comparatif des résultats */}
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-gradient-to-br from-orange-50 to-red-50 border-2 border-orange-200 rounded-2xl p-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-6">🔶 Panneaux 700-850W Standards</h3>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                      <span>Puissance installée</span>
+                      <span className="font-bold">{results.classic.power} kWc</span>
                     </div>
-                    
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center p-4 bg-white rounded-xl">
-                        <span className="text-gray-600">Production annuelle</span>
-                        <span className="font-bold text-gray-700">
-                          {results.classic.productionMin.toLocaleString()} - {results.classic.productionMax.toLocaleString()} kWh
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center p-4 bg-white rounded-xl">
-                        <span className="text-gray-600">Économies annuelles</span>
-                        <span className="font-bold text-green-600">
-                          {results.classic.savingsMin}€ - {results.classic.savingsMax}€
-                        </span>
-                      </div>
+                    <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                      <span>Nombre de panneaux</span>
+                      <span className="font-bold">{results.classic.panels}</span>
                     </div>
-                  </CardContent>
-                </Card>
-
-                {/* Solution Nouvelle Génération */}
-                <Card className="bg-gradient-to-br from-primary/5 to-blue-50 border-primary/20 ring-2 ring-primary/10">
-                  <CardHeader className="text-center">
-                    <div className="inline-flex items-center bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold mb-2">
-                      <Zap className="w-4 h-4 mr-2" />
-                      RECOMMANDÉ
+                    <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                      <span>Production annuelle</span>
+                      <span className="font-bold">{results.classic.productionMin.toLocaleString()} - {results.classic.productionMax.toLocaleString()} kWh</span>
                     </div>
-                    <CardTitle className="text-2xl text-primary">Panneaux Nouvelle Génération</CardTitle>
-                    <CardDescription>Technologie haute performance</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="text-center p-4 bg-white rounded-xl">
-                        <div className="text-2xl font-bold text-primary">{results.newGen.panels}</div>
-                        <div className="text-sm text-primary/70">panneaux</div>
-                      </div>
-                      <div className="text-center p-4 bg-white rounded-xl">
-                        <div className="text-2xl font-bold text-primary">{results.newGen.power} kWc</div>
-                        <div className="text-sm text-primary/70">puissance</div>
-                      </div>
+                    <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                      <span>Surface utilisée</span>
+                      <span className="font-bold">{results.classic.surface} m²</span>
                     </div>
-                    
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center p-4 bg-white rounded-xl">
-                        <span className="text-gray-600">Production annuelle</span>
-                        <span className="font-bold text-primary">
-                          {results.newGen.productionMin.toLocaleString()} - {results.newGen.productionMax.toLocaleString()} kWh
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center p-4 bg-white rounded-xl">
-                        <span className="text-gray-600">Économies annuelles</span>
-                        <span className="font-bold text-green-600">
-                          {results.newGen.savingsMin}€ - {results.newGen.savingsMax}€
-                        </span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Avantages */}
-              <Card className="bg-gradient-to-r from-green-50 to-blue-50 border-green-200">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl text-green-800">Avantages de la nouvelle génération</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid md:grid-cols-3 gap-6">
-                    <div className="text-center p-6 bg-white/70 rounded-xl">
-                      <TrendingUp className="w-8 h-8 text-green-600 mx-auto mb-4" />
-                      <div className="text-2xl font-bold text-green-600 mb-2">
-                        +{results.advantages.productionGainMin.toLocaleString()} kWh/an
-                      </div>
-                      <div className="text-sm text-green-700">Production supplémentaire</div>
-                    </div>
-                    <div className="text-center p-6 bg-white/70 rounded-xl">
-                      <Leaf className="w-8 h-8 text-green-600 mx-auto mb-4" />
-                      <div className="text-2xl font-bold text-green-600 mb-2">
-                        {results.advantages.co2Saved} kg
-                      </div>
-                      <div className="text-sm text-green-700">CO₂ évité par an</div>
-                    </div>
-                    <div className="text-center p-6 bg-white/70 rounded-xl">
-                      <Battery className="w-8 h-8 text-green-600 mx-auto mb-4" />
-                      <div className="text-2xl font-bold text-green-600 mb-2">
-                        {results.advantages.autonomy}%
-                      </div>
-                      <div className="text-sm text-green-700">Autonomie énergétique</div>
+                    <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                      <span>Économies annuelles</span>
+                      <span className="font-bold">{results.classic.savingsMin} - {results.classic.savingsMax} €</span>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
 
-              <div className="flex justify-center gap-4 pt-6">
-                <Button 
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-400 rounded-2xl p-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-6">⚡ Panneaux 700-850W Nouvelle Génération</h3>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                      <span>Puissance installée</span>
+                      <span className="font-bold">{results.newGen.power} kWc</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                      <span>Nombre de panneaux</span>
+                      <span className="font-bold">{results.newGen.panels}</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                      <span>Production annuelle</span>
+                      <span className="font-bold">{results.newGen.productionMin.toLocaleString()} - {results.newGen.productionMax.toLocaleString()} kWh</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                      <span>Surface utilisée</span>
+                      <span className="font-bold">{results.newGen.surface} m²</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                      <span>Économies annuelles</span>
+                      <span className="font-bold">{results.newGen.savingsMin} - {results.newGen.savingsMax} €</span>
+                    </div>
+                    <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                      <span>Rendement supérieur</span>
+                      <span className="font-bold text-green-600">
+                        +{results.advantages.efficiency}
+                        <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">NOUVEAU</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Avantages de la nouvelle génération */}
+              <h3 className="text-2xl font-bold text-gray-800">💎 Avantages de la nouvelle génération</h3>
+              
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all border-2 border-transparent hover:border-orange-500">
+                  <Zap className="w-12 h-12 text-blue-500 mx-auto mb-4" />
+                  <div className="text-3xl font-bold text-gray-800 mb-2">
+                    +{results.advantages.productionGainMin.toLocaleString()} à +{results.advantages.productionGainMax.toLocaleString()}
+                  </div>
+                  <div className="text-gray-600 font-medium">kWh/an supplémentaires</div>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all border-2 border-transparent hover:border-orange-500">
+                  <div className="text-4xl mb-4">💰</div>
+                  <div className="text-3xl font-bold text-gray-800 mb-2">
+                    +{results.advantages.savingsGainMin} à +{results.advantages.savingsGainMax} €
+                  </div>
+                  <div className="text-gray-600 font-medium">d'économies annuelles</div>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all border-2 border-transparent hover:border-orange-500">
+                  <TrendingUp className="w-12 h-12 text-purple-500 mx-auto mb-4" />
+                  <div className="text-3xl font-bold text-gray-800 mb-2">
+                    {results.advantages.efficiency}
+                  </div>
+                  <div className="text-gray-600 font-medium">de rendement supérieur</div>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all border-2 border-transparent hover:border-orange-500">
+                  <TrendingUp className="w-12 h-12 text-purple-500 mx-auto mb-4" />
+                  <div className="text-3xl font-bold text-gray-800 mb-2">
+                    {results.advantages.efficiency}
+                  </div>
+                  <div className="text-gray-600 font-medium">de rendement supérieur</div>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all border-2 border-transparent hover:border-orange-500">
+                  <Battery className="w-12 h-12 text-red-500 mx-auto mb-4" />
+                  <div className="text-3xl font-bold text-gray-800 mb-2">
+                    {results.advantages.autonomy}%
+                  </div>
+                  <div className="text-gray-600 font-medium">d'autonomie énergétique</div>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all border-2 border-transparent hover:border-orange-500">
+                  <Leaf className="w-12 h-12 text-green-500 mx-auto mb-4" />
+                  <div className="text-3xl font-bold text-gray-800 mb-2">
+                    {results.advantages.co2Saved} kg
+                  </div>
+                  <div className="text-gray-600 font-medium">CO₂ évité/an</div>
+                </div>
+              </div>
+
+              <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <div className="text-2xl">📞</div>
+                  </div>
+                  <div className="ml-3">
+                    <p className="text-sm text-blue-700">
+                      Contactez nos experts pour obtenir un devis détaillé avec les panneaux nouvelle génération !
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex gap-4 justify-center">
+                <button 
                   onClick={resetSimulator}
-                  variant="outline"
-                  size="lg"
-                  className="px-8"
+                  className="bg-gray-500 text-white px-8 py-3 rounded-xl font-semibold hover:bg-gray-600 transition-all"
                 >
-                  <RotateCcw className="w-5 h-5 mr-2" />
                   Nouvelle simulation
-                </Button>
-                <Button 
-                  size="lg"
-                  className="px-8"
+                </button>
+                <button 
+                  onClick={() => alert('Merci pour votre intérêt ! Un expert vous contactera sous 24h pour établir votre devis personnalisé avec nos panneaux nouvelle génération.')}
+                  className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
                 >
                   Demander un devis gratuit
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
+                </button>
               </div>
             </div>
           )}
         </div>
       </div>
-
+      </div>
       <Footer />
     </div>
   );
