@@ -325,31 +325,31 @@ const SolarSimulator = () => {
       // Appartement: limité par les balcons/terrasses ou copropriété
       const houseSurfaceNum = parseInt(formData.houseSurface) || 60;
       if (houseSurfaceNum <= 60) {
-        maxPanels = 3; // 2-3 panneaux max sur balcon/terrasse
-        availableSurface = 7.2; // ~7m² max
+        maxPanels = 2; // 2 panneaux max sur balcon/terrasse (6.2 m²)
+        availableSurface = 6.2;
       } else if (houseSurfaceNum <= 100) {
-        maxPanels = 5; // Grande terrasse
-        availableSurface = 12;
+        maxPanels = 3; // Grande terrasse (9.3 m²)
+        availableSurface = 9.3;
       } else {
-        maxPanels = 7; // Très grand appartement avec terrasse
-        availableSurface = 16.8;
+        maxPanels = 4; // Très grand appartement avec terrasse (12.4 m²)
+        availableSurface = 12.4;
       }
     } else {
       // Maison: calcul basé sur la surface de toit disponible
-      // Un panneau moderne fait ~2.4 m² (2000mm × 1200mm)
-      const panelSurface = 2.4;
+      // Panneau 700-850W fait 2380 x 1300 mm = 3.094 m²
+      const panelSurface = 3.094;
       // On utilise 65-70% de la surface de toit pour l'espacement, bords, obstacles
       const usableSurface = roofSurface * 0.68;
       const theoreticalPanels = Math.floor(usableSurface / panelSurface);
       
       // Limitation selon le type de bâtiment
       if (formData.houseType === 'exploitation' || formData.houseType === 'hangar' || formData.houseType === 'batiment_pro') {
-        // Exploitation/bâtiment pro: jusqu'à 150 panneaux selon surface disponible
-        maxPanels = Math.min(theoreticalPanels, 150);
+        // Exploitation/bâtiment pro: jusqu'à 100 panneaux selon surface disponible
+        maxPanels = Math.min(theoreticalPanels, 100);
         availableSurface = Math.round(maxPanels * panelSurface * 100) / 100;
       } else {
-        // Maison individuelle: limitation réaliste à 50 panneaux max (36kWc)
-        maxPanels = Math.min(theoreticalPanels, 50);
+        // Maison individuelle: limitation réaliste à 32 panneaux max (≈25kWc)
+        maxPanels = Math.min(theoreticalPanels, 32);
         availableSurface = Math.round(maxPanels * panelSurface * 100) / 100; // Arrondi à 2 décimales
       }
     }
