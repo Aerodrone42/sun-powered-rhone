@@ -2,110 +2,118 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Apple-inspired design system with premium colors and effects */
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 215 25% 15%;
+    /* Apple-style neutral base */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 0 0% 3.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 0 0% 3.9%;
 
-    --primary: 215 84% 53%;
+    /* Premium Apple blue palette */
+    --primary: 221 83% 53%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 215 84% 48%;
+    --primary-hover: 221 83% 48%;
+    --primary-glow: 221 100% 70%;
 
-    --secondary: 142 70% 45%;
-    --secondary-foreground: 0 0% 100%;
-    --secondary-hover: 142 70% 40%;
+    /* Apple gray system */
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --secondary-hover: 0 0% 93%;
 
-    --accent: 45 93% 47%;
-    --accent-foreground: 215 25% 15%;
-    --accent-hover: 45 93% 42%;
+    /* Apple accent system */
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --accent-hover: 0 0% 93%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 215 84% 53%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 221 83% 53%;
 
-    --hero-gradient: linear-gradient(135deg, hsl(215 84% 53%) 0%, hsl(142 70% 45%) 50%, hsl(45 93% 47%) 100%);
-    --card-gradient: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 20% 98%) 100%);
-    --solar-glow: 0 0 40px hsl(45 93% 47% / 0.3);
-    --shadow-soft: 0 4px 15px hsl(215 25% 15% / 0.08);
-    --shadow-medium: 0 8px 25px hsl(215 25% 15% / 0.12);
-    --shadow-strong: 0 15px 35px hsl(215 25% 15% / 0.16);
+    /* Apple-style gradients */
+    --hero-gradient: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(258 100% 50%) 100%);
+    --card-gradient: linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 100%);
+    --glass-gradient: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    
+    /* Premium shadows (Apple-style) */
+    --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --shadow-medium: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+    --shadow-strong: 0 10px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.10);
+    --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.3);
 
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Apple-style animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-premium: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 215 25% 12%;
-    --foreground: 210 20% 98%;
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
 
-    --card: 215 25% 15%;
-    --card-foreground: 210 20% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 215 25% 15%;
-    --popover-foreground: 210 20% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 215 84% 58%;
-    --primary-foreground: 215 25% 12%;
-    --primary-hover: 215 84% 63%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 221 83% 58%;
 
-    --secondary: 142 70% 50%;
-    --secondary-foreground: 215 25% 12%;
-    --secondary-hover: 142 70% 55%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-hover: 0 0% 18%;
 
-    --accent: 45 93% 52%;
-    --accent-foreground: 215 25% 12%;
-    --accent-hover: 45 93% 57%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --accent-hover: 0 0% 18%;
 
-    --muted: 215 25% 18%;
-    --muted-foreground: 215 16% 65%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 215 25% 20%;
-    --input: 215 25% 20%;
-    --ring: 215 84% 58%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 221 83% 53%;
 
-    --hero-gradient: linear-gradient(135deg, hsl(215 84% 58%) 0%, hsl(142 70% 50%) 50%, hsl(45 93% 52%) 100%);
-    --card-gradient: linear-gradient(145deg, hsl(215 25% 15%) 0%, hsl(215 25% 18%) 100%);
-    --solar-glow: 0 0 40px hsl(45 93% 52% / 0.4);
-    --shadow-soft: 0 4px 15px hsl(0 0% 0% / 0.2);
-    --shadow-medium: 0 8px 25px hsl(0 0% 0% / 0.3);
-    --shadow-strong: 0 15px 35px hsl(0 0% 0% / 0.4);
+    --hero-gradient: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(258 100% 50%) 100%);
+    --card-gradient: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    --glass-gradient: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.3);
+    --shadow-strong: 0 15px 35px rgba(0, 0, 0, 0.4);
+    --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -123,6 +131,9 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }

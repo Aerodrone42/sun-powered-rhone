@@ -286,7 +286,7 @@ const Professionnels = () => {
                 </div>
               </div>
               
-              <Button asChild variant="accent" size="lg">
+              <Button asChild variant="secondary" size="lg">
                 <Link to="/contact">Étudier mon financement</Link>
               </Button>
             </div>

@@ -75,62 +75,68 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
         </div>
         
-        <div className="relative container mx-auto px-4 text-center lg:text-left">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="bg-hero-gradient bg-clip-text text-transparent">
+        {/* Floating elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-float"></div>
+        <div className="absolute bottom-32 right-16 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-white/20 rounded-full blur-lg animate-float" style={{animationDelay: '2s'}}></div>
+        
+        <div className="relative container mx-auto px-4 text-center lg:text-left z-10">
+          <div className="max-w-4xl">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight animate-fade-in-up">
+              <span className="bg-hero-gradient bg-clip-text text-transparent drop-shadow-lg">
                 L'énergie solaire
               </span>
               <br />
-              pour votre avenir
+              <span className="text-white drop-shadow-xl">pour votre avenir</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 leading-relaxed font-light animate-fade-in-up" style={{animationDelay: '0.2s'}}>
               Spécialiste de l'installation de panneaux solaires en Rhône-Alpes. 
+              <br className="hidden lg:block" />
               Réduisez vos factures et participez à la transition énergétique.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-              <Button asChild variant="hero" size="xl">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start mb-16 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+              <Button asChild variant="glass" size="xl" className="shadow-premium">
                 <Link to="/contact">Devis gratuit</Link>
               </Button>
-              <Button asChild variant="outline" size="xl">
+              <Button asChild variant="outline" size="xl" className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm">
                 <Link to="/simulateur">Simulateur</Link>
               </Button>
             </div>
             
             {/* Target Audience Tabs */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto lg:mx-0">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto lg:mx-0 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
               <Link to="/particuliers" className="group">
-                <div className="bg-white/90 backdrop-blur-sm border border-white rounded-lg p-4 text-center hover:bg-white transition-all duration-300 hover:scale-105 shadow-lg h-[120px] w-full flex flex-col justify-center items-center">
-                  <Home className="h-8 w-8 mb-3 text-primary" />
+                <div className="bg-white/90 backdrop-blur-xl border border-white/50 rounded-2xl p-6 text-center hover:bg-white transition-all duration-500 hover:scale-105 shadow-premium h-[120px] w-full flex flex-col justify-center items-center hover:shadow-glow">
+                  <Home className="h-8 w-8 mb-3 text-primary group-hover:animate-glow-pulse" />
                   <span className="text-gray-800 font-medium text-sm leading-tight">Je suis un<br/>particulier</span>
                 </div>
               </Link>
               
               <Link to="/professionnels" className="group">
-                <div className="bg-white/90 backdrop-blur-sm border border-white rounded-lg p-4 text-center hover:bg-white transition-all duration-300 hover:scale-105 shadow-lg h-[120px] w-full flex flex-col justify-center items-center">
-                  <Building className="h-8 w-8 mb-3 text-primary" />
+                <div className="bg-white/90 backdrop-blur-xl border border-white/50 rounded-2xl p-6 text-center hover:bg-white transition-all duration-500 hover:scale-105 shadow-premium h-[120px] w-full flex flex-col justify-center items-center hover:shadow-glow">
+                  <Building className="h-8 w-8 mb-3 text-primary group-hover:animate-glow-pulse" />
                   <span className="text-gray-800 font-medium text-sm leading-tight">Je suis un<br/>professionnel</span>
                 </div>
               </Link>
               
               <Link to="/agriculteurs" className="group">
-                <div className="bg-white/90 backdrop-blur-sm border border-white rounded-lg p-4 text-center hover:bg-white transition-all duration-300 hover:scale-105 shadow-lg h-[120px] w-full flex flex-col justify-center items-center">
-                  <Sun className="h-8 w-8 mb-3 text-primary" />
+                <div className="bg-white/90 backdrop-blur-xl border border-white/50 rounded-2xl p-6 text-center hover:bg-white transition-all duration-500 hover:scale-105 shadow-premium h-[120px] w-full flex flex-col justify-center items-center hover:shadow-glow">
+                  <Sun className="h-8 w-8 mb-3 text-primary group-hover:animate-glow-pulse" />
                   <span className="text-gray-800 font-medium text-sm leading-tight">Je suis un<br/>agriculteur</span>
                 </div>
               </Link>
               
               <Link to="/marches-publics" className="group">
-                <div className="bg-white/90 backdrop-blur-sm border border-white rounded-lg p-4 text-center hover:bg-white transition-all duration-300 hover:scale-105 shadow-lg h-[120px] w-full flex flex-col justify-center items-center">
-                  <Zap className="h-8 w-8 mb-3 text-primary" />
+                <div className="bg-white/90 backdrop-blur-xl border border-white/50 rounded-2xl p-6 text-center hover:bg-white transition-all duration-500 hover:scale-105 shadow-premium h-[120px] w-full flex flex-col justify-center items-center hover:shadow-glow">
+                  <Zap className="h-8 w-8 mb-3 text-primary group-hover:animate-glow-pulse" />
                   <span className="text-gray-800 font-medium text-sm leading-tight">Marché<br/>public</span>
                 </div>
               </Link>
