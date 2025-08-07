@@ -9,6 +9,7 @@ import Particuliers from "./pages/Particuliers";
 import Professionnels from "./pages/Professionnels";
 import Contact from "./pages/Contact";
 import Simulateur from "./pages/Simulateur";
+import BorneRecharge from "./pages/BorneRecharge";
 import InstallationConsommation from "./pages/InstallationConsommation";
 import PanneauxSolaires from "./pages/PanneauxSolaires";
 
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/particuliers" element={<Particuliers />} />
             <Route path="/particuliers/panneaux-solaires" element={<PanneauxSolaires />} />
             
+            <Route path="/particuliers/borne-recharge" element={<BorneRecharge />} />
             <Route path="/particuliers/installation-consommation" element={<InstallationConsommation />} />
             <Route path="/professionnels" element={<Professionnels />} />
             <Route path="/simulateur" element={<Simulateur />} />
