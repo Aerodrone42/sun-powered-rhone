@@ -409,11 +409,26 @@ const SolarSimulator = () => {
     const newGenROI = Math.round(newGenInstallationCost / ((newGenSavingsMin + newGenSavingsMax) / 2) * 10) / 10;
 
     // Données mensuelles pour la nouvelle génération
-    const monthlyProductionData = locationData.monthlyData?.map(month => ({
-      ...month,
-      classicProduction: Math.round(month.production * classicPower),
-      newGenProduction: Math.round(month.production * newGenPower * 1.275) // +27.5% moyenne
-    })) || [];
+    const monthNames = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'];
+    const monthlyIrradiationBase = [67.4, 89.2, 133.6, 166.8, 192.3, 208.2, 227.4, 201.9, 159.0, 109.3, 73.2, 58.9]; // Données moyennes France
+    
+    const monthlyProductionData = monthNames.map((month, index) => {
+      const monthIrradiation = monthlyIrradiationBase[index];
+      // Calcul production mensuelle basée sur l'irradiation relative
+      const monthlyProductionRatio = monthIrradiation / monthlyIrradiationBase.reduce((a, b) => a + b, 0);
+      const monthClassicProduction = Math.round(classicProductionMin * monthlyProductionRatio * 12);
+      const monthNewGenProduction = Math.round(monthClassicProduction * 1.275); // +27.5% moyenne
+      const percentage = Math.round((monthNewGenProduction / newGenProductionMin) * 100);
+      
+      return {
+        month,
+        irradiation: monthIrradiation,
+        production: monthNewGenProduction,
+        classicProduction: monthClassicProduction,
+        newGenProduction: monthNewGenProduction,
+        percentage
+      };
+    });
 
     const calculatedResults = {
       classic: {
