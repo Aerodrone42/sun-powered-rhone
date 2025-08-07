@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Helmet } from "react-helmet-async";
 
@@ -54,32 +54,24 @@ const PanneauxSolaires = () => {
 
       <main className="bg-background text-foreground">
         {/* Hero */}
-        <section className="relative overflow-hidden">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-            <div className="grid lg:grid-cols-2 gap-10 items-center">
-              <article>
-                <h1 className="text-3xl md:text-5xl font-semibold tracking-tight mb-6">
-                  Panneaux solaires pour votre maison
-                </h1>
-                <p className="text-muted-foreground text-lg md:text-xl mb-8">
-                  Étude personnalisée, installation certifiée et suivi complet pour une autoconsommation performante et durable.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <Button size="lg" className="bg-primary text-primary-foreground">
-                    Demander un devis gratuit
-                  </Button>
-                  <Button variant="outline" size="lg">
-                    Vérifier mon éligibilité
-                  </Button>
-                </div>
-              </article>
-
-              <div className="relative">
-                <img
-                  src={pergolaImg}
-                  alt="Pergola solaire moderne pour terrasse - panneaux solaires intégrés"
-                  className="w-full h-72 md:h-96 object-cover rounded-xl border border-border"
-                />
+        <section className="relative min-h-[60vh] md:min-h-[70vh] overflow-hidden">
+          <img
+            src={pergolaImg}
+            alt="Pergola solaire moderne - inspiration pour installation résidentielle"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/30" />
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div className="max-w-2xl bg-background/90 border border-border p-6 md:p-8">
+              <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">
+                Panneaux solaires pour votre maison
+              </h1>
+              <p className="mt-4 text-lg md:text-xl text-muted-foreground">
+                Étude personnalisée, installation RGE, suivi complet et aides gérées par WN Energies pour une autoconsommation performante.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Button size="lg" className="bg-primary text-primary-foreground">Demander un devis</Button>
+                <Button variant="outline" size="lg">Vérifier mon éligibilité</Button>
               </div>
             </div>
           </div>
@@ -101,18 +93,16 @@ const PanneauxSolaires = () => {
                 </p>
               </article>
               <aside className="space-y-3">
-                <Card className="bg-card text-card-foreground">
-                  <CardHeader>
-                    <CardTitle className="text-xl">Chiffres clés</CardTitle>
-                    <CardDescription className="text-muted-foreground">Des repères concrets pour votre décision</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-2 text-sm">
-                    <p>• Production annuelle moyenne: 900 à 1 300 kWh par kWc</p>
-                    <p>• Taux d’autoconsommation visé: 40 à 70% selon profil</p>
-                    <p>• Durée de vie des panneaux: &gt; 30 ans</p>
-                    <p>• Délais moyens: étude sous 48h, pose en 1 jour pour 3 kWc</p>
-                  </CardContent>
-                </Card>
+                <div className="border border-border p-6">
+                  <h3 className="text-xl font-semibold">Chiffres clés</h3>
+                  <p className="text-muted-foreground">Des repères concrets pour votre décision</p>
+                  <ul className="mt-4 text-sm space-y-2">
+                    <li>• Production annuelle moyenne: 900 à 1 300 kWh par kWc</li>
+                    <li>• Taux d’autoconsommation visé: 40 à 70% selon profil</li>
+                    <li>• Durée de vie des panneaux: &gt; 30 ans</li>
+                    <li>• Délais moyens: étude sous 48h, pose en 1 jour pour 3 kWc</li>
+                  </ul>
+                </div>
               </aside>
             </div>
           </div>
@@ -122,22 +112,22 @@ const PanneauxSolaires = () => {
         <section className="py-12 md:py-20 border-t border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-semibold mb-8">Nos réalisations en images</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <figure className="relative group overflow-hidden rounded-xl border border-border">
-                <img src={roofImg} alt="Toiture photovoltaïque résidentielle - panneaux solaires sur maison" className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-background/80 backdrop-blur px-3 py-2 text-sm">Toiture photovoltaïque</figcaption>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
+              <figure className="group">
+                <img src={roofImg} alt="Toiture photovoltaïque résidentielle - panneaux solaires sur maison" className="h-56 w-full object-cover" loading="lazy" />
+                <figcaption className="mt-2 text-sm text-muted-foreground">Toiture photovoltaïque</figcaption>
               </figure>
-              <figure className="relative group overflow-hidden rounded-xl border border-border">
-                <img src={pergolaImg} alt="Pergola solaire design - ombrage et production d’énergie" className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-background/80 backdrop-blur px-3 py-2 text-sm">Pergola solaire</figcaption>
+              <figure className="group">
+                <img src={pergolaImg} alt="Pergola solaire design - ombrage et production d’énergie" className="h-56 w-full object-cover" loading="lazy" />
+                <figcaption className="mt-2 text-sm text-muted-foreground">Pergola solaire</figcaption>
               </figure>
-              <figure className="relative group overflow-hidden rounded-xl border border-border">
-                <img src={auventImg} alt="Auvent solaire pour terrasse - modules semi-transparents" className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-background/80 backdrop-blur px-3 py-2 text-sm">Auvent solaire</figcaption>
+              <figure className="group">
+                <img src={auventImg} alt="Auvent solaire pour terrasse - modules semi-transparents" className="h-56 w-full object-cover" loading="lazy" />
+                <figcaption className="mt-2 text-sm text-muted-foreground">Auvent solaire</figcaption>
               </figure>
-              <figure className="relative group overflow-hidden rounded-xl border border-border">
-                <img src={carportImg} alt="Carport solaire avec production d’électricité pour véhicule" className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-background/80 backdrop-blur px-3 py-2 text-sm">Carport solaire</figcaption>
+              <figure className="group">
+                <img src={carportImg} alt="Carport solaire avec production d’électricité pour véhicule" className="h-56 w-full object-cover" loading="lazy" />
+                <figcaption className="mt-2 text-sm text-muted-foreground">Carport solaire</figcaption>
               </figure>
             </div>
           </div>
@@ -147,7 +137,7 @@ const PanneauxSolaires = () => {
         <section className="py-12 md:py-20 border-t border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-semibold mb-8">Pourquoi choisir nos panneaux solaires ?</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { t: "Économies durables", d: "Baissez votre facture d’électricité dès le premier jour." },
                 { t: "Installation clé en main", d: "Prise en charge complète: étude, pose, démarches." },
@@ -156,14 +146,12 @@ const PanneauxSolaires = () => {
                 { t: "Autoconsommation optimisée", d: "Dimensionnement précis selon vos usages." },
                 { t: "Revente du surplus", d: "Contrat d’obligation d’achat au meilleur tarif." },
               ].map((item) => (
-                <Card key={item.t} className="bg-card text-card-foreground">
-                  <CardHeader>
-                    <CardTitle className="text-xl">{item.t}</CardTitle>
-                    <CardDescription className="text-muted-foreground">{item.d}</CardDescription>
-                  </CardHeader>
-                </Card>
+                <li key={item.t} className="p-6 border border-border">
+                  <h3 className="text-lg font-semibold">{item.t}</h3>
+                  <p className="text-sm text-muted-foreground mt-2">{item.d}</p>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </section>
 
@@ -181,19 +169,17 @@ const PanneauxSolaires = () => {
                 </p>
               </article>
               <aside>
-                <Card className="bg-card text-card-foreground">
-                  <CardHeader>
-                    <CardTitle className="text-xl">Ce que comprend notre offre</CardTitle>
-                    <CardDescription className="text-muted-foreground">Tout est inclus, sans surprise</CardDescription>
-                  </CardHeader>
-                  <CardContent className="text-sm space-y-2">
-                    <p>• Étude technique et dimensionnement</p>
-                    <p>• Matériel premium (panneaux, onduleur/micro-onduleurs, câblage)</p>
-                    <p>• Pose RGE et travaux de sécurité</p>
-                    <p>• Démarches administratives et raccordement</p>
-                    <p>• Mise en service et application de suivi</p>
-                  </CardContent>
-                </Card>
+                <div className="border border-border p-6">
+                  <h3 className="text-xl font-semibold">Ce que comprend notre offre</h3>
+                  <p className="text-muted-foreground">Tout est inclus, sans surprise</p>
+                  <ul className="mt-4 text-sm space-y-2">
+                    <li>• Étude technique et dimensionnement</li>
+                    <li>• Matériel premium (panneaux, onduleur/micro-onduleurs, câblage)</li>
+                    <li>• Pose RGE et travaux de sécurité</li>
+                    <li>• Démarches administratives et raccordement</li>
+                    <li>• Mise en service et application de suivi</li>
+                  </ul>
+                </div>
               </aside>
             </div>
           </div>
@@ -212,18 +198,16 @@ const PanneauxSolaires = () => {
               </p>
             </article>
             <article className="space-y-3 text-sm">
-              <Card className="bg-card text-card-foreground">
-                <CardHeader>
-                  <CardTitle className="text-xl">Spécifications types</CardTitle>
-                  <CardDescription className="text-muted-foreground">Exemple d’une installation 3 kWc</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <p>• 6 à 8 panneaux monocristallins haut rendement</p>
-                  <p>• Micro-onduleurs ou onduleur central selon contexte</p>
-                  <p>• Production annuelle estimée: 3 000 à 3 900 kWh</p>
-                  <p>• Suivi via application mobile/web</p>
-                </CardContent>
-              </Card>
+              <div className="border border-border p-6">
+                <h3 className="text-xl font-semibold">Spécifications types</h3>
+                <p className="text-muted-foreground">Exemple d’une installation 3 kWc</p>
+                <ul className="mt-4 space-y-2">
+                  <li>• 6 à 8 panneaux monocristallins haut rendement</li>
+                  <li>• Micro-onduleurs ou onduleur central selon contexte</li>
+                  <li>• Production annuelle estimée: 3 000 à 3 900 kWh</li>
+                  <li>• Suivi via application mobile/web</li>
+                </ul>
+              </div>
             </article>
           </div>
         </section>
@@ -233,24 +217,18 @@ const PanneauxSolaires = () => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-semibold mb-6">Cas client: maison de 120 m²</h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <Card className="bg-card text-card-foreground">
-                <CardContent className="pt-6">
-                  <p className="text-4xl font-semibold">-45%</p>
-                  <p className="text-sm text-muted-foreground">de facture la 1ère année</p>
-                </CardContent>
-              </Card>
-              <Card className="bg-card text-card-foreground">
-                <CardContent className="pt-6">
-                  <p className="text-4xl font-semibold">1 050 kWh</p>
-                  <p className="text-sm text-muted-foreground">autoconsommés par an</p>
-                </CardContent>
-              </Card>
-              <Card className="bg-card text-card-foreground">
-                <CardContent className="pt-6">
-                  <p className="text-4xl font-semibold">6 ans</p>
-                  <p className="text-sm text-muted-foreground">ROI estimé</p>
-                </CardContent>
-              </Card>
+              <div className="p-6 border-l-4 border-primary">
+                <p className="text-4xl font-semibold">-45%</p>
+                <p className="text-sm text-muted-foreground">de facture la 1ère année</p>
+              </div>
+              <div className="p-6 border-l-4 border-primary">
+                <p className="text-4xl font-semibold">1 050 kWh</p>
+                <p className="text-sm text-muted-foreground">autoconsommés par an</p>
+              </div>
+              <div className="p-6 border-l-4 border-primary">
+                <p className="text-4xl font-semibold">6 ans</p>
+                <p className="text-sm text-muted-foreground">ROI estimé</p>
+              </div>
             </div>
           </div>
         </section>
@@ -259,21 +237,19 @@ const PanneauxSolaires = () => {
         <section className="py-12 md:py-20 border-t border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-semibold mb-8">Notre processus en 4 étapes</h2>
-            <div className="grid md:grid-cols-4 gap-6">
+            <ol className="grid md:grid-cols-4 gap-6">
               {[
                 { t: "1. Étude", d: "Analyse de votre toiture et de vos consommations." },
                 { t: "2. Devis", d: "Dimensionnement, simulation de production et ROI." },
                 { t: "3. Pose", d: "Installation par nos équipes qualifiées RGE." },
                 { t: "4. Mise en service", d: "Raccordement, tests et suivi de la production." },
               ].map((s) => (
-                <Card key={s.t} className="bg-card text-card-foreground h-full">
-                  <CardContent className="pt-6">
-                    <p className="font-medium mb-1">{s.t}</p>
-                    <p className="text-sm text-muted-foreground">{s.d}</p>
-                  </CardContent>
-                </Card>
+                <li key={s.t} className="p-6 border border-border">
+                  <p className="font-medium mb-1">{s.t}</p>
+                  <p className="text-sm text-muted-foreground">{s.d}</p>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </section>
 
@@ -302,12 +278,6 @@ const PanneauxSolaires = () => {
         </section>
       </main>
 
-      <div className="fixed bottom-4 inset-x-4 md:right-6 md:inset-x-auto z-40">
-        <div className="bg-foreground text-background rounded-full shadow-xl border border-border/20 px-4 py-2 flex items-center justify-between gap-3">
-          <span className="text-sm font-medium">Devis gratuit sous 24h</span>
-          <Button size="sm" className="bg-primary text-primary-foreground">Obtenir un devis</Button>
-        </div>
-      </div>
 
       <Footer />
     </>
