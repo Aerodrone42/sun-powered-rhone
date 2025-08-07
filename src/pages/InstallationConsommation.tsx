@@ -126,15 +126,15 @@ const InstallationConsommation = () => {
           </div>
 
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid xl:grid-cols-2 gap-12 items-center">
               {/* Content */}
-              <div className="space-y-8 animate-fade-in">
+              <div className="space-y-8 animate-fade-in xl:max-w-none max-w-4xl">
                 <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 text-sm font-medium text-primary">
                   <Lightbulb className="w-4 h-4" />
                   Autoconsommation intelligente
                 </div>
                 
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                   <span className="block">Installation &</span>
                   <span className="text-primary block">Autoconsommation</span>
                 </h1>
