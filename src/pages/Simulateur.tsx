@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Sun, Zap, Home, Calculator, MapPin, Battery, Leaf, TrendingUp } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import RealMap from '../components/RealMap';
+import MapboxMap from '../components/MapboxMap';
 
 const SolarSimulator = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -443,7 +443,7 @@ const SolarSimulator = () => {
               </div>
 
               {/* Carte interactive */}
-              <RealMap 
+              <MapboxMap 
                 onLocationSelect={(lat, lng) => {
                   setSelectedLocation({ lat, lng });
                   fetchLocationData(lat, lng);
