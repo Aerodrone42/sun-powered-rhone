@@ -1,9 +1,12 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import StickyCTA from "@/components/StickyCTA";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Helmet } from "react-helmet-async";
+import { Sun, Zap, Shield, TrendingUp, Home, Users, Leaf, CheckCircle, Star, Award, Activity } from "lucide-react";
 
 const pergolaImg = "/lovable-uploads/37aeed72-e13c-4dd8-8b9d-f27d07561353.png";
 const roofImg = "/lovable-uploads/5c91c045-c4a2-4d82-9a66-4912676183ca.png";
@@ -13,7 +16,7 @@ const carportImg = "/lovable-uploads/f6f02fb8-79ac-461b-bfc2-257aea388457.png";
 const PanneauxSolaires = () => {
   const company = "WN Energies";
   const title = `Panneaux solaires | ${company}`;
-  const description = "Installation photovoltaïque clé en main: étude, pose RGE, garanties jusqu’à 25 ans, aides et simulation. Devis gratuit sous 24h.";
+  const description = "Installation photovoltaïque clé en main: étude, pose RGE, garanties jusqu'à 25 ans, aides et simulation. Devis gratuit sous 24h.";
   const canonical = (typeof window !== "undefined" ? window.location.origin : "") + "/particuliers/panneaux-solaires";
 
   const faqs = [
@@ -23,12 +26,28 @@ const PanneauxSolaires = () => {
     },
     {
       q: "Combien produit une installation ?",
-      a: "Selon l’orientation et la puissance, comptez 900 à 1 300 kWh par kWc par an en France métropolitaine.",
+      a: "Selon l'orientation et la puissance, comptez 900 à 1 300 kWh par kWc par an en France métropolitaine.",
     },
     {
       q: "Quelles garanties ?",
-      a: "Jusqu’à 25 ans sur la performance des panneaux et 10 ans sur l’onduleur selon les fabricants.",
+      a: "Jusqu'à 25 ans sur la performance des panneaux et 10 ans sur l'onduleur selon les fabricants.",
     },
+  ];
+
+  const advantages = [
+    { icon: TrendingUp, title: "Économies immédiates", desc: "Réduction de votre facture d'électricité dès le premier mois" },
+    { icon: Shield, title: "Garanties premium", desc: "Jusqu'à 25 ans de garantie sur les panneaux solaires" },
+    { icon: Zap, title: "Performance optimale", desc: "Technologie de pointe pour un rendement maximal" },
+    { icon: Home, title: "Installation clé en main", desc: "Prise en charge complète de A à Z par nos experts RGE" },
+    { icon: Leaf, title: "Énergie verte", desc: "Production d'électricité 100% propre et renouvelable" },
+    { icon: Activity, title: "Suivi en temps réel", desc: "Monitoring intelligent via application mobile" }
+  ];
+
+  const steps = [
+    { number: "01", title: "Étude personnalisée", desc: "Analyse de votre toiture et estimation de production" },
+    { number: "02", title: "Devis sur mesure", desc: "Proposition technique et financière détaillée" },
+    { number: "03", title: "Installation RGE", desc: "Pose professionnelle par nos équipes certifiées" },
+    { number: "04", title: "Mise en service", desc: "Activation et suivi de votre installation" }
   ];
 
   const jsonLd = {
@@ -52,239 +71,345 @@ const PanneauxSolaires = () => {
 
       <Header />
 
-      <main className="bg-background text-foreground">
-        {/* Hero */}
-        <section className="relative min-h-[85vh] md:min-h-screen overflow-hidden">
-          <img
-            src={pergolaImg}
-            alt="Pergola solaire moderne - inspiration pour installation résidentielle"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-foreground/10 via-foreground/40 to-foreground/80" />
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-            <div className="max-w-3xl animate-fade-in">
-              <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[0.95] text-background">
-                Panneaux solaires pour votre maison
-              </h1>
-              <p className="mt-6 text-xl md:text-2xl text-background/80">
-                Étude personnalisée, installation RGE et suivi complet pour une autoconsommation performante.
-              </p>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Button asChild size="xl" variant="hero">
-                  <a href="/contact" aria-label="Demander un devis gratuit">Demander un devis</a>
-                </Button>
-                <Button asChild size="xl" variant="glass">
-                  <a href="/simulateur" aria-label="Vérifier mon éligibilité">Vérifier mon éligibilité</a>
-                </Button>
-              </div>
-              <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 text-sm">
-                <div><p className="text-2xl font-semibold text-background">25 ans</p><p className="text-background/80">Garantie panneaux</p></div>
-                <div><p className="text-2xl font-semibold text-background">48 h</p><p className="text-background/80">Étude gratuite</p></div>
-                <div><p className="text-2xl font-semibold text-background">-45%</p><p className="text-background/80">Sur la facture</p></div>
-                <div><p className="text-2xl font-semibold text-background">RGE</p><p className="text-background/80">Pose certifiée</p></div>
-              </div>
-            </div>
+      <main className="bg-background text-foreground overflow-hidden">
+        {/* Hero Section */}
+        <section className="relative min-h-screen flex items-center">
+          {/* Background with gradient overlay */}
+          <div className="absolute inset-0">
+            <img
+              src={pergolaImg}
+              alt="Pergola solaire moderne"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/70 to-transparent" />
+            <div className="absolute inset-0 bg-hero-gradient opacity-20" />
           </div>
-        </section>
 
-        {/* Présentation */}
-        <section className="py-12 md:py-20 border-t border-border">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-3 gap-8">
-              <article className="lg:col-span-2 space-y-4 text-muted-foreground">
-                <p>
-                  Chez WN Energies, nous concevons et installons des systèmes photovoltaïques fiables et esthétiques pour les maisons individuelles. Nos ingénieurs dimensionnent votre installation en fonction de vos usages réels, de l’orientation du toit et des contraintes locales afin de maximiser l’autoconsommation et le retour sur investissement.
-                </p>
-                <p>
-                  Nos équipes RGE prennent en charge l’ensemble du projet: étude technique, démarches administratives, pose, mise en service et suivi. Vous disposez d’un accès de monitoring pour suivre la production en temps réel et optimiser vos consommations.
-                </p>
-                <p>
-                  Résultat: une facture réduite, un bien valorisé et une énergie propre produite chez vous. La majorité de nos chantiers sont réalisés en 4 à 8 semaines après validation du devis.
-                </p>
-              </article>
-              <aside className="space-y-3">
-                <div className="border border-border p-6">
-                  <h3 className="text-xl font-semibold">Chiffres clés</h3>
-                  <p className="text-muted-foreground">Des repères concrets pour votre décision</p>
-                  <ul className="mt-4 text-sm space-y-2">
-                    <li>• Production annuelle moyenne: 900 à 1 300 kWh par kWc</li>
-                    <li>• Taux d’autoconsommation visé: 40 à 70% selon profil</li>
-                    <li>• Durée de vie des panneaux: &gt; 30 ans</li>
-                    <li>• Délais moyens: étude sous 48h, pose en 1 jour pour 3 kWc</li>
-                  </ul>
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Content */}
+              <div className="space-y-8 animate-fade-in">
+                <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 text-sm font-medium text-primary">
+                  <Sun className="w-4 h-4" />
+                  Révolution énergétique 2025
                 </div>
-              </aside>
+                
+                <h1 className="text-5xl lg:text-7xl font-bold leading-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
+                  Panneaux solaires
+                  <span className="text-primary block">nouvelle génération</span>
+                </h1>
+                
+                <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
+                  Transformez votre toiture en centrale électrique avec nos solutions photovoltaïques ultra-performantes. Installation RGE garantie 25 ans.
+                </p>
+
+                <div className="flex flex-wrap gap-4">
+                  <Button asChild size="xl" variant="hero" className="group">
+                    <a href="/contact" className="flex items-center gap-2">
+                      Devis gratuit
+                      <Zap className="w-5 h-5 group-hover:animate-pulse" />
+                    </a>
+                  </Button>
+                  <Button asChild size="xl" variant="outline" className="backdrop-blur-sm">
+                    <a href="/simulateur">Calculer mes économies</a>
+                  </Button>
+                </div>
+
+                {/* Stats */}
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-8">
+                  <div className="space-y-1">
+                    <div className="text-3xl font-bold text-primary">25 ans</div>
+                    <div className="text-sm text-muted-foreground">Garantie</div>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="text-3xl font-bold text-primary">-70%</div>
+                    <div className="text-sm text-muted-foreground">Facture</div>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="text-3xl font-bold text-primary">48h</div>
+                    <div className="text-sm text-muted-foreground">Étude</div>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="text-3xl font-bold text-primary">RGE</div>
+                    <div className="text-sm text-muted-foreground">Certifié</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Visual Card */}
+              <div className="relative animate-fade-in-up">
+                <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-2xl animate-pulse" />
+                <Card className="relative bg-background/80 backdrop-blur-sm border-border/50 overflow-hidden shadow-glow hover:shadow-strong transition-all duration-500 hover:scale-105">
+                  <CardContent className="p-8 space-y-6">
+                    <div className="flex items-center justify-between">
+                      <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+                        <Star className="w-3 h-3 mr-1" />
+                        Premium
+                      </Badge>
+                      <Sun className="w-8 h-8 text-primary animate-pulse" />
+                    </div>
+                    
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">Installation 6kWc</h3>
+                      <p className="text-muted-foreground">Solution complète pour maison familiale</p>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm">Production annuelle</span>
+                        <span className="font-semibold">7 800 kWh</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm">Économies/an</span>
+                        <span className="font-semibold text-primary">1 450€</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm">ROI</span>
+                        <span className="font-semibold text-primary">8 ans</span>
+                      </div>
+                    </div>
+
+                    <div className="pt-4 border-t border-border">
+                      <Button variant="outline" size="sm" className="w-full">
+                        Voir le détail
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Galerie - masonry full-bleed */}
-        <section className="py-16 md:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-semibold">Nos réalisations</h2>
-          </div>
-          <div className="mt-8 px-0">
-            <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
-              <figure className="mb-4 break-inside-avoid hover-scale">
-                <img src={roofImg} alt="Toiture photovoltaïque résidentielle - panneaux solaires sur maison" className="w-full h-auto object-cover" loading="lazy" />
-                <figcaption className="mt-2 text-xs text-muted-foreground px-4">Toiture photovoltaïque</figcaption>
-              </figure>
-              <figure className="mb-4 break-inside-avoid hover-scale">
-                <img src={pergolaImg} alt="Pergola solaire design - ombrage et production d’énergie" className="w-full h-auto object-cover" loading="lazy" />
-                <figcaption className="mt-2 text-xs text-muted-foreground px-4">Pergola solaire</figcaption>
-              </figure>
-              <figure className="mb-4 break-inside-avoid hover-scale">
-                <img src={auventImg} alt="Auvent solaire pour terrasse - modules semi-transparents" className="w-full h-auto object-cover" loading="lazy" />
-                <figcaption className="mt-2 text-xs text-muted-foreground px-4">Auvent solaire</figcaption>
-              </figure>
-              <figure className="mb-4 break-inside-avoid hover-scale">
-                <img src={carportImg} alt="Carport solaire avec production d’électricité pour véhicule" className="w-full h-auto object-cover" loading="lazy" />
-                <figcaption className="mt-2 text-xs text-muted-foreground px-4">Carport solaire</figcaption>
-              </figure>
+        {/* Advantages Section */}
+        <section className="py-24 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-muted/20 to-transparent" />
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16 animate-fade-in">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+                Pourquoi choisir nos
+                <span className="text-primary block">panneaux solaires ?</span>
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Une technologie de pointe pour des performances exceptionnelles et une rentabilité optimale
+              </p>
             </div>
-          </div>
-        </section>
 
-        {/* Avantages */}
-        <section className="py-16 md:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-semibold">Pourquoi choisir nos panneaux solaires ?</h2>
-            <ul className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                { t: "Économies durables", d: "Baissez votre facture d’électricité dès le premier jour." },
-                { t: "Installation clé en main", d: "Prise en charge complète: étude, pose, démarches." },
-                { t: "Qualité et garanties", d: "Matériel premium et garanties jusqu’à 25 ans." },
-                { t: "Suivi de production", d: "Application de monitoring et maintenance simplifiée." },
-                { t: "Autoconsommation optimisée", d: "Dimensionnement précis selon vos usages." },
-                { t: "Revente du surplus", d: "Contrat d’obligation d’achat au meilleur tarif." },
-              ].map((item) => (
-                <li key={item.t} className="space-y-2">
-                  <h3 className="text-lg md:text-xl font-semibold tracking-tight">{item.t}</h3>
-                  <p className="text-sm text-muted-foreground">{item.d}</p>
-                </li>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {advantages.map((advantage, index) => (
+                <Card key={index} className="group bg-background/60 backdrop-blur-sm border-border/50 hover:border-primary/20 transition-all duration-500 hover:shadow-glow hover:-translate-y-2 animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <CardContent className="p-8 text-center space-y-4">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-primary/10 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500" />
+                      <div className="relative w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-500">
+                        <advantage.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform duration-500" />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-semibold">{advantage.title}</h3>
+                    <p className="text-muted-foreground">{advantage.desc}</p>
+                  </CardContent>
+                </Card>
               ))}
-            </ul>
-          </div>
-        </section>
-
-        {/* Tarifs et aides */}
-        <section className="py-16 md:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12">
-            <article className="space-y-4 text-muted-foreground">
-              <h2 className="text-3xl md:text-4xl font-semibold text-foreground">Tarifs et aides disponibles</h2>
-              <p>
-                Le coût dépend de la puissance installée, de la complexité du chantier et du type de matériel. À titre indicatif, une installation résidentielle de 3 à 6 kWc se situe généralement entre 6 000 et 12 000 € TTC posé, avant aides.
-              </p>
-              <p>
-                En France, vous pouvez bénéficier de la TVA réduite, de la prime à l’autoconsommation et d’un contrat d’achat pour la revente du surplus. Nous montons vos dossiers et vous accompagnons jusqu’à l’obtention des aides.
-              </p>
-            </article>
-            <aside>
-              <h3 className="text-xl font-semibold">Notre offre inclut</h3>
-              <ul className="mt-4 text-sm space-y-2 text-muted-foreground">
-                <li>• Étude technique et dimensionnement</li>
-                <li>• Matériel premium (panneaux, onduleur/micro-onduleurs, câblage)</li>
-                <li>• Pose RGE et travaux de sécurité</li>
-                <li>• Démarches administratives et raccordement</li>
-                <li>• Mise en service et application de suivi</li>
-              </ul>
-            </aside>
-          </div>
-        </section>
-
-        {/* Garanties et matériel */}
-        <section className="py-16 md:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12">
-            <article className="space-y-4 text-muted-foreground">
-              <h2 className="text-3xl md:text-4xl font-semibold text-foreground">Garanties et matériel</h2>
-              <p>
-                Nous sélectionnons des fabricants reconnus pour la fiabilité et la traçabilité de leurs produits. Les panneaux sont généralement garantis 25 ans sur la performance et 12 ans sur le produit. Les onduleurs bénéficient de 5 à 10 ans de garantie, extensible selon les modèles.
-              </p>
-              <p>
-                Nous privilégions les fixations adaptées à votre toiture (tuile, ardoise, bac acier) pour une intégration propre et durable, sans compromettre l’étanchéité.
-              </p>
-            </article>
-            <article className="space-y-2 text-sm text-muted-foreground">
-              <h3 className="text-xl font-semibold text-foreground">Spécifications types</h3>
-              <p>Exemple d’une installation 3 kWc</p>
-              <ul className="mt-2 space-y-2">
-                <li>• 6 à 8 panneaux monocristallins haut rendement</li>
-                <li>• Micro-onduleurs ou onduleur central selon contexte</li>
-                <li>• Production annuelle estimée: 3 000 à 3 900 kWh</li>
-                <li>• Suivi via application mobile/web</li>
-              </ul>
-            </article>
-          </div>
-        </section>
-
-        {/* Cas client */}
-        <section className="py-16 md:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-6">Cas client: maison de 120 m²</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-              <div>
-                <p className="text-5xl font-semibold leading-none">-45%</p>
-                <p className="mt-2 text-sm text-muted-foreground">de facture la 1ère année</p>
-              </div>
-              <div>
-                <p className="text-5xl font-semibold leading-none">1 050 kWh</p>
-                <p className="mt-2 text-sm text-muted-foreground">autoconsommés par an</p>
-              </div>
-              <div>
-                <p className="text-5xl font-semibold leading-none">6 ans</p>
-                <p className="mt-2 text-sm text-muted-foreground">ROI estimé</p>
-              </div>
             </div>
           </div>
         </section>
 
-        {/* Étapes */}
-        <section className="py-16 md:py-24">
+        {/* Gallery Section */}
+        <section className="py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-8">Notre processus en 4 étapes</h2>
-            <ol className="grid md:grid-cols-4 gap-8">
+            <div className="text-center mb-16 animate-fade-in">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">Nos réalisations</h2>
+              <p className="text-xl text-muted-foreground">Découvrez nos installations premium partout en France</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { t: "Étude", d: "Analyse de votre toiture et de vos consommations." },
-                { t: "Devis", d: "Dimensionnement, simulation de production et ROI." },
-                { t: "Pose", d: "Installation par nos équipes qualifiées RGE." },
-                { t: "Mise en service", d: "Raccordement, tests et suivi de la production." },
-              ].map((s, i) => (
-                <li key={s.t} className="space-y-2">
-                  <div className="text-4xl font-semibold">{i + 1}</div>
-                  <p className="font-medium">{s.t}</p>
-                  <p className="text-sm text-muted-foreground">{s.d}</p>
-                </li>
+                { img: roofImg, title: "Toiture résidentielle", subtitle: "6kWc - Maison familiale" },
+                { img: pergolaImg, title: "Pergola solaire", subtitle: "4kWc - Terrasse moderne" },
+                { img: auventImg, title: "Auvent design", subtitle: "3kWc - Protection optimale" },
+                { img: carportImg, title: "Carport solaire", subtitle: "5kWc - Double usage" }
+              ].map((item, index) => (
+                <div key={index} className="group cursor-pointer animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className="relative overflow-hidden rounded-2xl bg-muted/20 border border-border/50 hover:border-primary/20 transition-all duration-500 hover:shadow-glow">
+                    <img 
+                      src={item.img} 
+                      alt={item.title}
+                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
+                      <h3 className="font-semibold text-background">{item.title}</h3>
+                      <p className="text-sm text-background/80">{item.subtitle}</p>
+                    </div>
+                  </div>
+                </div>
               ))}
-            </ol>
+            </div>
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="py-12 md:py-20 border-t border-border">
+        {/* Process Section */}
+        <section className="py-24 bg-muted/20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16 animate-fade-in">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">Notre processus en 4 étapes</h2>
+              <p className="text-xl text-muted-foreground">Un accompagnement complet pour votre projet solaire</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {steps.map((step, index) => (
+                <div key={index} className="relative group animate-fade-in-up" style={{ animationDelay: `${index * 0.2}s` }}>
+                  <div className="relative bg-background border border-border rounded-2xl p-8 text-center hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                      <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-sm">
+                        {index + 1}
+                      </div>
+                    </div>
+                    
+                    <div className="pt-4 space-y-4">
+                      <div className="text-6xl font-bold text-primary/20 group-hover:text-primary/40 transition-colors duration-500">
+                        {step.number}
+                      </div>
+                      <h3 className="text-xl font-semibold">{step.title}</h3>
+                      <p className="text-muted-foreground">{step.desc}</p>
+                    </div>
+
+                    {index < steps.length - 1 && (
+                      <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-px bg-border" />
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing Section */}
+        <section className="py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16 animate-fade-in">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">Tarifs transparents</h2>
+              <p className="text-xl text-muted-foreground">Des solutions adaptées à tous les budgets</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {[
+                { 
+                  name: "Starter", 
+                  power: "3kWc", 
+                  price: "8 900€", 
+                  production: "3 900 kWh/an",
+                  features: ["8-10 panneaux", "Onduleur central", "Garantie 20 ans", "Suivi production"]
+                },
+                { 
+                  name: "Comfort", 
+                  power: "6kWc", 
+                  price: "14 900€", 
+                  production: "7 800 kWh/an",
+                  features: ["16-20 panneaux", "Micro-onduleurs", "Garantie 25 ans", "App mobile", "Maintenance"],
+                  featured: true
+                },
+                { 
+                  name: "Premium", 
+                  power: "9kWc", 
+                  price: "19 900€", 
+                  production: "11 700 kWh/an",
+                  features: ["24-30 panneaux", "Optimiseurs", "Garantie 25 ans", "Batterie option", "Support premium"]
+                }
+              ].map((plan, index) => (
+                <Card key={index} className={`relative overflow-hidden transition-all duration-500 hover:shadow-glow hover:-translate-y-2 animate-fade-in-up ${plan.featured ? 'border-primary/50 shadow-glow scale-105' : 'border-border/50'}`} style={{ animationDelay: `${index * 0.1}s` }}>
+                  {plan.featured && (
+                    <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
+                      <Award className="w-3 h-3 mr-1" />
+                      Populaire
+                    </Badge>
+                  )}
+                  
+                  <CardContent className="p-8 space-y-6">
+                    <div className="text-center">
+                      <h3 className="text-2xl font-bold">{plan.name}</h3>
+                      <div className="text-4xl font-bold text-primary mt-2">{plan.price}</div>
+                      <div className="text-sm text-muted-foreground">Installation {plan.power}</div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="text-center p-4 bg-muted/20 rounded-lg">
+                        <div className="text-lg font-semibold">{plan.production}</div>
+                        <div className="text-sm text-muted-foreground">Production annuelle</div>
+                      </div>
+                    </div>
+
+                    <ul className="space-y-3">
+                      {plan.features.map((feature, i) => (
+                        <li key={i} className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-primary" />
+                          <span className="text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Button variant={plan.featured ? "hero" : "outline"} className="w-full">
+                      Choisir cette offre
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-24 bg-muted/20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-6">Questions fréquentes</h2>
-            <Accordion type="single" collapsible className="w-full">
-              {faqs.map((f, i) => (
-                <AccordionItem key={i} value={`item-${i}`}>
-                  <AccordionTrigger className="text-left">{f.q}</AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
+            <div className="text-center mb-16 animate-fade-in">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">Questions fréquentes</h2>
+              <p className="text-xl text-muted-foreground">Tout ce que vous devez savoir sur les panneaux solaires</p>
+            </div>
+
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="bg-background border border-border/50 rounded-2xl px-6 hover:shadow-soft transition-all duration-300">
+                  <AccordionTrigger className="text-left font-semibold hover:no-underline py-6">
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground pb-6">
+                    {faq.a}
+                  </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
           </div>
         </section>
 
-        {/* CTA final */}
-        <section className="py-20 md:py-28">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6">Passez au solaire en toute sérénité</h2>
-            <p className="text-lg text-muted-foreground mb-10">Un conseiller vous rappelle sous 24h pour une estimation gratuite et rapide.</p>
-            <Button asChild size="xl" variant="hero">
-              <a href="/contact">Je démarre mon projet</a>
-            </Button>
+        {/* Final CTA */}
+        <section className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
+          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+            <div className="animate-fade-in space-y-8">
+              <h2 className="text-4xl lg:text-6xl font-bold">
+                Prêt à passer au
+                <span className="text-primary block">solaire ?</span>
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Rejoignez les milliers de foyers qui ont choisi l'indépendance énergétique. 
+                Votre devis personnalisé en 48h chrono.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button asChild size="xl" variant="hero" className="group">
+                  <a href="/contact" className="flex items-center gap-2">
+                    <Sun className="w-5 h-5 group-hover:animate-spin" />
+                    Obtenir mon devis gratuit
+                  </a>
+                </Button>
+                <Button asChild size="xl" variant="outline">
+                  <a href="tel:0771418568">Appeler maintenant</a>
+                </Button>
+              </div>
+            </div>
           </div>
         </section>
       </main>
+
       <StickyCTA phone="07 71 41 85 68" quoteHref="/contact" />
       <Footer />
     </>
