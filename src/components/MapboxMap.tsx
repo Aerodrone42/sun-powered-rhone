@@ -109,17 +109,24 @@ const MapboxMap: React.FC<MapboxMapProps> = ({ onLocationSelect, selectedLocatio
             Configuration de la carte
           </h3>
           <p className="text-sm text-gray-600 mb-4">
-            Veuillez entrer votre token public Mapbox pour activer la carte interactive.
+            Pour une carte interactive professionnelle, entrez votre token public Mapbox.
+            <br />
+            <strong>Gratuit</strong> : 50,000 vues/mois sans carte bancaire requise.
             <br />
             <a 
               href="https://mapbox.com/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-orange-500 hover:underline"
+              className="text-orange-500 hover:underline font-semibold"
             >
-              Obtenez votre token sur mapbox.com
+              👉 Créez votre compte gratuit sur mapbox.com
             </a>
           </p>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
+            <p className="text-xs text-blue-700">
+              💡 <strong>Astuce :</strong> Après inscription, copiez votre "Public token" depuis le tableau de bord Mapbox
+            </p>
+          </div>
           <div className="space-y-3">
             <input
               type="text"
