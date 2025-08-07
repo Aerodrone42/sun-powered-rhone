@@ -135,8 +135,8 @@ const InstallationConsommation = () => {
                 </div>
                 
                 <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
-                  Installation &
-                  <span className="text-primary block break-words">Autoconsommation</span>
+                  <span className="block">Installation &</span>
+                  <span className="text-primary block">Autoconsommation</span>
                 </h1>
                 
                 <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
