@@ -275,8 +275,30 @@ const SolarSimulator = () => {
     const orientationFactor = orientationFactors[formData.roofOrientation] || 1.0;
     const irradiationFactor = irradiation / 1000;
 
-    // PANNEAUX 700-850W STANDARDS (technologie actuelle)
-    const classicPower = Math.min(Math.ceil(roofSurface / 5.5) * 0.775, 12); // 775W moyenne
+    // PANNEAUX 700-850W STANDARDS (technologie actuelle) - Calcul réaliste selon type logement
+    let maxPanels;
+    let availableSurface;
+    
+    if (formData.houseType === 'appartement') {
+      // Appartement: limité par les balcons/terrasses ou copropriété
+      const houseSurfaceNum = parseInt(formData.houseSurface) || 60;
+      if (houseSurfaceNum <= 60) {
+        maxPanels = 3; // 2-3 panneaux max sur balcon/terrasse
+        availableSurface = 7.2; // ~7m² max
+      } else if (houseSurfaceNum <= 100) {
+        maxPanels = 5; // Grande terrasse
+        availableSurface = 12;
+      } else {
+        maxPanels = 7; // Très grand appartement avec terrasse
+        availableSurface = 16.8;
+      }
+    } else {
+      // Maison: calcul normal selon surface toit
+      availableSurface = Math.min(roofSurface, 50); // Max 50m² même pour grandes maisons
+      maxPanels = Math.min(Math.ceil(availableSurface / 2.4), 20); // Max 20 panneaux
+    }
+    
+    const classicPower = Math.min(maxPanels * 0.775, 15.5); // 775W moyenne, max 15.5kWc
     const classicPanels = Math.ceil(classicPower * 1000 / 775);
     const classicSurface = classicPanels * 2.4; // Panneaux 700-850W font ≈2.4m²
     const classicProductionMin = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * 0.98);
