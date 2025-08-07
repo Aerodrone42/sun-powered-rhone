@@ -3,6 +3,7 @@ import { Sun, Zap, Home, Calculator, MapPin, Battery, Leaf, TrendingUp } from 'l
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import OpenStreetMap from '../components/OpenStreetMap';
+import { MonthlyProductionChart } from '../components/MonthlyProductionChart';
 
 const SolarSimulator = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -1052,47 +1053,15 @@ const SolarSimulator = () => {
                 </div>
               </div>
 
-              {/* Production mensuelle */}
+              {/* Production mensuelle avec graphique interactif */}
               {results.monthlyData && results.monthlyData.length > 0 && (
-                <>
-                  <h3 className="text-2xl font-bold text-foreground">📊 Production mensuelle estimée</h3>
-                  
-                  <div className="bg-card rounded-2xl p-6 border border-border">
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                      {results.monthlyData.map((month, index) => (
-                        <div key={index} className="bg-background rounded-lg p-4 text-center">
-                          <div className="font-medium text-muted-foreground mb-2">{month.month}</div>
-                          <div className="space-y-2">
-                            <div className="text-sm">
-                              <div className="font-bold text-card-foreground">Standard</div>
-                              <div className="text-primary">{month.classicProduction} kWh</div>
-                            </div>
-                            <div className="text-sm">
-                              <div className="font-bold text-card-foreground">Nouvelle gen.</div>
-                              <div className="text-green-600">{month.newGenProduction} kWh</div>
-                            </div>
-                            <div className="text-xs text-muted-foreground">
-                              {month.percentage}% annuel
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-                      <div className="flex items-center justify-center space-x-4 text-sm">
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 bg-primary rounded mr-2"></div>
-                          <span>Panneaux standards</span>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-3 h-3 bg-green-600 rounded mr-2"></div>
-                          <span>Nouvelle génération</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </>
+                <MonthlyProductionChart
+                  monthlyData={results.monthlyData}
+                  classicPower={results.classic.power}
+                  newGenPower={results.newGen.power}
+                  classicSavings={(results.classic.savingsMin + results.classic.savingsMax) / 2}
+                  newGenSavings={(results.newGen.savingsMin + results.newGen.savingsMax) / 2}
+                />
               )}
 
               <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
