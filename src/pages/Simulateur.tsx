@@ -293,21 +293,18 @@ const SolarSimulator = () => {
         availableSurface = 16.8;
       }
     } else {
-      // Maison: calcul réaliste selon surface habitable (pas surface toit)
+      // Maison: calcul selon surface réelle d'UN SEUL versant de toit (le mieux exposé)
       const houseSurfaceNum = parseInt(formData.houseSurface) || 70;
-      if (houseSurfaceNum <= 50) {
-        maxPanels = 4; // Petite maison : 4 panneaux max
-        availableSurface = 9.6;
-      } else if (houseSurfaceNum <= 80) {
-        maxPanels = 6; // Maison moyenne : 6 panneaux max
-        availableSurface = 14.4;
-      } else if (houseSurfaceNum <= 120) {
-        maxPanels = 8; // Grande maison : 8 panneaux max
-        availableSurface = 19.2;
-      } else {
-        maxPanels = 12; // Très grande maison : 12 panneaux max
-        availableSurface = 28.8;
-      }
+      // Surface d'un versant ≈ 40-50% de la surface habitable pour maisons classiques
+      const roofSideArea = Math.round(houseSurfaceNum * 0.45);
+      // Surface utile ≈ 70% du versant (enlever cheminées, bords, lucarnes...)
+      const usableRoofArea = Math.round(roofSideArea * 0.7);
+      // Limiter à 35m² max même pour très grandes maisons
+      availableSurface = Math.min(usableRoofArea, 35);
+      // Chaque panneau fait 2.4m²
+      maxPanels = Math.floor(availableSurface / 2.4);
+      // Limiter à 14 panneaux max pour éviter installations trop importantes
+      maxPanels = Math.min(maxPanels, 14);
     }
     
     const classicPower = Math.min(maxPanels * 0.775, 15.5); // 775W moyenne, max 15.5kWc
