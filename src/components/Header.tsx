@@ -130,10 +130,6 @@ const Header = () => {
         <div className="flex items-center space-x-4">
           <div className="hidden md:flex items-center space-x-4 text-sm text-muted-foreground">
             <div className="flex items-center space-x-1">
-              <Phone className="h-4 w-4" />
-              <span>07 71 41 85 68</span>
-            </div>
-            <div className="flex items-center space-x-1">
               <Mail className="h-4 w-4" />
               <span>contact@wn-energies.fr</span>
             </div>
