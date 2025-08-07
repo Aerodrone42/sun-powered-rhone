@@ -258,7 +258,7 @@ const SolarSimulator = () => {
     setLoading(true);
     
     const { irradiation, temperature, optimalAngle } = locationData;
-    const roofSurface = formData.roofSurface;
+    const roofSurface = parseInt(formData.houseSurface) || 100; // Utilise la surface de toit sélectionnée
     const monthlyBill = formData.monthlyBill;
     const residents = parseInt(formData.residents) || 4;
     const heating = formData.heating;
