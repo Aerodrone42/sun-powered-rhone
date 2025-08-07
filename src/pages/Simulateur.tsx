@@ -423,42 +423,47 @@ const SolarSimulator = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="flex-1 bg-gradient-to-br from-blue-600 via-purple-600 to-orange-500 p-4">
-      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
-        {/* Header */}
-        <div className="bg-gradient-to-r from-orange-400 to-red-500 text-white p-8 text-center">
-          <h1 className="text-4xl font-bold mb-3 flex items-center justify-center gap-3">
-            <Sun className="w-10 h-10" />
-            Simulateur Panneaux Solaires
-          </h1>
-          <p className="text-xl opacity-90">
-            Découvrez la puissance des panneaux nouvelle génération !
-          </p>
-          <div className="inline-flex items-center bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold mt-3">
-            <Zap className="w-4 h-4 mr-2" />
-            700-850W | Rendement +30%
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
+        {/* Floating elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-float"></div>
+        <div className="absolute bottom-32 right-16 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-white/20 rounded-full blur-lg animate-float" style={{animationDelay: '2s'}}></div>
+        
+        <div className="relative max-w-6xl mx-auto bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl shadow-2xl overflow-hidden z-10 m-4">
+          {/* Header */}
+          <div className="bg-gradient-to-r from-blue-600/80 via-purple-600/80 to-orange-500/80 backdrop-blur-xl text-white p-8 text-center border-b border-white/20">
+            <h1 className="text-4xl font-bold mb-3 flex items-center justify-center gap-3 drop-shadow-lg">
+              <Sun className="w-10 h-10" />
+              Simulateur Panneaux Solaires
+            </h1>
+            <p className="text-xl opacity-90 drop-shadow-md">
+              Découvrez la puissance des panneaux nouvelle génération !
+            </p>
+            <div className="inline-flex items-center bg-white/20 backdrop-blur-xl border border-white/30 text-white px-4 py-2 rounded-full text-sm font-semibold mt-3 shadow-xl">
+              <Zap className="w-4 h-4 mr-2" />
+              700-850W | Rendement +30%
+            </div>
           </div>
-        </div>
 
-        {/* Progress Bar */}
-        <div className="p-8">
-          <div className="h-2 bg-gray-200 rounded-full mb-8 overflow-hidden">
-            <div 
-              className="h-full bg-gradient-to-r from-orange-400 to-red-500 rounded-full transition-all duration-500"
-              style={{ width: `${progressPercentage}%` }}
-            />
-          </div>
+          {/* Progress Bar */}
+          <div className="p-8 bg-white/5 backdrop-blur-xl">
+            <div className="h-3 bg-white/20 rounded-full mb-8 overflow-hidden backdrop-blur-xl border border-white/30">
+              <div 
+                className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 rounded-full transition-all duration-500 shadow-glow"
+                style={{ width: `${progressPercentage}%` }}
+              />
+            </div>
 
           {/* Étape 1: Localisation */}
           {currentStep === 1 && (
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-gray-800 flex items-center gap-3">
-                <MapPin className="w-8 h-8 text-orange-500" />
+              <h2 className="text-3xl font-bold text-white flex items-center gap-3 drop-shadow-lg">
+                <MapPin className="w-8 h-8 text-yellow-300" />
                 Localisez votre logement
               </h2>
               
               <div className="space-y-4">
-                <label className="block text-sm font-semibold text-gray-700">
+                <label className="block text-sm font-semibold text-white/90 drop-shadow-md">
                   Tapez votre adresse exacte
                 </label>
                 <div className="flex gap-2">
@@ -467,24 +472,24 @@ const SolarSimulator = () => {
                     value={formData.address || ''}
                     onChange={(e) => setFormData({...formData, address: e.target.value})}
                     placeholder="Ex: 123 rue de la République 69000 Lyon" 
-                    className="flex-1 p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                    className="flex-1 p-3 bg-white/10 backdrop-blur-xl border border-white/30 rounded-xl focus:border-yellow-300 focus:outline-none text-white placeholder-white/70 shadow-xl"
                   />
                   <button 
                     onClick={searchAddress}
                     disabled={loading}
-                    className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-semibold disabled:opacity-50 transition-all flex items-center gap-2"
+                    className="bg-white/20 backdrop-blur-xl hover:bg-white/30 border border-white/30 text-white px-6 py-3 rounded-xl font-semibold disabled:opacity-50 transition-all flex items-center gap-2 shadow-xl hover:shadow-glow"
                   >
                     🔍 {loading ? 'Recherche...' : 'Rechercher'}
                   </button>
                 </div>
               </div>
 
-              <p className="text-center text-gray-600 mb-4">
+              <p className="text-center text-white/80 mb-4 drop-shadow-md">
                 Saisissez votre adresse complète avec le code postal pour une localisation précise
               </p>
 
               <div className="text-center mb-4">
-                <span className="inline-flex items-center text-orange-600 font-semibold">
+                <span className="inline-flex items-center text-yellow-300 font-semibold drop-shadow-lg">
                   👆 Cliquez sur la carte pour affiner votre position exacte 👆
                 </span>
               </div>
@@ -587,20 +592,20 @@ const SolarSimulator = () => {
           {/* Étape 2: Caractéristiques du logement */}
           {currentStep === 2 && (
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-gray-800 flex items-center gap-3">
-                <Home className="w-8 h-8 text-orange-500" />
+              <h2 className="text-3xl font-bold text-white flex items-center gap-3 drop-shadow-lg">
+                <Home className="w-8 h-8 text-yellow-300" />
                 Caractéristiques de votre logement
               </h2>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <label className="block text-sm font-semibold text-gray-700">
+                  <label className="block text-sm font-semibold text-white/90 drop-shadow-md">
                     Type de logement
                   </label>
                   <select 
                     value={formData.houseType}
                     onChange={(e) => setFormData({...formData, houseType: e.target.value})}
-                    className="w-full p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                    className="w-full p-3 bg-white/10 backdrop-blur-xl border border-white/30 rounded-xl focus:border-yellow-300 focus:outline-none text-white shadow-xl"
                   >
                     <option value="maison">Maison individuelle</option>
                     <option value="appartement">Appartement</option>
@@ -608,13 +613,13 @@ const SolarSimulator = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <label className="block text-sm font-semibold text-gray-700">
+                  <label className="block text-sm font-semibold text-white/90 drop-shadow-md">
                     Surface habitable
                   </label>
                   <select 
                     value={formData.houseSurface}
                     onChange={(e) => setFormData({...formData, houseSurface: e.target.value})}
-                    className="w-full p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                    className="w-full p-3 bg-white/10 backdrop-blur-xl border border-white/30 rounded-xl focus:border-yellow-300 focus:outline-none text-white shadow-xl"
                   >
                     <option value="80">Moins de 80 m²</option>
                     <option value="100">80 - 100 m²</option>
@@ -625,13 +630,13 @@ const SolarSimulator = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <label className="block text-sm font-semibold text-gray-700">
+                  <label className="block text-sm font-semibold text-white/90 drop-shadow-md">
                     Orientation principale du toit
                   </label>
                   <select 
                     value={formData.roofOrientation}
                     onChange={(e) => setFormData({...formData, roofOrientation: e.target.value})}
-                    className="w-full p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                    className="w-full p-3 bg-white/10 backdrop-blur-xl border border-white/30 rounded-xl focus:border-yellow-300 focus:outline-none text-white shadow-xl"
                   >
                     <option value="sud">Sud (idéal)</option>
                     <option value="sud-est">Sud-Est</option>
@@ -662,7 +667,7 @@ const SolarSimulator = () => {
               </div>
 
               <div className="space-y-4">
-                <label className="block text-sm font-semibold text-gray-700">
+                <label className="block text-sm font-semibold text-white/90 drop-shadow-md">
                   Surface disponible sur le toit: {formData.roofSurface} m²
                 </label>
                 <input 
@@ -671,9 +676,9 @@ const SolarSimulator = () => {
                   max="200" 
                   value={formData.roofSurface}
                   onChange={(e) => setFormData({...formData, roofSurface: parseInt(e.target.value)})}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  className="w-full h-3 bg-white/20 rounded-lg appearance-none cursor-pointer shadow-xl"
                 />
-                <div className="text-center font-semibold text-orange-500">
+                <div className="text-center font-semibold text-yellow-300 drop-shadow-lg">
                   {formData.roofSurface} m²
                 </div>
               </div>
@@ -681,13 +686,13 @@ const SolarSimulator = () => {
               <div className="flex justify-between">
                 <button 
                   onClick={prevStep}
-                  className="bg-gray-500 text-white px-8 py-3 rounded-xl font-semibold hover:bg-gray-600 transition-all"
+                  className="bg-white/20 backdrop-blur-xl border border-white/30 text-white px-8 py-3 rounded-xl font-semibold hover:bg-white/30 transition-all shadow-xl"
                 >
                   Retour
                 </button>
                 <button 
                   onClick={nextStep}
-                  className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
+                  className="bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-glow transition-all shadow-xl"
                 >
                   Continuer
                 </button>
@@ -698,8 +703,8 @@ const SolarSimulator = () => {
           {/* Étape 3: Consommation */}
           {currentStep === 3 && (
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-gray-800 flex items-center gap-3">
-                <Zap className="w-8 h-8 text-orange-500" />
+              <h2 className="text-3xl font-bold text-white flex items-center gap-3 drop-shadow-lg">
+                <Zap className="w-8 h-8 text-yellow-300" />
                 Votre consommation électrique
               </h2>
 
@@ -855,8 +860,8 @@ const SolarSimulator = () => {
           {/* Étape 4: Résultats */}
           {currentStep === 4 && results && (
             <div className="space-y-8">
-              <h2 className="text-3xl font-bold text-gray-800 flex items-center gap-3">
-                <Calculator className="w-8 h-8 text-orange-500" />
+              <h2 className="text-3xl font-bold text-white flex items-center gap-3 drop-shadow-lg">
+                <Calculator className="w-8 h-8 text-yellow-300" />
                 Votre simulation personnalisée
               </h2>
 
@@ -1004,9 +1009,9 @@ const SolarSimulator = () => {
               </div>
             </div>
           )}
+          </div>
         </div>
-      </div>
-      </div>
+      </section>
       <Footer />
     </div>
   );
