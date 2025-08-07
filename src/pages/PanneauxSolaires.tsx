@@ -109,7 +109,7 @@ const PanneauxSolaires = () => {
                   <CardContent className="space-y-2 text-sm">
                     <p>• Production annuelle moyenne: 900 à 1 300 kWh par kWc</p>
                     <p>• Taux d’autoconsommation visé: 40 à 70% selon profil</p>
-                    <p>• Durée de vie des panneaux: > 30 ans</p>
+                    <p>• Durée de vie des panneaux: &gt; 30 ans</p>
                     <p>• Délais moyens: étude sous 48h, pose en 1 jour pour 3 kWc</p>
                   </CardContent>
                 </Card>
