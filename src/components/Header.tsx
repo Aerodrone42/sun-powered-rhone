@@ -128,12 +128,6 @@ const Header = () => {
 
         {/* Contact Info & Mobile Menu */}
         <div className="flex items-center space-x-4">
-          <div className="hidden md:flex items-center space-x-4 text-sm text-muted-foreground">
-            <div className="flex items-center space-x-1">
-              <Mail className="h-4 w-4" />
-              <span>contact@wn-energies.fr</span>
-            </div>
-          </div>
           
           <Button asChild variant="hero" size="sm" className="hidden md:inline-flex">
             <Link to="/contact">Devis gratuit</Link>
