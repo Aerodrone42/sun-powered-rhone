@@ -42,8 +42,8 @@ const Header = () => {
       ]
     },
     {
-      title: "Zone d'intervention",
-      href: "/zone-intervention",
+      title: "Simulateur",
+      href: "/simulateur",
     },
     {
       title: "Contact",
