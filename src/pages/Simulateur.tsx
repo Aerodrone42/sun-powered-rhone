@@ -344,12 +344,12 @@ const SolarSimulator = () => {
       
       // Limitation selon le type de bâtiment
       if (formData.houseType === 'exploitation' || formData.houseType === 'hangar' || formData.houseType === 'batiment_pro') {
-        // Exploitation/bâtiment pro: jusqu'à 100 panneaux selon surface disponible
-        maxPanels = Math.min(theoreticalPanels, 100);
+        // Exploitation/bâtiment pro: jusqu'à 50 panneaux selon surface disponible (≈39kWc)
+        maxPanels = Math.min(theoreticalPanels, 50);
         availableSurface = Math.round(maxPanels * panelSurface * 100) / 100;
       } else {
-        // Maison individuelle: limitation réaliste à 32 panneaux max (≈25kWc)
-        maxPanels = Math.min(theoreticalPanels, 32);
+        // Maison individuelle: limitation réaliste à 20 panneaux max (≈15.5kWc)
+        maxPanels = Math.min(theoreticalPanels, 20);
         availableSurface = Math.round(maxPanels * panelSurface * 100) / 100; // Arrondi à 2 décimales
       }
     }
@@ -360,11 +360,11 @@ const SolarSimulator = () => {
     const classicSurface = availableSurface;
     
     // CORRECTION: Production basée sur kWh/kWc/an de l'API PVGIS (plus précis)
-    const baseProductionPerKwc = locationData.production || (irradiation * 0.8); // kWh/kWc/an
+    const baseProductionPerKwc = Math.min(locationData.production || (irradiation * 0.8), 1400); // Plafonné à 1400 kWh/kWc/an
     const adjustedProduction = baseProductionPerKwc * orientationFactor * inclinationFactor * temperatureFactor;
     
-    const classicProductionMin = Math.round(classicPower * adjustedProduction * 0.98); // -2% pertes système
-    const classicProductionMax = Math.round(classicPower * adjustedProduction * 1.02); // +2% optimiste
+    const classicProductionMin = Math.round(classicPower * adjustedProduction * 0.95); // -5% pertes système réalistes
+    const classicProductionMax = Math.round(classicPower * adjustedProduction * 1.00); // Conditions optimales
     // CORRECTION: Calcul des économies réalistes (autoconsommation + revente surplus)
     // Autoconsommation = minimum entre production et consommation
     const classicAutoconsumed = Math.min(classicProductionMin, annualConsumption);
