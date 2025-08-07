@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import ServiceCard from "@/components/ServiceCard"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+import CallbackForm from "@/components/CallbackForm"
 import { Sun, Home, Building, Zap, Battery, Car } from "lucide-react"
 import heroImage from "@/assets/hero-image.jpg"
 import teamWorkImage from "@/assets/team-work.jpg"
@@ -195,6 +196,21 @@ const Index = () => {
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Callback Form Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Parlons de votre projet
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Planifiez un appel avec nos experts pour une étude personnalisée de votre projet solaire
+            </p>
+          </div>
+          <CallbackForm />
         </div>
       </section>
 
