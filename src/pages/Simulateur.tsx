@@ -268,7 +268,16 @@ const SolarSimulator = () => {
     if (heating === 'electrique') {
       baseConsumption *= 1.3; // +30% pour chauffage électrique
     }
-    const annualConsumption = baseConsumption * (residents / 4); // Ajustement selon nombre d'habitants
+    
+    // Ajustement selon le type de logement
+    let annualConsumption;
+    if (formData.houseType === 'exploitation' || formData.houseType === 'hangar' || formData.houseType === 'batiment_pro') {
+      // Pour les entreprises : pas d'ajustement par habitants
+      annualConsumption = baseConsumption;
+    } else {
+      // Pour les particuliers : ajustement selon nombre d'habitants
+      annualConsumption = baseConsumption * (residents / 4);
+    }
     
     // Facteurs d'orientation
     const orientationFactors = {
