@@ -1247,7 +1247,7 @@ const SolarSimulator = () => {
                       <p className="text-sm text-amber-700">
                         <strong>Autoconsommation ({selfConsumptionRate[0]}%) :</strong> {Math.round((results.classic.productionMin + results.classic.productionMax) / 2 * selfConsumptionRate[0] / 100).toLocaleString()} kWh/an à 0,21€/kWh
                         <br />
-                        <strong>Revente surplus ({100 - selfConsumptionRate[0]}%) :</strong> {Math.round((results.classic.productionMin + results.classic.productionMax) / 2 * (100 - selfConsumptionRate[0]) / 100).toLocaleString()} kWh/an à 4¢/kWh (tarif 2025)
+                        <strong>Revente surplus ({100 - selfConsumptionRate[0]}%) :</strong> {Math.round((results.classic.productionMin + results.classic.productionMax) / 2 * (100 - selfConsumptionRate[0]) / 100).toLocaleString()} kWh/an à 0,04€/kWh (tarif 2025)
                       </p>
                    </div>
                  </div>
