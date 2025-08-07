@@ -108,30 +108,30 @@ const Index = () => {
             {/* Target Audience Tabs */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto lg:mx-0">
               <Link to="/particuliers" className="group">
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                  <Home className="h-8 w-8 mx-auto mb-3 text-white" />
-                  <span className="text-white font-medium text-sm md:text-base">Je suis un particulier</span>
+                <div className="bg-white/90 backdrop-blur-sm border border-white rounded-lg p-6 text-center hover:bg-white transition-all duration-300 hover:scale-105 shadow-lg">
+                  <Home className="h-8 w-8 mx-auto mb-3 text-primary" />
+                  <span className="text-gray-800 font-medium text-sm md:text-base">Je suis un particulier</span>
                 </div>
               </Link>
               
               <Link to="/professionnels" className="group">
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                  <Building className="h-8 w-8 mx-auto mb-3 text-white" />
-                  <span className="text-white font-medium text-sm md:text-base">Je suis un professionnel</span>
+                <div className="bg-white/90 backdrop-blur-sm border border-white rounded-lg p-6 text-center hover:bg-white transition-all duration-300 hover:scale-105 shadow-lg">
+                  <Building className="h-8 w-8 mx-auto mb-3 text-primary" />
+                  <span className="text-gray-800 font-medium text-sm md:text-base">Je suis un professionnel</span>
                 </div>
               </Link>
               
               <Link to="/agriculteurs" className="group">
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                  <Sun className="h-8 w-8 mx-auto mb-3 text-white" />
-                  <span className="text-white font-medium text-sm md:text-base">Je suis un agriculteur</span>
+                <div className="bg-white/90 backdrop-blur-sm border border-white rounded-lg p-6 text-center hover:bg-white transition-all duration-300 hover:scale-105 shadow-lg">
+                  <Sun className="h-8 w-8 mx-auto mb-3 text-primary" />
+                  <span className="text-gray-800 font-medium text-sm md:text-base">Je suis un agriculteur</span>
                 </div>
               </Link>
               
               <Link to="/marches-publics" className="group">
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                  <Zap className="h-8 w-8 mx-auto mb-3 text-white" />
-                  <span className="text-white font-medium text-sm md:text-base">Marché public</span>
+                <div className="bg-white/90 backdrop-blur-sm border border-white rounded-lg p-6 text-center hover:bg-white transition-all duration-300 hover:scale-105 shadow-lg">
+                  <Zap className="h-8 w-8 mx-auto mb-3 text-primary" />
+                  <span className="text-gray-800 font-medium text-sm md:text-base">Marché public</span>
                 </div>
               </Link>
             </div>
