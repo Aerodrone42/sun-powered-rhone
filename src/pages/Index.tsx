@@ -5,13 +5,64 @@ import ServiceCard from "@/components/ServiceCard"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import CallbackForm from "@/components/CallbackForm"
-import { Sun, Home, Building, Zap, Battery, Car } from "lucide-react"
+import { Sun, Home, Building, Zap, Battery, Car, Factory, Users } from "lucide-react"
 import heroImage from "@/assets/hero-image.jpg"
 import teamWorkImage from "@/assets/team-work.jpg"
 import happyFamilyImage from "@/assets/happy-family.jpg"
 import commercialBuildingImage from "@/assets/commercial-building.jpg"
 
 const Index = () => {
+  const professionnelServices = [
+    {
+      title: "Solutions industrielles",
+      description: "Installations solaires pour entreprises et industries",
+      icon: Factory,
+      href: "/professionnels/industrielles",
+      benefits: [
+        "Réduction des coûts énergétiques",
+        "Amélioration du bilan carbone",
+        "Avantages fiscaux",
+        "Maintenance professionnelle"
+      ]
+    },
+    {
+      title: "Ombrières photovoltaïques",
+      description: "Parkings solaires et ombrières pour entreprises",
+      icon: Building,
+      href: "/professionnels/ombrieres",
+      benefits: [
+        "Double fonction : ombrage et production",
+        "Valorisation des espaces de parking",
+        "Installation sur mesure",
+        "Rentabilité optimisée"
+      ]
+    },
+    {
+      title: "Toitures commerciales",
+      description: "Couverture photovoltaïque pour bâtiments commerciaux",
+      icon: Sun,
+      href: "/professionnels/toitures",
+      benefits: [
+        "Exploitation optimale des toitures",
+        "Revente d'électricité",
+        "Amélioration de l'image d'entreprise",
+        "Contrats de maintenance inclus"
+      ]
+    },
+    {
+      title: "Centrales au sol",
+      description: "Parcs photovoltaïques et centrales de grande envergure",
+      icon: Zap,
+      href: "/professionnels/centrales",
+      benefits: [
+        "Production d'énergie à grande échelle",
+        "Investissement rentable",
+        "Étude de faisabilité complète",
+        "Gestion administrative complète"
+      ]
+    }
+  ]
+
   const particulierServices = [
     {
       title: "Panneaux solaires",
@@ -59,6 +110,57 @@ const Index = () => {
         "Utilisation nocturne de l'énergie solaire",
         "Sécurité en cas de coupure réseau",
         "Optimisation de l'autoconsommation"
+      ]
+    }
+  ]
+
+  const collectiviteServices = [
+    {
+      title: "Équipements publics",
+      description: "Solutions solaires pour bâtiments et équipements municipaux",
+      icon: Building,
+      href: "/collectivites/equipements-publics",
+      benefits: [
+        "Réduction des coûts publics",
+        "Exemplarité environnementale",
+        "Sensibilisation citoyenne",
+        "Financement adapté"
+      ]
+    },
+    {
+      title: "Éclairage solaire",
+      description: "Systèmes d'éclairage public autonome",
+      icon: Sun,
+      href: "/collectivites/eclairage",
+      benefits: [
+        "Autonomie énergétique complète",
+        "Réduction des coûts d'électricité",
+        "Installation sans travaux lourds",
+        "Maintenance simplifiée"
+      ]
+    },
+    {
+      title: "Mobilité électrique",
+      description: "Bornes de recharge publiques alimentées par le solaire",
+      icon: Car,
+      href: "/collectivites/mobilite",
+      benefits: [
+        "Développement de la mobilité verte",
+        "Attractivité du territoire",
+        "Revenus complémentaires",
+        "Service public innovant"
+      ]
+    },
+    {
+      title: "Projets participatifs",
+      description: "Centrales solaires citoyennes et participatives",
+      icon: Users,
+      href: "/collectivites/participatifs",
+      benefits: [
+        "Implication citoyenne",
+        "Revenus pour la collectivité",
+        "Transition énergétique locale",
+        "Animation territoriale"
       ]
     }
   ]
@@ -168,6 +270,30 @@ const Index = () => {
       </section>
 
 
+      {/* Services Professionnels */}
+      <section className="py-20 bg-gradient-to-br from-blue-50/50 to-white">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Nos services pour <span className="text-primary">professionnels</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Solutions photovoltaïques professionnelles adaptées aux entreprises et industries
+            </p>
+          </div>
+          
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {professionnelServices.map((service, index) => (
+              <ServiceCard
+                key={index}
+                {...service}
+                variant={index % 2 === 0 ? 'solar' : 'default'}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services Particuliers */}
       <section className="py-20 bg-muted/30">
         <div className="container">
@@ -182,6 +308,30 @@ const Index = () => {
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {particulierServices.map((service, index) => (
+              <ServiceCard
+                key={index}
+                {...service}
+                variant={index % 2 === 0 ? 'solar' : 'default'}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Collectivités */}
+      <section className="py-20 bg-gradient-to-br from-green-50/50 to-white">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Nos services pour <span className="text-primary">collectivités</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Accompagnement des collectivités dans leurs projets de transition énergétique
+            </p>
+          </div>
+          
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {collectiviteServices.map((service, index) => (
               <ServiceCard
                 key={index}
                 {...service}
