@@ -386,63 +386,36 @@ const SolarSimulator = () => {
                 Localisez votre logement
               </h2>
               
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <label className="block text-sm font-semibold text-gray-700">
-                    Sélectionnez votre ville
-                  </label>
-                  <select 
-                    value={formData.city} 
-                    onChange={(e) => {
-                      setFormData({...formData, city: e.target.value});
-                      if (e.target.value) handleCitySelect(e.target.value);
+              {/* Recherche par adresse exacte uniquement */}
+              <div className="max-w-2xl mx-auto space-y-4">
+                <label className="block text-lg font-semibold text-gray-700 text-center">
+                  Tapez votre adresse exacte
+                </label>
+                <div className="flex gap-3">
+                  <input 
+                    type="text" 
+                    placeholder="Ex: 139 place de l'église 42114 Chirassimont" 
+                    className="flex-1 p-4 text-lg border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                    onKeyPress={(e) => {
+                      if (e.key === 'Enter') {
+                        searchByAddress((e.target as HTMLInputElement).value);
+                      }
                     }}
-                    className="w-full p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                  />
+                  <button
+                    onClick={(e) => {
+                      const input = (e.target as HTMLElement).previousElementSibling as HTMLInputElement;
+                      searchByAddress(input.value);
+                    }}
+                    disabled={loading}
+                    className="bg-green-500 text-white px-8 py-4 rounded-xl font-semibold disabled:opacity-50 hover:bg-green-600 transition-all text-lg"
                   >
-                    <option value="">-- Choisissez votre ville --</option>
-                    <option value="paris">Paris (75)</option>
-                    <option value="marseille">Marseille (13)</option>
-                    <option value="lyon">Lyon (69)</option>
-                    <option value="toulouse">Toulouse (31)</option>
-                    <option value="nice">Nice (06)</option>
-                    <option value="nantes">Nantes (44)</option>
-                    <option value="montpellier">Montpellier (34)</option>
-                    <option value="strasbourg">Strasbourg (67)</option>
-                    <option value="bordeaux">Bordeaux (33)</option>
-                    <option value="lille">Lille (59)</option>
-                  </select>
+                    {loading ? '⏳' : '🔍 Rechercher'}
+                  </button>
                 </div>
-
-                <div className="space-y-4">
-                  <label className="block text-sm font-semibold text-gray-700">
-                    Ou tapez votre adresse exacte
-                  </label>
-                  <div className="flex gap-2">
-                    <input 
-                      type="text" 
-                      placeholder="Ex: 139 place de l'église 42114 Chirassimont" 
-                      className="flex-1 p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
-                      onKeyPress={(e) => {
-                        if (e.key === 'Enter') {
-                          searchByAddress((e.target as HTMLInputElement).value);
-                        }
-                      }}
-                    />
-                    <button
-                      onClick={(e) => {
-                        const input = (e.target as HTMLElement).previousElementSibling as HTMLInputElement;
-                        searchByAddress(input.value);
-                      }}
-                      disabled={loading}
-                      className="bg-green-500 text-white px-6 py-3 rounded-xl font-semibold disabled:opacity-50 hover:bg-green-600 transition-all"
-                    >
-                      {loading ? '⏳' : '🔍'}
-                    </button>
-                  </div>
-                  <p className="text-xs text-gray-500">
-                    Saisissez votre adresse complète avec le code postal
-                  </p>
-                </div>
+                <p className="text-center text-gray-500">
+                  Saisissez votre adresse complète avec le code postal pour une localisation précise
+                </p>
               </div>
 
               <p className="text-center text-gray-600 text-lg font-medium">
