@@ -10,51 +10,51 @@ import commercialBuildingImage from "@/assets/commercial-building.jpg"
 const Professionnels = () => {
   const services = [
     {
-      title: "Commerce",
-      description: "Réduisez vos coûts énergétiques et valorisez votre image écologique",
+      title: "Panneaux Solaires",
+      description: "Installations photovoltaïques industrielles sur-mesure",
       icon: Building,
-      href: "/professionnels/commerce",
+      href: "/professionnels/panneaux-solaires",
       benefits: [
         "Réduction significative des factures électriques",
-        "Image de marque éco-responsable",
-        "Valorisation immobilière du local commercial",
+        "ROI attractif sur le long terme",
+        "Valorisation immobilière des bâtiments",
         "Possibilité de vente du surplus d'énergie"
       ]
     },
     {
-      title: "Entreprise", 
-      description: "Installations de grande envergure pour optimiser vos coûts de production",
+      title: "Autoconsommation", 
+      description: "Optimisez votre consommation électrique industrielle",
       icon: Factory,
-      href: "/professionnels/entreprise",
+      href: "/professionnels/installation-consommation",
       benefits: [
-        "ROI attractif pour les grandes installations",
+        "Autonomie énergétique maximisée",
         "Réduction des coûts de production",
-        "Engagement RSE renforcé",
-        "Solutions de financement adaptées"
+        "Stockage intelligent de l'énergie",
+        "Solutions de monitoring avancées"
       ]
     },
     {
-      title: "Agriculteur",
-      description: "Combinez production agricole et production d'énergie solaire",
+      title: "Borne de Recharge",
+      description: "Infrastructure de recharge électrique pour véhicules d'entreprise",
       icon: Wheat,
-      href: "/professionnels/agriculteur",
+      href: "/professionnels/borne-recharge",
       benefits: [
-        "Double source de revenus",
-        "Protection des cultures",
-        "Optimisation de l'utilisation des terres",
-        "Soutien aux pratiques durables"
+        "Bornes haute puissance",
+        "Gestion intelligente des charges",
+        "Solutions pour flottes professionnelles",
+        "Intégration avec installation solaire"
       ]
     },
     {
-      title: "Collectivité",
-      description: "Accompagnement des collectivités dans leur transition énergétique",
+      title: "Batterie Solaire",
+      description: "Stockage d'énergie industriel et solutions de sauvegarde",
       icon: Building2,
-      href: "/professionnels/collectivite",
+      href: "/professionnels/batterie-solaire",
       benefits: [
-        "Réduction des dépenses publiques",
-        "Exemple d'éco-responsabilité citoyenne",
-        "Projets participatifs possibles",
-        "Expertise réglementaire et administrative"
+        "Stockage haute capacité",
+        "Sécurisation énergétique",
+        "Optimisation des coûts énergétiques",
+        "Solutions de sauvegarde professionnelles"
       ]
     }
   ]
