@@ -359,12 +359,12 @@ const SolarSimulator = () => {
     const classicPanels = maxPanels;
     const classicSurface = availableSurface;
     
-    // CORRECTION: Production basée sur kWh/kWc/an de l'API PVGIS (plus précis)
-    const baseProductionPerKwc = Math.min(locationData.production || (irradiation * 0.8), 1400); // Plafonné à 1400 kWh/kWc/an
-    const adjustedProduction = baseProductionPerKwc * orientationFactor * inclinationFactor * temperatureFactor;
+    // UTILISATION DIRECTE des données PVGIS officielles (Commission Européenne)
+    const officialProductionPerKwc = locationData?.production || 1200; // Données PVGIS réelles en kWh/kWc/an
     
-    const classicProductionMin = Math.round(classicPower * adjustedProduction * 0.95); // -5% pertes système réalistes
-    const classicProductionMax = Math.round(classicPower * adjustedProduction * 1.00); // Conditions optimales
+    // Calcul direct sans facteurs approximatifs - PVGIS intègre déjà orientation/inclinaison optimales
+    const classicProductionMin = Math.round(classicPower * officialProductionPerKwc * 0.95); // -5% pertes système réalistes
+    const classicProductionMax = Math.round(classicPower * officialProductionPerKwc * 0.98); // -2% pertes minimales
     // CORRECTION: Calcul des économies réalistes (autoconsommation + revente surplus)
     // Autoconsommation = minimum entre production et consommation
     const classicAutoconsumed = Math.min(classicProductionMin, annualConsumption);
