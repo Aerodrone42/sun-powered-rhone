@@ -122,9 +122,9 @@ const SolarSimulator = () => {
       // **API PVGIS OFFICIELLE** - Données d'irradiation solaire précises + données mensuelles
       let pvgisData = null;
       try {
-        const pvgisResponse = await fetch(
-          `https://re.jrc.ec.europa.eu/api/PVcalc?lat=${lat}&lon=${lng}&peakpower=1&loss=14&optimalangles=1&monthly=1&outputformat=json`
-        );
+        // Utilisation d'un proxy CORS pour contourner les restrictions
+        const pvgisUrl = `https://corsproxy.io/?https://re.jrc.ec.europa.eu/api/PVcalc?lat=${lat}&lon=${lng}&peakpower=1&loss=14&optimalangles=1&monthly=1&outputformat=json`;
+        const pvgisResponse = await fetch(pvgisUrl);
         
         if (pvgisResponse.ok) {
           const data = await pvgisResponse.json();
