@@ -58,8 +58,8 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Zone d'intervention",
-      content: "Rhône-Alpes",
-      description: "Lyon et toute la région"
+      content: "Toute la France",
+      description: "Interventions partout en France"
     },
     {
       icon: Clock,
