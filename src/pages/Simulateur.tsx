@@ -551,23 +551,23 @@ const SolarSimulator = () => {
             </div>
             
             {/* Bandeau d'information animé */}
-            <div className="mt-6 overflow-hidden rounded-xl bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 border border-blue-200/50 backdrop-blur-xl shadow-lg">
+            <div className="mt-6 overflow-hidden rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 shadow-lg">
               <div className="relative">
-                <div className="animate-pulse absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+                <div className="animate-pulse absolute inset-0 bg-gradient-to-r from-transparent via-amber-100/30 to-transparent"></div>
                 <div className="px-6 py-4">
-                  <div className="flex items-center justify-center gap-3 text-blue-800">
+                  <div className="flex items-center justify-center gap-3">
                     <div className="flex-shrink-0">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center animate-bounce">
-                        <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="w-10 h-10 bg-amber-500 rounded-full flex items-center justify-center animate-bounce">
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
                     </div>
                     <div className="text-center">
-                      <p className="text-sm font-semibold text-blue-900">
-                        💡 <span className="text-blue-700">Simulation indicative</span> - Les résultats constituent une <span className="underline decoration-blue-500">estimation</span> basée sur des données officielles
+                      <p className="text-base font-bold text-amber-900">
+                        ⚠️ <span className="text-amber-800">Simulation indicative</span> - Les résultats constituent une <span className="underline decoration-amber-600">estimation</span>
                       </p>
-                      <p className="text-xs text-blue-600 mt-1 opacity-80">
+                      <p className="text-sm text-amber-700 mt-1 font-medium">
                         Les performances réelles peuvent varier selon vos conditions spécifiques
                       </p>
                     </div>
