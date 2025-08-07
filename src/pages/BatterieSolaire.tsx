@@ -37,53 +37,53 @@ const BatterieSolaire = () => {
       icon: Battery,
       title: "Autonomie énergétique",
       desc: "Stockez l'énergie solaire pour la consommer 24h/24, même sans soleil",
-      metric: "90% autonomie"
+      metric: "Autonomie max"
     },
     {
       icon: TrendingUp,
       title: "Rentabilité optimisée",
       desc: "Maximisez la valeur de votre production solaire en évitant la revente",
-      metric: "+40% économies"
+      metric: "ROI amélioré"
     },
     {
       icon: Shield,
       title: "Sécurité d'approvisionnement",
       desc: "Continuez à alimenter vos équipements essentiels en cas de coupure",
-      metric: "Backup garanti"
+      metric: "Backup intégré"
     },
     {
       icon: Leaf,
       title: "Impact environnemental",
       desc: "Réduisez votre empreinte carbone avec une énergie 100% verte stockée",
-      metric: "0% CO2"
+      metric: "Énergie verte"
     }
   ];
 
   const solutions = [
     {
-      title: "Batterie compacte 5 kWh",
+      title: "Batterie compacte",
       description: "Solution d'entrée pour optimiser l'autoconsommation",
-      features: ["Lithium-ion", "Garantie 10 ans", "Installation murale", "Monitoring inclus"],
-      ideal: "Appartements et petites maisons",
-      capacity: "5 kWh",
-      autonomy: "6-8h d'autonomie"
+      features: ["Lithium-ion", "Garantie longue durée", "Installation murale", "Monitoring inclus"],
+      ideal: "Petites installations",
+      capacity: "Compact",
+      autonomy: "Usage quotidien"
     },
     {
-      title: "Batterie familiale 10 kWh",
-      description: "La solution parfaite pour une famille de 4 personnes",
-      features: ["Technologie LFP", "15 ans garantie", "Modulaire", "App intelligente"],
+      title: "Batterie résidentielle",
+      description: "La solution adaptée pour une famille",
+      features: ["Technologie avancée", "Garantie étendue", "Modulaire", "App intelligente"],
       ideal: "Maisons familiales",
-      capacity: "10 kWh",
-      autonomy: "12-16h d'autonomie",
+      capacity: "Standard",
+      autonomy: "Autonomie étendue",
       popular: true
     },
     {
-      title: "Batterie premium 20 kWh",
-      description: "Autonomie maximale pour grandes maisons",
-      features: ["Haute capacité", "Onduleur hybride", "Backup complet", "Gestion IA"],
+      title: "Batterie haute capacité",
+      description: "Autonomie maximale pour grandes installations",
+      features: ["Haute performance", "Onduleur hybride", "Backup complet", "Gestion intelligente"],
       ideal: "Grandes propriétés",
-      capacity: "20 kWh",
-      autonomy: "24-48h d'autonomie"
+      capacity: "Premium",
+      autonomy: "Autonomie maximale"
     }
   ];
 
@@ -172,15 +172,15 @@ const BatterieSolaire = () => {
                 {/* Key metrics */}
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 pt-8">
                   <div className="space-y-1">
-                    <div className="text-3xl font-bold text-primary">20 kWh</div>
-                    <div className="text-sm text-muted-foreground">Capacité max</div>
+                    <div className="text-3xl font-bold text-primary">Premium</div>
+                    <div className="text-sm text-muted-foreground">Technologie</div>
                   </div>
                   <div className="space-y-1">
-                    <div className="text-3xl font-bold text-primary">15 ans</div>
+                    <div className="text-3xl font-bold text-primary">Longue</div>
                     <div className="text-sm text-muted-foreground">Garantie</div>
                   </div>
                   <div className="space-y-1">
-                    <div className="text-3xl font-bold text-primary">90%</div>
+                    <div className="text-3xl font-bold text-primary">Max</div>
                     <div className="text-sm text-muted-foreground">Autonomie</div>
                   </div>
                 </div>
@@ -207,15 +207,15 @@ const BatterieSolaire = () => {
                     <div className="space-y-4">
                       <div className="flex justify-between items-center">
                         <span className="text-sm">Niveau de charge</span>
-                        <span className="font-semibold text-primary">85%</span>
+                        <span className="font-semibold text-primary">En cours</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-sm">Capacité disponible</span>
-                        <span className="font-semibold">8.5 kWh</span>
+                        <span className="font-semibold">Optimale</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-sm">Autonomie restante</span>
-                        <span className="font-semibold text-primary">14h</span>
+                        <span className="font-semibold text-primary">Étendue</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-sm">Mode</span>
@@ -225,7 +225,7 @@ const BatterieSolaire = () => {
 
                     <div className="pt-4 border-t border-border">
                       <div className="w-full bg-muted rounded-full h-3">
-                        <div className="bg-gradient-to-r from-primary to-primary/80 h-3 rounded-full w-[85%]"></div>
+                        <div className="bg-gradient-to-r from-primary to-primary/80 h-3 rounded-full w-3/4"></div>
                       </div>
                     </div>
                   </CardContent>
@@ -314,19 +314,19 @@ const BatterieSolaire = () => {
                 </Card>
                 
                 <Card className="p-6 border-border/50">
-                  <h3 className="text-xl font-semibold mb-4">Capacités recommandées</h3>
+                  <h3 className="text-xl font-semibold mb-4">Capacités types</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
-                      <span>Couple sans enfant</span>
-                      <span className="font-semibold">5-7 kWh</span>
+                      <span>Petite installation</span>
+                      <span className="font-semibold">Compact</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Famille 4 personnes</span>
-                      <span className="font-semibold">10-15 kWh</span>
+                      <span>Installation standard</span>
+                      <span className="font-semibold">Résidentiel</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Grande maison</span>
-                      <span className="font-semibold">15-20 kWh</span>
+                      <span>Grande installation</span>
+                      <span className="font-semibold">Premium</span>
                     </div>
                   </div>
                 </Card>
