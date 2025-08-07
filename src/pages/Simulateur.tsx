@@ -673,22 +673,6 @@ const SolarSimulator = () => {
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <label className="block text-sm font-semibold text-foreground drop-shadow-md">
-                  Surface disponible sur le toit: {formData.roofSurface} m²
-                </label>
-                <input 
-                  type="range" 
-                  min="20" 
-                  max="200" 
-                  value={formData.roofSurface}
-                  onChange={(e) => setFormData({...formData, roofSurface: parseInt(e.target.value)})}
-                  className="w-full h-3 bg-muted rounded-lg appearance-none cursor-pointer shadow-xl"
-                />
-                <div className="text-center font-semibold text-primary drop-shadow-lg">
-                  {formData.roofSurface} m²
-                </div>
-              </div>
 
               <div className="flex justify-between">
                 <button 
