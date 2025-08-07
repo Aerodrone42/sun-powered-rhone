@@ -225,42 +225,7 @@ const SolarSimulator = () => {
     setLoading(false);
   };
 
-  // Recherche par code postal
-  const searchByPostalCode = async (postalCode: string) => {
-    if (!postalCode.trim() || postalCode.length !== 5) return;
-    
-    setLoading(true);
-    try {
-      const response = await fetch(
-        `https://api-adresse.data.gouv.fr/search/?q=${postalCode}&type=municipality&limit=1`
-      );
-      const data = await response.json();
-      
-      if (data.features && data.features.length > 0) {
-        const feature = data.features[0];
-        const [lng, lat] = feature.geometry.coordinates;
-        
-        if (map) {
-          (map as any).setView([lat, lng], 12);
-          setSelectedLocation({ lat, lng });
-          fetchLocationData(lat, lng);
-          
-          // Ajouter marqueur
-          if (marker) {
-            (map as any).removeLayer(marker);
-          }
-          const newMarker = (window as any).L.marker([lat, lng]).addTo(map);
-          setMarker(newMarker);
-        }
-      } else {
-        alert('Code postal non trouvé.');
-      }
-    } catch (error) {
-      console.error('Erreur recherche code postal:', error);
-      alert('Erreur lors de la recherche par code postal.');
-    }
-    setLoading(false);
-  };
+  // Recherche par code postal (fonction supprimée - non utilisée)
 
   // Calcul des résultats solaires
   const calculateSolarResults = async () => {
@@ -450,59 +415,38 @@ const SolarSimulator = () => {
 
                 <div className="space-y-4">
                   <label className="block text-sm font-semibold text-gray-700">
-                    Ou saisissez votre code postal
+                    Ou tapez votre adresse exacte
                   </label>
                   <div className="flex gap-2">
                     <input 
                       type="text" 
-                      value={formData.postalCode}
-                      onChange={(e) => setFormData({...formData, postalCode: e.target.value})}
-                      placeholder="Ex: 13000" 
-                      maxLength={5}
+                      placeholder="Ex: 139 place de l'église 42114 Chirassimont" 
                       className="flex-1 p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                      onKeyPress={(e) => {
+                        if (e.key === 'Enter') {
+                          searchByAddress((e.target as HTMLInputElement).value);
+                        }
+                      }}
                     />
                     <button
-                      onClick={() => searchByPostalCode(formData.postalCode)}
-                      disabled={loading || formData.postalCode.length !== 5}
-                      className="bg-blue-500 text-white px-4 py-3 rounded-xl font-semibold disabled:opacity-50 hover:bg-blue-600 transition-all"
+                      onClick={(e) => {
+                        const input = (e.target as HTMLElement).previousElementSibling as HTMLInputElement;
+                        searchByAddress(input.value);
+                      }}
+                      disabled={loading}
+                      className="bg-green-500 text-white px-6 py-3 rounded-xl font-semibold disabled:opacity-50 hover:bg-green-600 transition-all"
                     >
-                      🔍
+                      {loading ? '⏳' : '🔍'}
                     </button>
                   </div>
+                  <p className="text-xs text-gray-500">
+                    Saisissez votre adresse complète avec le code postal
+                  </p>
                 </div>
               </div>
 
-              {/* Recherche par adresse exacte */}
-              <div className="space-y-4">
-                <label className="block text-sm font-semibold text-gray-700">
-                  Ou tapez votre adresse exacte
-                </label>
-                <div className="flex gap-2">
-                  <input 
-                    type="text" 
-                    placeholder="Ex: 123 rue de la République, 69000 Lyon" 
-                    className="flex-1 p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
-                    onKeyPress={(e) => {
-                      if (e.key === 'Enter') {
-                        searchByAddress((e.target as HTMLInputElement).value);
-                      }
-                    }}
-                  />
-                  <button
-                    onClick={(e) => {
-                      const input = (e.target as HTMLElement).previousElementSibling as HTMLInputElement;
-                      searchByAddress(input.value);
-                    }}
-                    disabled={loading}
-                    className="bg-green-500 text-white px-4 py-3 rounded-xl font-semibold disabled:opacity-50 hover:bg-green-600 transition-all"
-                  >
-                    🔍
-                  </button>
-                </div>
-              </div>
-
-              <p className="text-center text-gray-600">
-                Puis cliquez sur la carte pour affiner votre position exacte
+              <p className="text-center text-gray-600 text-lg font-medium">
+                👇 Cliquez sur la carte pour affiner votre position exacte 👇
               </p>
 
               {/* Carte Leaflet */}
