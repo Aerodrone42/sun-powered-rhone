@@ -135,15 +135,10 @@ const CommercePro = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild variant="hero" size="xl" className="hover-scale">
-                  <Link to="/contact">
-                    Étude gratuite <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
+                  <Link to="/contact">Étude gratuite</Link>
                 </Button>
                 <Button asChild variant="outline" size="xl">
-                  <Link to="/simulateur">
-                    <Calculator className="mr-2 h-5 w-5" />
-                    Simuler mes économies
-                  </Link>
+                  <Link to="/simulateur">Simuler mes économies</Link>
                 </Button>
               </div>
             </div>
@@ -349,17 +344,11 @@ const CommercePro = () => {
                 Obtenez une étude personnalisée gratuite et découvrez le potentiel solaire de votre commerce.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild variant="hero" size="xl" className="hover-scale">
-                  <Link to="/contact">
-                    Demander mon étude
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
+                <Button asChild variant="hero" size="xl">
+                  <Link to="/contact">Demander mon étude</Link>
                 </Button>
                 <Button asChild variant="outline" size="xl">
-                  <Link to="/simulateur">
-                    <Calculator className="mr-2 h-5 w-5" />
-                    Simulateur en ligne
-                  </Link>
+                  <Link to="/simulateur">Simulateur en ligne</Link>
                 </Button>
               </div>
               
