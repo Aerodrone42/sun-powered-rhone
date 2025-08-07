@@ -370,8 +370,8 @@ const SolarSimulator = () => {
     const classicAutoconsumed = Math.min(classicProductionMin, annualConsumption);
     const classicSurplus = Math.max(0, classicProductionMin - annualConsumption);
     
-    // Tarifs EDF officiels 2025 selon puissance installée
-    const surplusSellPrice = classicPower <= 9 ? 0.1361 : 0.0731; // 13,61 c€/kWh si ≤9kWc, sinon 7,31 c€/kWh
+    // Nouveau tarif officiel 2025 (applicable après 27 mars 2025)
+    const surplusSellPrice = 0.04; // 4 centimes d'euro/kWh - Tarif uniforme
     const classicSavingsMin = Math.round(classicAutoconsumed * 0.21 + classicSurplus * surplusSellPrice);
     
     const classicAutoconsumedMax = Math.min(classicProductionMax, annualConsumption);
@@ -385,8 +385,8 @@ const SolarSimulator = () => {
     const newGenProductionMin = Math.round(classicProductionMin * 1.25); // +25% de rendement
     const newGenProductionMax = Math.round(classicProductionMax * 1.30); // +30% de rendement
     
-    // Calcul économies nouvelle génération avec tarifs officiels EDF
-    const newGenSurplusSellPrice = newGenPower <= 9 ? 0.1361 : 0.0731; // 13,61 c€/kWh si ≤9kWc, sinon 7,31 c€/kWh
+    // Calcul économies nouvelle génération avec nouveau tarif officiel 2025
+    const newGenSurplusSellPrice = 0.04; // 4 centimes d'euro/kWh - Tarif uniforme
     const newGenAutoconsumed = Math.min(newGenProductionMin, annualConsumption);
     const newGenSurplus = Math.max(0, newGenProductionMin - annualConsumption);
     const newGenSavingsMin = Math.round(newGenAutoconsumed * 0.21 + newGenSurplus * newGenSurplusSellPrice);
@@ -1117,7 +1117,7 @@ const SolarSimulator = () => {
                      </p>
                      <p className="text-sm text-amber-700">
                        Les économies comprennent <strong>l'autoconsommation</strong> (électricité non achetée au réseau à 0,21€/kWh) 
-                       + <strong>la revente du surplus</strong> (13,61¢/kWh si ≤9kWc, 7,31¢/kWh si {'>'}9kWc selon tarifs EDF officiels 2025).
+                       + <strong>la revente du surplus</strong> (4¢/kWh selon le nouveau tarif officiel 2025 applicable après le 27 mars 2025).
                      </p>
                    </div>
                  </div>
