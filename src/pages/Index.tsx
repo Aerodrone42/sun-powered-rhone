@@ -375,7 +375,7 @@ const Index = () => {
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Pourquoi choisir <span className="text-secondary">WN Energies</span> ?
+                Pourquoi choisir <span className="text-primary font-extrabold">WN Energies</span> ?
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 Entreprise spécialisée dans la vente et pose de panneaux solaires, 
