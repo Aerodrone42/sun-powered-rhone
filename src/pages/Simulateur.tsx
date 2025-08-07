@@ -1010,7 +1010,7 @@ const SolarSimulator = () => {
                       <span className="font-bold">{results.classic.surface} m²</span>
                     </div>
                      <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                       <span>Économies annuelles</span>
+                       <span>Économies annuelles*</span>
                        <span className="font-bold">{results.classic.savingsMin} - {results.classic.savingsMax} €</span>
                      </div>
                   </div>
@@ -1036,7 +1036,7 @@ const SolarSimulator = () => {
                       <span className="font-bold">{results.newGen.surface} m²</span>
                     </div>
                      <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                       <span>Économies annuelles</span>
+                       <span>Économies annuelles*</span>
                        <span className="font-bold">{results.newGen.savingsMin} - {results.newGen.savingsMax} €</span>
                      </div>
                      <div className="flex justify-between items-center p-3 bg-background rounded-lg">
@@ -1106,18 +1106,35 @@ const SolarSimulator = () => {
                 />
               )}
 
-              <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
-                <div className="flex">
-                  <div className="flex-shrink-0">
-                    <div className="text-2xl">📞</div>
-                  </div>
-                  <div className="ml-3">
-                    <p className="text-sm text-blue-700">
-                      Contactez nos experts pour obtenir un devis détaillé avec les panneaux nouvelle génération !
-                    </p>
-                  </div>
-                </div>
-              </div>
+               <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded">
+                 <div className="flex">
+                   <div className="flex-shrink-0">
+                     <div className="text-2xl">💡</div>
+                   </div>
+                   <div className="ml-3">
+                     <p className="text-sm text-amber-700 font-semibold mb-1">
+                       * Explication des économies annuelles :
+                     </p>
+                     <p className="text-sm text-amber-700">
+                       Les économies comprennent <strong>l'autoconsommation</strong> (électricité non achetée au réseau à 0,21€/kWh) 
+                       + <strong>la revente du surplus</strong> (13,61¢/kWh si ≤9kWc, 7,31¢/kWh si {'>'}9kWc selon tarifs EDF officiels 2025).
+                     </p>
+                   </div>
+                 </div>
+               </div>
+
+               <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
+                 <div className="flex">
+                   <div className="flex-shrink-0">
+                     <div className="text-2xl">📞</div>
+                   </div>
+                   <div className="ml-3">
+                     <p className="text-sm text-blue-700">
+                       Contactez nos experts pour obtenir un devis détaillé avec les panneaux nouvelle génération !
+                     </p>
+                   </div>
+                 </div>
+               </div>
 
               <div className="flex gap-4 justify-center">
                 <button 
