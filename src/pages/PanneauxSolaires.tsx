@@ -60,13 +60,13 @@ const PanneauxSolaires = () => {
             alt="Pergola solaire moderne - inspiration pour installation résidentielle"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/20 to-background/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-foreground/10 via-foreground/40 to-foreground/80" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-            <div className="max-w-3xl">
-              <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[0.95]">
+            <div className="max-w-3xl animate-fade-in">
+              <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[0.95] text-background">
                 Panneaux solaires pour votre maison
               </h1>
-              <p className="mt-6 text-xl md:text-2xl text-muted-foreground">
+              <p className="mt-6 text-xl md:text-2xl text-background/80">
                 Étude personnalisée, installation RGE et suivi complet pour une autoconsommation performante.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
@@ -77,11 +77,11 @@ const PanneauxSolaires = () => {
                   <a href="/simulateur" aria-label="Vérifier mon éligibilité">Vérifier mon éligibilité</a>
                 </Button>
               </div>
-              <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 text-sm text-muted-foreground">
-                <div><p className="text-2xl font-semibold text-foreground">25 ans</p><p>Garantie panneaux</p></div>
-                <div><p className="text-2xl font-semibold text-foreground">48 h</p><p>Étude gratuite</p></div>
-                <div><p className="text-2xl font-semibold text-foreground">-45%</p><p>Sur la facture</p></div>
-                <div><p className="text-2xl font-semibold text-foreground">RGE</p><p>Pose certifiée</p></div>
+              <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 text-sm">
+                <div><p className="text-2xl font-semibold text-background">25 ans</p><p className="text-background/80">Garantie panneaux</p></div>
+                <div><p className="text-2xl font-semibold text-background">48 h</p><p className="text-background/80">Étude gratuite</p></div>
+                <div><p className="text-2xl font-semibold text-background">-45%</p><p className="text-background/80">Sur la facture</p></div>
+                <div><p className="text-2xl font-semibold text-background">RGE</p><p className="text-background/80">Pose certifiée</p></div>
               </div>
             </div>
           </div>
@@ -123,23 +123,23 @@ const PanneauxSolaires = () => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-semibold">Nos réalisations</h2>
           </div>
-          <div className="mt-8 px-4 sm:px-6 lg:px-8">
+          <div className="mt-8 px-0">
             <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
-              <figure className="mb-4 break-inside-avoid">
-                <img src={roofImg} alt="Toiture photovoltaïque résidentielle - panneaux solaires sur maison" className="w-full h-auto rounded-2xl object-cover" loading="lazy" />
-                <figcaption className="mt-2 text-xs text-muted-foreground">Toiture photovoltaïque</figcaption>
+              <figure className="mb-4 break-inside-avoid hover-scale">
+                <img src={roofImg} alt="Toiture photovoltaïque résidentielle - panneaux solaires sur maison" className="w-full h-auto object-cover" loading="lazy" />
+                <figcaption className="mt-2 text-xs text-muted-foreground px-4">Toiture photovoltaïque</figcaption>
               </figure>
-              <figure className="mb-4 break-inside-avoid">
-                <img src={pergolaImg} alt="Pergola solaire design - ombrage et production d’énergie" className="w-full h-auto rounded-2xl object-cover" loading="lazy" />
-                <figcaption className="mt-2 text-xs text-muted-foreground">Pergola solaire</figcaption>
+              <figure className="mb-4 break-inside-avoid hover-scale">
+                <img src={pergolaImg} alt="Pergola solaire design - ombrage et production d’énergie" className="w-full h-auto object-cover" loading="lazy" />
+                <figcaption className="mt-2 text-xs text-muted-foreground px-4">Pergola solaire</figcaption>
               </figure>
-              <figure className="mb-4 break-inside-avoid">
-                <img src={auventImg} alt="Auvent solaire pour terrasse - modules semi-transparents" className="w-full h-auto rounded-2xl object-cover" loading="lazy" />
-                <figcaption className="mt-2 text-xs text-muted-foreground">Auvent solaire</figcaption>
+              <figure className="mb-4 break-inside-avoid hover-scale">
+                <img src={auventImg} alt="Auvent solaire pour terrasse - modules semi-transparents" className="w-full h-auto object-cover" loading="lazy" />
+                <figcaption className="mt-2 text-xs text-muted-foreground px-4">Auvent solaire</figcaption>
               </figure>
-              <figure className="mb-4 break-inside-avoid">
-                <img src={carportImg} alt="Carport solaire avec production d’électricité pour véhicule" className="w-full h-auto rounded-2xl object-cover" loading="lazy" />
-                <figcaption className="mt-2 text-xs text-muted-foreground">Carport solaire</figcaption>
+              <figure className="mb-4 break-inside-avoid hover-scale">
+                <img src={carportImg} alt="Carport solaire avec production d’électricité pour véhicule" className="w-full h-auto object-cover" loading="lazy" />
+                <figcaption className="mt-2 text-xs text-muted-foreground px-4">Carport solaire</figcaption>
               </figure>
             </div>
           </div>
