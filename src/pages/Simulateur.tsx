@@ -293,33 +293,22 @@ const SolarSimulator = () => {
         availableSurface = 16.8;
       }
     } else {
-      // Maison: calcul selon données réelles du tableau estimatif
-      const houseSurfaceNum = parseInt(formData.houseSurface) || 70;
-      // Données basées sur le tableau officiel de moyennes nationales françaises
-      if (houseSurfaceNum <= 50) {
-        maxPanels = 3; // 2 à 3 panneaux pour 50m²
-        availableSurface = 9.28; // 3 panneaux × 3.094m²
-      } else if (houseSurfaceNum <= 75) {
-        maxPanels = 4; // 3 à 4 panneaux pour 75m²
-        availableSurface = 12.38; // 4 panneaux × 3.094m²
-      } else if (houseSurfaceNum <= 100) {
-        maxPanels = 5; // 4 à 5 panneaux pour 100m²
-        availableSurface = 15.47; // 5 panneaux × 3.094m²
-      } else if (houseSurfaceNum <= 120) {
-        maxPanels = 6; // 5 à 6 panneaux pour 120m²
-        availableSurface = 18.56; // 6 panneaux × 3.094m²
-      } else if (houseSurfaceNum <= 150) {
-        maxPanels = 7; // 6 à 7 panneaux pour 150m²
-        availableSurface = 21.66; // 7 panneaux × 3.094m²
-      } else if (houseSurfaceNum <= 180) {
-        maxPanels = 9; // 8 à 9 panneaux pour 180m²
-        availableSurface = 27.85; // 9 panneaux × 3.094m²
-      } else if (houseSurfaceNum <= 200) {
-        maxPanels = 10; // 9 à 10 panneaux pour 200m²
-        availableSurface = 30.94; // 10 panneaux × 3.094m²
+      // Maison: calcul basé sur la surface de toit disponible
+      // Un panneau moderne fait environ 2.4 m² (2380mm × 1300mm)
+      const panelSurface = 2.4;
+      // On utilise 70% de la surface de toit pour tenir compte des contraintes techniques
+      const usableSurface = roofSurface * 0.7;
+      const theoreticalPanels = Math.floor(usableSurface / panelSurface);
+      
+      // Limitation selon le type de bâtiment
+      if (formData.houseType === 'exploitation' || formData.houseType === 'hangar' || formData.houseType === 'batiment_pro') {
+        // Exploitation agricole: peut accueillir plus de panneaux
+        maxPanels = Math.min(theoreticalPanels, 50); // Max 50 panneaux pour les pro
+        availableSurface = maxPanels * panelSurface;
       } else {
-        maxPanels = 12; // 11 à 12 panneaux pour 250m² et plus
-        availableSurface = 37.13; // 12 panneaux × 3.094m² max
+        // Maison individuelle: limitation raisonnable
+        maxPanels = Math.min(theoreticalPanels, 20); // Max 20 panneaux pour particuliers
+        availableSurface = maxPanels * panelSurface;
       }
     }
     
