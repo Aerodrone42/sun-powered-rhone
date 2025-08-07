@@ -320,15 +320,15 @@ const SolarSimulator = () => {
         maxPanels = Math.min(theoreticalPanels, 100); // Max 100 panneaux pour les pro
         availableSurface = maxPanels * panelSurface;
       } else {
-        // Maison individuelle: limitation raisonnable  
-        maxPanels = theoreticalPanels; // Pas de limite artificielle
-        availableSurface = maxPanels * panelSurface;
+        // Maison individuelle: pas de limite artificielle  
+        maxPanels = theoreticalPanels;
+        availableSurface = Math.round(maxPanels * panelSurface * 100) / 100; // Arrondi à 2 décimales
       }
     }
     
-    const classicPower = Math.min(maxPanels * 0.775, 15.5); // 775W moyenne, max 15.5kWc
-    const classicPanels = Math.ceil(classicPower * 1000 / 775);
-    const classicSurface = classicPanels * 3.094; // Panneaux 2380mm×1300mm = 3.094m²
+    const classicPower = maxPanels * 0.775; // 775W moyenne, pas de limite
+    const classicPanels = maxPanels;
+    const classicSurface = Math.round(classicPanels * 3.094 * 100) / 100; // Arrondi à 2 décimales
     const classicProductionMin = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * inclinationFactor * temperatureFactor * 0.98);
     const classicProductionMax = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * inclinationFactor * temperatureFactor * 1.02);
     const classicSavingsMin = Math.round(classicProductionMin * 0.70 * 0.17);
