@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Sun, Zap, Home, Calculator, MapPin, Battery, Leaf, TrendingUp } from 'lucide-react';
+import MapboxMap from '../components/MapboxMap';
 
 const SolarSimulator = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -338,28 +339,14 @@ const SolarSimulator = () => {
                 Puis cliquez sur la carte pour affiner votre position exacte
               </p>
 
-              {/* Carte simulée */}
-              <div 
-                className="h-96 rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-green-100 to-blue-100 cursor-crosshair relative"
-                onClick={handleMapClick}
-              >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-600 font-semibold">Cliquez pour sélectionner votre position</p>
-                    <p className="text-sm text-gray-500 mt-2">(Carte interactive - France)</p>
-                  </div>
-                </div>
-                {selectedLocation && (
-                  <div 
-                    className="absolute w-6 h-6 bg-red-500 rounded-full border-2 border-white shadow-lg transform -translate-x-1/2 -translate-y-1/2"
-                    style={{
-                      left: '50%',
-                      top: '50%'
-                    }}
-                  />
-                )}
-              </div>
+              {/* Carte Mapbox */}
+              <MapboxMap 
+                onLocationSelect={(lat, lng) => {
+                  setSelectedLocation({ lat, lng });
+                  fetchLocationData(lat, lng);
+                }}
+                selectedLocation={selectedLocation}
+              />
 
               {/* Données de localisation */}
               {locationData && (
