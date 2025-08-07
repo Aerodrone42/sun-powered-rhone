@@ -134,7 +134,7 @@ const InstallationConsommation = () => {
                   Autoconsommation intelligente
                 </div>
                 
-                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
                   <span className="block">Installation &</span>
                   <span className="text-primary block">Autoconsommation</span>
                 </h1>
