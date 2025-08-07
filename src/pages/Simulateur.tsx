@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Sun, Zap, Home, Calculator, MapPin, Battery, Leaf, TrendingUp } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const SolarSimulator = () => {
+  const { toast } = useToast();
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [locationData, setLocationData] = useState(null);
@@ -188,20 +190,39 @@ const SolarSimulator = () => {
       }
     }
   };
-  // Recherche par adresse
+  // Recherche par adresse avec debugging
   const searchByAddress = async (address: string) => {
-    if (!address.trim()) return;
+    console.log('🔍 Recherche lancée pour:', address);
+    
+    if (!address.trim()) {
+      toast({
+        title: "❌ Adresse manquante",
+        description: "Veuillez saisir une adresse",
+        variant: "destructive"
+      });
+      return;
+    }
     
     setLoading(true);
+    toast({
+      title: "🔍 Recherche en cours...",
+      description: "Localisation de votre adresse"
+    });
+    
     try {
-      const response = await fetch(
-        `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(address)}&limit=1`
-      );
+      const url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(address)}&limit=1`;
+      console.log('📡 URL API:', url);
+      
+      const response = await fetch(url);
+      console.log('📥 Réponse API:', response.status);
+      
       const data = await response.json();
+      console.log('📊 Données reçues:', data);
       
       if (data.features && data.features.length > 0) {
         const feature = data.features[0];
         const [lng, lat] = feature.geometry.coordinates;
+        console.log('📍 Coordonnées trouvées:', { lat, lng });
         
         if (map) {
           (map as any).setView([lat, lng], 15);
@@ -214,13 +235,34 @@ const SolarSimulator = () => {
           }
           const newMarker = (window as any).L.marker([lat, lng]).addTo(map);
           setMarker(newMarker);
+          
+          toast({
+            title: "✅ Adresse trouvée !",
+            description: feature.properties.label
+          });
+        } else {
+          console.error('❌ Carte non initialisée');
+          toast({
+            title: "⚠️ Erreur de carte",
+            description: "La carte n'est pas encore chargée, veuillez réessayer",
+            variant: "destructive"
+          });
         }
       } else {
-        alert('Adresse non trouvée. Veuillez vérifier l\'adresse saisie.');
+        console.log('❌ Aucun résultat trouvé');
+        toast({
+          title: "❌ Adresse non trouvée",
+          description: "Vérifiez l'orthographe de votre adresse",
+          variant: "destructive"
+        });
       }
     } catch (error) {
-      console.error('Erreur recherche adresse:', error);
-      alert('Erreur lors de la recherche d\'adresse.');
+      console.error('💥 Erreur recherche adresse:', error);
+      toast({
+        title: "💥 Erreur de connexion",
+        description: "Impossible de rechercher l'adresse, vérifiez votre connexion",
+        variant: "destructive"
+      });
     }
     setLoading(false);
   };
@@ -393,24 +435,29 @@ const SolarSimulator = () => {
                 </label>
                 <div className="flex gap-3">
                   <input 
+                    id="addressInput"
                     type="text" 
                     placeholder="Ex: 139 place de l'église 42114 Chirassimont" 
                     className="flex-1 p-4 text-lg border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
                     onKeyPress={(e) => {
                       if (e.key === 'Enter') {
-                        searchByAddress((e.target as HTMLInputElement).value);
+                        const address = (e.target as HTMLInputElement).value;
+                        console.log('🎯 Recherche via Enter:', address);
+                        searchByAddress(address);
                       }
                     }}
                   />
                   <button
-                    onClick={(e) => {
-                      const input = (e.target as HTMLElement).previousElementSibling as HTMLInputElement;
-                      searchByAddress(input.value);
+                    onClick={() => {
+                      const input = document.getElementById('addressInput') as HTMLInputElement;
+                      const address = input?.value || '';
+                      console.log('🎯 Recherche via bouton:', address);
+                      searchByAddress(address);
                     }}
                     disabled={loading}
                     className="bg-green-500 text-white px-8 py-4 rounded-xl font-semibold disabled:opacity-50 hover:bg-green-600 transition-all text-lg"
                   >
-                    {loading ? '⏳' : '🔍 Rechercher'}
+                    {loading ? '⏳ Recherche...' : '🔍 Rechercher'}
                   </button>
                 </div>
                 <p className="text-center text-gray-500">
