@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Sun, Zap, Home, Calculator, MapPin, Battery, Leaf, TrendingUp } from 'lucide-react';
+import { Sun, Zap, Home, Calculator, MapPin, Battery, Leaf, TrendingUp, Settings } from 'lucide-react';
+import { Slider } from '@/components/ui/slider';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import OpenStreetMap from '../components/OpenStreetMap';
@@ -13,6 +14,9 @@ const SolarSimulator = () => {
   const [results, setResults] = useState(null);
   const [map, setMap] = useState(null);
   const [marker, setMarker] = useState(null);
+  const [selfConsumptionRate, setSelfConsumptionRate] = useState([70]);
+  const [expertMode, setExpertMode] = useState(false);
+  const [geolocationAttempted, setGeolocationAttempted] = useState(false);
   const mapRef = useRef(null);
 
   // Form data
@@ -29,6 +33,43 @@ const SolarSimulator = () => {
     residents: '4',
     heating: 'electrique'
   });
+
+  // Fonction PVGIS automatisée
+  const getProductionPVGIS = async (lat, lng, peakPower = 1) => {
+    try {
+      const url = `https://re.jrc.ec.europa.eu/api/PVcalc?lat=${lat}&lon=${lng}&peakpower=${peakPower}&loss=14&optimalangles=1&monthly=1&outputformat=json`;
+      const response = await fetch(url);
+      
+      if (!response.ok) {
+        throw new Error('Erreur API PVGIS');
+      }
+      
+      const data = await response.json();
+      return data.outputs?.totals?.fixed?.E_y || null;
+    } catch (error) {
+      console.error('Erreur PVGIS:', error);
+      return null;
+    }
+  };
+
+  // Géolocalisation automatique au chargement
+  useEffect(() => {
+    if (!geolocationAttempted && navigator.geolocation) {
+      setGeolocationAttempted(true);
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setSelectedLocation({ lat: latitude, lng: longitude });
+          fetchLocationData(latitude, longitude, `Position actuelle (${latitude.toFixed(4)}, ${longitude.toFixed(4)})`);
+        },
+        (error) => {
+          console.log('Géolocalisation refusée ou indisponible:', error);
+          // Fallback silencieux - l'utilisateur peut saisir manuellement
+        },
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 300000 }
+      );
+    }
+  }, [geolocationAttempted]);
 
   const totalSteps = 4;
 
@@ -122,35 +163,39 @@ const SolarSimulator = () => {
       // **API PVGIS OFFICIELLE** - Données d'irradiation solaire précises + données mensuelles
       let pvgisData = null;
       try {
-        // Utilisation d'un proxy CORS pour contourner les restrictions
-        const pvgisUrl = `https://corsproxy.io/?https://re.jrc.ec.europa.eu/api/PVcalc?lat=${lat}&lon=${lng}&peakpower=1&loss=14&optimalangles=1&monthly=1&outputformat=json`;
-        const pvgisResponse = await fetch(pvgisUrl);
+        // Appel direct à l'API PVGIS sans proxy
+        const production = await getProductionPVGIS(lat, lng, 1);
+        if (production) {
+          // Si réussi, récupérer les données détaillées
+          const pvgisUrl = `https://re.jrc.ec.europa.eu/api/PVcalc?lat=${lat}&lon=${lng}&peakpower=1&loss=14&optimalangles=1&monthly=1&outputformat=json`;
+          const pvgisResponse = await fetch(pvgisUrl);
         
-        if (pvgisResponse.ok) {
-          const data = await pvgisResponse.json();
-          if (data.outputs && data.outputs.totals) {
-            // Traitement des données mensuelles
-            const monthNames = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 
-                               'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'];
-            
-            const monthlyData = data.outputs.monthly?.fixed?.map(month => ({
-              month: monthNames[month.month - 1],
-              irradiation: Math.round(month['H(i)_m'] * 10) / 10, // kWh/m² - correct field name
-              production: Math.round(month.E_m * 10) / 10, // kWh/kWc
-              percentage: Math.round((month.E_m / data.outputs.totals.fixed.E_y) * 1000) / 10 // % annuel
-            })) || [];
+          if (pvgisResponse.ok) {
+            const data = await pvgisResponse.json();
+            if (data.outputs && data.outputs.totals) {
+              // Traitement des données mensuelles
+              const monthNames = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 
+                                 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'];
+              
+              const monthlyData = data.outputs.monthly?.fixed?.map(month => ({
+                month: monthNames[month.month - 1],
+                irradiation: Math.round(month['H(i)_m'] * 10) / 10, // kWh/m² - correct field name
+                production: Math.round(month.E_m * 10) / 10, // kWh/kWc
+                percentage: Math.round((month.E_m / data.outputs.totals.fixed.E_y) * 1000) / 10 // % annuel
+              })) || [];
 
-            // Calcul des heures d'ensoleillement réelles à partir des données PVGIS
-            const realSunshineHours = Math.round(data.outputs.totals.fixed['H(i)_y'] / (data.outputs.totals.fixed['H(i)_y'] / 8760 * 0.15)); // Approximation basée sur l'efficacité solaire
+              // Calcul des heures d'ensoleillement réelles à partir des données PVGIS
+              const realSunshineHours = Math.round(data.outputs.totals.fixed['H(i)_y'] / (data.outputs.totals.fixed['H(i)_y'] / 8760 * 0.15)); // Approximation basée sur l'efficacité solaire
 
-            pvgisData = {
-              irradiation: Math.round(data.outputs.totals.fixed['H(i)_y']), // kWh/m²/an - données réelles PVGIS
-              production: Math.round(data.outputs.totals.fixed.E_y), // kWh/kWp/an - données réelles PVGIS
-              optimalAngle: data.inputs.mounting_system.fixed.slope.value || 35, // Angle optimal réel PVGIS
-              sunshine: Math.round(data.outputs.totals.fixed['H(i)_y'] / 0.65), // Heures d'ensoleillement calculées à partir de l'irradiation réelle
-              pvtemp: data.inputs.pvtemp || 15, // Température réelle ou estimée
-              monthlyData // Données mensuelles réelles
-            };
+              pvgisData = {
+                irradiation: Math.round(data.outputs.totals.fixed['H(i)_y']), // kWh/m²/an - données réelles PVGIS
+                production: Math.round(data.outputs.totals.fixed.E_y), // kWh/kWp/an - données réelles PVGIS
+                optimalAngle: data.inputs.mounting_system.fixed.slope.value || 35, // Angle optimal réel PVGIS
+                sunshine: Math.round(data.outputs.totals.fixed['H(i)_y'] / 0.65), // Heures d'ensoleillement calculées à partir de l'irradiation réelle
+                pvtemp: data.inputs.pvtemp || 15, // Température réelle ou estimée
+                monthlyData // Données mensuelles réelles
+              };
+            }
           }
         }
       } catch (error) {
@@ -365,18 +410,22 @@ const SolarSimulator = () => {
     // Calcul direct sans facteurs approximatifs - PVGIS intègre déjà orientation/inclinaison optimales
     const classicProductionMin = Math.round(classicPower * officialProductionPerKwc * 0.95); // -5% pertes système réalistes
     const classicProductionMax = Math.round(classicPower * officialProductionPerKwc * 0.98); // -2% pertes minimales
-    // CORRECTION: Calcul des économies réalistes (autoconsommation + revente surplus)
-    // Autoconsommation = minimum entre production et consommation
-    const classicAutoconsumed = Math.min(classicProductionMin, annualConsumption);
-    const classicSurplus = Math.max(0, classicProductionMin - annualConsumption);
+    // CORRECTION: Calcul des économies réalistes avec taux d'autoconsommation variable
+    const selfConsumptionPercent = selfConsumptionRate[0] / 100; // Conversion pourcentage
+    
+    // Calcul autoconsommation et surplus selon le slider
+    const classicAutoconsumed = Math.round(classicProductionMin * selfConsumptionPercent);
+    const classicSurplus = classicProductionMin - classicAutoconsumed;
     
     // Nouveau tarif officiel 2025 (applicable après 27 mars 2025)
     const surplusSellPrice = 0.04; // 4 centimes d'euro/kWh - Tarif uniforme
-    const classicSavingsMin = Math.round(classicAutoconsumed * 0.21 + classicSurplus * surplusSellPrice);
+    const electricityPrice = 0.21; // Prix d'achat électricité
     
-    const classicAutoconsumedMax = Math.min(classicProductionMax, annualConsumption);
-    const classicSurplusMax = Math.max(0, classicProductionMax - annualConsumption);
-    const classicSavingsMax = Math.round(classicAutoconsumedMax * 0.21 + classicSurplusMax * surplusSellPrice);
+    const classicSavingsMin = Math.round(classicAutoconsumed * electricityPrice + classicSurplus * surplusSellPrice);
+    
+    const classicAutoconsumedMax = Math.round(classicProductionMax * selfConsumptionPercent);
+    const classicSurplusMax = classicProductionMax - classicAutoconsumedMax;
+    const classicSavingsMax = Math.round(classicAutoconsumedMax * electricityPrice + classicSurplusMax * surplusSellPrice);
 
     // PANNEAUX 700-850W NOUVELLE GÉNÉRATION (même puissance + 25-30% rendement supplémentaire)
     const newGenPower = classicPower; // Même puissance installée
@@ -387,9 +436,9 @@ const SolarSimulator = () => {
     
     // Calcul économies nouvelle génération avec nouveau tarif officiel 2025
     const newGenSurplusSellPrice = 0.04; // 4 centimes d'euro/kWh - Tarif uniforme
-    const newGenAutoconsumed = Math.min(newGenProductionMin, annualConsumption);
-    const newGenSurplus = Math.max(0, newGenProductionMin - annualConsumption);
-    const newGenSavingsMin = Math.round(newGenAutoconsumed * 0.21 + newGenSurplus * newGenSurplusSellPrice);
+    const newGenAutoconsumed = Math.round(newGenProductionMin * selfConsumptionPercent);
+    const newGenSurplus = newGenProductionMin - newGenAutoconsumed;
+    const newGenSavingsMin = Math.round(newGenAutoconsumed * electricityPrice + newGenSurplus * newGenSurplusSellPrice);
     
     const newGenAutoconsumedMax = Math.min(newGenProductionMax, annualConsumption);
     const newGenSurplusMax = Math.max(0, newGenProductionMax - annualConsumption);
@@ -948,6 +997,79 @@ const SolarSimulator = () => {
                   </div>
                 </div>
 
+                {/* Configuration avancée */}
+                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 border border-blue-200">
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                      <Settings className="w-5 h-5" />
+                      Configuration avancée
+                    </h4>
+                    <button
+                      onClick={() => setExpertMode(!expertMode)}
+                      className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+                        expertMode 
+                          ? 'bg-primary text-primary-foreground' 
+                          : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+                      }`}
+                    >
+                      Mode Expert {expertMode ? '✓' : ''}
+                    </button>
+                  </div>
+
+                  <div className="space-y-4">
+                    {/* Slider d'autoconsommation */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-3">
+                        Taux d'autoconsommation estimé : <span className="font-bold text-primary">{selfConsumptionRate[0]}%</span>
+                      </label>
+                      <Slider
+                        value={selfConsumptionRate}
+                        onValueChange={setSelfConsumptionRate}
+                        max={90}
+                        min={20}
+                        step={5}
+                        className="w-full"
+                      />
+                      <div className="flex justify-between text-xs text-gray-500 mt-1">
+                        <span>20% (minimum)</span>
+                        <span>70% (optimisé)</span>
+                        <span>90% (avec batterie)</span>
+                      </div>
+                      <div className="mt-2 p-3 bg-white/50 rounded-lg">
+                        <p className="text-xs text-gray-600">
+                          💡 <strong>Autoconsommation :</strong> Part de votre production solaire directement consommée. 
+                          Le surplus est revendu à {(0.04).toFixed(2)}€/kWh.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Mode expert - Données PVGIS personnalisées */}
+                    {expertMode && locationData && (
+                      <div className="border-t pt-4">
+                        <h5 className="font-medium text-gray-700 mb-2">Données PVGIS (Expert)</h5>
+                        <div className="grid grid-cols-2 gap-3 text-sm">
+                          <div className="bg-white/50 p-2 rounded">
+                            <div className="text-gray-600">Irradiation :</div>
+                            <div className="font-semibold">{locationData.irradiation} kWh/m²/an</div>
+                          </div>
+                          <div className="bg-white/50 p-2 rounded">
+                            <div className="text-gray-600">Production :</div>
+                            <div className="font-semibold">{locationData.production} kWh/kWc/an</div>
+                          </div>
+                          <div className="bg-white/50 p-2 rounded">
+                            <div className="text-gray-600">Source :</div>
+                            <div className="font-semibold text-xs">{locationData.dataSource}</div>
+                          </div>
+                          <div className="bg-white/50 p-2 rounded">
+                            <div className="text-gray-600">Angle optimal :</div>
+                            <div className="font-semibold">{locationData.optimalAngle}°</div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
                 <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
                   <div className="flex">
                     <div className="flex-shrink-0">
@@ -1115,10 +1237,11 @@ const SolarSimulator = () => {
                      <p className="text-sm text-amber-700 font-semibold mb-1">
                        * Explication des économies annuelles :
                      </p>
-                     <p className="text-sm text-amber-700">
-                       Les économies comprennent <strong>l'autoconsommation</strong> (électricité non achetée au réseau à 0,21€/kWh) 
-                       + <strong>la revente du surplus</strong> (4¢/kWh selon le nouveau tarif officiel 2025 applicable après le 27 mars 2025).
-                     </p>
+                      <p className="text-sm text-amber-700">
+                        <strong>Autoconsommation ({selfConsumptionRate[0]}%) :</strong> {Math.round((results.classic.productionMin + results.classic.productionMax) / 2 * selfConsumptionRate[0] / 100).toLocaleString()} kWh/an à 0,21€/kWh
+                        <br />
+                        <strong>Revente surplus ({100 - selfConsumptionRate[0]}%) :</strong> {Math.round((results.classic.productionMin + results.classic.productionMax) / 2 * (100 - selfConsumptionRate[0]) / 100).toLocaleString()} kWh/an à 4¢/kWh (tarif 2025)
+                      </p>
                    </div>
                  </div>
                </div>
