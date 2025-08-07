@@ -67,12 +67,14 @@ const SolarSimulator = () => {
     setSelectedLocation(latlng);
     fetchLocationData(latlng.lat, latlng.lng);
     
-    // Ajouter/déplacer le marqueur
-    if (marker) {
+    // Ajouter/déplacer le marqueur seulement si la carte est initialisée
+    if (marker && map) {
       (map as any).removeLayer(marker);
     }
-    const newMarker = (window as any).L.marker([latlng.lat, latlng.lng]).addTo(map);
-    setMarker(newMarker);
+    if (map) {
+      const newMarker = (window as any).L.marker([latlng.lat, latlng.lng]).addTo(map);
+      setMarker(newMarker);
+    }
   };
 
   // Récupération des données de localisation via GéoAPI
@@ -176,13 +178,88 @@ const SolarSimulator = () => {
       setSelectedLocation({ lat: city.lat, lng: city.lng });
       fetchLocationData(city.lat, city.lng);
       
-      // Ajouter/déplacer le marqueur
+      // Ajouter/déplacer le marqueur seulement si la carte est initialisée
       if (marker) {
         (map as any).removeLayer(marker);
       }
-      const newMarker = (window as any).L.marker([city.lat, city.lng]).addTo(map);
-      setMarker(newMarker);
+      if (map) {
+        const newMarker = (window as any).L.marker([city.lat, city.lng]).addTo(map);
+        setMarker(newMarker);
+      }
     }
+  };
+  // Recherche par adresse
+  const searchByAddress = async (address: string) => {
+    if (!address.trim()) return;
+    
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(address)}&limit=1`
+      );
+      const data = await response.json();
+      
+      if (data.features && data.features.length > 0) {
+        const feature = data.features[0];
+        const [lng, lat] = feature.geometry.coordinates;
+        
+        if (map) {
+          (map as any).setView([lat, lng], 15);
+          setSelectedLocation({ lat, lng });
+          fetchLocationData(lat, lng);
+          
+          // Ajouter marqueur
+          if (marker) {
+            (map as any).removeLayer(marker);
+          }
+          const newMarker = (window as any).L.marker([lat, lng]).addTo(map);
+          setMarker(newMarker);
+        }
+      } else {
+        alert('Adresse non trouvée. Veuillez vérifier l\'adresse saisie.');
+      }
+    } catch (error) {
+      console.error('Erreur recherche adresse:', error);
+      alert('Erreur lors de la recherche d\'adresse.');
+    }
+    setLoading(false);
+  };
+
+  // Recherche par code postal
+  const searchByPostalCode = async (postalCode: string) => {
+    if (!postalCode.trim() || postalCode.length !== 5) return;
+    
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `https://api-adresse.data.gouv.fr/search/?q=${postalCode}&type=municipality&limit=1`
+      );
+      const data = await response.json();
+      
+      if (data.features && data.features.length > 0) {
+        const feature = data.features[0];
+        const [lng, lat] = feature.geometry.coordinates;
+        
+        if (map) {
+          (map as any).setView([lat, lng], 12);
+          setSelectedLocation({ lat, lng });
+          fetchLocationData(lat, lng);
+          
+          // Ajouter marqueur
+          if (marker) {
+            (map as any).removeLayer(marker);
+          }
+          const newMarker = (window as any).L.marker([lat, lng]).addTo(map);
+          setMarker(newMarker);
+        }
+      } else {
+        alert('Code postal non trouvé.');
+      }
+    } catch (error) {
+      console.error('Erreur recherche code postal:', error);
+      alert('Erreur lors de la recherche par code postal.');
+    }
+    setLoading(false);
   };
 
   // Calcul des résultats solaires
@@ -375,14 +452,52 @@ const SolarSimulator = () => {
                   <label className="block text-sm font-semibold text-gray-700">
                     Ou saisissez votre code postal
                   </label>
+                  <div className="flex gap-2">
+                    <input 
+                      type="text" 
+                      value={formData.postalCode}
+                      onChange={(e) => setFormData({...formData, postalCode: e.target.value})}
+                      placeholder="Ex: 13000" 
+                      maxLength={5}
+                      className="flex-1 p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                    />
+                    <button
+                      onClick={() => searchByPostalCode(formData.postalCode)}
+                      disabled={loading || formData.postalCode.length !== 5}
+                      className="bg-blue-500 text-white px-4 py-3 rounded-xl font-semibold disabled:opacity-50 hover:bg-blue-600 transition-all"
+                    >
+                      🔍
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Recherche par adresse exacte */}
+              <div className="space-y-4">
+                <label className="block text-sm font-semibold text-gray-700">
+                  Ou tapez votre adresse exacte
+                </label>
+                <div className="flex gap-2">
                   <input 
                     type="text" 
-                    value={formData.postalCode}
-                    onChange={(e) => setFormData({...formData, postalCode: e.target.value})}
-                    placeholder="Ex: 13000" 
-                    maxLength={5}
-                    className="w-full p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                    placeholder="Ex: 123 rue de la République, 69000 Lyon" 
+                    className="flex-1 p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                    onKeyPress={(e) => {
+                      if (e.key === 'Enter') {
+                        searchByAddress((e.target as HTMLInputElement).value);
+                      }
+                    }}
                   />
+                  <button
+                    onClick={(e) => {
+                      const input = (e.target as HTMLElement).previousElementSibling as HTMLInputElement;
+                      searchByAddress(input.value);
+                    }}
+                    disabled={loading}
+                    className="bg-green-500 text-white px-4 py-3 rounded-xl font-semibold disabled:opacity-50 hover:bg-green-600 transition-all"
+                  >
+                    🔍
+                  </button>
                 </div>
               </div>
 
