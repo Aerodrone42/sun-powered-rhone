@@ -171,9 +171,11 @@ const SolarSimulator = () => {
         // Appel direct à l'API PVGIS sans proxy
         const production = await getProductionPVGIS(lat, lng, 1);
         if (production) {
-          // Si réussi, récupérer les données détaillées
-          const pvgisUrl = `https://re.jrc.ec.europa.eu/api/PVcalc?lat=${lat}&lon=${lng}&peakpower=1&loss=14&optimalangles=1&monthly=1&outputformat=json`;
-          const pvgisResponse = await fetch(pvgisUrl);
+        // Si réussi, récupérer les données détaillées avec proxy CORS
+        const proxyUrl = 'https://api.allorigins.win/raw?url=';
+        const pvgisUrl = `https://re.jrc.ec.europa.eu/api/PVcalc?lat=${lat}&lon=${lng}&peakpower=1&loss=14&optimalangles=1&monthly=1&outputformat=json`;
+        const fullUrl = proxyUrl + encodeURIComponent(pvgisUrl);
+        const pvgisResponse = await fetch(fullUrl);
         
           if (pvgisResponse.ok) {
             const data = await pvgisResponse.json();
