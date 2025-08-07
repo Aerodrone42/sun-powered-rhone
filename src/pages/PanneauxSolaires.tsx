@@ -11,9 +11,10 @@ const auventImg = "/lovable-uploads/f4a3939c-b11e-44f3-99fd-e108ad2001cf.png";
 const carportImg = "/lovable-uploads/f6f02fb8-79ac-461b-bfc2-257aea388457.png";
 
 const PanneauxSolaires = () => {
-  const title = "Panneaux solaires pour particuliers | Étude et pose";
-  const description = "Panneaux solaires: étude, installation et garanties. Devis gratuit, production optimisée et autoconsommation clé en main.";
-  const canonical = "https://example.com/particuliers/panneaux-solaires";
+  const company = "WN Energies";
+  const title = `Panneaux solaires | ${company}`;
+  const description = "Installation photovoltaïque clé en main: étude, pose RGE, garanties jusqu’à 25 ans, aides et simulation. Devis gratuit sous 24h.";
+  const canonical = (typeof window !== "undefined" ? window.location.origin : "") + "/particuliers/panneaux-solaires";
 
   const faqs = [
     {
@@ -84,6 +85,39 @@ const PanneauxSolaires = () => {
           </div>
         </section>
 
+        {/* Présentation */}
+        <section className="py-12 md:py-20 border-t border-border">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-3 gap-8">
+              <article className="lg:col-span-2 space-y-4 text-muted-foreground">
+                <p>
+                  Chez WN Energies, nous concevons et installons des systèmes photovoltaïques fiables et esthétiques pour les maisons individuelles. Nos ingénieurs dimensionnent votre installation en fonction de vos usages réels, de l’orientation du toit et des contraintes locales afin de maximiser l’autoconsommation et le retour sur investissement.
+                </p>
+                <p>
+                  Nos équipes RGE prennent en charge l’ensemble du projet: étude technique, démarches administratives, pose, mise en service et suivi. Vous disposez d’un accès de monitoring pour suivre la production en temps réel et optimiser vos consommations.
+                </p>
+                <p>
+                  Résultat: une facture réduite, un bien valorisé et une énergie propre produite chez vous. La majorité de nos chantiers sont réalisés en 4 à 8 semaines après validation du devis.
+                </p>
+              </article>
+              <aside className="space-y-3">
+                <Card className="bg-card text-card-foreground">
+                  <CardHeader>
+                    <CardTitle className="text-xl">Chiffres clés</CardTitle>
+                    <CardDescription className="text-muted-foreground">Des repères concrets pour votre décision</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-2 text-sm">
+                    <p>• Production annuelle moyenne: 900 à 1 300 kWh par kWc</p>
+                    <p>• Taux d’autoconsommation visé: 40 à 70% selon profil</p>
+                    <p>• Durée de vie des panneaux: > 30 ans</p>
+                    <p>• Délais moyens: étude sous 48h, pose en 1 jour pour 3 kWc</p>
+                  </CardContent>
+                </Card>
+              </aside>
+            </div>
+          </div>
+        </section>
+
         {/* Galerie */}
         <section className="py-12 md:py-20 border-t border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -129,6 +163,94 @@ const PanneauxSolaires = () => {
                   </CardHeader>
                 </Card>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Tarifs et aides */}
+        <section className="py-12 md:py-20 border-t border-border">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-8">
+              <article className="space-y-4 text-muted-foreground">
+                <h2 className="text-2xl md:text-3xl font-semibold">Tarifs et aides disponibles</h2>
+                <p>
+                  Le coût dépend de la puissance installée, de la complexité du chantier et du type de matériel. À titre indicatif, une installation résidentielle de 3 à 6 kWc se situe généralement entre 6 000 et 12 000 € TTC posé, avant aides.
+                </p>
+                <p>
+                  En France, vous pouvez bénéficier de la TVA réduite, de la prime à l’autoconsommation et d’un contrat d’achat pour la revente du surplus. Nous montons vos dossiers et vous accompagnons jusqu’à l’obtention des aides.
+                </p>
+              </article>
+              <aside>
+                <Card className="bg-card text-card-foreground">
+                  <CardHeader>
+                    <CardTitle className="text-xl">Ce que comprend notre offre</CardTitle>
+                    <CardDescription className="text-muted-foreground">Tout est inclus, sans surprise</CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-sm space-y-2">
+                    <p>• Étude technique et dimensionnement</p>
+                    <p>• Matériel premium (panneaux, onduleur/micro-onduleurs, câblage)</p>
+                    <p>• Pose RGE et travaux de sécurité</p>
+                    <p>• Démarches administratives et raccordement</p>
+                    <p>• Mise en service et application de suivi</p>
+                  </CardContent>
+                </Card>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        {/* Garanties et matériel */}
+        <section className="py-12 md:py-20 border-t border-border">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8">
+            <article className="space-y-4 text-muted-foreground">
+              <h2 className="text-2xl md:text-3xl font-semibold">Garanties et matériel</h2>
+              <p>
+                Nous sélectionnons des fabricants reconnus pour la fiabilité et la traçabilité de leurs produits. Les panneaux sont généralement garantis 25 ans sur la performance et 12 ans sur le produit. Les onduleurs bénéficient de 5 à 10 ans de garantie, extensible selon les modèles.
+              </p>
+              <p>
+                Nous privilégions les fixations adaptées à votre toiture (tuile, ardoise, bac acier) pour une intégration propre et durable, sans compromettre l’étanchéité.
+              </p>
+            </article>
+            <article className="space-y-3 text-sm">
+              <Card className="bg-card text-card-foreground">
+                <CardHeader>
+                  <CardTitle className="text-xl">Spécifications types</CardTitle>
+                  <CardDescription className="text-muted-foreground">Exemple d’une installation 3 kWc</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <p>• 6 à 8 panneaux monocristallins haut rendement</p>
+                  <p>• Micro-onduleurs ou onduleur central selon contexte</p>
+                  <p>• Production annuelle estimée: 3 000 à 3 900 kWh</p>
+                  <p>• Suivi via application mobile/web</p>
+                </CardContent>
+              </Card>
+            </article>
+          </div>
+        </section>
+
+        {/* Cas client */}
+        <section className="py-12 md:py-20 border-t border-border">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-6">Cas client: maison de 120 m²</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="bg-card text-card-foreground">
+                <CardContent className="pt-6">
+                  <p className="text-4xl font-semibold">-45%</p>
+                  <p className="text-sm text-muted-foreground">de facture la 1ère année</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-card text-card-foreground">
+                <CardContent className="pt-6">
+                  <p className="text-4xl font-semibold">1 050 kWh</p>
+                  <p className="text-sm text-muted-foreground">autoconsommés par an</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-card text-card-foreground">
+                <CardContent className="pt-6">
+                  <p className="text-4xl font-semibold">6 ans</p>
+                  <p className="text-sm text-muted-foreground">ROI estimé</p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
@@ -179,6 +301,13 @@ const PanneauxSolaires = () => {
           </div>
         </section>
       </main>
+
+      <div className="fixed bottom-4 inset-x-4 md:right-6 md:inset-x-auto z-40">
+        <div className="bg-foreground text-background rounded-full shadow-xl border border-border/20 px-4 py-2 flex items-center justify-between gap-3">
+          <span className="text-sm font-medium">Devis gratuit sous 24h</span>
+          <Button size="sm" className="bg-primary text-primary-foreground">Obtenir un devis</Button>
+        </div>
+      </div>
 
       <Footer />
     </>
