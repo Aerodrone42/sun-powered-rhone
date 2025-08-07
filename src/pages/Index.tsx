@@ -285,8 +285,8 @@ const Index = () => {
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
               Solutions Professionnelles
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-              Nos services pour <span className="relative">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Nos services pour <span className="text-primary relative">
                 professionnels
                 <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary rounded-full opacity-60"></div>
               </span>
