@@ -609,6 +609,9 @@ const SolarSimulator = () => {
                   >
                     <option value="maison">Maison individuelle</option>
                     <option value="appartement">Appartement</option>
+                    <option value="exploitation">Exploitation agricole</option>
+                    <option value="hangar">Hangar agricole</option>
+                    <option value="batiment_pro">Bâtiment professionnel</option>
                   </select>
                 </div>
 
