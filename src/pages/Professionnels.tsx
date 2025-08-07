@@ -10,15 +10,15 @@ import commercialBuildingImage from "@/assets/commercial-building.jpg"
 const Professionnels = () => {
   const services = [
     {
-      title: "Panneaux Solaires",
-      description: "Installations photovoltaïques industrielles sur-mesure",
+      title: "Commerce",
+      description: "Solutions solaires pour magasins, restaurants et services",
       icon: Building,
-      href: "/professionnels/panneaux-solaires",
+      href: "/professionnels/commerce",
       benefits: [
-        "Réduction significative des factures électriques",
-        "ROI attractif sur le long terme",
-        "Valorisation immobilière des bâtiments",
-        "Possibilité de vente du surplus d'énergie"
+        "Réduction jusqu'à 70% des factures électriques",
+        "Image de marque éco-responsable",
+        "Valorisation immobilière du local commercial",
+        "Synchronisation parfaite production/consommation"
       ]
     },
     {

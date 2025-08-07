@@ -324,7 +324,62 @@ const InstallationConsommationPro = () => {
           </div>
         </section>
 
-        {/* Advantages Section */}
+      {/* SEO Content Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container">
+          <div className="max-w-4xl mx-auto prose prose-lg">
+            <h2 className="text-3xl font-bold mb-6 text-center">
+              L'autoconsommation professionnelle : maîtrisez votre énergie
+            </h2>
+            
+            <div className="grid gap-8 md:grid-cols-2 not-prose">
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Qu'est-ce que l'autoconsommation industrielle ?</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  L'autoconsommation consiste à consommer directement l'électricité produite par 
+                  vos panneaux solaires. Cette approche permet de maximiser la rentabilité de 
+                  votre installation en évitant les coûts de transport et taxes liés à l'achat 
+                  d'électricité sur le réseau.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Couplée à des systèmes de stockage intelligents, l'autoconsommation peut 
+                  atteindre des taux de 80% ou plus, garantissant une indépendance énergétique 
+                  quasi-totale pour votre entreprise.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Optimisation et gestion intelligente</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  Nos systèmes de gestion énergétique analysent en temps réel vos consommations 
+                  et la production solaire pour optimiser automatiquement les flux d'énergie. 
+                  Les équipements énergivores sont pilotés pour fonctionner prioritairement 
+                  lors des pics de production.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  L'intégration de batteries de stockage permet de lisser la consommation et 
+                  d'utiliser l'énergie solaire même en dehors des heures de production, 
+                  maximisant ainsi votre autonomie énergétique.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-12 p-6 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg border">
+              <h3 className="text-xl font-semibold mb-4 text-center">
+                <Zap className="inline mr-2 h-5 w-5 text-secondary" />
+                Bénéfices de l'autoconsommation professionnelle
+              </h3>
+              <p className="text-center text-muted-foreground leading-relaxed">
+                L'autoconsommation permet de réduire la facture énergétique de 60 à 80%, 
+                de sécuriser les coûts énergétiques sur 25 ans et de valoriser l'engagement 
+                environnemental de l'entreprise auprès des clients et partenaires.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Advantages Section */}
         <section className="py-24 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-muted/20 to-transparent" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -331,7 +331,60 @@ const BorneRechargePro = () => {
           </div>
         </section>
 
-        {/* Advantages Section */}
+      {/* SEO Content Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container">
+          <div className="max-w-4xl mx-auto prose prose-lg">
+            <h2 className="text-3xl font-bold mb-6 text-center">
+              Bornes de recharge professionnelles : l'avenir de la mobilité
+            </h2>
+            
+            <div className="grid gap-8 md:grid-cols-2 not-prose">
+              <div>
+                <h3 className="text-xl font-semibold mb-4">L'électromobilité en entreprise</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  L'installation de bornes de recharge en entreprise répond à un double enjeu : 
+                  faciliter la transition vers les véhicules électriques pour vos collaborateurs 
+                  et optimiser la gestion de votre flotte professionnelle.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Couplées à une installation solaire, les bornes permettent de recharger 
+                  les véhicules avec une énergie verte et locale, réduisant considérablement 
+                  les coûts de carburant et l'empreinte carbone de l'entreprise.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Solutions techniques avancées</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  Nos bornes de recharge intelligentes s'adaptent à la puissance disponible 
+                  et gèrent automatiquement la répartition de charge entre plusieurs véhicules. 
+                  Le système de pilotage optimise la recharge selon la production solaire 
+                  et les tarifs électriques.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  L'interface de gestion permet de contrôler les accès, suivre les consommations 
+                  par utilisateur et optimiser les coûts énergétiques en temps réel.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-12 p-6 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg border">
+              <h3 className="text-xl font-semibold mb-4 text-center">
+                <Car className="inline mr-2 h-5 w-5 text-secondary" />
+                Impact environnemental et économique
+              </h3>
+              <p className="text-center text-muted-foreground leading-relaxed">
+                Une borne alimentée par l'énergie solaire permet d'éviter l'émission de 2 tonnes 
+                de CO² par an et par véhicule, tout en réduisant les coûts de carburant de 70% 
+                par rapport aux véhicules thermiques.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Advantages Section */}
         <section className="py-24 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-muted/20 to-transparent" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -334,7 +334,61 @@ const PanneauxSolairesPro = () => {
           </div>
         </section>
 
-        {/* Advantages Section */}
+      {/* SEO Content Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container">
+          <div className="max-w-4xl mx-auto prose prose-lg">
+            <h2 className="text-3xl font-bold mb-6 text-center">
+              L'énergie solaire industrielle : une révolution énergétique
+            </h2>
+            
+            <div className="grid gap-8 md:grid-cols-2 not-prose">
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Pourquoi choisir le solaire industriel ?</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  Les installations photovoltaïques industrielles représentent aujourd'hui le moyen le plus 
+                  efficace et rentable de réduire les coûts énergétiques des entreprises. Avec des prix 
+                  de l'électricité en constante augmentation, l'énergie solaire offre une solution 
+                  pérenne et prévisible.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Une installation de 500 kWc peut générer jusqu'à 600 000 kWh par an, permettant 
+                  des économies substantielles sur les factures d'électricité tout en valorisant 
+                  l'engagement environnemental de l'entreprise.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Technologies et performance</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  Nos installations utilisent des panneaux photovoltaïques de dernière génération 
+                  avec des rendements supérieurs à 21%. Les onduleurs de puissance et systèmes 
+                  de monitoring permettent une optimisation maximale de la production.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Chaque projet bénéficie d'une étude d'ombrage précise, d'une analyse structurelle 
+                  complète et d'un dimensionnement optimal selon les contraintes techniques 
+                  et les objectifs de rentabilité.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-12 p-6 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg border">
+              <h3 className="text-xl font-semibold mb-4 text-center">
+                <TrendingUp className="inline mr-2 h-5 w-5 text-secondary" />
+                Rentabilité et performance garanties
+              </h3>
+              <p className="text-center text-muted-foreground leading-relaxed">
+                Nos installations industrielles affichent un retour sur investissement entre 5 et 8 ans, 
+                avec une production garantie pendant 25 ans. Les économies générées sur la durée de vie 
+                de l'installation représentent généralement 3 à 4 fois l'investissement initial.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Advantages Section */}
         <section className="py-24 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-muted/20 to-transparent" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -17,6 +17,7 @@ import PanneauxSolairesPro from "./pages/PanneauxSolairesPro";
 import InstallationConsommationPro from "./pages/InstallationConsommationPro";
 import BorneRechargePro from "./pages/BorneRechargePro";
 import BatterieSolairePro from "./pages/BatterieSolairePro";
+import CommercePro from "./pages/CommercePro";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/professionnels/installation-consommation" element={<InstallationConsommationPro />} />
             <Route path="/professionnels/borne-recharge" element={<BorneRechargePro />} />
             <Route path="/professionnels/batterie-solaire" element={<BatterieSolairePro />} />
+            <Route path="/professionnels/commerce" element={<CommercePro />} />
             <Route path="/professionnels" element={<Professionnels />} />
             <Route path="/simulateur" element={<Simulateur />} />
             <Route path="/contact" element={<Contact />} />
