@@ -118,21 +118,33 @@ const SolarSimulator = () => {
         }
       }
 
-      // **API PVGIS OFFICIELLE** - Données d'irradiation solaire précises
+      // **API PVGIS OFFICIELLE** - Données d'irradiation solaire précises + données mensuelles
       let pvgisData = null;
       try {
         const pvgisResponse = await fetch(
-          `https://re.jrc.ec.europa.eu/api/PVcalc?lat=${lat}&lon=${lng}&peakpower=1&loss=14&optimalangles=1&outputformat=json`
+          `https://re.jrc.ec.europa.eu/api/PVcalc?lat=${lat}&lon=${lng}&peakpower=1&loss=14&optimalangles=1&monthly=1&outputformat=json`
         );
         
         if (pvgisResponse.ok) {
           const data = await pvgisResponse.json();
           if (data.outputs && data.outputs.totals) {
+            // Traitement des données mensuelles
+            const monthNames = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 
+                               'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'];
+            
+            const monthlyData = data.outputs.monthly?.fixed?.map(month => ({
+              month: monthNames[month.month - 1],
+              irradiation: Math.round(month['H(h)'] * 10) / 10, // kWh/m²
+              production: Math.round(month.E_m * 10) / 10, // kWh/kWc
+              percentage: Math.round((month.E_m / data.outputs.totals.fixed.E_y) * 1000) / 10 // % annuel
+            })) || [];
+
             pvgisData = {
               irradiation: Math.round(data.outputs.totals.fixed.H_y), // kWh/m²/an
               production: Math.round(data.outputs.totals.fixed.E_y), // kWh/kWp/an
               optimalAngle: data.inputs.angle || 35,
-              pvtemp: Math.round(data.outputs.totals.fixed.T2m || 15)
+              pvtemp: Math.round(data.outputs.totals.fixed.T2m || 15),
+              monthlyData // Ajout des données mensuelles
             };
           }
         }
@@ -156,6 +168,7 @@ const SolarSimulator = () => {
           optimalAngle: pvgisData.optimalAngle,
           production: pvgisData.production,
           temperature: pvgisData.pvtemp,
+          monthlyData: pvgisData.monthlyData, // Ajout des données mensuelles
           dataSource: 'PVGIS (Commission Européenne)'
         };
       } else {
@@ -385,6 +398,22 @@ const SolarSimulator = () => {
     const autonomy = Math.round(((newGenProductionMin + newGenProductionMax) / 2) / annualConsumption * 100);
     const co2Saved = Math.round(((newGenProductionMin + newGenProductionMax) / 2) * 0.07);
 
+    // Estimation des coûts d'installation (euros TTC)
+    const costPerKwc = 2500; // Prix moyen installation complète 2025
+    const classicInstallationCost = Math.round(classicPower * costPerKwc);
+    const newGenInstallationCost = Math.round(newGenPower * costPerKwc * 1.15); // +15% surcoût technologie
+    
+    // Calcul du retour sur investissement
+    const classicROI = Math.round(classicInstallationCost / ((classicSavingsMin + classicSavingsMax) / 2) * 10) / 10;
+    const newGenROI = Math.round(newGenInstallationCost / ((newGenSavingsMin + newGenSavingsMax) / 2) * 10) / 10;
+
+    // Données mensuelles pour la nouvelle génération
+    const monthlyProductionData = locationData.monthlyData?.map(month => ({
+      ...month,
+      classicProduction: Math.round(month.production * classicPower),
+      newGenProduction: Math.round(month.production * newGenPower * 1.275) // +27.5% moyenne
+    })) || [];
+
     const calculatedResults = {
       classic: {
         power: classicPower,
@@ -393,7 +422,9 @@ const SolarSimulator = () => {
         productionMin: classicProductionMin,
         productionMax: classicProductionMax,
         savingsMin: classicSavingsMin,
-        savingsMax: classicSavingsMax
+        savingsMax: classicSavingsMax,
+        installationCost: classicInstallationCost,
+        roi: classicROI
       },
       newGen: {
         power: newGenPower,
@@ -402,7 +433,9 @@ const SolarSimulator = () => {
         productionMin: newGenProductionMin,
         productionMax: newGenProductionMax,
         savingsMin: newGenSavingsMin,
-        savingsMax: newGenSavingsMax
+        savingsMax: newGenSavingsMax,
+        installationCost: newGenInstallationCost,
+        roi: newGenROI
       },
       advantages: {
         productionGainMin,
@@ -413,7 +446,8 @@ const SolarSimulator = () => {
         autonomy,
         co2Saved,
         efficiency: '25-30%'
-      }
+      },
+      monthlyData: monthlyProductionData
     };
 
     setResults(calculatedResults);
@@ -916,10 +950,18 @@ const SolarSimulator = () => {
                       <span>Surface utilisée</span>
                       <span className="font-bold">{results.classic.surface} m²</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                      <span>Économies annuelles</span>
-                      <span className="font-bold">{results.classic.savingsMin} - {results.classic.savingsMax} €</span>
-                    </div>
+                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
+                       <span>Économies annuelles</span>
+                       <span className="font-bold">{results.classic.savingsMin} - {results.classic.savingsMax} €</span>
+                     </div>
+                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
+                       <span>Coût d'installation</span>
+                       <span className="font-bold">{results.classic.installationCost.toLocaleString()} € TTC</span>
+                     </div>
+                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
+                       <span>Retour sur investissement</span>
+                       <span className="font-bold text-primary">{results.classic.roi} ans</span>
+                     </div>
                   </div>
                 </div>
 
@@ -942,17 +984,25 @@ const SolarSimulator = () => {
                       <span>Surface utilisée</span>
                       <span className="font-bold">{results.newGen.surface} m²</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                      <span>Économies annuelles</span>
-                      <span className="font-bold">{results.newGen.savingsMin} - {results.newGen.savingsMax} €</span>
-                    </div>
-                    <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                      <span>Rendement supérieur</span>
-                      <span className="font-bold text-green-600">
-                        +{results.advantages.efficiency}
-                        <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">NOUVEAU</span>
-                      </span>
-                    </div>
+                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
+                       <span>Économies annuelles</span>
+                       <span className="font-bold">{results.newGen.savingsMin} - {results.newGen.savingsMax} €</span>
+                     </div>
+                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
+                       <span>Coût d'installation</span>
+                       <span className="font-bold">{results.newGen.installationCost.toLocaleString()} € TTC</span>
+                     </div>
+                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
+                       <span>Retour sur investissement</span>
+                       <span className="font-bold text-green-600">{results.newGen.roi} ans</span>
+                     </div>
+                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
+                       <span>Rendement supérieur</span>
+                       <span className="font-bold text-green-600">
+                         +{results.advantages.efficiency}
+                         <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">NOUVEAU</span>
+                       </span>
+                     </div>
                   </div>
                 </div>
               </div>
@@ -1001,6 +1051,49 @@ const SolarSimulator = () => {
                   <div className="text-muted-foreground font-medium">CO₂ évité/an</div>
                 </div>
               </div>
+
+              {/* Production mensuelle */}
+              {results.monthlyData && results.monthlyData.length > 0 && (
+                <>
+                  <h3 className="text-2xl font-bold text-foreground">📊 Production mensuelle estimée</h3>
+                  
+                  <div className="bg-card rounded-2xl p-6 border border-border">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                      {results.monthlyData.map((month, index) => (
+                        <div key={index} className="bg-background rounded-lg p-4 text-center">
+                          <div className="font-medium text-muted-foreground mb-2">{month.month}</div>
+                          <div className="space-y-2">
+                            <div className="text-sm">
+                              <div className="font-bold text-card-foreground">Standard</div>
+                              <div className="text-primary">{month.classicProduction} kWh</div>
+                            </div>
+                            <div className="text-sm">
+                              <div className="font-bold text-card-foreground">Nouvelle gen.</div>
+                              <div className="text-green-600">{month.newGenProduction} kWh</div>
+                            </div>
+                            <div className="text-xs text-muted-foreground">
+                              {month.percentage}% annuel
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+                      <div className="flex items-center justify-center space-x-4 text-sm">
+                        <div className="flex items-center">
+                          <div className="w-3 h-3 bg-primary rounded mr-2"></div>
+                          <span>Panneaux standards</span>
+                        </div>
+                        <div className="flex items-center">
+                          <div className="w-3 h-3 bg-green-600 rounded mr-2"></div>
+                          <span>Nouvelle génération</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
 
               <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
                 <div className="flex">
