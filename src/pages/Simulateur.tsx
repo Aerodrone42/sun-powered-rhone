@@ -549,6 +549,18 @@ const SolarSimulator = () => {
               <Zap className="w-4 h-4 mr-2" />
               700-850W | Rendement +30%
             </div>
+            
+            {/* Message d'avertissement */}
+            <div className="mt-6 bg-amber-50/80 border border-amber-200 rounded-xl p-4 backdrop-blur-xl">
+              <div className="flex items-center gap-2 text-amber-800">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="text-sm font-medium">
+                  <strong>Information importante :</strong> Il s'agit d'une simulation et les résultats obtenus constituent une estimation basée sur des données moyennes. Les performances réelles peuvent varier selon les conditions d'installation et d'utilisation.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Progress Bar */}
