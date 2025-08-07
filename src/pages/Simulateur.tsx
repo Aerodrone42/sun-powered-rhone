@@ -411,10 +411,7 @@ const SolarSimulator = () => {
               
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="space-y-4">
-                  <label className="block text-sm font-semibold text-gray-700">
-                    Sélectionnez votre ville
-                  </label>
-                  <select 
+                  <select
                     value={formData.city} 
                     onChange={(e) => {
                       setFormData({...formData, city: e.target.value});
@@ -459,10 +456,7 @@ const SolarSimulator = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <label className="block text-sm font-semibold text-gray-700">
-                    Ou saisissez votre code postal
-                  </label>
-                  <input 
+                  <input
                     type="text" 
                     value={formData.postalCode}
                     onChange={(e) => {
