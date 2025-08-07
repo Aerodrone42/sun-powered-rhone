@@ -348,8 +348,8 @@ const SolarSimulator = () => {
         maxPanels = Math.min(theoreticalPanels, 150);
         availableSurface = Math.round(maxPanels * panelSurface * 100) / 100;
       } else {
-        // Maison individuelle: pas de limite artificielle  
-        maxPanels = theoreticalPanels;
+        // Maison individuelle: limitation réaliste à 50 panneaux max (36kWc)
+        maxPanels = Math.min(theoreticalPanels, 50);
         availableSurface = Math.round(maxPanels * panelSurface * 100) / 100; // Arrondi à 2 décimales
       }
     }
@@ -371,12 +371,12 @@ const SolarSimulator = () => {
     const classicSurplus = Math.max(0, classicProductionMin - annualConsumption);
     
     // Tarifs EDF officiels 2025 selon puissance installée
-    const surplusSellPrice = classicPower <= 9 ? 0.04 : 0.0731; // 4 c€/kWh si ≤9kWc, sinon 7,31 c€/kWh
-    const classicSavingsMin = Math.round(classicAutoconsumed * 0.17 + classicSurplus * surplusSellPrice);
+    const surplusSellPrice = classicPower <= 9 ? 0.1361 : 0.0731; // 13,61 c€/kWh si ≤9kWc, sinon 7,31 c€/kWh
+    const classicSavingsMin = Math.round(classicAutoconsumed * 0.21 + classicSurplus * surplusSellPrice);
     
     const classicAutoconsumedMax = Math.min(classicProductionMax, annualConsumption);
     const classicSurplusMax = Math.max(0, classicProductionMax - annualConsumption);
-    const classicSavingsMax = Math.round(classicAutoconsumedMax * 0.17 + classicSurplusMax * surplusSellPrice);
+    const classicSavingsMax = Math.round(classicAutoconsumedMax * 0.21 + classicSurplusMax * surplusSellPrice);
 
     // PANNEAUX 700-850W NOUVELLE GÉNÉRATION (même puissance + 25-30% rendement supplémentaire)
     const newGenPower = classicPower; // Même puissance installée
@@ -386,14 +386,14 @@ const SolarSimulator = () => {
     const newGenProductionMax = Math.round(classicProductionMax * 1.30); // +30% de rendement
     
     // Calcul économies nouvelle génération avec tarifs officiels EDF
-    const newGenSurplusSellPrice = newGenPower <= 9 ? 0.04 : 0.0731; // Même tarification selon puissance
+    const newGenSurplusSellPrice = newGenPower <= 9 ? 0.1361 : 0.0731; // 13,61 c€/kWh si ≤9kWc, sinon 7,31 c€/kWh
     const newGenAutoconsumed = Math.min(newGenProductionMin, annualConsumption);
     const newGenSurplus = Math.max(0, newGenProductionMin - annualConsumption);
-    const newGenSavingsMin = Math.round(newGenAutoconsumed * 0.17 + newGenSurplus * newGenSurplusSellPrice);
+    const newGenSavingsMin = Math.round(newGenAutoconsumed * 0.21 + newGenSurplus * newGenSurplusSellPrice);
     
     const newGenAutoconsumedMax = Math.min(newGenProductionMax, annualConsumption);
     const newGenSurplusMax = Math.max(0, newGenProductionMax - annualConsumption);
-    const newGenSavingsMax = Math.round(newGenAutoconsumedMax * 0.17 + newGenSurplusMax * newGenSurplusSellPrice);
+    const newGenSavingsMax = Math.round(newGenAutoconsumedMax * 0.21 + newGenSurplusMax * newGenSurplusSellPrice);
 
     // Avantages
     const productionGainMin = newGenProductionMin - classicProductionMax;
@@ -420,7 +420,7 @@ const SolarSimulator = () => {
       const monthIrradiation = monthlyIrradiationBase[index];
       // Calcul production mensuelle basée sur l'irradiation relative
       const monthlyProductionRatio = monthIrradiation / monthlyIrradiationBase.reduce((a, b) => a + b, 0);
-      const monthClassicProduction = Math.round(classicProductionMin * monthlyProductionRatio * 12);
+      const monthClassicProduction = Math.round(classicProductionMin * monthlyProductionRatio);
       const monthNewGenProduction = Math.round(monthClassicProduction * 1.275); // +27.5% moyenne
       const percentage = Math.round((monthNewGenProduction / newGenProductionMin) * 100);
       
