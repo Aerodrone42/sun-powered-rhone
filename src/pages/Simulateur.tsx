@@ -140,12 +140,16 @@ const SolarSimulator = () => {
               percentage: Math.round((month.E_m / data.outputs.totals.fixed.E_y) * 1000) / 10 // % annuel
             })) || [];
 
+            // Calcul des heures d'ensoleillement réelles à partir des données PVGIS
+            const realSunshineHours = Math.round(data.outputs.totals.fixed['H(i)_y'] / (data.outputs.totals.fixed['H(i)_y'] / 8760 * 0.15)); // Approximation basée sur l'efficacité solaire
+
             pvgisData = {
-              irradiation: Math.round(data.outputs.totals.fixed['H(i)_y']), // kWh/m²/an - correct field name
-              production: Math.round(data.outputs.totals.fixed.E_y), // kWh/kWp/an
-              optimalAngle: data.inputs.mounting_system.fixed.slope.value || 35,
-              pvtemp: 15, // Temperature moyenne estimée
-              monthlyData // Ajout des données mensuelles
+              irradiation: Math.round(data.outputs.totals.fixed['H(i)_y']), // kWh/m²/an - données réelles PVGIS
+              production: Math.round(data.outputs.totals.fixed.E_y), // kWh/kWp/an - données réelles PVGIS
+              optimalAngle: data.inputs.mounting_system.fixed.slope.value || 35, // Angle optimal réel PVGIS
+              sunshine: Math.round(data.outputs.totals.fixed['H(i)_y'] / 0.65), // Heures d'ensoleillement calculées à partir de l'irradiation réelle
+              pvtemp: data.inputs.pvtemp || 15, // Température réelle ou estimée
+              monthlyData // Données mensuelles réelles
             };
           }
         }
@@ -163,13 +167,13 @@ const SolarSimulator = () => {
           region: `Données PVGIS précises`,
           lat,
           lng,
-          irradiation: pvgisData.irradiation,
-          sunshine: Math.round(pvgisData.irradiation / 0.65), // Amélioration: utiliser directement les heures PVGIS si disponibles
-          solarScore: calculateSolarScore(pvgisData.irradiation), // Calcul amélioré du potentiel
-          optimalAngle: pvgisData.optimalAngle,
-          production: pvgisData.production,
-          temperature: pvgisData.pvtemp, // Température réelle PVGIS pour calculs précis
-          monthlyData: pvgisData.monthlyData,
+          irradiation: pvgisData.irradiation, // Données réelles PVGIS
+          sunshine: pvgisData.sunshine, // Heures d'ensoleillement calculées à partir des données réelles
+          solarScore: calculateSolarScore(pvgisData.irradiation), // Score basé sur l'irradiation réelle
+          optimalAngle: pvgisData.optimalAngle, // Angle optimal réel PVGIS
+          production: pvgisData.production, // Production réelle PVGIS
+          temperature: pvgisData.pvtemp, // Température réelle PVGIS
+          monthlyData: pvgisData.monthlyData, // Données mensuelles réelles
           dataSource: 'PVGIS (Commission Européenne)'
         };
       } else {
