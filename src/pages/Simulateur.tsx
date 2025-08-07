@@ -409,64 +409,25 @@ const SolarSimulator = () => {
                 Localisez votre logement
               </h2>
               
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="space-y-4">
-                  <select
-                    value={formData.city} 
-                    onChange={(e) => {
-                      setFormData({...formData, city: e.target.value});
-                      if (e.target.value) handleCitySelect(e.target.value);
-                    }}
-                    className="w-full p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
-                  >
-                    <option value="">-- Choisissez votre ville --</option>
-                    <option value="paris">Paris (75)</option>
-                    <option value="marseille">Marseille (13)</option>
-                    <option value="lyon">Lyon (69)</option>
-                    <option value="toulouse">Toulouse (31)</option>
-                    <option value="nice">Nice (06)</option>
-                    <option value="nantes">Nantes (44)</option>
-                    <option value="montpellier">Montpellier (34)</option>
-                    <option value="strasbourg">Strasbourg (67)</option>
-                    <option value="bordeaux">Bordeaux (33)</option>
-                    <option value="lille">Lille (59)</option>
-                  </select>
-                </div>
-
-                <div className="space-y-4">
-                  <label className="block text-sm font-semibold text-gray-700">
-                    Tapez votre adresse exacte
-                  </label>
-                  <div className="flex gap-2">
-                    <input 
-                      type="text" 
-                      value={formData.address || ''}
-                      onChange={(e) => setFormData({...formData, address: e.target.value})}
-                      placeholder="Ex: 123 rue de la République 69000 Lyon" 
-                      className="flex-1 p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
-                    />
-                    <button 
-                      onClick={searchAddress}
-                      disabled={loading}
-                      className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-semibold disabled:opacity-50 transition-all flex items-center gap-2"
-                    >
-                      🔍 {loading ? 'Recherche...' : 'Rechercher'}
-                    </button>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <input
+              <div className="space-y-4">
+                <label className="block text-sm font-semibold text-gray-700">
+                  Tapez votre adresse exacte
+                </label>
+                <div className="flex gap-2">
+                  <input 
                     type="text" 
-                    value={formData.postalCode}
-                    onChange={(e) => {
-                      setFormData({...formData, postalCode: e.target.value});
-                      if (e.target.value.length === 5) searchByPostalCode(e.target.value);
-                    }}
-                    placeholder="Ex: 13000" 
-                    maxLength={5}
-                    className="w-full p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
+                    value={formData.address || ''}
+                    onChange={(e) => setFormData({...formData, address: e.target.value})}
+                    placeholder="Ex: 123 rue de la République 69000 Lyon" 
+                    className="flex-1 p-3 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
                   />
+                  <button 
+                    onClick={searchAddress}
+                    disabled={loading}
+                    className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-semibold disabled:opacity-50 transition-all flex items-center gap-2"
+                  >
+                    🔍 {loading ? 'Recherche...' : 'Rechercher'}
+                  </button>
                 </div>
               </div>
 
