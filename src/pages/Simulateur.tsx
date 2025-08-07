@@ -165,7 +165,7 @@ const SolarSimulator = () => {
           lng,
           irradiation: pvgisData.irradiation,
           sunshine: Math.round(pvgisData.irradiation / 0.65), // Estimation heures soleil
-          solarScore: Math.min(10, Math.round(pvgisData.irradiation / 150)),
+          solarScore: Math.min(10, Math.round(pvgisData.irradiation / 200)), // Calcul plus réaliste
           optimalAngle: pvgisData.optimalAngle,
           production: pvgisData.production,
           temperature: pvgisData.pvtemp,
