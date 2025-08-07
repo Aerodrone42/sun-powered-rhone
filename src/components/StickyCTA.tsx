@@ -15,7 +15,7 @@ const StickyCTA = ({ phone = "07 71 41 85 68", quoteHref = "/contact" }: StickyC
             <a href={quoteHref} aria-label="Demander un devis gratuit">Devis gratuit</a>
           </Button>
           {tel && (
-            <Button asChild variant="glass" size="lg" className="w-full sm:w-auto">
+            <Button asChild variant="glass" size="lg" className="w-full sm:w-auto text-foreground">
               <a href={tel} aria-label={`Appeler le ${phone}`}>Appeler {phone}</a>
             </Button>
           )}
