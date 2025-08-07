@@ -135,16 +135,16 @@ const SolarSimulator = () => {
             
             const monthlyData = data.outputs.monthly?.fixed?.map(month => ({
               month: monthNames[month.month - 1],
-              irradiation: Math.round(month['H(h)'] * 10) / 10, // kWh/m²
+              irradiation: Math.round(month['H(i)_m'] * 10) / 10, // kWh/m² - correct field name
               production: Math.round(month.E_m * 10) / 10, // kWh/kWc
               percentage: Math.round((month.E_m / data.outputs.totals.fixed.E_y) * 1000) / 10 // % annuel
             })) || [];
 
             pvgisData = {
-              irradiation: Math.round(data.outputs.totals.fixed.H_y), // kWh/m²/an
+              irradiation: Math.round(data.outputs.totals.fixed['H(i)_y']), // kWh/m²/an - correct field name
               production: Math.round(data.outputs.totals.fixed.E_y), // kWh/kWp/an
-              optimalAngle: data.inputs.angle || 35,
-              pvtemp: Math.round(data.outputs.totals.fixed.T2m || 15),
+              optimalAngle: data.inputs.mounting_system.fixed.slope.value || 35,
+              pvtemp: 15, // Temperature moyenne estimée
               monthlyData // Ajout des données mensuelles
             };
           }
