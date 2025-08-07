@@ -14,60 +14,86 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ title, description, icon: Icon, href, benefits, variant = 'default' }: ServiceCardProps) => {
   return (
-    <Card 
-      variant={variant} 
-      className="group h-full flex flex-col relative overflow-hidden transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl border-0 bg-white/80 backdrop-blur-sm hover:bg-white/95"
-    >
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    <div className="group relative h-full">
+      {/* Glow effect background */}
+      <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 opacity-0 group-hover:opacity-100 blur transition-all duration-700 group-hover:blur-sm" />
       
-      {/* Animated border gradient */}
-      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 p-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="h-full w-full rounded-lg bg-white/90 backdrop-blur-sm" />
-      </div>
-      
-      <CardHeader className="relative z-10">
-        <div className="flex items-center space-x-3 mb-4">
-          <div className="relative p-3 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-300 group-hover:scale-110">
-            {/* Icon background glow */}
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 blur opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
-            <Icon className="h-7 w-7 text-primary relative z-10 group-hover:text-primary transition-colors duration-300 drop-shadow-sm" />
-          </div>
-          <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
-            {title}
-          </CardTitle>
-        </div>
-        <CardDescription className="text-sm leading-relaxed text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
-          {description}
-        </CardDescription>
-      </CardHeader>
-      
-      <CardContent className="flex-1 flex flex-col relative z-10">
-        <ul className="space-y-3 mb-8 flex-1">
-          {benefits.map((benefit, index) => (
-            <li 
-              key={index} 
-              className="flex items-start space-x-3 text-sm group/item animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-secondary mt-2 flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-sm" />
-              <span className="group-hover:text-foreground transition-colors duration-300">{benefit}</span>
-            </li>
-          ))}
-        </ul>
+      <Card className="relative h-full flex flex-col bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl border-0 rounded-2xl overflow-hidden transition-all duration-500 group-hover:bg-white/80 dark:group-hover:bg-gray-900/80 group-hover:scale-[1.02] group-hover:shadow-2xl">
+        {/* Top accent line */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-60" />
         
-        <Button 
-          asChild 
-          variant="outline" 
-          className="w-full relative overflow-hidden bg-white/50 border-primary/20 hover:bg-primary hover:text-white hover:border-primary group-hover:shadow-lg transition-all duration-300 hover:scale-105"
-        >
-          <Link to={href}>
-            <span className="relative z-10">En savoir plus</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 hover:opacity-100 transition-opacity duration-300" />
-          </Link>
-        </Button>
-      </CardContent>
-    </Card>
+        {/* Floating orb effect */}
+        <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-primary/30 animate-pulse" />
+        <div className="absolute top-6 right-8 w-1 h-1 rounded-full bg-secondary/40 animate-pulse" style={{animationDelay: '0.5s'}} />
+        
+        <CardHeader className="pb-4">
+          <div className="flex items-start justify-between mb-6">
+            <div className="relative">
+              {/* Icon container with modern styling */}
+              <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <Icon className="w-7 h-7 text-primary relative z-10 group-hover:text-primary transition-colors duration-300" strokeWidth={1.5} />
+              </div>
+              
+              {/* Subtle glow under icon */}
+              <div className="absolute inset-0 rounded-2xl bg-primary/10 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
+            </div>
+          </div>
+          
+          <div>
+            <CardTitle className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300 leading-tight">
+              {title}
+            </CardTitle>
+            <CardDescription className="text-sm leading-relaxed text-muted-foreground/80 group-hover:text-muted-foreground transition-colors duration-300">
+              {description}
+            </CardDescription>
+          </div>
+        </CardHeader>
+        
+        <CardContent className="flex-1 flex flex-col pt-0">
+          <div className="flex-1">
+            <ul className="space-y-3 mb-8">
+              {benefits.map((benefit, index) => (
+                <li 
+                  key={index} 
+                  className="flex items-start space-x-3 text-sm opacity-90 group-hover:opacity-100 transition-all duration-300"
+                  style={{ 
+                    transform: 'translateY(4px)',
+                    animation: `fade-in 0.6s ease-out ${index * 0.1}s forwards`
+                  }}
+                >
+                  <div className="relative mt-1.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-primary to-secondary" />
+                    <div className="absolute inset-0 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-primary to-secondary animate-ping opacity-20" />
+                  </div>
+                  <span className="leading-relaxed text-foreground/70 group-hover:text-foreground/90 transition-colors duration-300">
+                    {benefit}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          {/* Modern CTA button */}
+          <div className="relative">
+            <Button 
+              asChild 
+              className="w-full h-12 rounded-xl border-0 bg-gradient-to-r from-primary/5 to-secondary/5 hover:from-primary hover:to-secondary text-primary hover:text-white font-medium transition-all duration-300 group-hover:shadow-lg backdrop-blur-sm relative overflow-hidden"
+            >
+              <Link to={href} className="relative z-10 flex items-center justify-center space-x-2">
+                <span>En savoir plus</span>
+                <div className="w-4 h-4 rounded-full bg-current/20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                  <div className="w-1.5 h-1.5 rounded-full bg-current" />
+                </div>
+              </Link>
+            </Button>
+            
+            {/* Button glow effect */}
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-50 blur transition-opacity duration-300" />
+          </div>
+        </CardContent>
+      </Card>
+    </div>
   )
 }
 
