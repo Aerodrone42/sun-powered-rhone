@@ -1320,7 +1320,17 @@ const SolarSimulator = () => {
                   Nouvelle simulation
                 </button>
                 <button 
-                  onClick={() => alert('Merci pour votre intérêt ! Un expert vous contactera sous 24h pour établir votre devis personnalisé avec nos panneaux nouvelle génération.')}
+                  onClick={() => {
+                    console.log('Bouton devis cliqué');
+                    // Scroll vers le formulaire de contact
+                    const contactSection = document.getElementById('contact-form');
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      // Redirection vers page contact si pas de formulaire
+                      window.location.href = '/contact';
+                    }
+                  }}
                   className="bg-primary hover:bg-primary-hover text-primary-foreground px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
                 >
                   Demander un devis gratuit
