@@ -126,8 +126,72 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Particuliers */}
+      {/* Target Audience Section */}
       <section className="py-20">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Nos solutions sur mesure
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Choisissez la solution adaptée à votre profil
+            </p>
+          </div>
+          
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <Card className="group hover:scale-105 transition-all duration-300 cursor-pointer">
+              <Link to="/particuliers" className="block">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Home className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Particuliers</h3>
+                  <p className="text-muted-foreground text-sm">Solutions résidentielles pour votre maison</p>
+                </CardContent>
+              </Link>
+            </Card>
+
+            <Card className="group hover:scale-105 transition-all duration-300 cursor-pointer">
+              <Link to="/agriculteurs" className="block">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Sun className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Agriculteurs</h3>
+                  <p className="text-muted-foreground text-sm">Installations agricoles et hangars</p>
+                </CardContent>
+              </Link>
+            </Card>
+
+            <Card className="group hover:scale-105 transition-all duration-300 cursor-pointer">
+              <Link to="/terrains-non-constructibles" className="block">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Zap className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Terrains non constructibles</h3>
+                  <p className="text-muted-foreground text-sm">Valorisation de terrains inutilisés</p>
+                </CardContent>
+              </Link>
+            </Card>
+
+            <Card className="group hover:scale-105 transition-all duration-300 cursor-pointer">
+              <Link to="/marches-publics" className="block">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Building className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">Marchés publics</h3>
+                  <p className="text-muted-foreground text-sm">Solutions pour collectivités et entreprises</p>
+                </CardContent>
+              </Link>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Particuliers */}
+      <section className="py-20 bg-muted/30">
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
