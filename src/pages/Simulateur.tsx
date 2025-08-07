@@ -308,17 +308,17 @@ const SolarSimulator = () => {
       }
     } else {
       // Maison: calcul basé sur la surface de toit disponible
-      // Un panneau moderne fait 3.094 m² (2380mm × 1300mm)
-      const panelSurface = 3.094;
-      // On utilise 60-65% de la surface de toit pour l'espacement, bords, obstacles
-      const usableSurface = roofSurface * 0.65;
+      // Un panneau moderne fait ~2.4 m² (2000mm × 1200mm)
+      const panelSurface = 2.4;
+      // On utilise 65-70% de la surface de toit pour l'espacement, bords, obstacles
+      const usableSurface = roofSurface * 0.68;
       const theoreticalPanels = Math.floor(usableSurface / panelSurface);
       
       // Limitation selon le type de bâtiment
       if (formData.houseType === 'exploitation' || formData.houseType === 'hangar' || formData.houseType === 'batiment_pro') {
-        // Exploitation agricole: peut accueillir plus de panneaux
-        maxPanels = Math.min(theoreticalPanels, 100); // Max 100 panneaux pour les pro
-        availableSurface = maxPanels * panelSurface;
+        // Exploitation/bâtiment pro: jusqu'à 150 panneaux selon surface disponible
+        maxPanels = Math.min(theoreticalPanels, 150);
+        availableSurface = Math.round(maxPanels * panelSurface * 100) / 100;
       } else {
         // Maison individuelle: pas de limite artificielle  
         maxPanels = theoreticalPanels;
@@ -328,7 +328,7 @@ const SolarSimulator = () => {
     
     const classicPower = maxPanels * 0.775; // 775W moyenne, pas de limite
     const classicPanels = maxPanels;
-    const classicSurface = Math.round(classicPanels * 3.094 * 100) / 100; // Arrondi à 2 décimales
+    const classicSurface = availableSurface; // Utilise la surface calculée correctement
     const classicProductionMin = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * inclinationFactor * temperatureFactor * 0.98);
     const classicProductionMax = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * inclinationFactor * temperatureFactor * 1.02);
     const classicSavingsMin = Math.round(classicProductionMin * 0.70 * 0.17);
