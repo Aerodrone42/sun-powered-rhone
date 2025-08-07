@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { LucideIcon } from "lucide-react"
+import { LucideIcon, ArrowRight } from "lucide-react"
 
 interface ServiceCardProps {
   title: string
@@ -14,38 +14,38 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ title, description, icon: Icon, href, benefits, variant = 'default' }: ServiceCardProps) => {
   return (
-    <div className="group relative h-full">
-      <Card className="relative h-full flex flex-col bg-card border border-border/50 hover:border-border transition-all duration-300 hover:shadow-medium">
-        {/* Clean, minimal header */}
-        <CardHeader className="pb-6">
-          <div className="flex items-center space-x-4 mb-4">
-            {/* Simple, clean icon container */}
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors duration-300">
-              <Icon className="w-6 h-6 text-primary" strokeWidth={2} />
-            </div>
-            
-            <div className="flex-1">
-              <CardTitle className="text-lg font-semibold text-card-foreground mb-1">
-                {title}
-              </CardTitle>
+    <Card className="group relative h-full border-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden rounded-2xl">
+      {/* Modern gradient border */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+      <div className="absolute inset-[1px] bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 rounded-[calc(1rem-1px)]" />
+      
+      <div className="relative z-10 h-full flex flex-col">
+        <CardHeader className="pb-4">
+          {/* Modern icon with accent */}
+          <div className="mb-6">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 p-0.5 group-hover:scale-105 transition-transform duration-300">
+              <div className="w-full h-full rounded-[calc(1rem-2px)] bg-white dark:bg-gray-900 flex items-center justify-center">
+                <Icon className="w-8 h-8 text-blue-600 dark:text-blue-400" strokeWidth={2} />
+              </div>
             </div>
           </div>
           
-          <CardDescription className="text-sm text-muted-foreground leading-relaxed">
+          <CardTitle className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+            {title}
+          </CardTitle>
+          <CardDescription className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
             {description}
           </CardDescription>
         </CardHeader>
         
         <CardContent className="flex-1 flex flex-col pt-0">
-          <div className="flex-1">
-            <ul className="space-y-2.5 mb-6">
+          {/* Benefits list */}
+          <div className="flex-1 mb-6">
+            <ul className="space-y-3">
               {benefits.map((benefit, index) => (
-                <li 
-                  key={index} 
-                  className="flex items-start space-x-3 text-sm"
-                >
-                  <div className="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  <span className="text-muted-foreground leading-relaxed">
+                <li key={index} className="flex items-start space-x-3 text-sm">
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mt-1.5 flex-shrink-0" />
+                  <span className="text-gray-700 dark:text-gray-200 leading-relaxed">
                     {benefit}
                   </span>
                 </li>
@@ -53,22 +53,19 @@ const ServiceCard = ({ title, description, icon: Icon, href, benefits, variant =
             </ul>
           </div>
           
-          {/* Clean, readable button */}
+          {/* Modern CTA button */}
           <Button 
             asChild 
-            variant="outline"
-            className="w-full bg-card hover:bg-accent hover:text-accent-foreground border-border hover:border-border transition-all duration-200"
+            className="w-full h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 rounded-xl font-medium transition-all duration-300 group-hover:shadow-lg"
           >
             <Link to={href} className="flex items-center justify-center space-x-2">
               <span>En savoir plus</span>
-              <div className="w-4 h-4 flex items-center justify-center">
-                <div className="w-1 h-1 rounded-full bg-current" />
-              </div>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </Button>
         </CardContent>
-      </Card>
-    </div>
+      </div>
+    </Card>
   )
 }
 
