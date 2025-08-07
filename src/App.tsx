@@ -13,7 +13,10 @@ import BorneRecharge from "./pages/BorneRecharge";
 import BatterieSolaire from "./pages/BatterieSolaire";
 import InstallationConsommation from "./pages/InstallationConsommation";
 import PanneauxSolaires from "./pages/PanneauxSolaires";
-
+import PanneauxSolairesPro from "./pages/PanneauxSolairesPro";
+import InstallationConsommationPro from "./pages/InstallationConsommationPro";
+import BorneRechargePro from "./pages/BorneRechargePro";
+import BatterieSolairePro from "./pages/BatterieSolairePro";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
