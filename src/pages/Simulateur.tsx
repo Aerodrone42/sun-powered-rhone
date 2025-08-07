@@ -34,10 +34,14 @@ const SolarSimulator = () => {
     heating: 'electrique'
   });
 
-  // Fonction PVGIS automatisée
+  // Fonction PVGIS automatisée avec proxy CORS
   const getProductionPVGIS = async (lat, lng, peakPower = 1) => {
     try {
-      const url = `https://re.jrc.ec.europa.eu/api/PVcalc?lat=${lat}&lon=${lng}&peakpower=${peakPower}&loss=14&optimalangles=1&monthly=1&outputformat=json`;
+      // Utilisation d'un proxy CORS pour contourner les restrictions
+      const proxyUrl = 'https://api.allorigins.win/raw?url=';
+      const pvgisUrl = `https://re.jrc.ec.europa.eu/api/PVcalc?lat=${lat}&lon=${lng}&peakpower=${peakPower}&loss=14&optimalangles=1&monthly=1&outputformat=json`;
+      const url = proxyUrl + encodeURIComponent(pvgisUrl);
+      
       const response = await fetch(url);
       
       if (!response.ok) {
@@ -45,6 +49,7 @@ const SolarSimulator = () => {
       }
       
       const data = await response.json();
+      console.log('Données PVGIS reçues:', data);
       return data.outputs?.totals?.fixed?.E_y || null;
     } catch (error) {
       console.error('Erreur PVGIS:', error);
