@@ -294,20 +294,20 @@ const SolarSimulator = () => {
       }
     } else {
       // Maison: calcul basé sur la surface de toit disponible
-      // Un panneau moderne fait environ 2.4 m² (2380mm × 1300mm)
-      const panelSurface = 2.4;
-      // On utilise 70% de la surface de toit pour tenir compte des contraintes techniques
-      const usableSurface = roofSurface * 0.7;
+      // Un panneau moderne fait 3.094 m² (2380mm × 1300mm)
+      const panelSurface = 3.094;
+      // On utilise 60-65% de la surface de toit pour l'espacement, bords, obstacles
+      const usableSurface = roofSurface * 0.65;
       const theoreticalPanels = Math.floor(usableSurface / panelSurface);
       
       // Limitation selon le type de bâtiment
       if (formData.houseType === 'exploitation' || formData.houseType === 'hangar' || formData.houseType === 'batiment_pro') {
         // Exploitation agricole: peut accueillir plus de panneaux
-        maxPanels = Math.min(theoreticalPanels, 50); // Max 50 panneaux pour les pro
+        maxPanels = Math.min(theoreticalPanels, 100); // Max 100 panneaux pour les pro
         availableSurface = maxPanels * panelSurface;
       } else {
-        // Maison individuelle: limitation raisonnable
-        maxPanels = Math.min(theoreticalPanels, 20); // Max 20 panneaux pour particuliers
+        // Maison individuelle: limitation raisonnable  
+        maxPanels = theoreticalPanels; // Pas de limite artificielle
         availableSurface = maxPanels * panelSurface;
       }
     }
