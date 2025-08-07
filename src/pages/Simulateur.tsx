@@ -457,7 +457,7 @@ const SolarSimulator = () => {
           {/* Étape 1: Localisation */}
           {currentStep === 1 && (
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-white flex items-center gap-3 drop-shadow-lg">
+              <h2 className="text-3xl font-bold text-foreground flex items-center gap-3 drop-shadow-lg">
                 <MapPin className="w-8 h-8 text-yellow-300" />
                 Localisez votre logement
               </h2>
