@@ -10,6 +10,7 @@ import Professionnels from "./pages/Professionnels";
 import Contact from "./pages/Contact";
 import Simulateur from "./pages/Simulateur";
 import PanneauxSolaires from "./pages/PanneauxSolaires";
+import PanneauxSolaires2025 from "./pages/PanneauxSolaires2025";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/particuliers" element={<Particuliers />} />
             <Route path="/particuliers/panneaux-solaires" element={<PanneauxSolaires />} />
+            <Route path="/particuliers/panneaux-solaires-2025" element={<PanneauxSolaires2025 />} />
             <Route path="/professionnels" element={<Professionnels />} />
             <Route path="/simulateur" element={<Simulateur />} />
             <Route path="/contact" element={<Contact />} />
