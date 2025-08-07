@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-
+import StickyCTA from "@/components/StickyCTA";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Helmet } from "react-helmet-async";
 
@@ -54,24 +54,34 @@ const PanneauxSolaires = () => {
 
       <main className="bg-background text-foreground">
         {/* Hero */}
-        <section className="relative min-h-[60vh] md:min-h-[70vh] overflow-hidden">
+        <section className="relative min-h-[85vh] md:min-h-screen overflow-hidden">
           <img
             src={pergolaImg}
             alt="Pergola solaire moderne - inspiration pour installation résidentielle"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-background/30" />
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-            <div className="max-w-2xl bg-background/90 border border-border p-6 md:p-8">
-              <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">
+          <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/20 to-background/90" />
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+            <div className="max-w-3xl">
+              <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[0.95]">
                 Panneaux solaires pour votre maison
               </h1>
-              <p className="mt-4 text-lg md:text-xl text-muted-foreground">
-                Étude personnalisée, installation RGE, suivi complet et aides gérées par WN Energies pour une autoconsommation performante.
+              <p className="mt-6 text-xl md:text-2xl text-muted-foreground">
+                Étude personnalisée, installation RGE et suivi complet pour une autoconsommation performante.
               </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Button size="lg" className="bg-primary text-primary-foreground">Demander un devis</Button>
-                <Button variant="outline" size="lg">Vérifier mon éligibilité</Button>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Button asChild size="xl" variant="hero">
+                  <a href="/contact" aria-label="Demander un devis gratuit">Demander un devis</a>
+                </Button>
+                <Button asChild size="xl" variant="glass">
+                  <a href="/simulateur" aria-label="Vérifier mon éligibilité">Vérifier mon éligibilité</a>
+                </Button>
+              </div>
+              <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 text-sm text-muted-foreground">
+                <div><p className="text-2xl font-semibold text-foreground">25 ans</p><p>Garantie panneaux</p></div>
+                <div><p className="text-2xl font-semibold text-foreground">48 h</p><p>Étude gratuite</p></div>
+                <div><p className="text-2xl font-semibold text-foreground">-45%</p><p>Sur la facture</p></div>
+                <div><p className="text-2xl font-semibold text-foreground">RGE</p><p>Pose certifiée</p></div>
               </div>
             </div>
           </div>
@@ -108,36 +118,38 @@ const PanneauxSolaires = () => {
           </div>
         </section>
 
-        {/* Galerie */}
-        <section className="py-12 md:py-20 border-t border-border">
+        {/* Galerie - masonry full-bleed */}
+        <section className="py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-8">Nos réalisations en images</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
-              <figure className="group">
-                <img src={roofImg} alt="Toiture photovoltaïque résidentielle - panneaux solaires sur maison" className="h-56 w-full object-cover" loading="lazy" />
-                <figcaption className="mt-2 text-sm text-muted-foreground">Toiture photovoltaïque</figcaption>
+            <h2 className="text-3xl md:text-4xl font-semibold">Nos réalisations</h2>
+          </div>
+          <div className="mt-8 px-4 sm:px-6 lg:px-8">
+            <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
+              <figure className="mb-4 break-inside-avoid">
+                <img src={roofImg} alt="Toiture photovoltaïque résidentielle - panneaux solaires sur maison" className="w-full h-auto rounded-2xl object-cover" loading="lazy" />
+                <figcaption className="mt-2 text-xs text-muted-foreground">Toiture photovoltaïque</figcaption>
               </figure>
-              <figure className="group">
-                <img src={pergolaImg} alt="Pergola solaire design - ombrage et production d’énergie" className="h-56 w-full object-cover" loading="lazy" />
-                <figcaption className="mt-2 text-sm text-muted-foreground">Pergola solaire</figcaption>
+              <figure className="mb-4 break-inside-avoid">
+                <img src={pergolaImg} alt="Pergola solaire design - ombrage et production d’énergie" className="w-full h-auto rounded-2xl object-cover" loading="lazy" />
+                <figcaption className="mt-2 text-xs text-muted-foreground">Pergola solaire</figcaption>
               </figure>
-              <figure className="group">
-                <img src={auventImg} alt="Auvent solaire pour terrasse - modules semi-transparents" className="h-56 w-full object-cover" loading="lazy" />
-                <figcaption className="mt-2 text-sm text-muted-foreground">Auvent solaire</figcaption>
+              <figure className="mb-4 break-inside-avoid">
+                <img src={auventImg} alt="Auvent solaire pour terrasse - modules semi-transparents" className="w-full h-auto rounded-2xl object-cover" loading="lazy" />
+                <figcaption className="mt-2 text-xs text-muted-foreground">Auvent solaire</figcaption>
               </figure>
-              <figure className="group">
-                <img src={carportImg} alt="Carport solaire avec production d’électricité pour véhicule" className="h-56 w-full object-cover" loading="lazy" />
-                <figcaption className="mt-2 text-sm text-muted-foreground">Carport solaire</figcaption>
+              <figure className="mb-4 break-inside-avoid">
+                <img src={carportImg} alt="Carport solaire avec production d’électricité pour véhicule" className="w-full h-auto rounded-2xl object-cover" loading="lazy" />
+                <figcaption className="mt-2 text-xs text-muted-foreground">Carport solaire</figcaption>
               </figure>
             </div>
           </div>
         </section>
 
         {/* Avantages */}
-        <section className="py-12 md:py-20 border-t border-border">
+        <section className="py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-8">Pourquoi choisir nos panneaux solaires ?</h2>
-            <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <h2 className="text-3xl md:text-4xl font-semibold">Pourquoi choisir nos panneaux solaires ?</h2>
+            <ul className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 { t: "Économies durables", d: "Baissez votre facture d’électricité dès le premier jour." },
                 { t: "Installation clé en main", d: "Prise en charge complète: étude, pose, démarches." },
@@ -146,9 +158,9 @@ const PanneauxSolaires = () => {
                 { t: "Autoconsommation optimisée", d: "Dimensionnement précis selon vos usages." },
                 { t: "Revente du surplus", d: "Contrat d’obligation d’achat au meilleur tarif." },
               ].map((item) => (
-                <li key={item.t} className="p-6 border border-border">
-                  <h3 className="text-lg font-semibold">{item.t}</h3>
-                  <p className="text-sm text-muted-foreground mt-2">{item.d}</p>
+                <li key={item.t} className="space-y-2">
+                  <h3 className="text-lg md:text-xl font-semibold tracking-tight">{item.t}</h3>
+                  <p className="text-sm text-muted-foreground">{item.d}</p>
                 </li>
               ))}
             </ul>
@@ -156,40 +168,35 @@ const PanneauxSolaires = () => {
         </section>
 
         {/* Tarifs et aides */}
-        <section className="py-12 md:py-20 border-t border-border">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-8">
-              <article className="space-y-4 text-muted-foreground">
-                <h2 className="text-2xl md:text-3xl font-semibold">Tarifs et aides disponibles</h2>
-                <p>
-                  Le coût dépend de la puissance installée, de la complexité du chantier et du type de matériel. À titre indicatif, une installation résidentielle de 3 à 6 kWc se situe généralement entre 6 000 et 12 000 € TTC posé, avant aides.
-                </p>
-                <p>
-                  En France, vous pouvez bénéficier de la TVA réduite, de la prime à l’autoconsommation et d’un contrat d’achat pour la revente du surplus. Nous montons vos dossiers et vous accompagnons jusqu’à l’obtention des aides.
-                </p>
-              </article>
-              <aside>
-                <div className="border border-border p-6">
-                  <h3 className="text-xl font-semibold">Ce que comprend notre offre</h3>
-                  <p className="text-muted-foreground">Tout est inclus, sans surprise</p>
-                  <ul className="mt-4 text-sm space-y-2">
-                    <li>• Étude technique et dimensionnement</li>
-                    <li>• Matériel premium (panneaux, onduleur/micro-onduleurs, câblage)</li>
-                    <li>• Pose RGE et travaux de sécurité</li>
-                    <li>• Démarches administratives et raccordement</li>
-                    <li>• Mise en service et application de suivi</li>
-                  </ul>
-                </div>
-              </aside>
-            </div>
+        <section className="py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12">
+            <article className="space-y-4 text-muted-foreground">
+              <h2 className="text-3xl md:text-4xl font-semibold text-foreground">Tarifs et aides disponibles</h2>
+              <p>
+                Le coût dépend de la puissance installée, de la complexité du chantier et du type de matériel. À titre indicatif, une installation résidentielle de 3 à 6 kWc se situe généralement entre 6 000 et 12 000 € TTC posé, avant aides.
+              </p>
+              <p>
+                En France, vous pouvez bénéficier de la TVA réduite, de la prime à l’autoconsommation et d’un contrat d’achat pour la revente du surplus. Nous montons vos dossiers et vous accompagnons jusqu’à l’obtention des aides.
+              </p>
+            </article>
+            <aside>
+              <h3 className="text-xl font-semibold">Notre offre inclut</h3>
+              <ul className="mt-4 text-sm space-y-2 text-muted-foreground">
+                <li>• Étude technique et dimensionnement</li>
+                <li>• Matériel premium (panneaux, onduleur/micro-onduleurs, câblage)</li>
+                <li>• Pose RGE et travaux de sécurité</li>
+                <li>• Démarches administratives et raccordement</li>
+                <li>• Mise en service et application de suivi</li>
+              </ul>
+            </aside>
           </div>
         </section>
 
         {/* Garanties et matériel */}
-        <section className="py-12 md:py-20 border-t border-border">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8">
+        <section className="py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12">
             <article className="space-y-4 text-muted-foreground">
-              <h2 className="text-2xl md:text-3xl font-semibold">Garanties et matériel</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold text-foreground">Garanties et matériel</h2>
               <p>
                 Nous sélectionnons des fabricants reconnus pour la fiabilité et la traçabilité de leurs produits. Les panneaux sont généralement garantis 25 ans sur la performance et 12 ans sur le produit. Les onduleurs bénéficient de 5 à 10 ans de garantie, extensible selon les modèles.
               </p>
@@ -197,55 +204,54 @@ const PanneauxSolaires = () => {
                 Nous privilégions les fixations adaptées à votre toiture (tuile, ardoise, bac acier) pour une intégration propre et durable, sans compromettre l’étanchéité.
               </p>
             </article>
-            <article className="space-y-3 text-sm">
-              <div className="border border-border p-6">
-                <h3 className="text-xl font-semibold">Spécifications types</h3>
-                <p className="text-muted-foreground">Exemple d’une installation 3 kWc</p>
-                <ul className="mt-4 space-y-2">
-                  <li>• 6 à 8 panneaux monocristallins haut rendement</li>
-                  <li>• Micro-onduleurs ou onduleur central selon contexte</li>
-                  <li>• Production annuelle estimée: 3 000 à 3 900 kWh</li>
-                  <li>• Suivi via application mobile/web</li>
-                </ul>
-              </div>
+            <article className="space-y-2 text-sm text-muted-foreground">
+              <h3 className="text-xl font-semibold text-foreground">Spécifications types</h3>
+              <p>Exemple d’une installation 3 kWc</p>
+              <ul className="mt-2 space-y-2">
+                <li>• 6 à 8 panneaux monocristallins haut rendement</li>
+                <li>• Micro-onduleurs ou onduleur central selon contexte</li>
+                <li>• Production annuelle estimée: 3 000 à 3 900 kWh</li>
+                <li>• Suivi via application mobile/web</li>
+              </ul>
             </article>
           </div>
         </section>
 
         {/* Cas client */}
-        <section className="py-12 md:py-20 border-t border-border">
+        <section className="py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-6">Cas client: maison de 120 m²</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="p-6 border-l-4 border-primary">
-                <p className="text-4xl font-semibold">-45%</p>
-                <p className="text-sm text-muted-foreground">de facture la 1ère année</p>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-6">Cas client: maison de 120 m²</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+              <div>
+                <p className="text-5xl font-semibold leading-none">-45%</p>
+                <p className="mt-2 text-sm text-muted-foreground">de facture la 1ère année</p>
               </div>
-              <div className="p-6 border-l-4 border-primary">
-                <p className="text-4xl font-semibold">1 050 kWh</p>
-                <p className="text-sm text-muted-foreground">autoconsommés par an</p>
+              <div>
+                <p className="text-5xl font-semibold leading-none">1 050 kWh</p>
+                <p className="mt-2 text-sm text-muted-foreground">autoconsommés par an</p>
               </div>
-              <div className="p-6 border-l-4 border-primary">
-                <p className="text-4xl font-semibold">6 ans</p>
-                <p className="text-sm text-muted-foreground">ROI estimé</p>
+              <div>
+                <p className="text-5xl font-semibold leading-none">6 ans</p>
+                <p className="mt-2 text-sm text-muted-foreground">ROI estimé</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Étapes */}
-        <section className="py-12 md:py-20 border-t border-border">
+        <section className="py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-8">Notre processus en 4 étapes</h2>
-            <ol className="grid md:grid-cols-4 gap-6">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-8">Notre processus en 4 étapes</h2>
+            <ol className="grid md:grid-cols-4 gap-8">
               {[
-                { t: "1. Étude", d: "Analyse de votre toiture et de vos consommations." },
-                { t: "2. Devis", d: "Dimensionnement, simulation de production et ROI." },
-                { t: "3. Pose", d: "Installation par nos équipes qualifiées RGE." },
-                { t: "4. Mise en service", d: "Raccordement, tests et suivi de la production." },
-              ].map((s) => (
-                <li key={s.t} className="p-6 border border-border">
-                  <p className="font-medium mb-1">{s.t}</p>
+                { t: "Étude", d: "Analyse de votre toiture et de vos consommations." },
+                { t: "Devis", d: "Dimensionnement, simulation de production et ROI." },
+                { t: "Pose", d: "Installation par nos équipes qualifiées RGE." },
+                { t: "Mise en service", d: "Raccordement, tests et suivi de la production." },
+              ].map((s, i) => (
+                <li key={s.t} className="space-y-2">
+                  <div className="text-4xl font-semibold">{i + 1}</div>
+                  <p className="font-medium">{s.t}</p>
                   <p className="text-sm text-muted-foreground">{s.d}</p>
                 </li>
               ))}
@@ -269,16 +275,17 @@ const PanneauxSolaires = () => {
         </section>
 
         {/* CTA final */}
-        <section className="py-12 md:py-20 border-t border-border">
+        <section className="py-20 md:py-28">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">Passez au solaire en toute sérénité</h2>
-            <p className="text-muted-foreground mb-8">Un conseiller vous rappelle sous 24h pour une estimation gratuite et rapide.</p>
-            <Button size="lg" className="bg-primary text-primary-foreground">Je démarre mon projet</Button>
+            <h2 className="text-4xl md:text-5xl font-semibold mb-6">Passez au solaire en toute sérénité</h2>
+            <p className="text-lg text-muted-foreground mb-10">Un conseiller vous rappelle sous 24h pour une estimation gratuite et rapide.</p>
+            <Button asChild size="xl" variant="hero">
+              <a href="/contact">Je démarre mon projet</a>
+            </Button>
           </div>
         </section>
       </main>
-
-
+      <StickyCTA phone="07 71 41 85 68" quoteHref="/contact" />
       <Footer />
     </>
   );
