@@ -485,16 +485,16 @@ const SolarSimulator = () => {
 
   // Fonction améliorée pour calculer le potentiel solaire
   const calculateSolarScore = (irradiation: number): number => {
-    // Échelle améliorée basée sur les données françaises réelles
-    if (irradiation >= 1600) return 10; // Excellent (Sud France, Corse)
-    if (irradiation >= 1450) return 9;  // Très bon (Occitanie, PACA)
-    if (irradiation >= 1350) return 8;  // Bon (Nouvelle-Aquitaine)
-    if (irradiation >= 1250) return 7;  // Correct (Centre, Pays de Loire)
-    if (irradiation >= 1150) return 6;  // Moyen (Île-de-France, Bourgogne)
-    if (irradiation >= 1050) return 5;  // Passable (Normandie, Bretagne)
-    if (irradiation >= 950) return 4;   // Faible (Nord)
-    if (irradiation >= 850) return 3;   // Très faible
-    if (irradiation >= 750) return 2;   // Insuffisant
+    // Échelle plus stricte et réaliste pour la France
+    if (irradiation >= 1700) return 10; // Excellent (Corse, extrême sud)
+    if (irradiation >= 1550) return 9;  // Très bon (PACA, Occitanie sud)
+    if (irradiation >= 1450) return 8;  // Bon (Occitanie, Nouvelle-Aquitaine sud)
+    if (irradiation >= 1350) return 7;  // Correct (Centre-sud, Bourgogne)
+    if (irradiation >= 1250) return 6;  // Moyen (Centre, Pays de Loire)
+    if (irradiation >= 1150) return 5;  // Passable (Île-de-France, Champagne)
+    if (irradiation >= 1050) return 4;  // Faible (Normandie, Bretagne)
+    if (irradiation >= 950) return 3;   // Très faible (Nord, zones montagneuses)
+    if (irradiation >= 850) return 2;   // Insuffisant
     return 1; // Très insuffisant
   };
 
