@@ -472,7 +472,7 @@ const SolarSimulator = () => {
                     value={formData.address || ''}
                     onChange={(e) => setFormData({...formData, address: e.target.value})}
                     placeholder="Ex: 123 rue de la République 69000 Lyon" 
-                    className="flex-1 p-3 bg-white/10 backdrop-blur-xl border border-white/30 rounded-xl focus:border-yellow-300 focus:outline-none text-white placeholder-white/70 shadow-xl"
+                    className="flex-1 p-3 bg-background/90 backdrop-blur-xl border border-border rounded-xl focus:border-primary focus:outline-none text-foreground placeholder-muted-foreground shadow-xl"
                   />
                   <button 
                     onClick={searchAddress}
