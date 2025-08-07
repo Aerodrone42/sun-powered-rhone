@@ -2,8 +2,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import hero from "@/assets/hero-image.jpg";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Helmet } from "react-helmet-async";
+
+const pergolaImg = "/lovable-uploads/37aeed72-e13c-4dd8-8b9d-f27d07561353.png";
+const roofImg = "/lovable-uploads/5c91c045-c4a2-4d82-9a66-4912676183ca.png";
+const auventImg = "/lovable-uploads/f4a3939c-b11e-44f3-99fd-e108ad2001cf.png";
+const carportImg = "/lovable-uploads/f6f02fb8-79ac-461b-bfc2-257aea388457.png";
 
 const PanneauxSolaires = () => {
   const title = "Panneaux solaires pour particuliers | Étude et pose";
@@ -70,12 +75,36 @@ const PanneauxSolaires = () => {
 
               <div className="relative">
                 <img
-                  src={hero}
-                  alt="Panneaux solaires sur une maison - installation photovoltaïque pour particuliers"
+                  src={pergolaImg}
+                  alt="Pergola solaire moderne pour terrasse - panneaux solaires intégrés"
                   className="w-full h-72 md:h-96 object-cover rounded-xl border border-border"
-                  loading="lazy"
                 />
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Galerie */}
+        <section className="py-12 md:py-20 border-t border-border">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-8">Nos réalisations en images</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <figure className="relative group overflow-hidden rounded-xl border border-border">
+                <img src={roofImg} alt="Toiture photovoltaïque résidentielle - panneaux solaires sur maison" className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-background/80 backdrop-blur px-3 py-2 text-sm">Toiture photovoltaïque</figcaption>
+              </figure>
+              <figure className="relative group overflow-hidden rounded-xl border border-border">
+                <img src={pergolaImg} alt="Pergola solaire design - ombrage et production d’énergie" className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-background/80 backdrop-blur px-3 py-2 text-sm">Pergola solaire</figcaption>
+              </figure>
+              <figure className="relative group overflow-hidden rounded-xl border border-border">
+                <img src={auventImg} alt="Auvent solaire pour terrasse - modules semi-transparents" className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-background/80 backdrop-blur px-3 py-2 text-sm">Auvent solaire</figcaption>
+              </figure>
+              <figure className="relative group overflow-hidden rounded-xl border border-border">
+                <img src={carportImg} alt="Carport solaire avec production d’électricité pour véhicule" className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-background/80 backdrop-blur px-3 py-2 text-sm">Carport solaire</figcaption>
+              </figure>
             </div>
           </div>
         </section>
@@ -123,6 +152,21 @@ const PanneauxSolaires = () => {
                 </Card>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-12 md:py-20 border-t border-border">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-6">Questions fréquentes</h2>
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((f, i) => (
+                <AccordionItem key={i} value={`item-${i}`}>
+                  <AccordionTrigger className="text-left">{f.q}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </section>
 
