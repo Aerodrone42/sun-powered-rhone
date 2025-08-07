@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Sun, Zap, Home, Calculator, MapPin, Battery, Leaf, TrendingUp } from 'lucide-react';
-import MapboxMap from '../components/MapboxMap';
+import SimpleMap from '../components/SimpleMap';
 
 const SolarSimulator = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -339,12 +339,9 @@ const SolarSimulator = () => {
                 Puis cliquez sur la carte pour affiner votre position exacte
               </p>
 
-              {/* Carte Mapbox */}
-              <MapboxMap 
-                onLocationSelect={(lat, lng) => {
-                  setSelectedLocation({ lat, lng });
-                  fetchLocationData(lat, lng);
-                }}
+              {/* Carte interactive simple */}
+              <SimpleMap 
+                onLocationSelect={fetchLocationData}
                 selectedLocation={selectedLocation}
               />
 
