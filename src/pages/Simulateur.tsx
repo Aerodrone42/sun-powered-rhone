@@ -437,7 +437,7 @@ const SolarSimulator = () => {
                   <input 
                     id="addressInput"
                     type="text" 
-                    placeholder="Ex: 139 place de l'église 42114 Chirassimont" 
+                    placeholder="Ex: 123 rue de la République 69000 Lyon" 
                     className="flex-1 p-4 text-lg border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none"
                     onKeyPress={(e) => {
                       if (e.key === 'Enter') {
