@@ -5,8 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import StickyCTA from "@/components/StickyCTA";
 import { Helmet } from "react-helmet-async";
+import autoconsommationProHero from "@/assets/autoconsommation-pro-hero.jpg";
 import { 
-  Building2, 
+  Building2,
   Zap, 
   TrendingDown, 
   Battery, 
@@ -117,10 +118,15 @@ const InstallationConsommationPro = () => {
       <main className="bg-background text-foreground overflow-hidden">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center">
-          {/* Background - placeholder for generated image */}
+          {/* Background Image */}
           <div className="absolute inset-0">
-            <div className="w-full h-full bg-gradient-to-br from-primary/10 via-secondary/5 to-background" />
-            <div className="absolute inset-0 bg-hero-gradient opacity-10" />
+            <img 
+              src={autoconsommationProHero} 
+              alt="Installation autoconsommation professionnelle" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-background/80" />
+            <div className="absolute inset-0 bg-hero-gradient opacity-20" />
           </div>
 
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
