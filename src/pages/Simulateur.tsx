@@ -164,12 +164,12 @@ const SolarSimulator = () => {
           lat,
           lng,
           irradiation: pvgisData.irradiation,
-          sunshine: Math.round(pvgisData.irradiation / 0.65), // Estimation heures soleil
-          solarScore: Math.min(10, Math.round(pvgisData.irradiation / 200)), // Calcul plus réaliste
+          sunshine: Math.round(pvgisData.irradiation / 0.65), // Amélioration: utiliser directement les heures PVGIS si disponibles
+          solarScore: calculateSolarScore(pvgisData.irradiation), // Calcul amélioré du potentiel
           optimalAngle: pvgisData.optimalAngle,
           production: pvgisData.production,
-          temperature: pvgisData.pvtemp,
-          monthlyData: pvgisData.monthlyData, // Ajout des données mensuelles
+          temperature: pvgisData.pvtemp, // Température réelle PVGIS pour calculs précis
+          monthlyData: pvgisData.monthlyData,
           dataSource: 'PVGIS (Commission Européenne)'
         };
       } else {
@@ -481,6 +481,21 @@ const SolarSimulator = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
     }
+  };
+
+  // Fonction améliorée pour calculer le potentiel solaire
+  const calculateSolarScore = (irradiation: number): number => {
+    // Échelle améliorée basée sur les données françaises réelles
+    if (irradiation >= 1600) return 10; // Excellent (Sud France, Corse)
+    if (irradiation >= 1450) return 9;  // Très bon (Occitanie, PACA)
+    if (irradiation >= 1350) return 8;  // Bon (Nouvelle-Aquitaine)
+    if (irradiation >= 1250) return 7;  // Correct (Centre, Pays de Loire)
+    if (irradiation >= 1150) return 6;  // Moyen (Île-de-France, Bourgogne)
+    if (irradiation >= 1050) return 5;  // Passable (Normandie, Bretagne)
+    if (irradiation >= 950) return 4;   // Faible (Nord)
+    if (irradiation >= 850) return 3;   // Très faible
+    if (irradiation >= 750) return 2;   // Insuffisant
+    return 1; // Très insuffisant
   };
 
   const resetSimulator = () => {
