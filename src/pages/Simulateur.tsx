@@ -293,24 +293,33 @@ const SolarSimulator = () => {
         availableSurface = 16.8;
       }
     } else {
-      // Maison: calcul réaliste selon surface d'UN SEUL versant de toit (le mieux exposé)
+      // Maison: calcul selon données réelles du tableau estimatif
       const houseSurfaceNum = parseInt(formData.houseSurface) || 70;
-      // Calcul très conservateur : environ 3-4 panneaux pour une maison de 70m²
-      if (houseSurfaceNum <= 60) {
-        maxPanels = 3;
+      // Données basées sur le tableau officiel de moyennes nationales françaises
+      if (houseSurfaceNum <= 50) {
+        maxPanels = 3; // 2 à 3 panneaux pour 50m²
         availableSurface = 7.2; // 3 panneaux × 2.4m²
-      } else if (houseSurfaceNum <= 90) {
-        maxPanels = 4;
+      } else if (houseSurfaceNum <= 75) {
+        maxPanels = 4; // 3 à 4 panneaux pour 75m²
         availableSurface = 9.6; // 4 panneaux × 2.4m²
+      } else if (houseSurfaceNum <= 100) {
+        maxPanels = 5; // 4 à 5 panneaux pour 100m²
+        availableSurface = 12; // 5 panneaux × 2.4m²
       } else if (houseSurfaceNum <= 120) {
-        maxPanels = 6;
+        maxPanels = 6; // 5 à 6 panneaux pour 120m²
         availableSurface = 14.4; // 6 panneaux × 2.4m²
       } else if (houseSurfaceNum <= 150) {
-        maxPanels = 8;
-        availableSurface = 19.2; // 8 panneaux × 2.4m²
+        maxPanels = 7; // 6 à 7 panneaux pour 150m²
+        availableSurface = 16.8; // 7 panneaux × 2.4m²
+      } else if (houseSurfaceNum <= 180) {
+        maxPanels = 9; // 8 à 9 panneaux pour 180m²
+        availableSurface = 21.6; // 9 panneaux × 2.4m²
+      } else if (houseSurfaceNum <= 200) {
+        maxPanels = 10; // 9 à 10 panneaux pour 200m²
+        availableSurface = 24; // 10 panneaux × 2.4m²
       } else {
-        maxPanels = 10;
-        availableSurface = 24; // 10 panneaux × 2.4m² max
+        maxPanels = 12; // 11 à 12 panneaux pour 250m² et plus
+        availableSurface = 28.8; // 12 panneaux × 2.4m² max
       }
     }
     
