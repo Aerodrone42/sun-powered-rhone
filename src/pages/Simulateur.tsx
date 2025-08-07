@@ -257,10 +257,18 @@ const SolarSimulator = () => {
   const calculateSolarResults = async () => {
     setLoading(true);
     
-    const { irradiation } = locationData;
+    const { irradiation, temperature, optimalAngle } = locationData;
     const roofSurface = formData.roofSurface;
     const monthlyBill = formData.monthlyBill;
-    const annualConsumption = monthlyBill * 12 / 0.17;
+    const residents = parseInt(formData.residents) || 4;
+    const heating = formData.heating;
+    
+    // Calcul consommation plus précis selon habitants et chauffage
+    let baseConsumption = monthlyBill * 12 / 0.17;
+    if (heating === 'electrique') {
+      baseConsumption *= 1.3; // +30% pour chauffage électrique
+    }
+    const annualConsumption = baseConsumption * (residents / 4); // Ajustement selon nombre d'habitants
     
     // Facteurs d'orientation
     const orientationFactors = {
@@ -272,8 +280,14 @@ const SolarSimulator = () => {
       'nord': 0.6
     };
     
+    // Facteurs d'inclinaison (optimal = angle donné par l'API)
+    const roofAngle = parseInt(formData.roofInclination) || 30;
+    const angleDiff = Math.abs(roofAngle - (optimalAngle || 30));
+    const inclinationFactor = angleDiff <= 5 ? 1.0 : 1.0 - (angleDiff * 0.015); // -1.5% par degré d'écart
+    
     const orientationFactor = orientationFactors[formData.roofOrientation] || 1.0;
     const irradiationFactor = irradiation / 1000;
+    const temperatureFactor = temperature ? (1.0 - ((temperature - 25) * 0.004)) : 1.0; // -0.4% par degré au-dessus de 25°C
 
     // PANNEAUX 700-850W STANDARDS (technologie actuelle) - Calcul réaliste selon type logement
     let maxPanels;
@@ -315,8 +329,8 @@ const SolarSimulator = () => {
     const classicPower = Math.min(maxPanels * 0.775, 15.5); // 775W moyenne, max 15.5kWc
     const classicPanels = Math.ceil(classicPower * 1000 / 775);
     const classicSurface = classicPanels * 3.094; // Panneaux 2380mm×1300mm = 3.094m²
-    const classicProductionMin = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * 0.98);
-    const classicProductionMax = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * 1.02);
+    const classicProductionMin = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * inclinationFactor * temperatureFactor * 0.98);
+    const classicProductionMax = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * inclinationFactor * temperatureFactor * 1.02);
     const classicSavingsMin = Math.round(classicProductionMin * 0.70 * 0.17);
     const classicSavingsMax = Math.round(classicProductionMax * 0.70 * 0.17);
 
