@@ -21,17 +21,53 @@ const PanneauxSolaires = () => {
 
   const faqs = [
     {
-      q: "Quels sont les avantages des panneaux solaires ?",
-      a: "Réduction de la facture, valorisation du bien, indépendance énergétique et impact environnemental réduit.",
+      q: "Quelle économie puis-je espérer avec des panneaux solaires ?",
+      a: "En moyenne, nos clients réduisent leur facture d'électricité de 50 à 70%. Pour une maison consommant 4000 kWh/an, cela représente entre 600€ et 1000€ d'économies annuelles selon votre profil de consommation.",
     },
     {
-      q: "Combien produit une installation ?",
-      a: "Selon l'orientation et la puissance, comptez 900 à 1 300 kWh par kWc par an en France métropolitaine.",
+      q: "Combien de temps dure l'installation ?",
+      a: "L'installation physique prend généralement 1 à 2 jours pour une maison individuelle. Le processus complet (étude, démarches administratives, pose, raccordement) s'étale sur 4 à 8 semaines.",
     },
     {
-      q: "Quelles garanties ?",
-      a: "Jusqu'à 25 ans sur la performance des panneaux et 10 ans sur l'onduleur selon les fabricants.",
+      q: "Quelles sont les garanties offertes ?",
+      a: "Nos panneaux bénéficient de 25 ans de garantie de performance (minimum 80% de rendement), 12 ans de garantie produit. Les onduleurs sont garantis 10 à 20 ans selon les modèles. Notre installation est garantie 10 ans.",
     },
+    {
+      q: "Mon toit est-il adapté aux panneaux solaires ?",
+      a: "La plupart des toitures sont compatibles. Nous étudions l'orientation, l'inclinaison, les ombrages et l'état de la charpente. Une exposition sud, sud-est ou sud-ouest avec une pente de 15° à 60° est idéale.",
+    },
+    {
+      q: "Que se passe-t-il quand il n'y a pas de soleil ?",
+      a: "Vos panneaux produisent même par temps nuageux (30 à 50% du rendement). Quand la production est insuffisante, vous consommez l'électricité du réseau normalement. C'est pourquoi nous dimensionnons selon votre profil annuel.",
+    },
+    {
+      q: "Puis-je stocker l'électricité produite ?",
+      a: "Oui, avec une batterie domestique (option). Sans batterie, le surplus est revendu à EDF OA au tarif réglementé (13 centimes/kWh en 2025). Beaucoup de nos clients choisissent d'abord l'autoconsommation simple.",
+    },
+    {
+      q: "Quelles aides financières puis-je obtenir ?",
+      a: "Prime à l'autoconsommation (jusqu'à 500€/kWc), TVA réduite à 10%, tarif d'achat garanti 20 ans pour le surplus. Certaines régions proposent des aides complémentaires. Nous nous occupons de tous les dossiers.",
+    },
+    {
+      q: "Les panneaux nécessitent-ils beaucoup d'entretien ?",
+      a: "Très peu ! Un nettoyage annuel (pluie souvent suffisante) et une vérification visuelle. Nous proposons un contrat de maintenance optionnel avec suivi de performance et nettoyage professionnel.",
+    },
+    {
+      q: "Que devient l'installation en cas de déménagement ?",
+      a: "Les panneaux solaires valorisent votre bien immobilier (+4% en moyenne selon les notaires). L'installation reste liée au logement et constitue un argument de vente fort, surtout avec les nouvelles réglementations énergétiques.",
+    },
+    {
+      q: "Comment suivre la production de mes panneaux ?",
+      a: "Vous recevez une application mobile/web pour suivre la production en temps réel, les économies réalisées, et détecter d'éventuels dysfonctionnements. Nous surveillons aussi à distance vos installations.",
+    },
+    {
+      q: "Quelle puissance installer pour ma maison ?",
+      a: "Cela dépend de votre consommation annuelle et de vos objectifs. Pour une famille de 4 personnes (4000 kWh/an), nous recommandons généralement entre 3 et 6 kWc. Notre étude personnalisée détermine la puissance optimale.",
+    },
+    {
+      q: "Les panneaux résistent-ils aux intempéries ?",
+      a: "Absolument ! Nos panneaux sont certifiés pour résister à la grêle (jusqu'à 25mm), aux vents violents (180 km/h), et aux variations de température (-40°C à +85°C). Ils sont conçus pour durer plus de 30 ans.",
+    }
   ];
 
   const advantages = [
