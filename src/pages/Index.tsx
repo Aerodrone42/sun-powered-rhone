@@ -106,38 +106,42 @@ const Index = () => {
               <Button asChild variant="glass" size="xl" className="shadow-premium">
                 <Link to="/contact">Devis gratuit</Link>
               </Button>
-              <Button asChild variant="outline" size="xl" className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm">
+              <Button asChild variant="glass" size="xl" className="bg-white/20 border-white/30 text-white hover:bg-white/30">
                 <Link to="/simulateur">Simulateur</Link>
               </Button>
             </div>
             
             {/* Target Audience Tabs */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto lg:mx-0 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto lg:mx-0 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
               <Link to="/particuliers" className="group">
-                <div className="bg-white/90 backdrop-blur-xl border border-white/50 rounded-2xl p-6 text-center hover:bg-white transition-all duration-500 hover:scale-105 shadow-premium h-[120px] w-full flex flex-col justify-center items-center hover:shadow-glow">
-                  <Home className="h-8 w-8 mb-3 text-primary group-hover:animate-glow-pulse" />
-                  <span className="text-gray-800 font-medium text-sm leading-tight">Je suis un<br/>particulier</span>
+                <div className="relative overflow-hidden bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:bg-white/20 shadow-2xl h-[140px] flex flex-col justify-center items-center hover:shadow-glow group-hover:rotate-1 hover:border-white/50">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <Home className="h-10 w-10 mb-4 text-white group-hover:text-blue-100 transition-all duration-300 group-hover:scale-110 drop-shadow-lg" />
+                  <span className="text-white font-semibold text-base leading-tight drop-shadow-md relative z-10">Je suis un<br/>particulier</span>
                 </div>
               </Link>
               
               <Link to="/professionnels" className="group">
-                <div className="bg-white/90 backdrop-blur-xl border border-white/50 rounded-2xl p-6 text-center hover:bg-white transition-all duration-500 hover:scale-105 shadow-premium h-[120px] w-full flex flex-col justify-center items-center hover:shadow-glow">
-                  <Building className="h-8 w-8 mb-3 text-primary group-hover:animate-glow-pulse" />
-                  <span className="text-gray-800 font-medium text-sm leading-tight">Je suis un<br/>professionnel</span>
+                <div className="relative overflow-hidden bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:bg-white/20 shadow-2xl h-[140px] flex flex-col justify-center items-center hover:shadow-glow group-hover:-rotate-1 hover:border-white/50">
+                  <div className="absolute inset-0 bg-gradient-to-bl from-white/20 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <Building className="h-10 w-10 mb-4 text-white group-hover:text-blue-100 transition-all duration-300 group-hover:scale-110 drop-shadow-lg" />
+                  <span className="text-white font-semibold text-base leading-tight drop-shadow-md relative z-10">Je suis un<br/>professionnel</span>
                 </div>
               </Link>
               
               <Link to="/agriculteurs" className="group">
-                <div className="bg-white/90 backdrop-blur-xl border border-white/50 rounded-2xl p-6 text-center hover:bg-white transition-all duration-500 hover:scale-105 shadow-premium h-[120px] w-full flex flex-col justify-center items-center hover:shadow-glow">
-                  <Sun className="h-8 w-8 mb-3 text-primary group-hover:animate-glow-pulse" />
-                  <span className="text-gray-800 font-medium text-sm leading-tight">Je suis un<br/>agriculteur</span>
+                <div className="relative overflow-hidden bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:bg-white/20 shadow-2xl h-[140px] flex flex-col justify-center items-center hover:shadow-glow group-hover:rotate-1 hover:border-white/50">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <Sun className="h-10 w-10 mb-4 text-white group-hover:text-yellow-100 transition-all duration-300 group-hover:scale-110 drop-shadow-lg" />
+                  <span className="text-white font-semibold text-base leading-tight drop-shadow-md relative z-10">Je suis un<br/>agriculteur</span>
                 </div>
               </Link>
               
               <Link to="/marches-publics" className="group">
-                <div className="bg-white/90 backdrop-blur-xl border border-white/50 rounded-2xl p-6 text-center hover:bg-white transition-all duration-500 hover:scale-105 shadow-premium h-[120px] w-full flex flex-col justify-center items-center hover:shadow-glow">
-                  <Zap className="h-8 w-8 mb-3 text-primary group-hover:animate-glow-pulse" />
-                  <span className="text-gray-800 font-medium text-sm leading-tight">Marché<br/>public</span>
+                <div className="relative overflow-hidden bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:bg-white/20 shadow-2xl h-[140px] flex flex-col justify-center items-center hover:shadow-glow group-hover:-rotate-1 hover:border-white/50">
+                  <div className="absolute inset-0 bg-gradient-to-tl from-white/20 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <Zap className="h-10 w-10 mb-4 text-white group-hover:text-purple-100 transition-all duration-300 group-hover:scale-110 drop-shadow-lg" />
+                  <span className="text-white font-semibold text-base leading-tight drop-shadow-md relative z-10">Marché<br/>public</span>
                 </div>
               </Link>
             </div>
