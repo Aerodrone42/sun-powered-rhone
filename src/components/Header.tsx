@@ -36,9 +36,10 @@ const Header = () => {
       href: "/professionnels",
       items: [
         { title: "Commerce", href: "/professionnels/commerce", description: "Solutions solaires pour commerces et magasins" },
-        { title: "Entreprise", href: "/professionnels/entreprise", description: "Installations solaires pour entreprises industrielles" },
-        { title: "Agriculteur", href: "/professionnels/agriculteur", description: "Solutions agrivoltaïques et toitures agricoles" },
-        { title: "Collectivité", href: "/professionnels/collectivite", description: "Projets solaires pour collectivités territoriales" },
+        { title: "Panneaux solaires", href: "/professionnels/panneaux-solaires", description: "Installations solaires pour entreprises industrielles" },
+        { title: "Installation consommation", href: "/professionnels/installation-consommation", description: "Solutions d'autoconsommation professionnelle" },
+        { title: "Borne de recharge", href: "/professionnels/borne-recharge", description: "Bornes de recharge pour entreprises" },
+        { title: "Batterie solaire", href: "/professionnels/batterie-solaire", description: "Solutions de stockage pour professionnels" },
       ]
     },
     {
