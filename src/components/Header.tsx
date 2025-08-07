@@ -52,42 +52,46 @@ const Header = () => {
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center space-x-2">
-          <Sun className="h-8 w-8 text-accent" />
-          <span className="text-xl font-bold bg-hero-gradient bg-clip-text text-transparent">
+    <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/70 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/70 shadow-lg shadow-primary/5">
+      <div className="container flex h-20 items-center justify-between">
+        <Link to="/" className="flex items-center space-x-3 group">
+          <div className="relative">
+            <Sun className="h-10 w-10 text-primary transition-all duration-700 group-hover:rotate-180 group-hover:scale-110" />
+            <div className="absolute inset-0 h-10 w-10 bg-primary/20 rounded-full blur-xl transition-all duration-700 group-hover:bg-primary/40"></div>
+          </div>
+          <span className="text-2xl font-bold bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent tracking-tight">
             WN Energies
           </span>
         </Link>
 
         {/* Desktop Navigation */}
         <NavigationMenu className="hidden lg:flex">
-          <NavigationMenuList>
+          <NavigationMenuList className="space-x-2">
             {navigation.map((item) => (
               <NavigationMenuItem key={item.title}>
                 {item.items ? (
                   <>
                     <NavigationMenuTrigger className={cn(
-                      "text-sm font-medium transition-colors hover:text-primary",
-                      isActivePath(item.href) && "text-primary"
+                      "h-12 px-6 text-sm font-medium bg-white/5 border border-white/10 rounded-2xl backdrop-blur-lg transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:shadow-lg hover:shadow-primary/10 hover:scale-105",
+                      isActivePath(item.href) && "bg-primary/10 border-primary/30 text-primary shadow-lg shadow-primary/20"
                     )}>
                       {item.title}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                      <div className="grid gap-4 p-8 md:w-[500px] lg:w-[600px] lg:grid-cols-[.75fr_1fr] bg-background/95 backdrop-blur-2xl border border-border/20 rounded-3xl shadow-2xl shadow-primary/10">
                         <div className="row-span-3">
                           <NavigationMenuLink asChild>
                             <Link
-                              className="flex h-full w-full select-none flex-col justify-end rounded-md bg-hero-gradient p-6 no-underline outline-none focus:shadow-md"
+                              className="flex h-full w-full select-none flex-col justify-end rounded-2xl bg-gradient-to-br from-primary via-primary-glow to-accent p-8 no-underline outline-none focus:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20 group relative overflow-hidden"
                               to={item.href}
                             >
-                              <Sun className="h-6 w-6 text-white" />
-                              <div className="mb-2 mt-4 text-lg font-medium text-white">
+                              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                              <Sun className="h-8 w-8 text-white relative z-10 transition-transform duration-500 group-hover:rotate-12" />
+                              <div className="mb-2 mt-6 text-xl font-bold text-white relative z-10">
                                 {item.title}
                               </div>
-                              <p className="text-sm leading-tight text-white/90">
-                                Découvrez nos solutions énergétiques durables
+                              <p className="text-sm leading-relaxed text-white/90 relative z-10">
+                                Découvrez nos solutions énergétiques durables et innovantes
                               </p>
                             </Link>
                           </NavigationMenuLink>
@@ -96,10 +100,10 @@ const Header = () => {
                           <NavigationMenuLink key={subItem.title} asChild>
                             <Link
                               to={subItem.href}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                              className="group block select-none space-y-2 rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 hover:bg-gradient-to-r hover:from-primary/5 hover:to-accent/5 hover:shadow-lg hover:shadow-primary/5 hover:scale-[1.02] border border-transparent hover:border-border/20"
                             >
-                              <div className="text-sm font-medium leading-none">{subItem.title}</div>
-                              <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              <div className="text-sm font-semibold leading-none text-foreground group-hover:text-primary transition-colors duration-300">{subItem.title}</div>
+                              <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
                                 {subItem.description}
                               </p>
                             </Link>
@@ -113,8 +117,8 @@ const Header = () => {
                     <Link
                       to={item.href}
                       className={cn(
-                        "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
-                        isActivePath(item.href) && "text-primary"
+                        "group inline-flex h-12 w-max items-center justify-center rounded-2xl bg-white/5 border border-white/10 px-6 py-3 text-sm font-medium backdrop-blur-lg transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:shadow-lg hover:shadow-primary/10 hover:scale-105 focus:bg-white/10 focus:border-white/20 focus:outline-none",
+                        isActivePath(item.href) && "bg-primary/10 border-primary/30 text-primary shadow-lg shadow-primary/20"
                       )}
                     >
                       {item.title}
