@@ -295,7 +295,8 @@ const SolarSimulator = () => {
     const inclinationFactor = angleDiff <= 5 ? 1.0 : 1.0 - (angleDiff * 0.015); // -1.5% par degré d'écart
     
     const orientationFactor = orientationFactors[formData.roofOrientation] || 1.0;
-    const irradiationFactor = irradiation / 1000;
+    // Irradiation déjà en kWh/m²/an, pas besoin de diviser par 1000
+    const irradiationFactor = irradiation / 1400; // Normalisation par rapport à une bonne région (1400 kWh/m²/an)
     const temperatureFactor = temperature ? (1.0 - ((temperature - 25) * 0.004)) : 1.0; // -0.4% par degré au-dessus de 25°C
 
     // PANNEAUX 700-850W STANDARDS (technologie actuelle) - Calcul réaliste selon type logement
@@ -335,21 +336,27 @@ const SolarSimulator = () => {
       }
     }
     
-    const classicPower = maxPanels * 0.775; // 775W moyenne, pas de limite
+    // CORRECTION: Utilisation de puissance réaliste 700-850W (moyenne 775W)
+    const classicPower = Math.round(maxPanels * 0.775 * 100) / 100; // 775W moyenne, arrondi à 2 décimales
     const classicPanels = maxPanels;
-    const classicSurface = availableSurface; // Utilise la surface calculée correctement
-    const classicProductionMin = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * inclinationFactor * temperatureFactor * 0.98);
-    const classicProductionMax = Math.round(classicPower * 1000 * irradiationFactor * orientationFactor * inclinationFactor * temperatureFactor * 1.02);
-    // Calcul des économies réalistes (autoconsommation + revente surplus)
-    const autoconsumptionRate = Math.min(annualConsumption / classicProductionMin, 1); // % autoconsommé
-    const classicAutoconsumed = classicProductionMin * autoconsumptionRate;
+    const classicSurface = availableSurface;
+    
+    // CORRECTION: Production basée sur kWh/kWc/an de l'API PVGIS (plus précis)
+    const baseProductionPerKwc = locationData.production || (irradiation * 0.8); // kWh/kWc/an
+    const adjustedProduction = baseProductionPerKwc * orientationFactor * inclinationFactor * temperatureFactor;
+    
+    const classicProductionMin = Math.round(classicPower * adjustedProduction * 0.98); // -2% pertes système
+    const classicProductionMax = Math.round(classicPower * adjustedProduction * 1.02); // +2% optimiste
+    // CORRECTION: Calcul des économies réalistes (autoconsommation + revente surplus)
+    // Autoconsommation = minimum entre production et consommation
+    const classicAutoconsumed = Math.min(classicProductionMin, annualConsumption);
     const classicSurplus = Math.max(0, classicProductionMin - annualConsumption);
     
     // Tarifs EDF officiels 2025 selon puissance installée
     const surplusSellPrice = classicPower <= 9 ? 0.04 : 0.0731; // 4 c€/kWh si ≤9kWc, sinon 7,31 c€/kWh
     const classicSavingsMin = Math.round(classicAutoconsumed * 0.17 + classicSurplus * surplusSellPrice);
     
-    const classicAutoconsumedMax = classicProductionMax * autoconsumptionRate;
+    const classicAutoconsumedMax = Math.min(classicProductionMax, annualConsumption);
     const classicSurplusMax = Math.max(0, classicProductionMax - annualConsumption);
     const classicSavingsMax = Math.round(classicAutoconsumedMax * 0.17 + classicSurplusMax * surplusSellPrice);
 
