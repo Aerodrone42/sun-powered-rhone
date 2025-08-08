@@ -112,11 +112,11 @@ const Professionnels = () => {
             </div>
             
             <div className="relative">
-              <img 
-                src={commercialBuildingImage} 
-                alt="Installation solaire sur bâtiment commercial"
-                className="rounded-lg shadow-strong w-full"
-              />
+               <img 
+                 src={commercialBuildingImage} 
+                 alt="Installation solaire sur bâtiment commercial"
+                 className="rounded-lg shadow-strong w-full solar-hover"
+               />
             </div>
           </div>
         </div>

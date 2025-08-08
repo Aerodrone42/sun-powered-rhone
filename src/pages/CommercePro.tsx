@@ -144,11 +144,11 @@ const CommercePro = () => {
             </div>
             
             <div className="relative animate-scale-in">
-              <img 
-                src={commercialBuildingImage} 
-                alt="Installation panneaux solaires sur commerce avec ombrières parking"
-                className="rounded-lg shadow-strong w-full"
-              />
+               <img 
+                 src={commercialBuildingImage} 
+                 alt="Installation panneaux solaires sur commerce avec ombrières parking"
+                 className="rounded-lg shadow-strong w-full solar-hover"
+               />
               <div className="absolute -bottom-4 -right-4 bg-secondary text-white p-4 rounded-lg shadow-strong">
                 <div className="text-2xl font-bold">70%</div>
                 <div className="text-sm">d'économies</div>

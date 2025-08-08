@@ -106,11 +106,11 @@ const Particuliers = () => {
             </div>
             
             <div className="relative">
-              <img 
-                src={happyFamilyImage} 
-                alt="Famille satisfaite devant leur maison équipée de panneaux solaires"
-                className="rounded-lg shadow-strong w-full"
-              />
+               <img 
+                 src={happyFamilyImage} 
+                 alt="Famille satisfaite devant leur maison équipée de panneaux solaires"
+                 className="rounded-lg shadow-strong w-full solar-hover"
+               />
             </div>
           </div>
         </div>

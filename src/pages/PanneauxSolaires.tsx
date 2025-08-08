@@ -112,11 +112,11 @@ const PanneauxSolaires = () => {
         <section className="relative min-h-screen flex items-center">
           {/* Background with gradient overlay */}
           <div className="absolute inset-0">
-            <img
-              src={pergolaImg}
-              alt="Pergola solaire moderne"
-              className="w-full h-full object-cover"
-            />
+             <img
+               src={pergolaImg}
+               alt="Pergola solaire moderne"
+               className="w-full h-full object-cover solar-hover"
+             />
             <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/70 to-transparent" />
             <div className="absolute inset-0 bg-hero-gradient opacity-20" />
           </div>
@@ -270,7 +270,7 @@ const PanneauxSolaires = () => {
                     <img 
                       src={item.img} 
                       alt={item.title}
-                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700 solar-hover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">

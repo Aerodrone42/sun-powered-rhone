@@ -418,7 +418,7 @@ const Index = () => {
               <img 
                 src={teamWorkImage} 
                 alt="Équipe professionnelle WN Energies au travail"
-                className="rounded-lg shadow-strong w-full"
+                className="rounded-lg shadow-strong w-full solar-hover"
               />
             </div>
           </div>

@@ -116,11 +116,11 @@ const InstallationConsommation = () => {
         <section className="relative min-h-screen flex items-center">
           {/* Background */}
           <div className="absolute inset-0">
-            <img
-              src="/lovable-uploads/91db44eb-52ce-4cdf-a819-0aed669de5e2.png"
-              alt="Maison moderne avec installation solaire complète"
-              className="w-full h-full object-cover"
-            />
+             <img
+               src="/lovable-uploads/91db44eb-52ce-4cdf-a819-0aed669de5e2.png"
+               alt="Maison moderne avec installation solaire complète"
+               className="w-full h-full object-cover solar-hover"
+             />
             <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/80 to-background/60" />
             <div className="absolute inset-0 bg-hero-gradient opacity-15" />
           </div>
@@ -340,7 +340,7 @@ const InstallationConsommation = () => {
                       <img 
                         src={item.img} 
                         alt={item.title}
-                        className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700 solar-hover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
