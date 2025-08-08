@@ -117,7 +117,7 @@ const Contact = () => {
                         <Input 
                           id="prenom"
                           {...register("prenom", { required: "Le prénom est requis" })}
-                          className={errors.prenom ? "border-destructive" : ""}
+                          className={`solar-hover ${errors.prenom ? "border-destructive" : ""}`}
                         />
                         {errors.prenom && (
                           <p className="text-sm text-destructive">{errors.prenom.message}</p>
@@ -129,7 +129,7 @@ const Contact = () => {
                         <Input 
                           id="nom"
                           {...register("nom", { required: "Le nom est requis" })}
-                          className={errors.nom ? "border-destructive" : ""}
+                          className={`solar-hover ${errors.nom ? "border-destructive" : ""}`}
                         />
                         {errors.nom && (
                           <p className="text-sm text-destructive">{errors.nom.message}</p>
@@ -150,7 +150,7 @@ const Contact = () => {
                               message: "Email invalide"
                             }
                           })}
-                          className={errors.email ? "border-destructive" : ""}
+                          className={`solar-hover ${errors.email ? "border-destructive" : ""}`}
                         />
                         {errors.email && (
                           <p className="text-sm text-destructive">{errors.email.message}</p>
@@ -163,7 +163,7 @@ const Contact = () => {
                           id="telephone"
                           type="tel"
                           {...register("telephone", { required: "Le téléphone est requis" })}
-                          className={errors.telephone ? "border-destructive" : ""}
+                          className={`solar-hover ${errors.telephone ? "border-destructive" : ""}`}
                         />
                         {errors.telephone && (
                           <p className="text-sm text-destructive">{errors.telephone.message}</p>
@@ -177,7 +177,7 @@ const Contact = () => {
                         <Input 
                           id="ville"
                           {...register("ville", { required: "La ville est requise" })}
-                          className={errors.ville ? "border-destructive" : ""}
+                          className={`solar-hover ${errors.ville ? "border-destructive" : ""}`}
                         />
                         {errors.ville && (
                           <p className="text-sm text-destructive">{errors.ville.message}</p>
@@ -187,7 +187,7 @@ const Contact = () => {
                       <div className="space-y-2">
                         <Label htmlFor="typeProjet">Type de projet *</Label>
                         <Select onValueChange={(value) => setValue("typeProjet", value)}>
-                          <SelectTrigger>
+                          <SelectTrigger className="solar-hover">
                             <SelectValue placeholder="Sélectionnez votre projet" />
                           </SelectTrigger>
                           <SelectContent>
@@ -210,6 +210,7 @@ const Contact = () => {
                         id="message"
                         rows={4}
                         placeholder="Décrivez votre projet, vos besoins spécifiques..."
+                        className="solar-hover"
                         {...register("message")}
                       />
                     </div>
@@ -218,7 +219,7 @@ const Contact = () => {
                       type="submit" 
                       variant="hero" 
                       size="lg" 
-                      className="w-full"
+                      className="w-full btn-solar"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? "Envoi en cours..." : "Demander mon devis gratuit"}
