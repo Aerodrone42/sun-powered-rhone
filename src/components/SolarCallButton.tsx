@@ -156,8 +156,8 @@ const SolarCallButton = () => {
 
         .sun-button {
           position: relative;
-          width: 85px;
-          height: 85px;
+          width: 65px;
+          height: 65px;
           border: none;
           border-radius: 50%;
           background: radial-gradient(circle at 35% 30%, 
@@ -186,10 +186,10 @@ const SolarCallButton = () => {
         .sun-button::before {
           content: '';
           position: absolute;
-          top: -20px;
-          left: -20px;
-          right: -20px;
-          bottom: -20px;
+          top: -15px;
+          left: -15px;
+          right: -15px;
+          bottom: -15px;
           border-radius: 50%;
           background: radial-gradient(circle, 
               rgba(255, 215, 0, 0.3) 0%,
@@ -203,10 +203,10 @@ const SolarCallButton = () => {
         .sun-button::after {
           content: '';
           position: absolute;
-          top: -35px;
-          left: -35px;
-          right: -35px;
-          bottom: -35px;
+          top: -25px;
+          left: -25px;
+          right: -25px;
+          bottom: -25px;
           border-radius: 50%;
           background: radial-gradient(circle, 
               rgba(255, 165, 0, 0.2) 0%,
@@ -218,10 +218,10 @@ const SolarCallButton = () => {
 
         .corona-ring {
           position: absolute;
-          top: -15px;
-          left: -15px;
-          right: -15px;
-          bottom: -15px;
+          top: -10px;
+          left: -10px;
+          right: -10px;
+          bottom: -10px;
           border: 2px solid rgba(255, 215, 0, 0.4);
           border-radius: 50%;
           border-top-color: rgba(255, 215, 0, 0.8);
@@ -231,7 +231,7 @@ const SolarCallButton = () => {
         }
 
         .phone-icon {
-          font-size: 26px;
+          font-size: 20px;
           z-index: 3;
           color: #2d3748;
           text-shadow: 
@@ -245,22 +245,22 @@ const SolarCallButton = () => {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          width: 200px;
-          height: 200px;
+          width: 150px;
+          height: 150px;
           pointer-events: none;
         }
 
         .flare {
           position: absolute;
-          width: 4px;
-          height: 30px;
+          width: 3px;
+          height: 20px;
           background: linear-gradient(to bottom,
               rgba(255, 215, 0, 0.9) 0%,
               rgba(255, 140, 0, 0.7) 40%,
               rgba(255, 107, 53, 0.5) 70%,
               transparent 100%);
           border-radius: 2px 2px 0 0;
-          transform-origin: center 100px;
+          transform-origin: center 75px;
           box-shadow: 
               0 0 10px rgba(255, 215, 0, 0.6),
               0 0 20px rgba(255, 215, 0, 0.3);
@@ -328,14 +328,14 @@ const SolarCallButton = () => {
 
         .phone-display {
           position: absolute;
-          right: 105px;
+          right: 80px;
           bottom: 50%;
           transform: translateY(50%);
           background: linear-gradient(145deg, #1a202c, #2d3748);
           color: #ffffff;
           padding: 16px 24px;
           border-radius: 16px;
-          font-size: 17px;
+          font-size: 14px;
           font-weight: 700;
           white-space: nowrap;
           box-shadow: 
@@ -487,27 +487,27 @@ const SolarCallButton = () => {
           }
           
           .sun-button {
-            width: 75px;
-            height: 75px;
+            width: 55px;
+            height: 55px;
           }
           
           .phone-icon {
-            font-size: 22px;
+            font-size: 18px;
           }
           
           .phone-display {
-            font-size: 15px;
-            padding: 14px 20px;
-            right: 90px;
+            font-size: 12px;
+            padding: 10px 16px;
+            right: 70px;
           }
           
           .solar-flares {
-            width: 180px;
-            height: 180px;
+            width: 130px;
+            height: 130px;
           }
           
           .flare {
-            transform-origin: center 90px;
+            transform-origin: center 65px;
           }
         }
 
