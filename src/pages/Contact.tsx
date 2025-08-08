@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form"
+import { useSearchParams } from "react-router-dom"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
@@ -8,7 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "@/hooks/use-toast"
 import { Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react"
 
 interface ContactFormData {
@@ -23,7 +24,20 @@ interface ContactFormData {
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [searchParams, setSearchParams] = useSearchParams()
   const { toast } = useToast()
+  
+  // Vérifier si on revient après un envoi réussi via formsubmit
+  useEffect(() => {
+    if (searchParams.get('success') === 'true') {
+      toast({
+        title: "Demande envoyée !",
+        description: "Nous vous contacterons dans les 24h pour votre projet solaire.",
+      })
+      // Nettoyer l'URL en retirant le paramètre success
+      setSearchParams({})
+    }
+  }, [searchParams, setSearchParams, toast])
   
   const { register, handleSubmit, reset, setValue, formState: { errors } } = useForm<ContactFormData>()
 
