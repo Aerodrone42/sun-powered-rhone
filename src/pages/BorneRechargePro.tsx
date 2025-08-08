@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import StickyCTA from "@/components/StickyCTA";
+import SolarCallButton from "@/components/SolarCallButton";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import borneRechargeProHero from "@/assets/borne-recharge-pro-hero.jpg";
@@ -551,6 +552,7 @@ const BorneRechargePro = () => {
         </section>
       </main>
 
+      <SolarCallButton />
       <StickyCTA phone="07 71 41 85 68" quoteHref="/contact" />
       <Footer />
     </>
