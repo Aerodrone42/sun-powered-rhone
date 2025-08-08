@@ -32,7 +32,7 @@ const PanneauxSolaires = () => {
     },
     {
       q: "Quelles sont les garanties offertes ?",
-      a: "Nos panneaux bénéficient de 25 ans de garantie de performance (minimum 80% de rendement), 12 ans de garantie produit. Les onduleurs sont garantis 10 à 20 ans selon les modèles. Notre installation est garantie 10 ans.",
+      a: "Nos panneaux bénéficient de 25 ans de garantie de performance (minimum 80% de rendement), 12 ans de garantie produit. Les onduleurs sont garantis selon les modèles. Notre installation est garantie complète.",
     },
     {
       q: "Mon toit est-il adapté aux panneaux solaires ?",

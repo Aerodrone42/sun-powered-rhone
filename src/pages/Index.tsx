@@ -567,7 +567,7 @@ const Index = () => {
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 Entreprise spécialisée dans la vente et pose de panneaux solaires, 
                 nous accompagnons particuliers et professionnels dans leur transition énergétique 
-                en Rhône-Alpes depuis plus de 10 ans.
+                en Rhône-Alpes.
               </p>
               
               <div className="space-y-4 mb-8">

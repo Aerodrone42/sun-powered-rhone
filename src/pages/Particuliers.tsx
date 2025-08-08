@@ -73,7 +73,7 @@ const Particuliers = () => {
     },
     {
       title: "Garanties complètes",
-      description: "Garantie fabricant 25 ans sur les panneaux et garantie pose 10 ans"
+      description: "Garantie fabricant 25 ans sur les panneaux et garantie pose complète"
     },
     {
       title: "Suivi et maintenance",
@@ -213,7 +213,7 @@ const Particuliers = () => {
               {
                 icon: Shield,
                 title: "Garanties complètes",
-                description: "Garantie fabricant 25 ans sur les panneaux et garantie pose 10 ans",
+                description: "Garantie fabricant 25 ans sur les panneaux et garantie pose complète",
                 gradient: "from-purple-500/20 to-violet-500/20",
                 iconBg: "bg-gradient-to-br from-purple-500 to-violet-600",
                 shadowColor: "group-hover:shadow-purple-500/25"

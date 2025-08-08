@@ -438,7 +438,7 @@ const BorneRecharge = () => {
                   img: installationImage, 
                   title: "Installation professionnelle", 
                   subtitle: "Électricien certifié IRVE",
-                  features: ["Mise aux normes", "Sécurité garantie", "Garantie 10 ans"]
+                  features: ["Mise aux normes", "Sécurité garantie", "Garantie complète"]
                 },
                 { 
                   img: borneIntelligente, 
