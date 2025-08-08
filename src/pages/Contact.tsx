@@ -110,14 +110,15 @@ const Contact = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <form action="https://formsubmit.co/contact@wn-energies.fr" method="POST" className="space-y-6">
                     <div className="grid gap-4 md:grid-cols-2">
                       <div className="space-y-2">
                         <Label htmlFor="prenom">Prénom *</Label>
                         <Input 
                           id="prenom"
-                          {...register("prenom", { required: "Le prénom est requis" })}
-                          className={`solar-hover ${errors.prenom ? "border-destructive" : ""}`}
+                          name="prenom"
+                          className="solar-hover"
+                          required
                         />
                         {errors.prenom && (
                           <p className="text-sm text-destructive">{errors.prenom.message}</p>
@@ -128,8 +129,9 @@ const Contact = () => {
                         <Label htmlFor="nom">Nom *</Label>
                         <Input 
                           id="nom"
-                          {...register("nom", { required: "Le nom est requis" })}
-                          className={`solar-hover ${errors.nom ? "border-destructive" : ""}`}
+                          name="nom"
+                          className="solar-hover"
+                          required
                         />
                         {errors.nom && (
                           <p className="text-sm text-destructive">{errors.nom.message}</p>
@@ -142,15 +144,10 @@ const Contact = () => {
                         <Label htmlFor="email">Email *</Label>
                         <Input 
                           id="email"
+                          name="email"
                           type="email"
-                          {...register("email", { 
-                            required: "L'email est requis",
-                            pattern: {
-                              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                              message: "Email invalide"
-                            }
-                          })}
-                          className={`solar-hover ${errors.email ? "border-destructive" : ""}`}
+                          className="solar-hover"
+                          required
                         />
                         {errors.email && (
                           <p className="text-sm text-destructive">{errors.email.message}</p>
@@ -161,9 +158,10 @@ const Contact = () => {
                         <Label htmlFor="telephone">Téléphone *</Label>
                         <Input 
                           id="telephone"
+                          name="telephone"
                           type="tel"
-                          {...register("telephone", { required: "Le téléphone est requis" })}
-                          className={`solar-hover ${errors.telephone ? "border-destructive" : ""}`}
+                          className="solar-hover"
+                          required
                         />
                         {errors.telephone && (
                           <p className="text-sm text-destructive">{errors.telephone.message}</p>
@@ -176,8 +174,9 @@ const Contact = () => {
                         <Label htmlFor="ville">Ville *</Label>
                         <Input 
                           id="ville"
-                          {...register("ville", { required: "La ville est requise" })}
-                          className={`solar-hover ${errors.ville ? "border-destructive" : ""}`}
+                          name="ville"
+                          className="solar-hover"
+                          required
                         />
                         {errors.ville && (
                           <p className="text-sm text-destructive">{errors.ville.message}</p>
@@ -186,21 +185,17 @@ const Contact = () => {
                       
                       <div className="space-y-2">
                         <Label htmlFor="typeProjet">Type de projet *</Label>
-                        <Select onValueChange={(value) => setValue("typeProjet", value)}>
-                          <SelectTrigger className="solar-hover">
-                            <SelectValue placeholder="Sélectionnez votre projet" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="particulier-panneaux">Particulier - Panneaux solaires</SelectItem>
-                            <SelectItem value="particulier-autoconsommation">Particulier - Autoconsommation</SelectItem>
-                            <SelectItem value="particulier-borne">Particulier - Borne de recharge</SelectItem>
-                            <SelectItem value="particulier-batterie">Particulier - Batterie solaire</SelectItem>
-                            <SelectItem value="professionnel-commerce">Professionnel - Commerce</SelectItem>
-                            <SelectItem value="professionnel-entreprise">Professionnel - Entreprise</SelectItem>
-                            <SelectItem value="professionnel-agriculteur">Professionnel - Agriculteur</SelectItem>
-                            <SelectItem value="professionnel-collectivite">Professionnel - Collectivité</SelectItem>
-                          </SelectContent>
-                        </Select>
+                        <select name="typeProjet" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 solar-hover" required>
+                          <option value="">Sélectionnez votre projet</option>
+                          <option value="particulier-panneaux">Particulier - Panneaux solaires</option>
+                          <option value="particulier-autoconsommation">Particulier - Autoconsommation</option>
+                          <option value="particulier-borne">Particulier - Borne de recharge</option>
+                          <option value="particulier-batterie">Particulier - Batterie solaire</option>
+                          <option value="professionnel-commerce">Professionnel - Commerce</option>
+                          <option value="professionnel-entreprise">Professionnel - Entreprise</option>
+                          <option value="professionnel-agriculteur">Professionnel - Agriculteur</option>
+                          <option value="professionnel-collectivite">Professionnel - Collectivité</option>
+                        </select>
                       </div>
                     </div>
 
@@ -208,21 +203,25 @@ const Contact = () => {
                       <Label htmlFor="message">Message (optionnel)</Label>
                       <Textarea 
                         id="message"
+                        name="message"
                         rows={4}
                         placeholder="Décrivez votre projet, vos besoins spécifiques..."
                         className="solar-hover"
-                        {...register("message")}
                       />
                     </div>
 
+                    {/* Champs cachés pour formsubmit */}
+                    <input type="hidden" name="_subject" value="Nouvelle demande de devis - WN Energies" />
+                    <input type="hidden" name="_next" value={window.location.origin + "/contact?success=true"} />
+                    <input type="hidden" name="_captcha" value="false" />
+                    
                     <Button 
                       type="submit" 
                       variant="hero" 
                       size="lg" 
                       className="w-full btn-solar"
-                      disabled={isSubmitting}
                     >
-                      {isSubmitting ? "Envoi en cours..." : "Demander mon devis gratuit"}
+                      Demander mon devis gratuit
                     </Button>
                   </form>
                 </CardContent>

@@ -68,15 +68,14 @@ const CallbackForm = () => {
         </p>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form action="https://formsubmit.co/contact@wn-energies.fr" method="POST" className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="firstName">Prénom *</Label>
               <Input
                 id="firstName"
+                name="prenom"
                 className="solar-hover"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
                 placeholder="Votre prénom"
                 required
               />
@@ -85,9 +84,8 @@ const CallbackForm = () => {
               <Label htmlFor="lastName">Nom *</Label>
               <Input
                 id="lastName"
+                name="nom"
                 className="solar-hover"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
                 placeholder="Votre nom"
                 required
               />
@@ -99,10 +97,9 @@ const CallbackForm = () => {
               <Label htmlFor="phone">Téléphone *</Label>
               <Input
                 id="phone"
+                name="telephone"
                 type="tel"
                 className="solar-hover"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
                 placeholder="06 12 34 56 78"
                 required
               />
@@ -111,10 +108,9 @@ const CallbackForm = () => {
               <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
+                name="email"
                 type="email"
                 className="solar-hover"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
                 placeholder="votre@email.com"
               />
             </div>
@@ -125,12 +121,18 @@ const CallbackForm = () => {
               <Label>Date souhaitée *</Label>
               <Popover>
                 <PopoverTrigger asChild>
+                  <input type="hidden" name="date" id="date-hidden" />
                   <Button
+                    type="button"
                     variant="outline"
                     className={cn(
                       "w-full justify-start text-left font-normal",
                       !date && "text-muted-foreground"
                     )}
+                    onClick={() => {
+                      const dateInput = document.getElementById('date-hidden') as HTMLInputElement;
+                      if (date) dateInput.value = format(date, "dd/MM/yyyy", { locale: fr });
+                    }}
                   >
                     <CalendarIcon className="mr-2 h-4 w-4" />
                     {date ? format(date, "dd MMMM yyyy", { locale: fr }) : "Choisir une date"}
@@ -152,19 +154,14 @@ const CallbackForm = () => {
 
             <div className="space-y-2">
               <Label>Heure souhaitée *</Label>
-              <Select value={time} onValueChange={setTime}>
-                <SelectTrigger className="solar-hover">
-                  <Clock className="mr-2 h-4 w-4" />
-                  <SelectValue placeholder="Choisir une heure" />
-                </SelectTrigger>
-                <SelectContent>
-                  {timeSlots.map((slot) => (
-                    <SelectItem key={slot} value={slot}>
-                      {slot}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <select name="heure" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 solar-hover" required>
+                <option value="">Choisir une heure</option>
+                {timeSlots.map((slot) => (
+                  <option key={slot} value={slot}>
+                    {slot}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
 
@@ -172,14 +169,18 @@ const CallbackForm = () => {
             <Label htmlFor="message">Message (optionnel)</Label>
             <Textarea
               id="message"
+              name="message"
               className="solar-hover"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
               placeholder="Décrivez brièvement votre projet ou vos questions..."
               rows={3}
             />
           </div>
 
+          {/* Champs cachés pour formsubmit */}
+          <input type="hidden" name="_subject" value="Demande de rappel - WN Energies" />
+          <input type="hidden" name="_next" value={window.location.origin + "?callback=true"} />
+          <input type="hidden" name="_captcha" value="false" />
+          
           <Button type="submit" className="w-full btn-solar" size="lg">
             Demander un rappel
           </Button>
