@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./components/ScrollToTop";
 import SunParticles from "./components/SunParticles";
+import CookieConsent from "./components/CookieConsent";
 import Index from "./pages/Index";
 import Particuliers from "./pages/Particuliers";
 import Professionnels from "./pages/Professionnels";
@@ -22,6 +23,7 @@ import InstallationConsommationPro from "./pages/InstallationConsommationPro";
 import BorneRechargePro from "./pages/BorneRechargePro";
 import BatterieSolairePro from "./pages/BatterieSolairePro";
 import CommercePro from "./pages/CommercePro";
+import MentionsLegales from "./pages/MentionsLegales";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -50,11 +52,13 @@ const App = () => (
             <Route path="/professionnels/commerce" element={<CommercePro />} />
             <Route path="/agriculteurs" element={<Agriculteurs />} />
             <Route path="/marches-publics" element={<MarchesPublics />} />
+            <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/simulateur" element={<Simulateur />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <CookieConsent />
         </BrowserRouter>
       </HelmetProvider>
     </TooltipProvider>
