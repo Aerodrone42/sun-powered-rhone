@@ -85,7 +85,8 @@ export default {
 				'medium': 'var(--shadow-medium)',
 				'strong': 'var(--shadow-strong)',
 				'premium': 'var(--shadow-premium)',
-				'glow': 'var(--shadow-glow)'
+				'glow': 'var(--shadow-glow)',
+				'solar-glow': 'var(--shadow-solar-glow)'
 			},
 			transitionTimingFunction: {
 				'smooth': 'var(--transition-smooth)',
