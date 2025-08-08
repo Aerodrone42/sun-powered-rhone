@@ -57,11 +57,15 @@ const Header = () => {
       <div className="container flex h-20 items-center justify-between">
         <Link to="/" className="flex items-center space-x-3 group">
           <div className="relative">
-            <Sun className="h-10 w-10 text-primary transition-all duration-700 group-hover:rotate-180 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(255,215,0,0.8)]" />
-            <div className="absolute inset-0 h-10 w-10 bg-primary/20 rounded-full blur-xl transition-all duration-700 group-hover:bg-primary/40 group-hover:shadow-glow"></div>
+            <img 
+              src="/lovable-uploads/9df28706-b68f-46d6-8389-66ff785af37b.png" 
+              alt="WNE - World Network Energies Logo" 
+              className="h-12 w-12 object-contain transition-all duration-700 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(59,130,246,0.8)]"
+            />
+            <div className="absolute inset-0 h-12 w-12 bg-primary/20 rounded-full blur-xl transition-all duration-700 group-hover:bg-primary/40 group-hover:shadow-glow"></div>
           </div>
           <span className="text-2xl font-bold bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent tracking-tight">
-            WN Energies
+            WNE
           </span>
         </Link>
 
