@@ -167,7 +167,6 @@ const Index = () => {
 
   const stats = [
     { number: "500+", label: "Installations réalisées" },
-    { number: "10+", label: "Années d'expérience" },
     { number: "98%", label: "Clients satisfaits" },
     { number: "50+", label: "Villes en Rhône-Alpes" }
   ]
