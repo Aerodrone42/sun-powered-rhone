@@ -200,20 +200,20 @@ const Index = () => {
         </video>
         
         
-        <div className="absolute left-8 top-1/2 transform -translate-y-1/2 z-10">
-          <div className="max-w-md">
-            <div className="text-left">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-left">
+        <div className="absolute bottom-8 left-4 right-4 md:left-8 md:top-1/2 md:transform md:-translate-y-1/2 md:right-auto z-10">
+          <div className="max-w-md md:max-w-lg">
+            <div className="text-center md:text-left">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 leading-tight text-center md:text-left">
                 <span className="bg-hero-gradient bg-clip-text text-transparent drop-shadow-lg">L'énergie solaire</span>
                 <br />
                 <span className="text-white drop-shadow-xl">pour votre avenir</span>
               </h1>
-              <p className="text-lg md:text-xl text-white/95 mb-8 leading-relaxed text-left drop-shadow-lg">
+              <p className="text-sm md:text-lg lg:text-xl text-white/95 mb-6 md:mb-8 leading-relaxed text-center md:text-left drop-shadow-lg">
                 Spécialiste de l'installation de panneaux solaires en Rhône-Alpes.
                 <br className="hidden lg:block" />
                 Réduisez vos factures et participez à la transition énergétique.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start">
                 <Button asChild variant="glass" size="lg" className="shadow-premium">
                   <Link to="/contact">Devis gratuit</Link>
                 </Button>
