@@ -321,7 +321,7 @@ const Index = () => {
       </section>
 
       {/* Choix de profil */}
-      <section className="py-24 relative overflow-hidden bg-gradient-to-br from-background via-primary/5 to-secondary/5">
+      <section className="py-12 relative overflow-hidden bg-gradient-to-br from-background via-primary/5 to-secondary/5">
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 left-20 w-32 h-32 bg-primary/20 rounded-full blur-2xl animate-float"></div>
