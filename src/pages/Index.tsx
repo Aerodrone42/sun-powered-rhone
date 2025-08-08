@@ -226,6 +226,100 @@ const Index = () => {
             
       </section>
 
+      {/* Zone géographique et contenu SEO */}
+      <section className="py-16 bg-gradient-to-br from-blue-50/50 via-white to-green-50/50">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Installateur de panneaux solaires à <span className="text-primary">Lyon et en Rhône-Alpes</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Spécialiste de l'énergie solaire photovoltaïque depuis plus de 10 ans, WN Energies accompagne particuliers, professionnels et collectivités dans leur transition énergétique. 
+              Basés en Rhône-Alpes, nous intervenons principalement sur Lyon, Villeurbanne, Vénissieux, Vaulx-en-Velin, Saint-Priest, et dans toute la région lyonnaise.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <Card className="border-l-4 border-l-primary">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Sun className="h-6 w-6 text-primary" />
+                  Expert en énergie solaire
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Installation de panneaux solaires photovoltaïques, systèmes d'autoconsommation et solutions de stockage d'énergie pour optimiser votre autonomie énergétique en Rhône-Alpes.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-secondary">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Zap className="h-6 w-6 text-secondary" />
+                  Solutions complètes
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  De l'étude de faisabilité à la maintenance, nous proposons des solutions clés en main : panneaux solaires, batteries de stockage, bornes de recharge électrique et optimiseurs de puissance.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-l-4 border-l-accent">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Building className="h-6 w-6 text-accent" />
+                  Intervention régionale
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Service de proximité dans le Rhône (69), l'Isère (38), la Loire (42), l'Ain (01), la Savoie (73) et la Haute-Savoie (74). Intervention possible dans toute la France sur devis.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="bg-card rounded-3xl p-8 border border-border/50 shadow-lg">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold mb-4 text-foreground">
+                  Pourquoi choisir le solaire photovoltaïque en Rhône-Alpes ?
+                </h3>
+                <ul className="space-y-3 text-muted-foreground">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    <span><strong>Ensoleillement favorable :</strong> La région bénéficie de plus de 2000 heures de soleil par an, idéal pour la production photovoltaïque</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    <span><strong>Économies substantielles :</strong> Réduction jusqu'à 70% de vos factures d'électricité grâce à l'autoconsommation</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    <span><strong>Aides financières :</strong> Bénéficiez des primes à l'autoconsommation, du tarif de rachat EDF et du crédit d'impôt</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    <span><strong>Valorisation immobilière :</strong> Augmentation de la valeur de votre bien immobilier avec un DPE amélioré</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="text-center">
+                <div className="inline-block bg-gradient-to-br from-primary to-secondary p-8 rounded-3xl text-white shadow-xl">
+                  <div className="text-4xl font-bold mb-2">2000+</div>
+                  <div className="text-lg opacity-90 mb-4">heures de soleil/an</div>
+                  <div className="text-sm opacity-75">en Rhône-Alpes</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Choix de profil */}
       <section className="py-14 bg-background">
         <div className="container">
