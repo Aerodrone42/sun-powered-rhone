@@ -198,70 +198,64 @@ const Index = () => {
           <source src="https://cdn.midjourney.com/video/f87b7039-d3ef-4bf4-a409-96b1ee509d06/0.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-black/65 via-black/20 to-transparent" />
         
-        {/* Floating elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-float"></div>
-        <div className="absolute bottom-32 right-16 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl animate-float" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-white/20 rounded-full blur-lg animate-float" style={{animationDelay: '2s'}}></div>
         
-        <div className="relative container mx-auto px-4 text-center lg:text-left z-10">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight animate-fade-in-up">
-              <span className="bg-hero-gradient bg-clip-text text-transparent drop-shadow-lg">
-                L'énergie solaire
-              </span>
-              <br />
-              <span className="text-white drop-shadow-xl">pour votre avenir</span>
-            </h1>
-            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 leading-relaxed font-light animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-              Spécialiste de l'installation de panneaux solaires en Rhône-Alpes. 
-              <br className="hidden lg:block" />
-              Réduisez vos factures et participez à la transition énergétique.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start mb-16 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
-              <Button asChild variant="glass" size="xl" className="shadow-premium">
-                <Link to="/contact">Devis gratuit</Link>
-              </Button>
-              <Button asChild variant="glass" size="xl" className="bg-white/20 border-white/30 text-white hover:bg-white/30">
-                <Link to="/simulateur">Simulateur</Link>
-              </Button>
+        <div className="relative container mx-auto px-4 z-10">
+          <div className="max-w-3xl">
+            <div className="rounded-3xl bg-black/45 backdrop-blur-xl border border-white/20 shadow-2xl p-8 md:p-10 lg:p-12 text-center lg:text-left">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+                <span className="bg-hero-gradient bg-clip-text text-transparent drop-shadow-lg">L'énergie solaire</span>
+                <br />
+                <span className="text-white drop-shadow-xl">pour votre avenir</span>
+              </h1>
+              <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-10 leading-relaxed font-light">
+                Spécialiste de l'installation de panneaux solaires en Rhône-Alpes.
+                <br className="hidden lg:block" />
+                Réduisez vos factures et participez à la transition énergétique.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
+                <Button asChild variant="glass" size="xl" className="shadow-premium">
+                  <Link to="/contact">Devis gratuit</Link>
+                </Button>
+                <Button asChild variant="glass" size="xl" className="bg-white/20 border-white/30 text-white hover:bg-white/30">
+                  <Link to="/simulateur">Simulateur</Link>
+                </Button>
+              </div>
             </div>
+          </div>
+        </div>
             
-            {/* Target Audience Tabs */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto lg:mx-0 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
-              <Link to="/particuliers" className="group">
-                <div className="relative overflow-hidden bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:bg-white/20 shadow-2xl h-[140px] flex flex-col justify-center items-center hover:shadow-glow group-hover:rotate-1 hover:border-white/50">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <Home className="h-10 w-10 mb-4 text-white group-hover:text-blue-100 transition-all duration-300 group-hover:scale-110 drop-shadow-lg" />
-                  <span className="text-white font-semibold text-base leading-tight drop-shadow-md relative z-10">Je suis un<br/>particulier</span>
-                </div>
-              </Link>
-              
-              <Link to="/professionnels" className="group">
-                <div className="relative overflow-hidden bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:bg-white/20 shadow-2xl h-[140px] flex flex-col justify-center items-center hover:shadow-glow group-hover:-rotate-1 hover:border-white/50">
-                  <div className="absolute inset-0 bg-gradient-to-bl from-white/20 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <Building className="h-10 w-10 mb-4 text-white group-hover:text-blue-100 transition-all duration-300 group-hover:scale-110 drop-shadow-lg" />
-                  <span className="text-white font-semibold text-base leading-tight drop-shadow-md relative z-10">Je suis un<br/>professionnel</span>
-                </div>
-              </Link>
-              
-              <Link to="/agriculteurs" className="group">
-                <div className="relative overflow-hidden bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:bg-white/20 shadow-2xl h-[140px] flex flex-col justify-center items-center hover:shadow-glow group-hover:rotate-1 hover:border-white/50">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <Sun className="h-10 w-10 mb-4 text-white group-hover:text-yellow-100 transition-all duration-300 group-hover:scale-110 drop-shadow-lg" />
-                  <span className="text-white font-semibold text-base leading-tight drop-shadow-md relative z-10">Je suis un<br/>agriculteur</span>
-                </div>
-              </Link>
-              
-              <Link to="/marches-publics" className="group">
-                <div className="relative overflow-hidden bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:bg-white/20 shadow-2xl h-[140px] flex flex-col justify-center items-center hover:shadow-glow group-hover:-rotate-1 hover:border-white/50">
-                  <div className="absolute inset-0 bg-gradient-to-tl from-white/20 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <Zap className="h-10 w-10 mb-4 text-white group-hover:text-purple-100 transition-all duration-300 group-hover:scale-110 drop-shadow-lg" />
-                  <span className="text-white font-semibold text-base leading-tight drop-shadow-md relative z-10">Marché<br/>public</span>
-                </div>
-              </Link>
-            </div>
+      </section>
+
+      {/* Choix de profil */}
+      <section className="py-14 bg-background">
+        <div className="container">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <Link to="/particuliers" className="group">
+              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center">
+                <Home className="h-10 w-10 mb-4 text-primary" />
+                <span className="font-semibold text-base leading-tight">Je suis un<br/>particulier</span>
+              </div>
+            </Link>
+            <Link to="/professionnels" className="group">
+              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center">
+                <Building className="h-10 w-10 mb-4 text-primary" />
+                <span className="font-semibold text-base leading-tight">Je suis un<br/>professionnel</span>
+              </div>
+            </Link>
+            <Link to="/agriculteurs" className="group">
+              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center">
+                <Sun className="h-10 w-10 mb-4 text-primary" />
+                <span className="font-semibold text-base leading-tight">Je suis un<br/>agriculteur</span>
+              </div>
+            </Link>
+            <Link to="/marches-publics" className="group">
+              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center">
+                <Zap className="h-10 w-10 mb-4 text-primary" />
+                <span className="font-semibold text-base leading-tight">Marché<br/>public</span>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
