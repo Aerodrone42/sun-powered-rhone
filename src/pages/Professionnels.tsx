@@ -213,62 +213,74 @@ const Professionnels = () => {
       </section>
 
       {/* Advantages Section */}
-      <section className="py-20 bg-gradient-to-br from-background via-muted/30 to-background relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-emerald-50/30 relative overflow-hidden">
         {/* Background decorative elements */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-10 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-10 right-10 w-48 h-48 bg-secondary/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute inset-0 opacity-40">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-20 w-72 h-72 bg-secondary/20 rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-128 h-128 bg-accent/10 rounded-full blur-3xl animate-pulse delay-2000" />
         </div>
         
         <div className="container relative z-10">
           <div className="text-center mb-16 animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-full px-6 py-2 mb-6">
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-primary font-medium">Avantages compétitifs</span>
+            <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/30 rounded-full px-8 py-3 mb-8 shadow-lg">
+              <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
+              <span className="text-primary font-semibold text-lg">Avantages compétitifs</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-emerald-900 bg-clip-text text-transparent">
               Pourquoi choisir le solaire industriel ?
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6 animate-pulse" />
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Des avantages concrets pour votre activité professionnelle
+            <div className="w-32 h-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-full mx-auto mb-8 animate-pulse" />
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              Des avantages concrets pour transformer votre activité professionnelle et optimiser vos performances énergétiques
             </p>
           </div>
           
           <div className="grid gap-8 md:grid-cols-3">
             {advantages.map((advantage, index) => (
-              <Card 
+              <div 
                 key={index} 
-                className="group text-center hover:shadow-2xl transition-all duration-700 hover:-translate-y-4 bg-gradient-to-br from-background to-background/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 animate-fade-in relative overflow-hidden"
-                style={{ animationDelay: `${index * 150}ms` }}
+                className="group relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-700 hover:-translate-y-6 border border-white/50 hover:border-primary/20 animate-fade-in"
+                style={{ animationDelay: `${index * 200}ms` }}
               >
-                {/* Card glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Background gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                <CardHeader className="relative">
-                  <div className="mx-auto mb-4 p-4 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-500 group-hover:scale-110">
-                    <advantage.icon className="h-8 w-8 text-primary group-hover:text-secondary transition-colors duration-500" />
+                {/* Floating icon container */}
+                <div className="relative mb-8">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+                  <div className="relative p-6 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-500 group-hover:scale-110">
+                    <advantage.icon className="h-12 w-12 text-primary group-hover:text-secondary transition-all duration-500 mx-auto" />
                   </div>
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
-                    {advantage.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="relative">
-                  <CardDescription className="text-sm leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
-                    {advantage.description}
-                  </CardDescription>
-                </CardContent>
+                </div>
                 
-                {/* Floating particles effect */}
-                <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-500" />
-                <div className="absolute bottom-4 left-4 w-1 h-1 bg-secondary/40 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-700" />
-              </Card>
+                {/* Content */}
+                <div className="relative text-center">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-primary transition-colors duration-300">
+                    {advantage.title}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed text-lg group-hover:text-slate-700 transition-colors duration-300">
+                    {advantage.description}
+                  </p>
+                </div>
+                
+                {/* Decorative elements */}
+                <div className="absolute top-6 right-6 w-3 h-3 bg-gradient-to-br from-primary to-secondary rounded-full opacity-60 group-hover:opacity-100 group-hover:animate-ping transition-all duration-500" />
+                <div className="absolute bottom-6 left-6 w-2 h-2 bg-gradient-to-br from-secondary to-accent rounded-full opacity-40 group-hover:opacity-80 group-hover:animate-pulse transition-all duration-700" />
+                
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-primary to-secondary rounded-full group-hover:w-24 transition-all duration-500" />
+              </div>
             ))}
           </div>
           
-          {/* Bottom decorative line */}
-          <div className="flex justify-center mt-16">
-            <div className="w-48 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent rounded-full animate-pulse" />
+          {/* Bottom decorative section */}
+          <div className="flex justify-center mt-20 animate-fade-in">
+            <div className="flex items-center gap-4">
+              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary/60 to-primary rounded-full animate-pulse" />
+              <div className="w-4 h-4 bg-gradient-to-br from-primary to-secondary rounded-full animate-pulse delay-500" />
+              <div className="w-24 h-1 bg-gradient-to-l from-transparent via-secondary/60 to-secondary rounded-full animate-pulse delay-1000" />
+            </div>
           </div>
         </div>
       </section>
