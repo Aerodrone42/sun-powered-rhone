@@ -153,6 +153,46 @@ const Agriculteurs = () => {
         </div>
       </section>
 
+      {/* SEO Content Section */}
+      <section className="py-20">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold mb-8 text-center">
+              Photovoltaïque agricole : optimisez vos coûts énergétiques
+            </h2>
+            
+            <div className="prose prose-lg mx-auto text-muted-foreground">
+              <p className="text-lg mb-6">
+                L'agriculture française connaît une révolution énergétique avec l'installation de panneaux solaires photovoltaïques. 
+                Les exploitations agricoles disposent d'atouts uniques : grandes surfaces de toitures, espaces disponibles, 
+                et consommation électrique importante pour l'irrigation, la ventilation, la traite et le séchage.
+              </p>
+              
+              <h3 className="text-2xl font-bold text-foreground mb-4">Solutions photovoltaïques adaptées à l'agriculture</h3>
+              <p className="mb-6">
+                Nos installations solaires agricoles s'adaptent parfaitement aux contraintes de votre exploitation. 
+                Que ce soit sur toitures de stabulations, hangars de stockage, ou en ombrières pour protéger le bétail, 
+                chaque projet est dimensionné selon vos besoins énergétiques spécifiques.
+              </p>
+              
+              <h3 className="text-2xl font-bold text-foreground mb-4">Rentabilité et revenus complémentaires</h3>
+              <p className="mb-6">
+                Réduisez jusqu'à 80% vos factures électriques et générez des revenus complémentaires grâce à la revente 
+                d'électricité. Nos installations offrent un retour sur investissement attractif de 8 à 12 ans selon la configuration, 
+                avec une durée de vie garantie de 25 ans minimum.
+              </p>
+              
+              <h3 className="text-2xl font-bold text-foreground mb-4">Agrivoltaïsme : l'innovation au service de l'agriculture</h3>
+              <p className="mb-6">
+                L'agrivoltaïsme permet de maintenir votre activité agricole tout en produisant de l'énergie renouvelable. 
+                Cette technologie innovante protège vos cultures des intempéries, réduit l'évaporation et optimise 
+                les rendements agricoles tout en générant de l'électricité verte.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Advantages Section */}
       <section className="py-20">
         <div className="container">
