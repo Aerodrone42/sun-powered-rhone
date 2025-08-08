@@ -93,11 +93,7 @@ const MarchesPublics = () => {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/lovable-uploads/18c78bba-58a6-41a6-a39e-1aeed08d8e65.png" 
-            alt="Ombrière solaire urbaine moderne le long d'une rivière"
-            className="w-full h-full object-cover"
-          />
+          <img src="/lovable-uploads/18c78bba-58a6-41a6-a39e-1aeed08d8e65.png" alt="Ombrière solaire urbaine moderne le long d'une rivière" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/50" />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/60 to-transparent" />
         </div>
@@ -134,10 +130,7 @@ const MarchesPublics = () => {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="xl" className="border-white/30 text-white hover:bg-white/10">
-                  <Link to="/simulateur" className="flex items-center gap-2">
-                    <TrendingUp className="h-5 w-5" />
-                    Nos références
-                  </Link>
+                  
                 </Button>
               </div>
 
