@@ -153,7 +153,7 @@ const Agriculteurs = () => {
                   Étude gratuite personnalisée
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="xl" className="hover-scale border-emerald-400/50 text-emerald-100 hover:bg-emerald-400/10 backdrop-blur-sm">
+              <Button asChild variant="outline" size="xl" className="hover-scale bg-white/90 border-white text-emerald-900 hover:bg-white hover:text-emerald-800 shadow-xl backdrop-blur-sm">
                 <Link to="#services">
                   <Sun className="h-6 w-6 mr-2" />
                   Découvrir nos solutions
