@@ -35,7 +35,7 @@ const Footer = () => {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="xl" className="border-white/30 text-white hover:bg-white/10">
+              <Button asChild variant="secondary" size="xl" className="bg-white text-slate-900 hover:bg-white/90 font-semibold">
                 <Link to="/simulateur">
                   Simuler mes économies
                 </Link>
