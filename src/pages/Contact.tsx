@@ -214,6 +214,7 @@ const Contact = () => {
                     <input type="hidden" name="_subject" value="Nouvelle demande de devis - WN Energies" />
                     <input type="hidden" name="_next" value={window.location.origin + "/contact?success=true"} />
                     <input type="hidden" name="_captcha" value="false" />
+                    <input type="hidden" name="_autoresponse" value="Merci pour votre demande de devis ! Nous vous recontacterons dans les plus brefs délais pour étudier votre projet." />
                     
                     <Button 
                       type="submit" 
