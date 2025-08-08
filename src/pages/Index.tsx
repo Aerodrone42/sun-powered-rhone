@@ -192,7 +192,7 @@ const Index = () => {
               
               {/* Enhanced description */}
               <div className="relative mb-8">
-                <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">GAGNEZ ENTRE 3000€ ET + DE 15000€ PAR ANS*</p>
+                <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">Dites adieu à vos factures… et gagnez entre 3000€ et 15 000 € par an grâce au solaire !*</p>
                 
                 {/* Animated underline */}
                 <div className="mt-6 flex justify-center">
