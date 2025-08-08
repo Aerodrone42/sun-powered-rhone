@@ -382,7 +382,8 @@ const PanneauxSolaires = () => {
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 L'installation de <strong>panneaux solaires photovoltaïques</strong> représente un investissement rentable et durable pour votre maison. 
-                WN Energies vous accompagne dans votre projet avec des solutions sur-mesure, une <strong>installation certifiée RGE</strong> et un suivi personnalisé pour maximiser vos économies d'énergie.
+                WN Energies, <strong>installateur certifié RGE dans la région lyonnaise</strong> (Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest) et sur l'ensemble du territoire français, 
+                vous accompagne dans votre projet avec des solutions sur-mesure et un suivi personnalisé pour maximiser vos économies d'énergie.
               </p>
               
               <h3 className="text-2xl font-semibold mb-4 text-foreground">Comment fonctionnent les panneaux solaires ?</h3>
@@ -415,10 +416,11 @@ const PanneauxSolaires = () => {
                 <li><strong>Carport solaire</strong> : Protection véhicules et production d'électricité</li>
               </ul>
 
-              <h3 className="text-2xl font-semibold mb-4 text-foreground">Démarches et installation</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-foreground">Démarches et installation en Rhône-Alpes</h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Notre équipe certifiée RGE QualiPV prend en charge toutes les <strong>démarches administratives</strong> : 
                 déclaration préalable en mairie, raccordement Enedis, constitution des dossiers d'aides. 
+                <strong>Interventions à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest</strong> et dans toute la France. 
                 L'installation physique dure 1 à 2 jours pour une maison individuelle, avec mise en service sous 4 à 8 semaines.
               </p>
 

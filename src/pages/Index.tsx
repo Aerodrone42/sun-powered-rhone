@@ -351,7 +351,7 @@ const Index = () => {
             </h2>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Spécialiste de l'énergie solaire photovoltaïque depuis plus de 10 ans, WN Energies accompagne particuliers, professionnels et collectivités dans leur transition énergétique. 
-              Basés en Rhône-Alpes avec intervention dans toute la France, nous sommes experts sur Lyon, Villeurbanne, Vénissieux, Vaulx-en-Velin, Saint-Priest et l'ensemble du territoire français.
+              <strong>Installateur expert à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest</strong> et sur l'ensemble du territoire français, nous proposons des solutions sur-mesure pour votre indépendance énergétique.
             </p>
           </div>
 
@@ -365,7 +365,8 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Installation de panneaux solaires photovoltaïques, systèmes d'autoconsommation et solutions de stockage d'énergie pour optimiser votre autonomie énergétique en Rhône-Alpes.
+                  Installation de panneaux solaires photovoltaïques, systèmes d'autoconsommation et solutions de stockage d'énergie pour optimiser votre autonomie énergétique. 
+                  <strong>Service de proximité à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest</strong> et intervention dans toute la France.
                 </p>
               </CardContent>
             </Card>

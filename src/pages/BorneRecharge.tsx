@@ -250,8 +250,8 @@ const BorneRecharge = () => {
                 
                 <p>
                   L'installation d'une borne de recharge électrique à domicile représente un investissement stratégique pour tout propriétaire de véhicule électrique. 
-                  Chez WN Energies, nous proposons des solutions complètes d'installation de bornes de recharge certifiées IRVE (Infrastructure de Recharge pour Véhicules Électriques) 
-                  pour particuliers et professionnels.
+                  Chez WN Energies, <strong>installateur certifié IRVE à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest</strong> et sur l'ensemble du territoire français, 
+                  nous proposons des solutions complètes d'installation de bornes de recharge pour particuliers et professionnels.
                 </p>
                 
                 <h3 className="text-xl font-semibold text-foreground mt-8 mb-4">

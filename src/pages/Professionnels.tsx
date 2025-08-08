@@ -322,7 +322,8 @@ const Professionnels = () => {
               <p className="text-lg mb-6">
                 L'industrie française fait face à des défis énergétiques majeurs : volatilité des prix de l'électricité, 
                 exigences environnementales croissantes et nécessité d'optimiser les coûts de production. 
-                Le photovoltaïque industriel offre une réponse concrète et rentable à ces enjeux.
+                Le photovoltaïque industriel offre une réponse concrète et rentable à ces enjeux. 
+                <strong>WN Energies intervient à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest</strong> et sur l'ensemble du territoire français pour vos projets industriels.
               </p>
               
               <div className="grid md:grid-cols-2 gap-8 mb-8">

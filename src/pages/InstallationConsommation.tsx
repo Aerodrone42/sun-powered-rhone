@@ -433,6 +433,43 @@ const InstallationConsommation = () => {
             </div>
           </div>
         </section>
+
+        {/* SEO Content Section */}
+        <section aria-labelledby="seo-installation-consommation" className="py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <article className="max-w-5xl mx-auto">
+              <h2 id="seo-installation-consommation" className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
+                Installation autoconsommation solaire : guide expert 2025
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                L'<strong>autoconsommation photovoltaïque</strong> représente l'avenir de la consommation énergétique domestique. 
+                WN Energies, <strong>spécialiste de l'autoconsommation à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest</strong> et sur l'ensemble du territoire français, 
+                vous accompagne dans l'optimisation de votre installation solaire pour maximiser vos économies d'énergie.
+              </p>
+              
+              <h3 className="text-2xl font-semibold mb-4 text-foreground">Qu'est-ce que l'autoconsommation solaire ?</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                L'<strong>autoconsommation photovoltaïque</strong> consiste à consommer directement l'électricité produite par vos panneaux solaires. 
+                Cette approche permet de réduire drastiquement votre dépendance au réseau électrique et d'optimiser votre facture énergétique. 
+                Avec les technologies actuelles, il est possible d'atteindre 50 à 80% d'autoconsommation selon le dimensionnement et les habitudes de consommation.
+              </p>
+
+              <h3 className="text-2xl font-semibold mb-4 text-foreground">Installations et services en Rhône-Alpes</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Notre équipe intervient pour l'<strong>installation d'autoconsommation à Lyon et sa région</strong> (Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest) 
+                ainsi que sur l'ensemble du territoire français. Chaque projet bénéficie d'une étude personnalisée pour optimiser le taux d'autoconsommation 
+                et maximiser les économies réalisées sur votre facture d'électricité.
+              </p>
+
+              <h3 className="text-2xl font-semibold mb-4 text-foreground">Technologies de pilotage et stockage</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Découvrez nos solutions complémentaires : <Link to="/particuliers/batterie-solaire" className="story-link">batteries de stockage</Link> pour maximiser l'autoconsommation, 
+                <Link to="/particuliers/borne-recharge" className="story-link">bornes de recharge</Link> alimentées par l'énergie solaire, et systèmes de monitoring intelligent. 
+                Besoin d'optimiser votre installation ? <Link to="/contact" className="story-link">Contactez nos experts</Link> ou utilisez notre <Link to="/simulateur" className="story-link">simulateur d'autoconsommation</Link>.
+              </p>
+            </article>
+          </div>
+        </section>
       </main>
 
       <SolarCallButton />
