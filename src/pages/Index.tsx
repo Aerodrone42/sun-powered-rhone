@@ -1,199 +1,114 @@
-import { Link } from "react-router-dom"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import ServiceCard from "@/components/ServiceCard"
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
-import CallbackForm from "@/components/CallbackForm"
-import SolarCallButton from "@/components/SolarCallButton"
-import { Sun, Home, Building, Zap, Battery, Car, Factory, Users, UserCheck, Briefcase, Tractor, MapPin } from "lucide-react"
-import heroImage from "@/assets/hero-image.jpg"
-import teamWorkImage from "@/assets/team-work.jpg"
-import happyFamilyImage from "@/assets/happy-family.jpg"
-import commercialBuildingImage from "@/assets/commercial-building.jpg"
-
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import ServiceCard from "@/components/ServiceCard";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import CallbackForm from "@/components/CallbackForm";
+import SolarCallButton from "@/components/SolarCallButton";
+import { Sun, Home, Building, Zap, Battery, Car, Factory, Users, UserCheck, Briefcase, Tractor, MapPin } from "lucide-react";
+import heroImage from "@/assets/hero-image.jpg";
+import teamWorkImage from "@/assets/team-work.jpg";
+import happyFamilyImage from "@/assets/happy-family.jpg";
+import commercialBuildingImage from "@/assets/commercial-building.jpg";
 const Index = () => {
-  const professionnelServices = [
-    {
-      title: "Solutions industrielles",
-      description: "Installations solaires pour entreprises et industries",
-      icon: Factory,
-      href: "/professionnels/industrielles",
-      benefits: [
-        "Réduction des coûts énergétiques",
-        "Amélioration du bilan carbone",
-        "Avantages fiscaux",
-        "Maintenance professionnelle"
-      ]
-    },
-    {
-      title: "Ombrières photovoltaïques",
-      description: "Parkings solaires et ombrières pour entreprises",
-      icon: Building,
-      href: "/professionnels/ombrieres",
-      benefits: [
-        "Double fonction : ombrage et production",
-        "Valorisation des espaces de parking",
-        "Installation sur mesure",
-        "Rentabilité optimisée"
-      ]
-    },
-    {
-      title: "Toitures commerciales",
-      description: "Couverture photovoltaïque pour bâtiments commerciaux",
-      icon: Sun,
-      href: "/professionnels/toitures",
-      benefits: [
-        "Exploitation optimale des toitures",
-        "Revente d'électricité",
-        "Amélioration de l'image d'entreprise",
-        "Contrats de maintenance inclus"
-      ]
-    },
-    {
-      title: "Centrales au sol",
-      description: "Parcs photovoltaïques et centrales de grande envergure",
-      icon: Zap,
-      href: "/professionnels/centrales",
-      benefits: [
-        "Production d'énergie à grande échelle",
-        "Investissement rentable",
-        "Étude de faisabilité complète",
-        "Gestion administrative complète"
-      ]
-    }
-  ]
-
-  const particulierServices = [
-    {
-      title: "Panneaux solaires",
-      description: "Installation de panneaux solaires photovoltaïques pour particuliers",
-      icon: Sun,
-      href: "/particuliers/panneaux-solaires",
-      benefits: [
-        "Réduction des factures d'électricité",
-        "Production d'énergie propre",
-        "Valorisation du bien immobilier",
-        "Aides financières disponibles"
-      ]
-    },
-    {
-      title: "Installation en consommation",
-      description: "Solutions d'autoconsommation pour optimiser votre production solaire",
-      icon: Zap,
-      href: "/particuliers/installation-consommation",
-      benefits: [
-        "Consommation directe de l'énergie produite",
-        "Réduction maximale des factures",
-        "Indépendance énergétique",
-        "Monitoring en temps réel"
-      ]
-    },
-    {
-      title: "Borne de recharge électrique",
-      description: "Installation de bornes de recharge alimentées par l'énergie solaire",
-      icon: Car,
-      href: "/particuliers/borne-recharge",
-      benefits: [
-        "Recharge écologique et économique",
-        "Intégration avec installation solaire",
-        "Différentes puissances disponibles",
-        "Installation professionnelle"
-      ]
-    },
-    {
-      title: "Batterie solaire",
-      description: "Solutions de stockage pour une autonomie énergétique maximale",
-      icon: Battery,
-      href: "/particuliers/batterie-solaire",
-      benefits: [
-        "Stockage de l'énergie excédentaire",
-        "Utilisation nocturne de l'énergie solaire",
-        "Sécurité en cas de coupure réseau",
-        "Optimisation de l'autoconsommation"
-      ]
-    }
-  ]
-
-  const collectiviteServices = [
-    {
-      title: "Équipements publics",
-      description: "Solutions solaires pour bâtiments et équipements municipaux",
-      icon: Building,
-      href: "/collectivites/equipements-publics",
-      benefits: [
-        "Réduction des coûts publics",
-        "Exemplarité environnementale",
-        "Sensibilisation citoyenne",
-        "Financement adapté"
-      ]
-    },
-    {
-      title: "Éclairage solaire",
-      description: "Systèmes d'éclairage public autonome",
-      icon: Sun,
-      href: "/collectivites/eclairage",
-      benefits: [
-        "Autonomie énergétique complète",
-        "Réduction des coûts d'électricité",
-        "Installation sans travaux lourds",
-        "Maintenance simplifiée"
-      ]
-    },
-    {
-      title: "Mobilité électrique",
-      description: "Bornes de recharge publiques alimentées par le solaire",
-      icon: Car,
-      href: "/collectivites/mobilite",
-      benefits: [
-        "Développement de la mobilité verte",
-        "Attractivité du territoire",
-        "Revenus complémentaires",
-        "Service public innovant"
-      ]
-    },
-    {
-      title: "Projets participatifs",
-      description: "Centrales solaires citoyennes et participatives",
-      icon: Users,
-      href: "/collectivites/participatifs",
-      benefits: [
-        "Implication citoyenne",
-        "Revenus pour la collectivité",
-        "Transition énergétique locale",
-        "Animation territoriale"
-      ]
-    }
-  ]
-
-  const stats = [
-    { number: "500+", label: "Installations réalisées" },
-    { number: "98%", label: "Clients satisfaits" },
-    { number: "50+", label: "Villes en Rhône-Alpes" }
-  ]
-
-  return (
-    <div className="min-h-screen">
+  const professionnelServices = [{
+    title: "Solutions industrielles",
+    description: "Installations solaires pour entreprises et industries",
+    icon: Factory,
+    href: "/professionnels/industrielles",
+    benefits: ["Réduction des coûts énergétiques", "Amélioration du bilan carbone", "Avantages fiscaux", "Maintenance professionnelle"]
+  }, {
+    title: "Ombrières photovoltaïques",
+    description: "Parkings solaires et ombrières pour entreprises",
+    icon: Building,
+    href: "/professionnels/ombrieres",
+    benefits: ["Double fonction : ombrage et production", "Valorisation des espaces de parking", "Installation sur mesure", "Rentabilité optimisée"]
+  }, {
+    title: "Toitures commerciales",
+    description: "Couverture photovoltaïque pour bâtiments commerciaux",
+    icon: Sun,
+    href: "/professionnels/toitures",
+    benefits: ["Exploitation optimale des toitures", "Revente d'électricité", "Amélioration de l'image d'entreprise", "Contrats de maintenance inclus"]
+  }, {
+    title: "Centrales au sol",
+    description: "Parcs photovoltaïques et centrales de grande envergure",
+    icon: Zap,
+    href: "/professionnels/centrales",
+    benefits: ["Production d'énergie à grande échelle", "Investissement rentable", "Étude de faisabilité complète", "Gestion administrative complète"]
+  }];
+  const particulierServices = [{
+    title: "Panneaux solaires",
+    description: "Installation de panneaux solaires photovoltaïques pour particuliers",
+    icon: Sun,
+    href: "/particuliers/panneaux-solaires",
+    benefits: ["Réduction des factures d'électricité", "Production d'énergie propre", "Valorisation du bien immobilier", "Aides financières disponibles"]
+  }, {
+    title: "Installation en consommation",
+    description: "Solutions d'autoconsommation pour optimiser votre production solaire",
+    icon: Zap,
+    href: "/particuliers/installation-consommation",
+    benefits: ["Consommation directe de l'énergie produite", "Réduction maximale des factures", "Indépendance énergétique", "Monitoring en temps réel"]
+  }, {
+    title: "Borne de recharge électrique",
+    description: "Installation de bornes de recharge alimentées par l'énergie solaire",
+    icon: Car,
+    href: "/particuliers/borne-recharge",
+    benefits: ["Recharge écologique et économique", "Intégration avec installation solaire", "Différentes puissances disponibles", "Installation professionnelle"]
+  }, {
+    title: "Batterie solaire",
+    description: "Solutions de stockage pour une autonomie énergétique maximale",
+    icon: Battery,
+    href: "/particuliers/batterie-solaire",
+    benefits: ["Stockage de l'énergie excédentaire", "Utilisation nocturne de l'énergie solaire", "Sécurité en cas de coupure réseau", "Optimisation de l'autoconsommation"]
+  }];
+  const collectiviteServices = [{
+    title: "Équipements publics",
+    description: "Solutions solaires pour bâtiments et équipements municipaux",
+    icon: Building,
+    href: "/collectivites/equipements-publics",
+    benefits: ["Réduction des coûts publics", "Exemplarité environnementale", "Sensibilisation citoyenne", "Financement adapté"]
+  }, {
+    title: "Éclairage solaire",
+    description: "Systèmes d'éclairage public autonome",
+    icon: Sun,
+    href: "/collectivites/eclairage",
+    benefits: ["Autonomie énergétique complète", "Réduction des coûts d'électricité", "Installation sans travaux lourds", "Maintenance simplifiée"]
+  }, {
+    title: "Mobilité électrique",
+    description: "Bornes de recharge publiques alimentées par le solaire",
+    icon: Car,
+    href: "/collectivites/mobilite",
+    benefits: ["Développement de la mobilité verte", "Attractivité du territoire", "Revenus complémentaires", "Service public innovant"]
+  }, {
+    title: "Projets participatifs",
+    description: "Centrales solaires citoyennes et participatives",
+    icon: Users,
+    href: "/collectivites/participatifs",
+    benefits: ["Implication citoyenne", "Revenus pour la collectivité", "Transition énergétique locale", "Animation territoriale"]
+  }];
+  const stats = [{
+    number: "500+",
+    label: "Installations réalisées"
+  }, {
+    number: "98%",
+    label: "Clients satisfaits"
+  }, {
+    number: "50+",
+    label: "Villes en Rhône-Alpes"
+  }];
+  return <div className="min-h-screen">
       <Header />
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
-        <video 
-          className="absolute inset-0 w-full h-full object-cover object-center md:object-right"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          poster={heroImage}
-          style={{ 
-            filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
-            imageRendering: 'crisp-edges',
-            backfaceVisibility: 'hidden',
-            transform: 'translateZ(0)',
-            willChange: 'transform'
-          }}
-        >
+        <video className="absolute inset-0 w-full h-full object-cover object-center md:object-right" autoPlay loop muted playsInline preload="auto" poster={heroImage} style={{
+        filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
+        imageRendering: 'crisp-edges',
+        backfaceVisibility: 'hidden',
+        transform: 'translateZ(0)',
+        willChange: 'transform'
+      }}>
           <source src="https://cdn.midjourney.com/video/f87b7039-d3ef-4bf4-a409-96b1ee509d06/0.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -231,8 +146,12 @@ const Index = () => {
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 left-20 w-32 h-32 bg-primary/20 rounded-full blur-2xl animate-float"></div>
-          <div className="absolute bottom-20 right-10 w-48 h-48 bg-secondary/15 rounded-full blur-3xl animate-float" style={{animationDelay: '1s'}}></div>
-          <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-accent/25 rounded-full blur-xl animate-float" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-20 right-10 w-48 h-48 bg-secondary/15 rounded-full blur-3xl animate-float" style={{
+          animationDelay: '1s'
+        }}></div>
+          <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-accent/25 rounded-full blur-xl animate-float" style={{
+          animationDelay: '2s'
+        }}></div>
         </div>
         
         <div className="container relative z-10">
@@ -240,8 +159,12 @@ const Index = () => {
             {/* Background geometric shapes */}
             <div className="absolute inset-0 -z-10">
               <div className="absolute top-0 left-1/4 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-float"></div>
-              <div className="absolute top-10 right-1/4 w-24 h-24 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-full blur-2xl animate-float" style={{animationDelay: '0.5s'}}></div>
-              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-40 h-40 bg-gradient-to-br from-amber-500/10 to-orange-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '1s'}}></div>
+              <div className="absolute top-10 right-1/4 w-24 h-24 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-full blur-2xl animate-float" style={{
+              animationDelay: '0.5s'
+            }}></div>
+              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-40 h-40 bg-gradient-to-br from-amber-500/10 to-orange-500/10 rounded-full blur-3xl animate-float" style={{
+              animationDelay: '1s'
+            }}></div>
             </div>
             
             <div className="relative">
@@ -258,22 +181,26 @@ const Index = () => {
                   
                   {/* Decorative elements */}
                   <div className="absolute -top-4 -right-8 w-3 h-3 bg-blue-500 rounded-full animate-ping"></div>
-                  <div className="absolute top-1/2 -left-6 w-2 h-2 bg-emerald-500 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
-                  <div className="absolute -bottom-2 right-1/4 w-4 h-4 bg-purple-500 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+                  <div className="absolute top-1/2 -left-6 w-2 h-2 bg-emerald-500 rounded-full animate-ping" style={{
+                  animationDelay: '0.5s'
+                }}></div>
+                  <div className="absolute -bottom-2 right-1/4 w-4 h-4 bg-purple-500 rounded-full animate-ping" style={{
+                  animationDelay: '1s'
+                }}></div>
                 </h2>
               </div>
               
               {/* Enhanced description */}
               <div className="relative mb-8">
-                <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">
-                  Le solaire qui fait la différence. Même surface, beaucoup plus de puissance — et ça se voit sur la facture.
-                </p>
+                <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">GAGNEZ ENTRE 3000€ ET + DE 15000€ PAR ANS*</p>
                 
                 {/* Animated underline */}
                 <div className="mt-6 flex justify-center">
                   <div className="relative">
                     <div className="h-1 w-32 bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500 rounded-full"></div>
-                    <div className="absolute top-0 left-0 h-1 w-8 bg-white rounded-full animate-bounce" style={{animationDuration: '2s'}}></div>
+                    <div className="absolute top-0 left-0 h-1 w-8 bg-white rounded-full animate-bounce" style={{
+                    animationDuration: '2s'
+                  }}></div>
                   </div>
                 </div>
               </div>
@@ -295,7 +222,7 @@ const Index = () => {
                   <div className="mb-3 p-3 rounded-2xl bg-blue-500 group-hover:bg-blue-600 transition-all duration-500 inline-block shadow-lg">
                     <UserCheck className="h-10 w-10 text-white group-hover:scale-110 transition-transform duration-500" />
                   </div>
-                  <span className="font-bold text-lg leading-tight text-blue-800 dark:text-blue-200 group-hover:text-blue-900 dark:group-hover:text-blue-100 transition-colors duration-500">Je suis un<br/>particulier</span>
+                  <span className="font-bold text-lg leading-tight text-blue-800 dark:text-blue-200 group-hover:text-blue-900 dark:group-hover:text-blue-100 transition-colors duration-500">Je suis un<br />particulier</span>
                 </div>
               </div>
             </Link>
@@ -308,7 +235,7 @@ const Index = () => {
                   <div className="mb-3 p-3 rounded-2xl bg-emerald-500 group-hover:bg-emerald-600 transition-all duration-500 inline-block shadow-lg">
                     <Briefcase className="h-10 w-10 text-white group-hover:scale-110 transition-transform duration-500" />
                   </div>
-                  <span className="font-bold text-lg leading-tight text-emerald-800 dark:text-emerald-200 group-hover:text-emerald-900 dark:group-hover:text-emerald-100 transition-colors duration-500">Je suis un<br/>professionnel</span>
+                  <span className="font-bold text-lg leading-tight text-emerald-800 dark:text-emerald-200 group-hover:text-emerald-900 dark:group-hover:text-emerald-100 transition-colors duration-500">Je suis un<br />professionnel</span>
                 </div>
               </div>
             </Link>
@@ -321,7 +248,7 @@ const Index = () => {
                   <div className="mb-3 p-3 rounded-2xl bg-amber-500 group-hover:bg-amber-600 transition-all duration-500 inline-block shadow-lg">
                     <Tractor className="h-10 w-10 text-white group-hover:scale-110 transition-transform duration-500" />
                   </div>
-                  <span className="font-bold text-lg leading-tight text-amber-800 dark:text-amber-200 group-hover:text-amber-900 dark:group-hover:text-amber-100 transition-colors duration-500">Je suis un<br/>agriculteur</span>
+                  <span className="font-bold text-lg leading-tight text-amber-800 dark:text-amber-200 group-hover:text-amber-900 dark:group-hover:text-amber-100 transition-colors duration-500">Je suis un<br />agriculteur</span>
                 </div>
               </div>
             </Link>
@@ -334,7 +261,7 @@ const Index = () => {
                   <div className="mb-3 p-3 rounded-2xl bg-purple-500 group-hover:bg-purple-600 transition-all duration-500 inline-block shadow-lg">
                     <MapPin className="h-10 w-10 text-white group-hover:scale-110 transition-transform duration-500" />
                   </div>
-                  <span className="font-bold text-lg leading-tight text-purple-800 dark:text-purple-200 group-hover:text-purple-900 dark:group-hover:text-purple-100 transition-colors duration-500">Marché<br/>public</span>
+                  <span className="font-bold text-lg leading-tight text-purple-800 dark:text-purple-200 group-hover:text-purple-900 dark:group-hover:text-purple-100 transition-colors duration-500">Marché<br />public</span>
                 </div>
               </div>
             </Link>
@@ -442,16 +369,14 @@ const Index = () => {
       <section className="py-16 bg-muted/30">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
+            {stats.map((stat, index) => <div key={index} className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
                   {stat.number}
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground">
                   {stat.label}
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -462,8 +387,12 @@ const Index = () => {
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-10 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{
+          animationDelay: '1s'
+        }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{
+          animationDelay: '2s'
+        }}></div>
         </div>
         
         <div className="container relative z-10">
@@ -484,27 +413,20 @@ const Index = () => {
           </div>
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {professionnelServices.map((service, index) => (
-              <div 
-                key={index}
-                className="animate-fade-in hover-scale"
-                style={{animationDelay: `${index * 0.1}s`}}
-              >
-                <ServiceCard
-                  {...service}
-                  variant={index % 2 === 0 ? 'solar' : 'default'}
-                />
-              </div>
-            ))}
+            {professionnelServices.map((service, index) => <div key={index} className="animate-fade-in hover-scale" style={{
+            animationDelay: `${index * 0.1}s`
+          }}>
+                <ServiceCard {...service} variant={index % 2 === 0 ? 'solar' : 'default'} />
+              </div>)}
           </div>
         </div>
         
         {/* Decorative grid pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
-          }}></div>
+          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }}></div>
         </div>
       </section>
 
@@ -521,13 +443,7 @@ const Index = () => {
           </div>
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {particulierServices.map((service, index) => (
-              <ServiceCard
-                key={index}
-                {...service}
-                variant={index % 2 === 0 ? 'solar' : 'default'}
-              />
-            ))}
+            {particulierServices.map((service, index) => <ServiceCard key={index} {...service} variant={index % 2 === 0 ? 'solar' : 'default'} />)}
           </div>
         </div>
       </section>
@@ -545,13 +461,7 @@ const Index = () => {
           </div>
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {collectiviteServices.map((service, index) => (
-              <ServiceCard
-                key={index}
-                {...service}
-                variant={index % 2 === 0 ? 'solar' : 'default'}
-              />
-            ))}
+            {collectiviteServices.map((service, index) => <ServiceCard key={index} {...service} variant={index % 2 === 0 ? 'solar' : 'default'} />)}
           </div>
         </div>
       </section>
@@ -595,11 +505,7 @@ const Index = () => {
             </div>
             
             <div className="relative">
-              <img 
-                src={teamWorkImage} 
-                alt="Équipe professionnelle WN Energies au travail"
-                className="rounded-lg shadow-strong w-full solar-hover"
-              />
+              <img src={teamWorkImage} alt="Équipe professionnelle WN Energies au travail" className="rounded-lg shadow-strong w-full solar-hover" />
             </div>
           </div>
         </div>
@@ -645,8 +551,6 @@ const Index = () => {
 
       <SolarCallButton />
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
