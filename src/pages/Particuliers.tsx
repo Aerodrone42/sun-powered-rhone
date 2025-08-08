@@ -86,7 +86,7 @@ const Particuliers = () => {
       <Helmet>
         <title>Solutions Solaires pour Particuliers | Installations Photovoltaïques Domestiques</title>
         <meta name="description" content="Découvrez nos solutions solaires pour particuliers : panneaux photovoltaïques, autoconsommation, batteries et bornes de recharge. Devis gratuit et installation clé en main." />
-        <link rel="canonical" href="https://votresite.com/particuliers" />
+        <link rel="canonical" href="https://www.wn-energies.fr/particuliers" />
       </Helmet>
       
       <Header />
@@ -410,6 +410,34 @@ const Particuliers = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* SEO Content Section */}
+      <section aria-labelledby="seo-particuliers" className="py-20">
+        <div className="container">
+          <article className="max-w-5xl mx-auto">
+            <h2 id="seo-particuliers" className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
+              Installation panneaux solaires pour particuliers: guide complet
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              WN Energies accompagne les particuliers dans leur transition énergétique avec des installations photovoltaïques performantes: étude personnalisée, pose certifiée RGE, garanties longues durées et suivi en temps réel. Notre objectif: maximiser votre <strong>autoconsommation</strong> et réduire durablement votre facture d’électricité.
+            </p>
+            <h3 className="text-2xl font-semibold mb-3 text-foreground">Pourquoi passer au solaire domestique ?</h3>
+            <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
+              <li>Économies jusqu’à 70% sur la facture grâce à l’autoconsommation et au pilotage intelligent</li>
+              <li>Valorisation de votre bien immobilier et indépendance énergétique accrue</li>
+              <li>Technologies fiables: panneaux garantis 25 ans, onduleurs jusqu’à 20 ans</li>
+            </ul>
+            <h3 className="text-2xl font-semibold mb-3 text-foreground">Combien ça coûte et quel ROI ?</h3>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              Le coût dépend de la puissance (3 à 9 kWc le plus souvent). Le retour sur investissement se situe généralement entre 7 et 12 ans selon votre profil de consommation, l’orientation de la toiture et les aides en vigueur.
+            </p>
+            <h3 className="text-2xl font-semibold mb-3 text-foreground">Nos services pour particuliers</h3>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Découvrez nos <Link to="/particuliers/panneaux-solaires" className="story-link">panneaux solaires</Link>, nos solutions <Link to="/particuliers/installation-consommation" className="story-link">d’autoconsommation</Link>, le <Link to="/particuliers/batterie-solaire" className="story-link">stockage par batterie</Link> et l’<Link to="/particuliers/borne-recharge" className="story-link">installation de borne de recharge</Link>. Besoin d’un chiffrage ? <Link to="/contact" className="story-link">Demandez votre devis gratuit</Link>.
+            </p>
+          </article>
         </div>
       </section>
 
