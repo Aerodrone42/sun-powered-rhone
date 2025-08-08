@@ -36,7 +36,7 @@ const App = () => (
       <Sonner />
       <HelmetProvider>
         <BrowserRouter>
-          <SunParticles />
+          
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
