@@ -266,7 +266,7 @@ const Index = () => {
               {/* Enhanced description */}
               <div className="relative mb-8">
                 <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">
-                  Des solutions <span className="text-blue-600 font-semibold">sur-mesure</span> pour chaque besoin énergétique
+                  Le solaire qui fait la différence. Même surface, beaucoup plus de puissance — et ça se voit sur la facture.
                 </p>
                 
                 {/* Animated underline */}
