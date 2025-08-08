@@ -64,7 +64,7 @@ const Header = () => {
             />
             <div className="absolute inset-0 h-12 w-12 bg-primary/20 rounded-full blur-xl transition-all duration-700 group-hover:bg-primary/40 group-hover:shadow-glow"></div>
           </div>
-          <span className="text-2xl font-bold bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent tracking-tight">
+          <span className="text-2xl font-bold text-primary tracking-tight">
             WNE
           </span>
         </Link>
