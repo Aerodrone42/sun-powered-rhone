@@ -224,7 +224,7 @@ const CommercePro = () => {
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {advantages.map((advantage, index) => (
-              <Card key={index} className="text-center hover-scale animate-fade-in">
+              <Card key={index} className="text-center hover-scale animate-fade-in hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
                 <CardHeader>
                   <div className="mx-auto mb-4 p-3 rounded-full bg-secondary/10">
                     <advantage.icon className="h-8 w-8 text-secondary" />
@@ -257,7 +257,7 @@ const CommercePro = () => {
           
           <div className="grid gap-8 md:grid-cols-3">
             {solutions.map((solution, index) => (
-              <Card key={index} variant="gradient" className="hover-scale">
+              <Card key={index} variant="gradient" className="hover-scale hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
                 <CardHeader>
                   <CardTitle className="text-xl">{solution.title}</CardTitle>
                   <CardDescription>{solution.description}</CardDescription>
@@ -311,7 +311,7 @@ const CommercePro = () => {
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step, index) => (
-              <Card key={index} className="text-center hover-scale">
+              <Card key={index} className="text-center hover-scale hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
                 <CardHeader>
                   <div className="mx-auto mb-4 w-12 h-12 rounded-full bg-hero-gradient flex items-center justify-center text-white text-xl font-bold">
                     {step.number}

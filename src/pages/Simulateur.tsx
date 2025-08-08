@@ -995,7 +995,7 @@ const SolarSimulator = () => {
                 </h3>
 
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-card border border-border rounded-2xl p-6">
+                   <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
                     <h3 className="text-xl font-bold text-card-foreground mb-4">🔶 Panneaux 700-850W Standards</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center p-3 bg-background rounded-lg">
@@ -1017,7 +1017,7 @@ const SolarSimulator = () => {
                     </div>
                   </div>
 
-                  <div className="bg-card border border-border rounded-2xl p-6">
+                   <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
                     <h3 className="text-xl font-bold text-card-foreground mb-4">⚡ Panneaux 700-850W Nouvelle Génération</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center p-3 bg-background rounded-lg">
@@ -1167,7 +1167,7 @@ const SolarSimulator = () => {
 
               {/* Comparatif des résultats */}
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-card border border-border rounded-2xl p-6">
+                 <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
                   <h3 className="text-xl font-bold text-card-foreground mb-6">🔶 Panneaux 700-850W Standards</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
@@ -1193,7 +1193,7 @@ const SolarSimulator = () => {
                   </div>
                 </div>
 
-                <div className="bg-card border border-border rounded-2xl p-6">
+                <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
                   <h3 className="text-xl font-bold text-card-foreground mb-6">⚡ Panneaux 700-850W Nouvelle Génération</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
@@ -1231,7 +1231,7 @@ const SolarSimulator = () => {
               <h3 className="text-2xl font-bold text-foreground">💎 Avantages de la nouvelle génération</h3>
               
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all border border-border hover:border-primary">
+                 <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
                   <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
                   <div className="text-3xl font-bold text-card-foreground mb-2">
                     +{results.advantages.productionGainMin.toLocaleString()} à +{results.advantages.productionGainMax.toLocaleString()}
@@ -1239,7 +1239,7 @@ const SolarSimulator = () => {
                   <div className="text-muted-foreground font-medium">kWh/an supplémentaires</div>
                 </div>
 
-                <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all border border-border hover:border-primary">
+                 <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
                   <div className="text-4xl mb-4">💰</div>
                   <div className="text-3xl font-bold text-card-foreground mb-2">
                     +{results.advantages.savingsGainMin} à +{results.advantages.savingsGainMax} €
@@ -1247,7 +1247,7 @@ const SolarSimulator = () => {
                   <div className="text-muted-foreground font-medium">d'économies annuelles</div>
                 </div>
 
-                <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all border border-border hover:border-primary">
+                 <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
                   <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
                   <div className="text-3xl font-bold text-card-foreground mb-2">
                     {results.advantages.efficiency}
@@ -1255,7 +1255,7 @@ const SolarSimulator = () => {
                   <div className="text-muted-foreground font-medium">de rendement supérieur</div>
                 </div>
 
-                <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all border border-border hover:border-primary">
+                 <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
                   <Battery className="w-12 h-12 text-primary mx-auto mb-4" />
                   <div className="text-3xl font-bold text-card-foreground mb-2">
                     {results.advantages.autonomy}%
@@ -1263,7 +1263,7 @@ const SolarSimulator = () => {
                   <div className="text-muted-foreground font-medium">d'autonomie énergétique</div>
                 </div>
 
-                <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all border border-border hover:border-primary">
+                <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
                   <Leaf className="w-12 h-12 text-green-500 mx-auto mb-4" />
                   <div className="text-3xl font-bold text-card-foreground mb-2">
                     {results.advantages.co2Saved} kg
