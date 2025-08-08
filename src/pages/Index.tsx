@@ -213,10 +213,10 @@ const Index = () => {
                 Réduisez vos factures et participez à la transition énergétique.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start">
-                <Button asChild variant="glass" size="lg" className="shadow-premium solar-hover">
+                <Button asChild variant="glass" size="lg" className="shadow-premium btn-solar">
                   <Link to="/contact">Devis gratuit</Link>
                 </Button>
-                <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25 solar-hover">
+                <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25 btn-solar">
                   <Link to="/simulateur">Simulateur</Link>
                 </Button>
               </div>

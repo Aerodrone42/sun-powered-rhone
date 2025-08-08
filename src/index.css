@@ -137,41 +137,24 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Subtle solar hover effects */
+  /* Elegant solar glow effects on hover */
   .solar-hover {
     position: relative;
-    overflow: visible;
     transition: all 0.3s ease;
   }
 
-  .solar-hover::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(
-      circle,
-      rgba(255, 215, 0, 0.1) 0%,
-      rgba(255, 140, 0, 0.05) 50%,
-      transparent 100%
-    );
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: -1;
-    transition: all 0.4s ease;
-    opacity: 0;
-  }
-
-  .solar-hover:hover::before {
-    width: 120%;
-    height: 120%;
-    opacity: 1;
-  }
-
   .solar-hover:hover {
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2), 0 0 40px rgba(255, 215, 0, 0.1);
+    box-shadow: 
+      0 0 20px rgba(255, 215, 0, 0.3),
+      0 0 40px rgba(255, 215, 0, 0.2),
+      0 0 60px rgba(255, 215, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .btn-solar:hover {
+    box-shadow: 
+      0 0 15px rgba(255, 215, 0, 0.4),
+      0 0 30px rgba(255, 215, 0, 0.2);
+    filter: brightness(1.1);
   }
 }
