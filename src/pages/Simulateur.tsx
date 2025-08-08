@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Sun, Zap, Home, Calculator, MapPin, Battery, Leaf, TrendingUp, Settings } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import Header from '../components/Header';
@@ -8,6 +9,7 @@ import { MonthlyProductionChart } from '../components/MonthlyProductionChart';
 import { Skeleton } from '../components/ui/skeleton';
 
 const SolarSimulator = () => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [locationData, setLocationData] = useState(null);
@@ -1327,8 +1329,8 @@ const SolarSimulator = () => {
                     if (contactSection) {
                       contactSection.scrollIntoView({ behavior: 'smooth' });
                     } else {
-                      // Redirection vers page contact si pas de formulaire
-                      window.location.href = '/contact';
+                      // Navigation vers page contact si pas de formulaire
+                      navigate('/contact');
                     }
                   }}
                   className="bg-primary hover:bg-primary-hover text-primary-foreground px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
