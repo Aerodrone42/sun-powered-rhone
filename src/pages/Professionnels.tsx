@@ -95,7 +95,7 @@ const Professionnels = () => {
             <div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 Solutions solaires pour 
-                <span className="block text-secondary">professionnels</span>
+                <span className="block text-primary font-semibold">professionnels</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                 Optimisez vos coûts énergétiques avec des installations solaires industrielles. 
