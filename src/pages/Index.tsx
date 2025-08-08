@@ -236,20 +236,53 @@ const Index = () => {
         </div>
         
         <div className="container relative z-10">
-          <div className="text-center mb-16 relative">
-            <div className="relative inline-block">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground relative">
-                <span className="relative z-10">Choisissez votre profil</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 blur-2xl -z-10 animate-pulse"></div>
-              </h2>
+          <div className="text-center mb-20 relative">
+            {/* Background geometric shapes */}
+            <div className="absolute inset-0 -z-10">
+              <div className="absolute top-0 left-1/4 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-float"></div>
+              <div className="absolute top-10 right-1/4 w-24 h-24 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-full blur-2xl animate-float" style={{animationDelay: '0.5s'}}></div>
+              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-40 h-40 bg-gradient-to-br from-amber-500/10 to-orange-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '1s'}}></div>
             </div>
             
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Des solutions sur-mesure pour chaque besoin énergétique
-            </p>
-            
-            <div className="mt-8 flex justify-center">
-              <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full animate-pulse"></div>
+            <div className="relative">
+              {/* Main title with modern styling */}
+              <div className="mb-8">
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-4 relative">
+                  <span className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent dark:from-white dark:via-blue-100 dark:to-white">
+                    Choisissez
+                  </span>
+                  <br />
+                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent animate-pulse">
+                    votre profil
+                  </span>
+                  
+                  {/* Decorative elements */}
+                  <div className="absolute -top-4 -right-8 w-3 h-3 bg-blue-500 rounded-full animate-ping"></div>
+                  <div className="absolute top-1/2 -left-6 w-2 h-2 bg-emerald-500 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+                  <div className="absolute -bottom-2 right-1/4 w-4 h-4 bg-purple-500 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+                </h2>
+              </div>
+              
+              {/* Enhanced description */}
+              <div className="relative mb-8">
+                <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">
+                  Des solutions <span className="text-blue-600 font-semibold">sur-mesure</span> pour chaque besoin énergétique
+                </p>
+                
+                {/* Animated underline */}
+                <div className="mt-6 flex justify-center">
+                  <div className="relative">
+                    <div className="h-1 w-32 bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500 rounded-full"></div>
+                    <div className="absolute top-0 left-0 h-1 w-8 bg-white rounded-full animate-bounce" style={{animationDuration: '2s'}}></div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Subtle badge */}
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-50 to-emerald-50 dark:from-blue-950 dark:to-emerald-950 border border-blue-200 dark:border-blue-800 rounded-full">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-sm font-medium text-muted-foreground">4 profils disponibles</span>
+              </div>
             </div>
           </div>
           
