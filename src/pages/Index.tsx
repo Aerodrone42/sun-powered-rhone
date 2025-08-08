@@ -240,7 +240,7 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <Card className="border-l-4 border-l-primary">
+            <Card className="border-l-4 border-l-primary solar-hover">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Sun className="h-6 w-6 text-primary" />
@@ -254,7 +254,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-l-4 border-l-secondary">
+            <Card className="border-l-4 border-l-secondary solar-hover">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Zap className="h-6 w-6 text-secondary" />
@@ -268,7 +268,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-l-4 border-l-accent">
+            <Card className="border-l-4 border-l-accent solar-hover">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Building className="h-6 w-6 text-accent" />
@@ -283,7 +283,7 @@ const Index = () => {
             </Card>
           </div>
 
-          <div className="bg-card rounded-3xl p-8 border border-border/50 shadow-lg">
+          <div className="bg-card rounded-3xl p-8 border border-border/50 shadow-lg solar-hover">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-2xl font-bold mb-4 text-foreground">
