@@ -150,8 +150,7 @@ const SolarCallButton = () => {
         .solar-widget {
           position: fixed;
           right: 30px;
-          top: 50%;
-          transform: translateY(-50%);
+          bottom: 30px;
           z-index: 10000;
         }
 
@@ -330,8 +329,8 @@ const SolarCallButton = () => {
         .phone-display {
           position: absolute;
           right: 105px;
-          top: 50%;
-          transform: translateY(-50%);
+          bottom: 50%;
+          transform: translateY(50%);
           background: linear-gradient(145deg, #1a202c, #2d3748);
           color: #ffffff;
           padding: 16px 24px;
@@ -344,7 +343,7 @@ const SolarCallButton = () => {
               0 0 0 1px rgba(255, 215, 0, 0.3),
               inset 0 2px 4px rgba(255, 255, 255, 0.1);
           opacity: 0;
-          transform: translateY(-50%) translateX(20px) scale(0.9);
+          transform: translateY(50%) translateX(20px) scale(0.9);
           transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
           pointer-events: none;
           letter-spacing: 0.5px;
@@ -371,7 +370,7 @@ const SolarCallButton = () => {
           position: absolute;
           right: -8px;
           top: 50%;
-          transform: translateY(-50%);
+          transform: translateY(50%);
           width: 0;
           height: 0;
           border-left: 8px solid #2d3748;
@@ -391,7 +390,7 @@ const SolarCallButton = () => {
 
         .solar-widget:hover .phone-display {
           opacity: 1;
-          transform: translateY(-50%) translateX(0) scale(1);
+          transform: translateY(50%) translateX(0) scale(1);
         }
 
         .solar-widget:hover .flare {
@@ -484,6 +483,7 @@ const SolarCallButton = () => {
         @media (max-width: 768px) {
           .solar-widget {
             right: 20px;
+            bottom: 20px;
           }
           
           .sun-button {
