@@ -193,7 +193,7 @@ const Index = () => {
               {/* Enhanced description */}
               <div className="relative mb-8">
                 <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-medium animate-pulse relative">
-                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient animate-glow">
+                  <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient animate-glow">
                     Dites adieu à vos factures… et gagnez entre 3000€ et 15 000 € par an grâce au solaire !*
                   </span>
                 </p>

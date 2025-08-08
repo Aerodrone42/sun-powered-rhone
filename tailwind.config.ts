@@ -133,12 +133,12 @@ export default {
 				},
 				'glow': {
 					'0%, 100%': { 
-						filter: 'drop-shadow(0 0 10px rgba(59,130,246,0.8))',
-						textShadow: '0 0 20px rgba(59,130,246,0.5)'
+						filter: 'drop-shadow(0 0 15px rgba(251,191,36,0.8))',
+						textShadow: '0 0 25px rgba(251,191,36,0.6)'
 					},
 					'50%': { 
-						filter: 'drop-shadow(0 0 20px rgba(147,51,234,1))',
-						textShadow: '0 0 30px rgba(147,51,234,0.8)'
+						filter: 'drop-shadow(0 0 25px rgba(249,115,22,1))',
+						textShadow: '0 0 35px rgba(249,115,22,0.8)'
 					}
 				}
 			},
