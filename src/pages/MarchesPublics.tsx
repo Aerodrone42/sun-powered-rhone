@@ -90,34 +90,114 @@ const MarchesPublics = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-        <div className="container">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/lovable-uploads/18c78bba-58a6-41a6-a39e-1aeed08d8e65.png" 
+            alt="Ombrière solaire urbaine moderne le long d'une rivière"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/60 to-transparent" />
+        </div>
+
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/20 rounded-full blur-xl animate-pulse" />
+        <div className="absolute bottom-32 right-20 w-32 h-32 bg-green-500/20 rounded-full blur-xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 right-10 w-16 h-16 bg-yellow-500/20 rounded-full blur-xl animate-pulse delay-500" />
+
+        <div className="container relative z-10">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <div className="animate-fade-in">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/20">
+                <Landmark className="h-4 w-4 text-white" />
+                <span className="text-white text-sm font-medium">Expertise Marchés Publics</span>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight text-white">
                 Solutions solaires pour 
-                <span className="block text-blue-600">marchés publics</span>
+                <span className="block bg-gradient-to-r from-blue-300 to-green-300 bg-clip-text text-transparent">
+                  marchés publics
+                </span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              
+              <p className="text-xl text-blue-100 mb-8 leading-relaxed max-w-xl">
                 Accompagnons les collectivités dans leur transition énergétique avec des solutions photovoltaïques adaptées aux contraintes des marchés publics.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild variant="hero" size="xl">
-                  <Link to="/contact">Consultation publique</Link>
+              
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <Button asChild variant="hero" size="xl" className="group">
+                  <Link to="/contact" className="flex items-center gap-2">
+                    <FileText className="h-5 w-5 transition-transform group-hover:scale-110" />
+                    Consultation publique
+                  </Link>
                 </Button>
-                <Button asChild variant="outline" size="xl">
-                  
+                <Button asChild variant="outline" size="xl" className="border-white/30 text-white hover:bg-white/10">
+                  <Link to="/simulateur" className="flex items-center gap-2">
+                    <TrendingUp className="h-5 w-5" />
+                    Nos références
+                  </Link>
                 </Button>
+              </div>
+
+              {/* Stats Row */}
+              <div className="grid grid-cols-3 gap-6">
+                <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                  <div className="text-2xl font-bold text-white">50+</div>
+                  <div className="text-sm text-blue-200">Collectivités</div>
+                </div>
+                <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                  <div className="text-2xl font-bold text-white">15MW</div>
+                  <div className="text-sm text-blue-200">Installés</div>
+                </div>
+                <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                  <div className="text-2xl font-bold text-white">100%</div>
+                  <div className="text-sm text-blue-200">Réussis</div>
+                </div>
               </div>
             </div>
             
-            <div className="relative">
-              <div className="bg-blue-100 rounded-3xl p-8 text-center shadow-xl">
-                <MapPin className="h-20 w-20 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-blue-800 mb-2">Territoire durable</h3>
-                <p className="text-blue-700">L'énergie au service des citoyens</p>
+            <div className="relative animate-fade-in delay-300">
+              {/* Modern Glass Card */}
+              <div className="relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-3xl" />
+                <div className="relative z-10">
+                  <div className="flex items-center justify-center w-20 h-20 bg-blue-500/20 backdrop-blur-sm rounded-full mb-6 mx-auto border border-white/30">
+                    <Building2 className="h-10 w-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4 text-center">
+                    Territoire durable
+                  </h3>
+                  <p className="text-blue-100 text-center mb-6">
+                    L'énergie solaire au service des citoyens et des collectivités
+                  </p>
+                  
+                  {/* Features List */}
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3 text-white">
+                      <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0" />
+                      <span className="text-sm">Économies budgétaires publiques</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-white">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0" />
+                      <span className="text-sm">Exemplarité environnementale</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-white">
+                      <div className="w-2 h-2 bg-yellow-400 rounded-full flex-shrink-0" />
+                      <span className="text-sm">Valorisation du patrimoine public</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse" />
           </div>
         </div>
       </section>
