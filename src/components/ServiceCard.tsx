@@ -40,7 +40,7 @@ const ServiceCard = ({ title, description, icon: Icon, href, benefits, variant =
         
         <CardContent className="flex-1 flex flex-col pt-0">
           {/* Benefits list */}
-          <div className="flex-1 mb-6">
+          <div className="flex-1">
             <ul className="space-y-3">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start space-x-3 text-sm">
@@ -52,17 +52,6 @@ const ServiceCard = ({ title, description, icon: Icon, href, benefits, variant =
               ))}
             </ul>
           </div>
-          
-          {/* Modern CTA button */}
-          <Button 
-            asChild 
-            className="w-full h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 rounded-xl font-medium transition-all duration-300 group-hover:shadow-lg btn-solar"
-          >
-            <Link to={href} className="flex items-center justify-center space-x-2">
-              <span>En savoir plus</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
-          </Button>
         </CardContent>
       </div>
     </Card>
