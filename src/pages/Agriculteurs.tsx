@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
-import StickyCTA from "@/components/StickyCTA"
+
 import SolarCallButton from "@/components/SolarCallButton"
 import ServiceCard from "@/components/ServiceCard"
 import { Button } from "@/components/ui/button"
@@ -390,7 +390,6 @@ const Agriculteurs = () => {
       </section>
 
       <SolarCallButton />
-      <StickyCTA />
       <Footer />
     </div>
   )

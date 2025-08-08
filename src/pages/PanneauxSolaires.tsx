@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import StickyCTA from "@/components/StickyCTA";
+
 import SolarCallButton from "@/components/SolarCallButton";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Helmet } from "react-helmet-async";
@@ -375,7 +375,6 @@ const PanneauxSolaires = () => {
       </main>
 
       <SolarCallButton />
-      <StickyCTA phone="07 71 41 85 68" quoteHref="/contact" />
       <Footer />
     </>
   );
