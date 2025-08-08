@@ -213,12 +213,23 @@ const Professionnels = () => {
       </section>
 
       {/* Advantages Section */}
-      <section className="py-20">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+      <section className="py-20 bg-gradient-to-br from-background via-muted/30 to-background relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-10 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-10 right-10 w-48 h-48 bg-secondary/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        </div>
+        
+        <div className="container relative z-10">
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-full px-6 py-2 mb-6">
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              <span className="text-primary font-medium">Avantages compétitifs</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
               Pourquoi choisir le solaire industriel ?
             </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6 animate-pulse" />
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Des avantages concrets pour votre activité professionnelle
             </p>
@@ -226,20 +237,38 @@ const Professionnels = () => {
           
           <div className="grid gap-8 md:grid-cols-3">
             {advantages.map((advantage, index) => (
-              <Card key={index} variant="gradient" className="text-center hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
-                <CardHeader>
-                  <div className="mx-auto mb-4 p-3 rounded-full bg-secondary/10">
-                    <advantage.icon className="h-8 w-8 text-secondary" />
+              <Card 
+                key={index} 
+                className="group text-center hover:shadow-2xl transition-all duration-700 hover:-translate-y-4 bg-gradient-to-br from-background to-background/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 animate-fade-in relative overflow-hidden"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                {/* Card glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <CardHeader className="relative">
+                  <div className="mx-auto mb-4 p-4 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-500 group-hover:scale-110">
+                    <advantage.icon className="h-8 w-8 text-primary group-hover:text-secondary transition-colors duration-500" />
                   </div>
-                  <CardTitle className="text-xl">{advantage.title}</CardTitle>
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
+                    {advantage.title}
+                  </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-sm leading-relaxed">
+                <CardContent className="relative">
+                  <CardDescription className="text-sm leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
                     {advantage.description}
                   </CardDescription>
                 </CardContent>
+                
+                {/* Floating particles effect */}
+                <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-500" />
+                <div className="absolute bottom-4 left-4 w-1 h-1 bg-secondary/40 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-700" />
               </Card>
             ))}
+          </div>
+          
+          {/* Bottom decorative line */}
+          <div className="flex justify-center mt-16">
+            <div className="w-48 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent rounded-full animate-pulse" />
           </div>
         </div>
       </section>
