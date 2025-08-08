@@ -96,41 +96,93 @@ const Agriculteurs = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-emerald-50 via-green-50 to-amber-50">
-        <div className="container">
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Solutions solaires pour 
-                <span className="block text-emerald-600">agriculteurs</span>
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Optimisez vos coûts énergétiques et générez des revenus complémentaires avec des installations solaires adaptées à votre exploitation agricole.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild variant="hero" size="xl">
-                  <Link to="/contact">Étude gratuite</Link>
-                </Button>
-                <Button asChild variant="outline" size="xl">
-                  <Link to="#services">Nos solutions</Link>
-                </Button>
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background with overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src="/lovable-uploads/be80a198-7de3-4811-a266-aa904b6cd664.png"
+            alt="Serre agricole équipée de panneaux solaires photovoltaïques"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/95 via-emerald-800/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        </div>
+
+        {/* Floating elements */}
+        <div className="absolute top-20 right-20 w-4 h-4 bg-emerald-400 rounded-full animate-ping opacity-70" />
+        <div className="absolute top-40 right-40 w-2 h-2 bg-green-400 rounded-full animate-pulse opacity-60" />
+        <div className="absolute bottom-40 right-10 w-3 h-3 bg-yellow-400 rounded-full animate-bounce opacity-50" />
+
+        <div className="container relative z-10">
+          <div className="max-w-4xl">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-emerald-500/20 backdrop-blur-sm border border-emerald-400/30 rounded-full px-6 py-2 mb-8 animate-fade-in">
+              <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+              <span className="text-emerald-100 font-medium">Spécialiste agrivoltaïsme</span>
+            </div>
+
+            {/* Main title */}
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-none animate-fade-in">
+              <span className="block text-white mb-4">
+                L'énergie solaire
+              </span>
+              <span className="block bg-gradient-to-r from-emerald-400 via-green-400 to-yellow-400 bg-clip-text text-transparent animate-pulse">
+                au service de
+              </span>
+              <span className="block text-white">
+                l'agriculture
+              </span>
+            </h1>
+
+            {/* Animated line */}
+            <div className="w-32 h-1 bg-gradient-to-r from-emerald-400 to-green-400 rounded-full mb-8 animate-pulse" />
+
+            {/* Description */}
+            <p className="text-2xl text-emerald-100 mb-12 leading-relaxed max-w-3xl animate-fade-in">
+              Transformez votre exploitation en centrale énergétique durable. 
+              <span className="block mt-2 text-white font-semibold">
+                Réduisez vos coûts • Générez des revenus • Protégez l'environnement
+              </span>
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 animate-fade-in">
+              <Button asChild variant="hero" size="xl" className="hover-scale shadow-2xl">
+                <Link to="/contact">
+                  <Tractor className="h-6 w-6 mr-2" />
+                  Étude gratuite personnalisée
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="xl" className="hover-scale border-emerald-400/50 text-emerald-100 hover:bg-emerald-400/10 backdrop-blur-sm">
+                <Link to="#services">
+                  <Sun className="h-6 w-6 mr-2" />
+                  Découvrir nos solutions
+                </Link>
+              </Button>
+            </div>
+
+            {/* Key stats */}
+            <div className="grid grid-cols-3 gap-8 mt-16 animate-fade-in">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-emerald-400 mb-2">150+</div>
+                <div className="text-emerald-100 text-sm">Exploitations équipées</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-green-400 mb-2">25MW</div>
+                <div className="text-emerald-100 text-sm">Installés en agricole</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-yellow-400 mb-2">95%</div>
+                <div className="text-emerald-100 text-sm">Satisfaction client</div>
               </div>
             </div>
-            
-            <div className="relative">
-              <div className="relative overflow-hidden rounded-3xl shadow-xl">
-                <img 
-                  src="/lovable-uploads/be80a198-7de3-4811-a266-aa904b6cd664.png"
-                  alt="Serre agricole équipée de panneaux solaires photovoltaïques - Agrivoltaïsme"
-                  className="w-full h-80 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <h3 className="text-2xl font-bold mb-2">Agrivoltaïsme</h3>
-                  <p className="text-emerald-100">L'avenir de l'agriculture durable</p>
-                </div>
-              </div>
-            </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-emerald-400 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-emerald-400 rounded-full mt-2 animate-pulse" />
           </div>
         </div>
       </section>
