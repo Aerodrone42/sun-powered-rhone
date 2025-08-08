@@ -146,17 +146,11 @@ const Agriculteurs = () => {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 animate-fade-in">
+            <div className="flex justify-start animate-fade-in">
               <Button asChild variant="hero" size="xl" className="hover-scale shadow-2xl">
                 <Link to="/contact">
                   <Tractor className="h-6 w-6 mr-2" />
                   Étude gratuite personnalisée
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="xl" className="hover-scale bg-white/90 border-white text-emerald-900 hover:bg-white hover:text-emerald-800 shadow-xl backdrop-blur-sm">
-                <Link to="#services">
-                  <Sun className="h-6 w-6 mr-2" />
-                  Découvrir nos solutions
                 </Link>
               </Button>
             </div>
