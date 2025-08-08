@@ -286,55 +286,55 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             <Link to="/particuliers" className="group">
-              <div className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 border-2 border-blue-200 dark:border-blue-800 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:shadow-[0_0_50px_rgba(59,130,246,0.6)] hover:-translate-y-4 h-[180px] flex flex-col justify-center items-center group-hover:border-blue-400">
+              <div className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 border-2 border-blue-200 dark:border-blue-800 rounded-3xl p-6 text-center transition-all duration-700 hover:scale-105 hover:shadow-[0_0_50px_rgba(59,130,246,0.6)] hover:-translate-y-2 min-h-[160px] flex flex-col justify-center items-center group-hover:border-blue-400">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-transparent to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 <div className="absolute -top-10 -right-10 w-20 h-20 bg-blue-400/20 rounded-full blur-2xl group-hover:bg-blue-400/40 transition-all duration-700"></div>
                 <div className="relative z-10">
-                  <div className="mb-4 p-4 rounded-3xl bg-blue-500 group-hover:bg-blue-600 transition-all duration-500 inline-block shadow-lg">
-                    <UserCheck className="h-14 w-14 text-white group-hover:scale-110 transition-transform duration-500" />
+                  <div className="mb-3 p-3 rounded-2xl bg-blue-500 group-hover:bg-blue-600 transition-all duration-500 inline-block shadow-lg">
+                    <UserCheck className="h-10 w-10 text-white group-hover:scale-110 transition-transform duration-500" />
                   </div>
-                  <span className="font-bold text-xl leading-tight text-blue-800 dark:text-blue-200 group-hover:text-blue-900 dark:group-hover:text-blue-100 transition-colors duration-500">Je suis un<br/>particulier</span>
+                  <span className="font-bold text-lg leading-tight text-blue-800 dark:text-blue-200 group-hover:text-blue-900 dark:group-hover:text-blue-100 transition-colors duration-500">Je suis un<br/>particulier</span>
                 </div>
               </div>
             </Link>
             
             <Link to="/professionnels" className="group">
-              <div className="relative overflow-hidden bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-950 dark:to-emerald-900 border-2 border-emerald-200 dark:border-emerald-800 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:shadow-[0_0_50px_rgba(16,185,129,0.6)] hover:-translate-y-4 h-[180px] flex flex-col justify-center items-center group-hover:border-emerald-400">
+              <div className="relative overflow-hidden bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-950 dark:to-emerald-900 border-2 border-emerald-200 dark:border-emerald-800 rounded-3xl p-6 text-center transition-all duration-700 hover:scale-105 hover:shadow-[0_0_50px_rgba(16,185,129,0.6)] hover:-translate-y-2 min-h-[160px] flex flex-col justify-center items-center group-hover:border-emerald-400">
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 via-transparent to-emerald-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 <div className="absolute -top-10 -right-10 w-20 h-20 bg-emerald-400/20 rounded-full blur-2xl group-hover:bg-emerald-400/40 transition-all duration-700"></div>
                 <div className="relative z-10">
-                  <div className="mb-4 p-4 rounded-3xl bg-emerald-500 group-hover:bg-emerald-600 transition-all duration-500 inline-block shadow-lg">
-                    <Briefcase className="h-14 w-14 text-white group-hover:scale-110 transition-transform duration-500" />
+                  <div className="mb-3 p-3 rounded-2xl bg-emerald-500 group-hover:bg-emerald-600 transition-all duration-500 inline-block shadow-lg">
+                    <Briefcase className="h-10 w-10 text-white group-hover:scale-110 transition-transform duration-500" />
                   </div>
-                  <span className="font-bold text-xl leading-tight text-emerald-800 dark:text-emerald-200 group-hover:text-emerald-900 dark:group-hover:text-emerald-100 transition-colors duration-500">Je suis un<br/>professionnel</span>
+                  <span className="font-bold text-lg leading-tight text-emerald-800 dark:text-emerald-200 group-hover:text-emerald-900 dark:group-hover:text-emerald-100 transition-colors duration-500">Je suis un<br/>professionnel</span>
                 </div>
               </div>
             </Link>
             
             <Link to="/agriculteurs" className="group">
-              <div className="relative overflow-hidden bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-950 dark:to-amber-900 border-2 border-amber-200 dark:border-amber-800 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:shadow-[0_0_50px_rgba(245,158,11,0.6)] hover:-translate-y-4 h-[180px] flex flex-col justify-center items-center group-hover:border-amber-400">
+              <div className="relative overflow-hidden bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-950 dark:to-amber-900 border-2 border-amber-200 dark:border-amber-800 rounded-3xl p-6 text-center transition-all duration-700 hover:scale-105 hover:shadow-[0_0_50px_rgba(245,158,11,0.6)] hover:-translate-y-2 min-h-[160px] flex flex-col justify-center items-center group-hover:border-amber-400">
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 via-transparent to-amber-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 <div className="absolute -top-10 -right-10 w-20 h-20 bg-amber-400/20 rounded-full blur-2xl group-hover:bg-amber-400/40 transition-all duration-700"></div>
                 <div className="relative z-10">
-                  <div className="mb-4 p-4 rounded-3xl bg-amber-500 group-hover:bg-amber-600 transition-all duration-500 inline-block shadow-lg">
-                    <Tractor className="h-14 w-14 text-white group-hover:scale-110 transition-transform duration-500" />
+                  <div className="mb-3 p-3 rounded-2xl bg-amber-500 group-hover:bg-amber-600 transition-all duration-500 inline-block shadow-lg">
+                    <Tractor className="h-10 w-10 text-white group-hover:scale-110 transition-transform duration-500" />
                   </div>
-                  <span className="font-bold text-xl leading-tight text-amber-800 dark:text-amber-200 group-hover:text-amber-900 dark:group-hover:text-amber-100 transition-colors duration-500">Je suis un<br/>agriculteur</span>
+                  <span className="font-bold text-lg leading-tight text-amber-800 dark:text-amber-200 group-hover:text-amber-900 dark:group-hover:text-amber-100 transition-colors duration-500">Je suis un<br/>agriculteur</span>
                 </div>
               </div>
             </Link>
             
             <Link to="/marches-publics" className="group">
-              <div className="relative overflow-hidden bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-950 dark:to-purple-900 border-2 border-purple-200 dark:border-purple-800 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:shadow-[0_0_50px_rgba(147,51,234,0.6)] hover:-translate-y-4 h-[180px] flex flex-col justify-center items-center group-hover:border-purple-400">
+              <div className="relative overflow-hidden bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-950 dark:to-purple-900 border-2 border-purple-200 dark:border-purple-800 rounded-3xl p-6 text-center transition-all duration-700 hover:scale-105 hover:shadow-[0_0_50px_rgba(147,51,234,0.6)] hover:-translate-y-2 min-h-[160px] flex flex-col justify-center items-center group-hover:border-purple-400">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 via-transparent to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 <div className="absolute -top-10 -right-10 w-20 h-20 bg-purple-400/20 rounded-full blur-2xl group-hover:bg-purple-400/40 transition-all duration-700"></div>
                 <div className="relative z-10">
-                  <div className="mb-4 p-4 rounded-3xl bg-purple-500 group-hover:bg-purple-600 transition-all duration-500 inline-block shadow-lg">
-                    <MapPin className="h-14 w-14 text-white group-hover:scale-110 transition-transform duration-500" />
+                  <div className="mb-3 p-3 rounded-2xl bg-purple-500 group-hover:bg-purple-600 transition-all duration-500 inline-block shadow-lg">
+                    <MapPin className="h-10 w-10 text-white group-hover:scale-110 transition-transform duration-500" />
                   </div>
-                  <span className="font-bold text-xl leading-tight text-purple-800 dark:text-purple-200 group-hover:text-purple-900 dark:group-hover:text-purple-100 transition-colors duration-500">Marché<br/>public</span>
+                  <span className="font-bold text-lg leading-tight text-purple-800 dark:text-purple-200 group-hover:text-purple-900 dark:group-hover:text-purple-100 transition-colors duration-500">Marché<br/>public</span>
                 </div>
               </div>
             </Link>
