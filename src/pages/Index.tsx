@@ -198,29 +198,30 @@ const Index = () => {
           <source src="https://cdn.midjourney.com/video/f87b7039-d3ef-4bf4-a409-96b1ee509d06/0.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent" />
         
         
-        <div className="relative container mx-auto px-4 z-10 flex items-center min-h-screen">
-          <div className="max-w-xl">
-            <div className="rounded-2xl bg-black/25 backdrop-blur-sm border border-white/10 shadow-lg p-6 md:p-8 text-left">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+        <div className="absolute bottom-8 left-0 right-0 z-10">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto text-center">
+              <div className="rounded-2xl bg-black/40 backdrop-blur-md border border-white/20 shadow-xl p-6 md:p-8">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-center">
                 <span className="bg-hero-gradient bg-clip-text text-transparent drop-shadow-lg">L'énergie solaire</span>
                 <br />
                 <span className="text-white drop-shadow-xl">pour votre avenir</span>
               </h1>
-              <p className="text-base md:text-lg text-white/90 mb-8 leading-relaxed">
+              <p className="text-sm md:text-base text-white/90 mb-6 leading-relaxed text-center">
                 Spécialiste de l'installation de panneaux solaires en Rhône-Alpes.
                 <br className="hidden lg:block" />
                 Réduisez vos factures et participez à la transition énergétique.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild variant="glass" size="lg" className="shadow-premium">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button asChild variant="glass" size="lg" className="shadow-premium">
                   <Link to="/contact">Devis gratuit</Link>
                 </Button>
-                <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25">
+                  <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25">
                   <Link to="/simulateur">Simulateur</Link>
-                </Button>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
