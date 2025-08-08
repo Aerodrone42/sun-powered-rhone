@@ -376,9 +376,9 @@ const InstallationConsommation = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {processSteps.map((step, index) => (
-                <div key={index} className="relative group animate-fade-in-up" style={{ animationDelay: `${index * 0.2}s` }}>
-                  <Card className="relative bg-background border border-border/50 hover:border-primary/20 hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
-                    <CardContent className="p-8 text-center space-y-6">
+                <div key={index} className="relative group animate-fade-in-up h-full" style={{ animationDelay: `${index * 0.2}s` }}>
+                  <Card className="relative bg-background border border-border/50 hover:border-primary/20 hover:shadow-glow transition-all duration-500 hover:-translate-y-2 h-full">
+                    <CardContent className="p-8 text-center space-y-6 h-full flex flex-col justify-between">
                       <div className="relative">
                         <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-500">
                           <step.icon className="w-8 h-8 text-primary" />
