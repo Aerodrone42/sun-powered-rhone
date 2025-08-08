@@ -237,68 +237,19 @@ const Index = () => {
         
         <div className="container relative z-10">
           <div className="text-center mb-16 relative">
-            {/* Animated decorative elements */}
-            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
-              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse"></div>
-            </div>
-            
             <div className="relative inline-block">
-              {/* Glowing background effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-emerald-500/20 blur-3xl animate-pulse"></div>
-              
-              <h2 className="relative text-3xl md:text-5xl lg:text-6xl font-black mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent animate-fade-in leading-tight">
-                <span className="inline-block animate-bounce" style={{animationDelay: '0.1s'}}>C</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '0.2s'}}>h</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '0.3s'}}>o</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '0.4s'}}>i</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '0.5s'}}>s</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '0.6s'}}>i</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '0.7s'}}>s</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '0.8s'}}>s</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '0.9s'}}>e</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '1.0s'}}>z</span>
-                <span className="inline-block mx-3"></span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '1.1s'}}>v</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '1.2s'}}>o</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '1.3s'}}>t</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '1.4s'}}>r</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '1.5s'}}>e</span>
-                <span className="inline-block mx-3"></span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '1.6s'}}>p</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '1.7s'}}>r</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '1.8s'}}>o</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '1.9s'}}>f</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '2.0s'}}>i</span>
-                <span className="inline-block animate-bounce" style={{animationDelay: '2.1s'}}>l</span>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground relative">
+                <span className="relative z-10">Choisissez votre profil</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 blur-2xl -z-10 animate-pulse"></div>
               </h2>
             </div>
             
-            <div className="relative">
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-up relative z-10" style={{animationDelay: '0.5s'}}>
-                <span className="relative">
-                  Des solutions sur-mesure pour chaque besoin énergétique
-                  <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent animate-pulse"></div>
-                </span>
-              </p>
-              
-              {/* Floating icons around text */}
-              <div className="absolute -top-4 -left-4 w-8 h-8 text-blue-500 animate-float">
-                <Sun className="w-full h-full opacity-60" />
-              </div>
-              <div className="absolute -top-4 -right-4 w-8 h-8 text-emerald-500 animate-float" style={{animationDelay: '0.5s'}}>
-                <Zap className="w-full h-full opacity-60" />
-              </div>
-              <div className="absolute -bottom-4 left-1/4 w-6 h-6 text-purple-500 animate-float" style={{animationDelay: '1s'}}>
-                <Battery className="w-full h-full opacity-60" />
-              </div>
-              <div className="absolute -bottom-4 right-1/4 w-6 h-6 text-amber-500 animate-float" style={{animationDelay: '1.5s'}}>
-                <Car className="w-full h-full opacity-60" />
-              </div>
-            </div>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Des solutions sur-mesure pour chaque besoin énergétique
+            </p>
             
-            {/* Bottom decorative line */}
-            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
-              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent animate-pulse" style={{animationDelay: '1s'}}></div>
+            <div className="mt-8 flex justify-center">
+              <div className="w-24 h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full animate-pulse"></div>
             </div>
           </div>
           
