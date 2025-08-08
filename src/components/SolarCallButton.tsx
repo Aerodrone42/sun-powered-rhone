@@ -150,7 +150,7 @@ const SolarCallButton = () => {
         .solar-widget {
           position: fixed;
           right: 30px;
-          bottom: 30px;
+          bottom: 20%;
           z-index: 10000;
         }
 
@@ -483,7 +483,7 @@ const SolarCallButton = () => {
         @media (max-width: 768px) {
           .solar-widget {
             right: 20px;
-            bottom: 20px;
+            bottom: 15%;
           }
           
           .sun-button {
