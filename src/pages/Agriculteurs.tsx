@@ -118,10 +118,17 @@ const Agriculteurs = () => {
             </div>
             
             <div className="relative">
-              <div className="bg-emerald-100 rounded-3xl p-8 text-center shadow-xl">
-                <Tractor className="h-20 w-20 text-emerald-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-emerald-800 mb-2">Agrivoltaïsme</h3>
-                <p className="text-emerald-700">L'avenir de l'agriculture durable</p>
+              <div className="relative overflow-hidden rounded-3xl shadow-xl">
+                <img 
+                  src="/lovable-uploads/be80a198-7de3-4811-a266-aa904b6cd664.png"
+                  alt="Serre agricole équipée de panneaux solaires photovoltaïques - Agrivoltaïsme"
+                  className="w-full h-80 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 text-white">
+                  <h3 className="text-2xl font-bold mb-2">Agrivoltaïsme</h3>
+                  <p className="text-emerald-100">L'avenir de l'agriculture durable</p>
+                </div>
               </div>
             </div>
           </div>
