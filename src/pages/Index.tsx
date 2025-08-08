@@ -192,31 +192,14 @@ const Index = () => {
               
               {/* Enhanced description */}
               <div className="relative mb-8">
-                <div className="relative mb-8">
-                  {/* Rayons solaires en arrière-plan */}
-                  <div className="absolute inset-0 opacity-60">
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-yellow-300/40 via-orange-300/20 to-transparent rounded-full animate-pulse"></div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-radial from-yellow-400/30 via-amber-400/15 to-transparent rounded-full animate-ping" style={{animationDuration: '3s'}}></div>
-                  </div>
-                  
-                  {/* Rayons qui partent du centre */}
-                  <div className="absolute inset-0 opacity-30">
-                    {[...Array(8)].map((_, i) => (
-                      <div key={i} className="absolute top-1/2 left-1/2 origin-left h-0.5 w-48 bg-gradient-to-r from-yellow-400 via-orange-300 to-transparent animate-pulse" 
-                           style={{
-                             transform: `translate(-50%, -50%) rotate(${i * 45}deg)`,
-                             animationDelay: `${i * 0.2}s`
-                           }}>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-bold relative z-10">
-                    <span className="bg-gradient-to-r from-yellow-300 via-orange-300 via-yellow-200 to-orange-300 bg-clip-text text-transparent bg-[length:300%_auto] animate-gradient animate-glow shadow-[0_0_30px_rgba(251,191,36,0.8)]">
-                      Dites adieu à vos factures… et gagnez entre 3000€ et 15 000 € par an grâce au solaire !*
-                    </span>
-                  </p>
-                </div>
+                <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-medium relative">
+                  <span className="bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 bg-clip-text text-transparent animate-pulse" style={{
+                    textShadow: '0 0 20px rgba(251,191,36,0.3)',
+                    filter: 'drop-shadow(0 0 8px rgba(251,191,36,0.4))'
+                  }}>
+                    Dites adieu à vos factures… et gagnez entre 3000€ et 15 000 € par an grâce au solaire !*
+                  </span>
+                </p>
                 <p className="text-sm text-muted-foreground/70 max-w-3xl mx-auto mt-2">*dépend du nombre de panneaux installés</p>
                 
                 {/* Animated underline */}
