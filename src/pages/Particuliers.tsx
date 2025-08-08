@@ -3,6 +3,7 @@ import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import ServiceCard from "@/components/ServiceCard"
 import StickyCTA from "@/components/StickyCTA"
+import SolarCallButton from "@/components/SolarCallButton"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -412,6 +413,7 @@ const Particuliers = () => {
         </div>
       </section>
 
+      <SolarCallButton />
       <StickyCTA />
       <Footer />
     </div>
