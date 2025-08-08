@@ -130,7 +130,7 @@ const Particuliers = () => {
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {advantages.map((advantage, index) => (
-              <Card key={index} variant="gradient" className="text-center">
+              <Card key={index} variant="gradient" className="text-center hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
                 <CardHeader>
                   <div className="mx-auto mb-4 p-3 rounded-full bg-primary/10">
                     <CheckCircle className="h-8 w-8 text-primary" />
@@ -207,7 +207,7 @@ const Particuliers = () => {
                 description: "Raccordement, démarches administratives et formation"
               }
             ].map((process, index) => (
-              <Card key={index} className="text-center">
+              <Card key={index} className="text-center hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
                 <CardHeader>
                   <div className="mx-auto mb-4 w-12 h-12 rounded-full bg-hero-gradient flex items-center justify-center text-white text-xl font-bold">
                     {process.step}

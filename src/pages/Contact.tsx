@@ -102,7 +102,7 @@ const Contact = () => {
           <div className="grid gap-12 lg:grid-cols-3">
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <Card>
+              <Card className="hover:shadow-glow transition-all duration-500">
                 <CardHeader>
                   <CardTitle className="text-2xl">Demande de devis gratuit</CardTitle>
                   <CardDescription>
@@ -304,7 +304,7 @@ const Contact = () => {
                 answer: "Les panneaux solaires nécessitent très peu de maintenance. Un nettoyage occasionnel et un contrôle annuel suffisent. Nous proposons des contrats de maintenance."
               }
             ].map((faq, index) => (
-              <Card key={index}>
+              <Card key={index} className="hover:shadow-glow transition-all duration-500 hover:-translate-y-1">
                 <CardHeader>
                   <CardTitle className="text-lg">{faq.question}</CardTitle>
                 </CardHeader>
