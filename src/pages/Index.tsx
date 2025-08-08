@@ -6,7 +6,7 @@ import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import CallbackForm from "@/components/CallbackForm"
 import SolarCallButton from "@/components/SolarCallButton"
-import { Sun, Home, Building, Zap, Battery, Car, Factory, Users } from "lucide-react"
+import { Sun, Home, Building, Zap, Battery, Car, Factory, Users, UserCheck, Briefcase, Tractor, MapPin } from "lucide-react"
 import heroImage from "@/assets/hero-image.jpg"
 import teamWorkImage from "@/assets/team-work.jpg"
 import happyFamilyImage from "@/assets/happy-family.jpg"
@@ -321,31 +321,70 @@ const Index = () => {
       </section>
 
       {/* Choix de profil */}
-      <section className="py-14 bg-background">
-        <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+      <section className="py-24 relative overflow-hidden bg-gradient-to-br from-background via-primary/5 to-secondary/5">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 left-20 w-32 h-32 bg-primary/20 rounded-full blur-2xl animate-float"></div>
+          <div className="absolute bottom-20 right-10 w-48 h-48 bg-secondary/15 rounded-full blur-3xl animate-float" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-accent/25 rounded-full blur-xl animate-float" style={{animationDelay: '2s'}}></div>
+        </div>
+        
+        <div className="container relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+              Choisissez votre profil
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Des solutions sur-mesure pour chaque besoin énergétique
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
             <Link to="/particuliers" className="group">
-              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center solar-hover">
-                <Home className="h-10 w-10 mb-4 text-primary" />
-                <span className="font-semibold text-base leading-tight">Je suis un<br/>particulier</span>
+              <div className="relative overflow-hidden bg-card/80 backdrop-blur-2xl border border-primary/20 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:shadow-glow hover:-translate-y-4 h-[160px] flex flex-col justify-center items-center group-hover:border-primary/40">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <div className="relative z-10">
+                  <div className="mb-4 p-3 rounded-2xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-500 inline-block">
+                    <UserCheck className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
+                  </div>
+                  <span className="font-bold text-lg leading-tight group-hover:text-primary transition-colors duration-500">Je suis un<br/>particulier</span>
+                </div>
               </div>
             </Link>
+            
             <Link to="/professionnels" className="group">
-              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center solar-hover">
-                <Building className="h-10 w-10 mb-4 text-primary" />
-                <span className="font-semibold text-base leading-tight">Je suis un<br/>professionnel</span>
+              <div className="relative overflow-hidden bg-card/80 backdrop-blur-2xl border border-secondary/20 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:shadow-glow hover:-translate-y-4 h-[160px] flex flex-col justify-center items-center group-hover:border-secondary/40">
+                <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <div className="relative z-10">
+                  <div className="mb-4 p-3 rounded-2xl bg-secondary/10 group-hover:bg-secondary/20 transition-colors duration-500 inline-block">
+                    <Briefcase className="h-12 w-12 text-secondary group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_10px_rgba(107,114,128,0.5)]" />
+                  </div>
+                  <span className="font-bold text-lg leading-tight group-hover:text-secondary transition-colors duration-500">Je suis un<br/>professionnel</span>
+                </div>
               </div>
             </Link>
+            
             <Link to="/agriculteurs" className="group">
-              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center solar-hover">
-                <Sun className="h-10 w-10 mb-4 text-primary" />
-                <span className="font-semibold text-base leading-tight">Je suis un<br/>agriculteur</span>
+              <div className="relative overflow-hidden bg-card/80 backdrop-blur-2xl border border-accent/20 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:shadow-glow hover:-translate-y-4 h-[160px] flex flex-col justify-center items-center group-hover:border-accent/40">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <div className="relative z-10">
+                  <div className="mb-4 p-3 rounded-2xl bg-accent/10 group-hover:bg-accent/20 transition-colors duration-500 inline-block">
+                    <Tractor className="h-12 w-12 text-accent group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
+                  </div>
+                  <span className="font-bold text-lg leading-tight group-hover:text-accent transition-colors duration-500">Je suis un<br/>agriculteur</span>
+                </div>
               </div>
             </Link>
+            
             <Link to="/marches-publics" className="group">
-              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center solar-hover">
-                <Zap className="h-10 w-10 mb-4 text-primary" />
-                <span className="font-semibold text-base leading-tight">Marché<br/>public</span>
+              <div className="relative overflow-hidden bg-card/80 backdrop-blur-2xl border border-primary/20 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-110 hover:shadow-glow hover:-translate-y-4 h-[160px] flex flex-col justify-center items-center group-hover:border-primary/40">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <div className="relative z-10">
+                  <div className="mb-4 p-3 rounded-2xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-500 inline-block">
+                    <MapPin className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
+                  </div>
+                  <span className="font-bold text-lg leading-tight group-hover:text-primary transition-colors duration-500">Marché<br/>public</span>
+                </div>
               </div>
             </Link>
           </div>
