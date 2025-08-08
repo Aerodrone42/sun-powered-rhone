@@ -137,169 +137,41 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Solar ray effects */
-  .solar-rays::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200%;
-    height: 200%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    background: conic-gradient(
-      from 0deg,
-      transparent 0deg,
-      rgba(255, 215, 0, 0.15) 10deg,
-      transparent 20deg,
-      transparent 40deg,
-      rgba(255, 215, 0, 0.1) 50deg,
-      transparent 60deg,
-      transparent 80deg,
-      rgba(255, 215, 0, 0.15) 90deg,
-      transparent 100deg,
-      transparent 120deg,
-      rgba(255, 215, 0, 0.1) 130deg,
-      transparent 140deg,
-      transparent 160deg,
-      rgba(255, 215, 0, 0.15) 170deg,
-      transparent 180deg,
-      transparent 200deg,
-      rgba(255, 215, 0, 0.1) 210deg,
-      transparent 220deg,
-      transparent 240deg,
-      rgba(255, 215, 0, 0.15) 250deg,
-      transparent 260deg,
-      transparent 280deg,
-      rgba(255, 215, 0, 0.1) 290deg,
-      transparent 300deg,
-      transparent 320deg,
-      rgba(255, 215, 0, 0.15) 330deg,
-      transparent 340deg,
-      transparent 360deg
-    );
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: -1;
-    animation: rotate-rays 20s linear infinite;
-  }
-
-  .solar-rays-fast::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150%;
-    height: 150%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    background: conic-gradient(
-      from 0deg,
-      transparent 0deg,
-      rgba(255, 215, 0, 0.2) 15deg,
-      transparent 30deg,
-      transparent 45deg,
-      rgba(255, 215, 0, 0.15) 60deg,
-      transparent 75deg,
-      transparent 90deg,
-      rgba(255, 215, 0, 0.2) 105deg,
-      transparent 120deg,
-      transparent 135deg,
-      rgba(255, 215, 0, 0.15) 150deg,
-      transparent 165deg,
-      transparent 180deg,
-      rgba(255, 215, 0, 0.2) 195deg,
-      transparent 210deg,
-      transparent 225deg,
-      rgba(255, 215, 0, 0.15) 240deg,
-      transparent 255deg,
-      transparent 270deg,
-      rgba(255, 215, 0, 0.2) 285deg,
-      transparent 300deg,
-      transparent 315deg,
-      rgba(255, 215, 0, 0.15) 330deg,
-      transparent 345deg,
-      transparent 360deg
-    );
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: -1;
-    animation: rotate-rays 8s linear infinite;
-  }
-
-  .solar-glow {
+  /* Subtle solar hover effects */
+  .solar-hover {
     position: relative;
     overflow: visible;
+    transition: all 0.3s ease;
   }
 
-  .solar-glow::after {
+  .solar-hover::before {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 120%;
-    height: 120%;
+    width: 0;
+    height: 0;
     transform: translate(-50%, -50%);
     background: radial-gradient(
       circle,
-      rgba(255, 215, 0, 0.3) 0%,
-      rgba(255, 215, 0, 0.1) 30%,
-      rgba(255, 140, 0, 0.05) 60%,
+      rgba(255, 215, 0, 0.1) 0%,
+      rgba(255, 140, 0, 0.05) 50%,
       transparent 100%
     );
     border-radius: 50%;
     pointer-events: none;
     z-index: -1;
-    animation: pulse-glow 3s ease-in-out infinite;
+    transition: all 0.4s ease;
+    opacity: 0;
   }
 
-  @keyframes rotate-rays {
-    from {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-      transform: translate(-50%, -50%) rotate(360deg);
-    }
+  .solar-hover:hover::before {
+    width: 120%;
+    height: 120%;
+    opacity: 1;
   }
 
-  @keyframes pulse-glow {
-    0%, 100% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 0.8;
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(1.1);
-      opacity: 1;
-    }
-  }
-
-  /* Solar energy themed effects */
-  .energy-particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.8) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: float-energy 4s ease-in-out infinite;
-  }
-
-  .energy-particle:nth-child(2) { animation-delay: 0.5s; }
-  .energy-particle:nth-child(3) { animation-delay: 1s; }
-  .energy-particle:nth-child(4) { animation-delay: 1.5s; }
-  .energy-particle:nth-child(5) { animation-delay: 2s; }
-
-  @keyframes float-energy {
-    0%, 100% {
-      transform: translateY(0px) translateX(0px);
-      opacity: 0;
-    }
-    10% {
-      opacity: 1;
-    }
-    50% {
-      transform: translateY(-20px) translateX(10px);
-      opacity: 1;
-    }
-    90% {
-      opacity: 1;
-    }
+  .solar-hover:hover {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2), 0 0 40px rgba(255, 215, 0, 0.1);
   }
 }

@@ -212,11 +212,11 @@ const Index = () => {
                 <br className="hidden lg:block" />
                 Réduisez vos factures et participez à la transition énergétique.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start relative solar-rays">
-                <Button asChild variant="glass" size="lg" className="shadow-premium solar-glow">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start">
+                <Button asChild variant="glass" size="lg" className="shadow-premium solar-hover">
                   <Link to="/contact">Devis gratuit</Link>
                 </Button>
-                <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25">
+                <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25 solar-hover">
                   <Link to="/simulateur">Simulateur</Link>
                 </Button>
               </div>
@@ -228,40 +228,28 @@ const Index = () => {
 
       {/* Choix de profil */}
       <section className="py-14 bg-background">
-        <div className="container relative solar-rays-fast">
+        <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             <Link to="/particuliers" className="group">
-              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center solar-glow">
-                <div className="energy-particle absolute top-2 left-2"></div>
-                <div className="energy-particle absolute top-4 right-3"></div>
-                <div className="energy-particle absolute bottom-3 left-4"></div>
+              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center solar-hover">
                 <Home className="h-10 w-10 mb-4 text-primary" />
                 <span className="font-semibold text-base leading-tight">Je suis un<br/>particulier</span>
               </div>
             </Link>
             <Link to="/professionnels" className="group">
-              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center solar-glow">
-                <div className="energy-particle absolute top-1 right-2"></div>
-                <div className="energy-particle absolute bottom-2 left-3"></div>
-                <div className="energy-particle absolute top-3 left-5"></div>
+              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center solar-hover">
                 <Building className="h-10 w-10 mb-4 text-primary" />
                 <span className="font-semibold text-base leading-tight">Je suis un<br/>professionnel</span>
               </div>
             </Link>
             <Link to="/agriculteurs" className="group">
-              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center solar-glow">
-                <div className="energy-particle absolute top-2 left-1"></div>
-                <div className="energy-particle absolute bottom-1 right-2"></div>
-                <div className="energy-particle absolute top-4 right-4"></div>
+              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center solar-hover">
                 <Sun className="h-10 w-10 mb-4 text-primary" />
                 <span className="font-semibold text-base leading-tight">Je suis un<br/>agriculteur</span>
               </div>
             </Link>
             <Link to="/marches-publics" className="group">
-              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center solar-glow">
-                <div className="energy-particle absolute top-3 left-2"></div>
-                <div className="energy-particle absolute bottom-4 right-1"></div>
-                <div className="energy-particle absolute top-1 right-3"></div>
+              <div className="relative overflow-hidden bg-card/90 backdrop-blur-xl border border-foreground/10 rounded-3xl p-8 text-center transition-all duration-500 hover:scale-105 hover:shadow-2xl h-[140px] flex flex-col justify-center items-center solar-hover">
                 <Zap className="h-10 w-10 mb-4 text-primary" />
                 <span className="font-semibold text-base leading-tight">Marché<br/>public</span>
               </div>
