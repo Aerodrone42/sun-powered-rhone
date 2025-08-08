@@ -119,9 +119,9 @@ const CallbackForm = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label>Date souhaitée *</Label>
+              <input type="hidden" name="date" id="date-hidden" />
               <Popover>
                 <PopoverTrigger asChild>
-                  <input type="hidden" name="date" id="date-hidden" />
                   <Button
                     type="button"
                     variant="outline"
@@ -129,10 +129,6 @@ const CallbackForm = () => {
                       "w-full justify-start text-left font-normal",
                       !date && "text-muted-foreground"
                     )}
-                    onClick={() => {
-                      const dateInput = document.getElementById('date-hidden') as HTMLInputElement;
-                      if (date) dateInput.value = format(date, "dd/MM/yyyy", { locale: fr });
-                    }}
                   >
                     <CalendarIcon className="mr-2 h-4 w-4" />
                     {date ? format(date, "dd MMMM yyyy", { locale: fr }) : "Choisir une date"}
@@ -142,7 +138,13 @@ const CallbackForm = () => {
                   <Calendar
                     mode="single"
                     selected={date}
-                    onSelect={setDate}
+                    onSelect={(selectedDate) => {
+                      setDate(selectedDate);
+                      if (selectedDate) {
+                        const dateInput = document.getElementById('date-hidden') as HTMLInputElement;
+                        dateInput.value = format(selectedDate, "dd/MM/yyyy", { locale: fr });
+                      }
+                    }}
                     disabled={(date) => date < new Date() || date.getDay() === 0}
                     initialFocus
                     locale={fr}
