@@ -402,7 +402,7 @@ const Particuliers = () => {
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="xl" className="border-white/30 text-white hover:bg-white/10">
+                <Button asChild variant="hero" size="xl" className="hover-scale">
                   <Link to="/zone-intervention">
                     Vérifier ma zone
                   </Link>
