@@ -363,29 +363,6 @@ const Index = () => {
 
 
 
-      {/* Services Professionnels */}
-      <section className="py-24 relative overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-background">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-10 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{
-          animationDelay: '1s'
-        }}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{
-          animationDelay: '2s'
-        }}></div>
-        </div>
-        
-        
-        
-        {/* Decorative grid pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }}></div>
-        </div>
-      </section>
 
       {/* Stats Section */}
       <section className="py-8 bg-muted/30">
@@ -418,6 +395,47 @@ const Index = () => {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {particulierServices.map((service, index) => <ServiceCard key={index} {...service} variant={index % 2 === 0 ? 'solar' : 'default'} />)}
           </div>
+        </div>
+      </section>
+
+      {/* Services Professionnels */}
+      <section className="py-24 relative overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-background">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-10 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{
+          animationDelay: '1s'
+        }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{
+          animationDelay: '2s'
+        }}></div>
+        </div>
+        
+        <div className="container relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 relative">
+              <span className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent dark:from-white dark:via-blue-100 dark:to-white">
+                Nos services pour <span className="text-primary">professionnels</span>
+              </span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Solutions solaires sur mesure pour entreprises, collectivités et agriculteurs
+            </p>
+          </div>
+          
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {professionnelServices.map((service, index) => (
+              <ServiceCard key={index} {...service} variant={index % 2 === 0 ? 'solar' : 'default'} />
+            ))}
+          </div>
+        </div>
+        
+        {/* Decorative grid pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }}></div>
         </div>
       </section>
 
