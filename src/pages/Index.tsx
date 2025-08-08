@@ -5,6 +5,7 @@ import ServiceCard from "@/components/ServiceCard"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import CallbackForm from "@/components/CallbackForm"
+import SolarCallButton from "@/components/SolarCallButton"
 import { Sun, Home, Building, Zap, Battery, Car, Factory, Users } from "lucide-react"
 import heroImage from "@/assets/hero-image.jpg"
 import teamWorkImage from "@/assets/team-work.jpg"
@@ -556,6 +557,7 @@ const Index = () => {
         </div>
       </section>
 
+      <SolarCallButton />
       <Footer />
     </div>
   );
