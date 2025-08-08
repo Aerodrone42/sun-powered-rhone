@@ -208,7 +208,7 @@ const Index = () => {
                 <span className="text-white drop-shadow-xl">pour votre avenir</span>
               </h1>
               <p className="text-sm md:text-lg lg:text-xl text-white/95 mb-6 md:mb-8 leading-relaxed text-center md:text-left drop-shadow-lg">
-                Spécialiste de l'installation de panneaux solaires en Rhône-Alpes.
+                Spécialiste de l'installation de panneaux solaires en Rhône-Alpes et dans toute la France.
                 <br className="hidden lg:block" />
                 Réduisez vos factures et participez à la transition énergétique.
               </p>
@@ -231,11 +231,11 @@ const Index = () => {
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Installateur de panneaux solaires à <span className="text-primary">Lyon et en Rhône-Alpes</span>
+              Installateur de panneaux solaires en <span className="text-primary">France</span> - Expert Lyon & Rhône-Alpes
             </h2>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Spécialiste de l'énergie solaire photovoltaïque depuis plus de 10 ans, WN Energies accompagne particuliers, professionnels et collectivités dans leur transition énergétique. 
-              Basés en Rhône-Alpes, nous intervenons principalement sur Lyon, Villeurbanne, Vénissieux, Vaulx-en-Velin, Saint-Priest, et dans toute la région lyonnaise.
+              Basés en Rhône-Alpes avec intervention dans toute la France, nous sommes experts sur Lyon, Villeurbanne, Vénissieux, Vaulx-en-Velin, Saint-Priest et l'ensemble du territoire français.
             </p>
           </div>
 
@@ -277,7 +277,7 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Service de proximité dans le Rhône (69), l'Isère (38), la Loire (42), l'Ain (01), la Savoie (73) et la Haute-Savoie (74). Intervention possible dans toute la France sur devis.
+                  Intervention dans toute la France avec une expertise renforcée en Rhône-Alpes : Rhône (69), Isère (38), Loire (42), Ain (01), Savoie (73) et Haute-Savoie (74).
                 </p>
               </CardContent>
             </Card>
