@@ -8,6 +8,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Particuliers from "./pages/Particuliers";
 import Professionnels from "./pages/Professionnels";
+import Agriculteurs from "./pages/Agriculteurs";
+import MarchesPublics from "./pages/MarchesPublics";
 import Contact from "./pages/Contact";
 import Simulateur from "./pages/Simulateur";
 import BorneRecharge from "./pages/BorneRecharge";
@@ -35,16 +37,17 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/particuliers" element={<Particuliers />} />
             <Route path="/particuliers/panneaux-solaires" element={<PanneauxSolaires />} />
-            
             <Route path="/particuliers/batterie-solaire" element={<BatterieSolaire />} />
             <Route path="/particuliers/borne-recharge" element={<BorneRecharge />} />
             <Route path="/particuliers/installation-consommation" element={<InstallationConsommation />} />
+            <Route path="/professionnels" element={<Professionnels />} />
             <Route path="/professionnels/panneaux-solaires" element={<PanneauxSolairesPro />} />
             <Route path="/professionnels/installation-consommation" element={<InstallationConsommationPro />} />
             <Route path="/professionnels/borne-recharge" element={<BorneRechargePro />} />
             <Route path="/professionnels/batterie-solaire" element={<BatterieSolairePro />} />
             <Route path="/professionnels/commerce" element={<CommercePro />} />
-            <Route path="/professionnels" element={<Professionnels />} />
+            <Route path="/agriculteurs" element={<Agriculteurs />} />
+            <Route path="/marches-publics" element={<MarchesPublics />} />
             <Route path="/simulateur" element={<Simulateur />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
