@@ -195,15 +195,15 @@ const Professionnels = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-card/50 backdrop-blur-sm">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-secondary mb-2">
+              <div key={index} className="text-center bg-background/80 backdrop-blur-sm rounded-lg p-6 shadow-lg border border-border/20">
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
                   {stat.number}
                 </div>
-                <div className="text-sm md:text-base text-muted-foreground">
+                <div className="text-sm md:text-base text-foreground font-medium">
                   {stat.label}
                 </div>
               </div>
