@@ -169,17 +169,24 @@ const Particuliers = () => {
       </section>
 
       {/* Advantages Section */}
-      <section id="avantages" className="py-24 bg-gradient-to-b from-background to-muted/30">
-        <div className="container">
+      <section id="avantages" className="py-24 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/3 to-background"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+        
+        <div className="container relative z-10">
           <div className="text-center mb-20">
-            <Badge variant="outline" className="mb-4 px-4 py-2">
-              <TrendingUp className="w-4 h-4 mr-2" />
-              Avantages Solaires
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Pourquoi choisir le <span className="text-primary">solaire</span> ?
+            <div className="inline-flex items-center justify-center p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-lg mb-6">
+              <Badge variant="outline" className="px-6 py-3 bg-gradient-to-r from-primary/10 to-accent/10 border-primary/20">
+                <TrendingUp className="w-4 h-4 mr-2" />
+                Avantages Solaires
+              </Badge>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Pourquoi choisir le <span className="bg-gradient-to-r from-primary via-primary-variant to-accent bg-clip-text text-transparent">solaire</span> ?
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Découvrez tous les avantages d'une installation solaire pour votre domicile et votre portefeuille
             </p>
           </div>
@@ -190,44 +197,77 @@ const Particuliers = () => {
                 icon: Euro,
                 title: "Économies garanties",
                 description: "Réduisez vos factures d'électricité jusqu'à 70% dès la première année",
-                color: "text-green-500"
+                gradient: "from-green-500/20 to-emerald-500/20",
+                iconBg: "bg-gradient-to-br from-green-500 to-emerald-600",
+                shadowColor: "group-hover:shadow-green-500/25"
               },
               {
                 icon: Home,
                 title: "Installation clé en main",
                 description: "Nous nous occupons de tout : étude, pose, raccordement et démarches administratives",
-                color: "text-blue-500"
+                gradient: "from-blue-500/20 to-cyan-500/20",
+                iconBg: "bg-gradient-to-br from-blue-500 to-cyan-600",
+                shadowColor: "group-hover:shadow-blue-500/25"
               },
               {
                 icon: Shield,
                 title: "Garanties complètes",
                 description: "Garantie fabricant 25 ans sur les panneaux et garantie pose 10 ans",
-                color: "text-purple-500"
+                gradient: "from-purple-500/20 to-violet-500/20",
+                iconBg: "bg-gradient-to-br from-purple-500 to-violet-600",
+                shadowColor: "group-hover:shadow-purple-500/25"
               },
               {
                 icon: Monitor,
                 title: "Suivi et maintenance",
                 description: "Monitoring de votre installation et maintenance préventive incluse",
-                color: "text-orange-500"
+                gradient: "from-orange-500/20 to-amber-500/20",
+                iconBg: "bg-gradient-to-br from-orange-500 to-amber-600",
+                shadowColor: "group-hover:shadow-orange-500/25"
               }
             ].map((advantage, index) => (
-              <Card key={index} className="group relative overflow-hidden border-0 bg-white/50 backdrop-blur-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-3">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <CardHeader className="relative">
-                  <div className={`mx-auto mb-6 p-4 rounded-2xl bg-white shadow-lg ${advantage.color}`}>
-                    <advantage.icon className="h-8 w-8" />
-                  </div>
-                  <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
-                    {advantage.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="relative">
-                  <CardDescription className="text-muted-foreground leading-relaxed">
-                    {advantage.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              <div key={index} className={`group relative`}>
+                {/* Animated Background */}
+                <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${advantage.gradient} opacity-0 group-hover:opacity-100 transition-all duration-700 blur-xl group-hover:blur-none`}></div>
+                
+                <Card className={`relative overflow-hidden border-0 bg-white/80 backdrop-blur-sm hover:bg-white/90 transition-all duration-700 hover:-translate-y-4 hover:scale-105 ${advantage.shadowColor} hover:shadow-2xl rounded-3xl`}>
+                  {/* Card Shine Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  
+                  <CardHeader className="relative text-center pb-6">
+                    <div className="mx-auto mb-6 relative">
+                      <div className={`w-16 h-16 rounded-2xl ${advantage.iconBg} shadow-lg flex items-center justify-center text-white transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
+                        <advantage.icon className="h-8 w-8" />
+                      </div>
+                      
+                      {/* Floating particles */}
+                      <div className="absolute -top-2 -right-2 w-3 h-3 bg-primary rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-all duration-500"></div>
+                      <div className="absolute -bottom-2 -left-2 w-2 h-2 bg-accent rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-700"></div>
+                    </div>
+                    
+                    <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
+                      {advantage.title}
+                    </CardTitle>
+                  </CardHeader>
+                  
+                  <CardContent className="relative text-center">
+                    <CardDescription className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-300">
+                      {advantage.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </div>
             ))}
+          </div>
+          
+          {/* Bottom CTA */}
+          <div className="text-center mt-16">
+            <Button asChild variant="hero" size="xl" className="group">
+              <Link to="/simulateur">
+                Calculer mes économies
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
