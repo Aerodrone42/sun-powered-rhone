@@ -653,7 +653,7 @@ const SolarSimulator = () => {
             <div className="space-y-6">
               <h2 className="text-3xl font-bold text-foreground flex items-center gap-3 drop-shadow-lg">
                 <MapPin className="w-8 h-8 text-primary" />
-                Localisez votre logement
+                Localisez votre position
               </h2>
               
               <div className="space-y-4">
