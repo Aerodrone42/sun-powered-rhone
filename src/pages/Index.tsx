@@ -168,31 +168,10 @@ const Index = () => {
             </div>
             
             <div className="relative">
-              {/* Main title with modern styling */}
-              <div className="mb-8">
-                <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-4 relative">
-                  <span className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent dark:from-white dark:via-blue-100 dark:to-white">
-                    Choisissez
-                  </span>
-                  <br />
-                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent animate-pulse">
-                    votre profil
-                  </span>
-                  
-                  {/* Decorative elements */}
-                  <div className="absolute -top-4 -right-8 w-3 h-3 bg-blue-500 rounded-full animate-ping"></div>
-                  <div className="absolute top-1/2 -left-6 w-2 h-2 bg-emerald-500 rounded-full animate-ping" style={{
-                  animationDelay: '0.5s'
-                }}></div>
-                  <div className="absolute -bottom-2 right-1/4 w-4 h-4 bg-purple-500 rounded-full animate-ping" style={{
-                  animationDelay: '1s'
-                }}></div>
-                </h2>
-              </div>
               
               {/* Enhanced description */}
               <div className="relative mb-8">
-                <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-medium relative">
+                <p className="text-2xl md:text-3xl lg:text-4xl max-w-4xl mx-auto leading-relaxed font-bold relative">
                   <span className="bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 bg-clip-text text-transparent animate-pulse" style={{
                     textShadow: '0 0 20px rgba(251,191,36,0.3)',
                     filter: 'drop-shadow(0 0 8px rgba(251,191,36,0.4))'
@@ -200,7 +179,16 @@ const Index = () => {
                     Dites adieu à vos factures… et gagnez entre 3000€ et 15 000 € par an grâce au solaire !*
                   </span>
                 </p>
-                <p className="text-sm text-muted-foreground/70 max-w-3xl mx-auto mt-2">*dépend du nombre de panneaux installés</p>
+                <p className="text-sm text-muted-foreground/70 max-w-4xl mx-auto mt-2">*dépend du nombre de panneaux installés</p>
+                
+                {/* Titre profil déplacé ici */}
+                <div className="mt-12">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-4 relative">
+                    <span className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent dark:from-white dark:via-blue-100 dark:to-white">
+                      Choisissez votre profil
+                    </span>
+                  </h2>
+                </div>
                 
                 {/* Animated underline */}
                 <div className="mt-6 flex justify-center">
