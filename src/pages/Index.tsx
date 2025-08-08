@@ -188,7 +188,7 @@ const Index = () => {
           poster={heroImage}
           style={{ 
             filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
-            objectPosition: 'center center',
+            objectPosition: 'center right',
             imageRendering: 'crisp-edges',
             backfaceVisibility: 'hidden',
             transform: 'translateZ(0)',
@@ -198,12 +198,12 @@ const Index = () => {
           <source src="https://cdn.midjourney.com/video/f87b7039-d3ef-4bf4-a409-96b1ee509d06/0.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 bg-gradient-to-tr from-black/65 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-black/18 via-transparent to-transparent" />
         
         
         <div className="relative container mx-auto px-4 z-10">
-          <div className="max-w-3xl">
-            <div className="rounded-3xl bg-black/45 backdrop-blur-xl border border-white/20 shadow-2xl p-8 md:p-10 lg:p-12 text-center lg:text-left">
+          <div className="max-w-2xl">
+            <div className="rounded-3xl bg-black/30 backdrop-blur-md border border-white/10 shadow-xl p-8 md:p-10 lg:p-12 text-center lg:text-left">
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
                 <span className="bg-hero-gradient bg-clip-text text-transparent drop-shadow-lg">L'énergie solaire</span>
                 <br />
