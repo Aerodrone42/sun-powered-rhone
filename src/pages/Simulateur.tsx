@@ -81,6 +81,11 @@ const SolarSimulator = () => {
 
   const totalSteps = 4;
 
+  // Scroll vers le haut quand l'étape change
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentStep]);
+
   // Recherche d'adresse avec l'API française
   const searchAddress = async () => {
     const address = formData.address?.trim();
