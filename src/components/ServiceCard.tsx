@@ -14,7 +14,7 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ title, description, icon: Icon, href, benefits, variant = 'default' }: ServiceCardProps) => {
   return (
-    <Card className="group relative h-full border-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden rounded-2xl">
+    <Card className="group relative h-full border-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden rounded-2xl solar-hover">
       {/* Modern gradient border */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
       <div className="absolute inset-[1px] bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 rounded-[calc(1rem-1px)]" />
@@ -56,7 +56,7 @@ const ServiceCard = ({ title, description, icon: Icon, href, benefits, variant =
           {/* Modern CTA button */}
           <Button 
             asChild 
-            className="w-full h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 rounded-xl font-medium transition-all duration-300 group-hover:shadow-lg"
+            className="w-full h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 rounded-xl font-medium transition-all duration-300 group-hover:shadow-lg btn-solar"
           >
             <Link to={href} className="flex items-center justify-center space-x-2">
               <span>En savoir plus</span>

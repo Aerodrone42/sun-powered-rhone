@@ -409,7 +409,7 @@ const Index = () => {
                 </div>
               </div>
               
-              <Button asChild variant="secondary" size="lg">
+              <Button asChild variant="secondary" size="lg" className="btn-solar">
                 <Link to="/contact">Contactez-nous</Link>
               </Button>
             </div>
@@ -443,7 +443,7 @@ const Index = () => {
       {/* CTA Section */}
       <section className="py-20">
         <div className="container">
-          <Card variant="solar" className="p-12 text-center">
+          <Card variant="solar" className="p-12 text-center solar-hover">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Prêt à passer au solaire ?
             </h2>
@@ -452,10 +452,10 @@ const Index = () => {
               avec une installation solaire adaptée à vos besoins.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild variant="hero" size="xl">
+              <Button asChild variant="hero" size="xl" className="btn-solar">
                 <Link to="/contact">Devis gratuit</Link>
               </Button>
-              <Button asChild variant="outline" size="xl">
+              <Button asChild variant="outline" size="xl" className="btn-solar">
                 <Link to="/zone-intervention">Zone d'intervention</Link>
               </Button>
             </div>
