@@ -173,9 +173,9 @@ const Index = () => {
               <div className="relative mb-8">
                 <p className="text-2xl md:text-3xl lg:text-4xl max-w-4xl mx-auto leading-relaxed font-bold relative">
                   <span className="bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 bg-clip-text text-transparent animate-pulse" style={{
-                    textShadow: '0 0 20px rgba(251,191,36,0.3)',
-                    filter: 'drop-shadow(0 0 8px rgba(251,191,36,0.4))'
-                  }}>
+                  textShadow: '0 0 20px rgba(251,191,36,0.3)',
+                  filter: 'drop-shadow(0 0 8px rgba(251,191,36,0.4))'
+                }}>
                     Dites adieu à vos factures… et gagnez entre 3000€ et 15 000 € par an grâce au solaire !*
                   </span>
                 </p>
@@ -376,31 +376,7 @@ const Index = () => {
         }}></div>
         </div>
         
-        <div className="container relative z-10">
-          <div className="text-center mb-20 animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-              Solutions Professionnelles
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Nos services pour <span className="text-primary relative">
-                professionnels
-                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary rounded-full opacity-60"></div>
-              </span>
-            </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Solutions photovoltaïques professionnelles adaptées aux entreprises et industries
-            </p>
-          </div>
-          
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {professionnelServices.map((service, index) => <div key={index} className="animate-fade-in hover-scale" style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
-                <ServiceCard {...service} variant={index % 2 === 0 ? 'solar' : 'default'} />
-              </div>)}
-          </div>
-        </div>
+        
         
         {/* Decorative grid pattern */}
         <div className="absolute inset-0 opacity-5">
