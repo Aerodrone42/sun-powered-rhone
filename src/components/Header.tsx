@@ -57,8 +57,8 @@ const Header = () => {
       <div className="container flex h-20 items-center justify-between">
         <Link to="/" className="flex items-center space-x-3 group">
           <div className="relative">
-            <Sun className="h-10 w-10 text-primary transition-all duration-700 group-hover:rotate-180 group-hover:scale-110" />
-            <div className="absolute inset-0 h-10 w-10 bg-primary/20 rounded-full blur-xl transition-all duration-700 group-hover:bg-primary/40"></div>
+            <Sun className="h-10 w-10 text-primary transition-all duration-700 group-hover:rotate-180 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(255,215,0,0.8)]" />
+            <div className="absolute inset-0 h-10 w-10 bg-primary/20 rounded-full blur-xl transition-all duration-700 group-hover:bg-primary/40 group-hover:shadow-glow"></div>
           </div>
           <span className="text-2xl font-bold bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent tracking-tight">
             WN Energies
@@ -73,8 +73,8 @@ const Header = () => {
                 {item.items ? (
                   <>
                     <NavigationMenuTrigger className={cn(
-                      "h-12 px-6 text-sm font-medium bg-white/5 border border-white/10 rounded-2xl backdrop-blur-lg transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:shadow-lg hover:shadow-primary/10 hover:scale-105",
-                      isActivePath(item.href) && "bg-primary/10 border-primary/30 text-primary shadow-lg shadow-primary/20"
+                      "h-12 px-6 text-sm font-medium bg-white/5 border border-white/10 rounded-2xl backdrop-blur-lg transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:shadow-glow hover:scale-105",
+                      isActivePath(item.href) && "bg-primary/10 border-primary/30 text-primary shadow-glow"
                     )}>
                       {item.title}
                     </NavigationMenuTrigger>
@@ -83,7 +83,7 @@ const Header = () => {
                         <div className="row-span-3">
                           <NavigationMenuLink asChild>
                             <Link
-                              className="flex h-full w-full select-none flex-col justify-end rounded-2xl bg-gradient-to-br from-primary via-primary-glow to-accent p-8 no-underline outline-none focus:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20 group relative overflow-hidden"
+                              className="flex h-full w-full select-none flex-col justify-end rounded-2xl bg-gradient-to-br from-primary via-primary-glow to-accent p-8 no-underline outline-none focus:shadow-glow transition-all duration-500 hover:scale-[1.02] hover:shadow-glow group relative overflow-hidden"
                               to={item.href}
                             >
                               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -101,7 +101,7 @@ const Header = () => {
                           <NavigationMenuLink key={subItem.title} asChild>
                             <Link
                               to={subItem.href}
-                              className="group block select-none space-y-2 rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 hover:bg-gradient-to-r hover:from-primary/5 hover:to-accent/5 hover:shadow-lg hover:shadow-primary/5 hover:scale-[1.02] border border-transparent hover:border-border/20"
+                              className="group block select-none space-y-2 rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 hover:bg-gradient-to-r hover:from-primary/5 hover:to-accent/5 hover:shadow-glow hover:scale-[1.02] border border-transparent hover:border-border/20"
                             >
                               <div className="text-sm font-semibold leading-none text-foreground group-hover:text-primary transition-colors duration-300">{subItem.title}</div>
                               <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
@@ -118,8 +118,8 @@ const Header = () => {
                     <Link
                       to={item.href}
                       className={cn(
-                        "group inline-flex h-12 w-max items-center justify-center rounded-2xl bg-white/5 border border-white/10 px-6 py-3 text-sm font-medium backdrop-blur-lg transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:shadow-lg hover:shadow-primary/10 hover:scale-105 focus:bg-white/10 focus:border-white/20 focus:outline-none",
-                        isActivePath(item.href) && "bg-primary/10 border-primary/30 text-primary shadow-lg shadow-primary/20"
+                        "group inline-flex h-12 w-max items-center justify-center rounded-2xl bg-white/5 border border-white/10 px-6 py-3 text-sm font-medium backdrop-blur-lg transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:shadow-glow hover:scale-105 focus:bg-white/10 focus:border-white/20 focus:outline-none",
+                        isActivePath(item.href) && "bg-primary/10 border-primary/30 text-primary shadow-glow"
                       )}
                     >
                       {item.title}
