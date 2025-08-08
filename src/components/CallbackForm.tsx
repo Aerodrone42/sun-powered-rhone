@@ -182,6 +182,7 @@ const CallbackForm = () => {
           <input type="hidden" name="_subject" value="Demande de rappel - WN Energies" />
           <input type="hidden" name="_next" value={window.location.origin + "?callback=true"} />
           <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_autoresponse" value="Merci pour votre demande de rappel ! Nous vous recontacterons dans les plus brefs délais." />
           
           <Button type="submit" className="w-full btn-solar" size="lg">
             Demander un rappel
