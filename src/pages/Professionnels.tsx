@@ -4,7 +4,8 @@ import Footer from "@/components/Footer"
 import ServiceCard from "@/components/ServiceCard"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Building, Factory, Wheat, Building2, TrendingUp, Shield, Users } from "lucide-react"
+import { Helmet } from "react-helmet-async"
+import { Building, Factory, Wheat, Building2, TrendingUp, Shield, Users, Euro, Leaf, Zap, CheckCircle } from "lucide-react"
 import commercialBuildingImage from "@/assets/commercial-building.jpg"
 
 const Professionnels = () => {
@@ -86,38 +87,109 @@ const Professionnels = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Solutions Solaires Professionnelles | WN Energies</title>
+        <meta name="description" content="Installations solaires industrielles sur-mesure pour entreprises, commerces et collectivités. Réduisez vos coûts énergétiques avec nos solutions photovoltaïques professionnelles." />
+        <link rel="canonical" href="https://wn-energies.fr/professionnels" />
+      </Helmet>
+
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="container">
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-blue-900 via-slate-800 to-emerald-900">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-20 w-72 h-72 bg-secondary/20 rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-128 h-128 bg-accent/10 rounded-full blur-3xl animate-pulse delay-2000" />
+        </div>
+
+        {/* Floating elements */}
+        <div className="absolute top-20 right-20 w-4 h-4 bg-primary rounded-full animate-ping opacity-70" />
+        <div className="absolute top-40 right-40 w-2 h-2 bg-secondary rounded-full animate-pulse opacity-60" />
+        <div className="absolute bottom-40 right-10 w-3 h-3 bg-accent rounded-full animate-bounce opacity-50" />
+
+        <div className="container relative z-10">
+          <div className="grid gap-16 lg:grid-cols-2 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Solutions solaires pour 
-                <span className="block text-primary font-semibold">professionnels</span>
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-2 mb-8 animate-fade-in">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                <span className="text-primary font-medium">Solutions industrielles</span>
+              </div>
+
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-none animate-fade-in">
+                <span className="block text-white mb-4">
+                  Énergie solaire
+                </span>
+                <span className="block bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-pulse">
+                  industrielle
+                </span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Optimisez vos coûts énergétiques avec des installations solaires industrielles. 
-                Solutions sur-mesure pour entreprises, commerces, agriculteurs et collectivités.
+
+              {/* Animated line */}
+              <div className="w-32 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mb-8 animate-pulse" />
+
+              <p className="text-2xl text-blue-100 mb-12 leading-relaxed max-w-3xl animate-fade-in">
+                Transformez vos coûts énergétiques en avantage concurrentiel.
+                <span className="block mt-2 text-white font-semibold">
+                  Installations sur-mesure • ROI optimisé • Support complet
+                </span>
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild variant="hero" size="xl">
-                  <Link to="/contact">Étude de faisabilité</Link>
+
+              <div className="flex flex-col sm:flex-row gap-6 animate-fade-in">
+                <Button asChild variant="hero" size="xl" className="hover-scale shadow-2xl">
+                  <Link to="/contact">
+                    <Building className="h-6 w-6 mr-2" />
+                    Étude de faisabilité
+                  </Link>
                 </Button>
-                <Button asChild variant="outline" size="xl">
-                  <Link to="#services">Nos solutions</Link>
+                <Button asChild variant="outline" size="xl" className="hover-scale bg-white/90 border-white text-slate-900 hover:bg-white hover:text-slate-800 shadow-xl backdrop-blur-sm">
+                  <Link to="#services">
+                    <Factory className="h-6 w-6 mr-2" />
+                    Nos solutions
+                  </Link>
                 </Button>
+              </div>
+
+              {/* Key stats */}
+              <div className="grid grid-cols-3 gap-8 mt-16 animate-fade-in">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2">200+</div>
+                  <div className="text-blue-100 text-sm">Projets réalisés</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-secondary mb-2">50MW</div>
+                  <div className="text-blue-100 text-sm">Installés</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-accent mb-2">15</div>
+                  <div className="text-blue-100 text-sm">Ans d'expertise</div>
+                </div>
               </div>
             </div>
             
             <div className="relative">
-               <img 
-                 src={commercialBuildingImage} 
-                 alt="Installation solaire sur bâtiment commercial"
-                 className="rounded-lg shadow-strong w-full solar-hover"
-               />
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+                <img 
+                  src={commercialBuildingImage} 
+                  alt="Installation solaire sur bâtiment commercial"
+                  className="w-full h-[600px] object-cover hover-scale"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
+                <div className="absolute bottom-8 left-8 right-8 text-white">
+                  <h3 className="text-3xl font-bold mb-3">Solutions industrielles</h3>
+                  <p className="text-blue-100 text-lg">Optimisation énergétique sur-mesure</p>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse" />
           </div>
         </div>
       </section>
@@ -192,6 +264,106 @@ const Professionnels = () => {
                 variant="solar"
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Content Section */}
+      <section className="py-20">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold mb-8 text-center">
+              Photovoltaïque industriel : l'énergie au service de la performance
+            </h2>
+            
+            <div className="prose prose-lg mx-auto text-muted-foreground">
+              <p className="text-lg mb-6">
+                L'industrie française fait face à des défis énergétiques majeurs : volatilité des prix de l'électricité, 
+                exigences environnementales croissantes et nécessité d'optimiser les coûts de production. 
+                Le photovoltaïque industriel offre une réponse concrète et rentable à ces enjeux.
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <Card className="border-l-4 border-l-primary hover:shadow-glow transition-all duration-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Euro className="h-6 w-6 text-primary" />
+                      Rentabilité industrielle
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      Réduction de 30 à 70% des factures électriques selon la configuration. 
+                      Amortissement rapide grâce aux volumes de consommation importants des sites industriels.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-l-4 border-l-secondary hover:shadow-glow transition-all duration-500">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Leaf className="h-6 w-6 text-secondary" />
+                      Performance énergétique
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      Solutions haute performance adaptées aux contraintes industrielles : toitures grands formats, 
+                      ombrières de parking, centrales au sol dédiées.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-foreground mb-4">Installations photovoltaïques par secteur</h3>
+              <ul className="space-y-3 text-muted-foreground mb-6">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span><strong>Commerce et distribution :</strong> Grandes surfaces, centres commerciaux, magasins spécialisés</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span><strong>Industrie manufacturière :</strong> Usines, ateliers de production, entrepôts logistiques</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span><strong>Secteur tertiaire :</strong> Bureaux, établissements de santé, établissements d'enseignement</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span><strong>Collectivités publiques :</strong> Mairies, équipements sportifs, établissements publics</span>
+                </li>
+              </ul>
+
+              <h3 className="text-2xl font-bold text-foreground mb-4">Technologies et innovations</h3>
+              <p className="mb-6">
+                Nos installations utilisent les dernières innovations technologiques : panneaux haute efficacité, 
+                onduleurs de puissance, systèmes de monitoring intelligents et solutions de stockage. 
+                Chaque projet bénéficie d'une étude personnalisée pour optimiser la production et la rentabilité.
+              </p>
+
+              <Card className="bg-primary/5 border-primary/20 p-6">
+                <h4 className="text-xl font-bold text-foreground mb-3">Avantages concurrentiels</h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="flex items-center gap-2">
+                    <Zap className="h-5 w-5 text-primary" />
+                    <span>Autoconsommation optimisée</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Shield className="h-5 w-5 text-primary" />
+                    <span>Sécurisation énergétique</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <TrendingUp className="h-5 w-5 text-primary" />
+                    <span>Valorisation patrimoniale</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Leaf className="h-5 w-5 text-primary" />
+                    <span>Image éco-responsable</span>
+                  </div>
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
