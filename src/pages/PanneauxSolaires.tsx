@@ -372,6 +372,65 @@ const PanneauxSolaires = () => {
             </div>
           </div>
         </section>
+
+        {/* SEO Content Section */}
+        <section aria-labelledby="seo-panneaux-solaires" className="py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <article className="max-w-5xl mx-auto">
+              <h2 id="seo-panneaux-solaires" className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
+                Panneaux solaires photovoltaïques : guide complet 2025
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                L'installation de <strong>panneaux solaires photovoltaïques</strong> représente un investissement rentable et durable pour votre maison. 
+                WN Energies vous accompagne dans votre projet avec des solutions sur-mesure, une <strong>installation certifiée RGE</strong> et un suivi personnalisé pour maximiser vos économies d'énergie.
+              </p>
+              
+              <h3 className="text-2xl font-semibold mb-4 text-foreground">Comment fonctionnent les panneaux solaires ?</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Les <strong>panneaux photovoltaïques</strong> convertissent directement la lumière du soleil en électricité grâce à l'effet photovoltaïque. 
+                Cette électricité peut être consommée immédiatement (autoconsommation), stockée dans des batteries ou revendue au réseau. 
+                Les technologies actuelles atteignent des rendements de 20-22% avec des garanties de performance de 25 ans minimum.
+              </p>
+
+              <h3 className="text-2xl font-semibold mb-4 text-foreground">Quel prix pour une installation solaire ?</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Le <strong>prix d'installation des panneaux solaires</strong> varie selon la puissance et la complexité du projet. 
+                Comptez environ 2 500 à 3 500€ par kWc installé, tout compris. Pour une installation de 6 kWc (maison familiale), 
+                l'investissement se situe entre 15 000 et 21 000€ avant aides. Les <strong>aides financières</strong> (prime à l'autoconsommation, TVA réduite) 
+                réduisent significativement cet investissement.
+              </p>
+
+              <h3 className="text-2xl font-semibold mb-4 text-foreground">Rentabilité et économies</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Avec une installation bien dimensionnée, les <strong>économies sur votre facture d'électricité</strong> peuvent atteindre 50 à 70%. 
+                Le retour sur investissement se situe généralement entre 8 et 12 ans selon votre profil de consommation et l'orientation de votre toiture. 
+                Sur 25 ans, les gains financiers dépassent largement l'investissement initial.
+              </p>
+
+              <h3 className="text-2xl font-semibold mb-4 text-foreground">Types d'installations proposées</h3>
+              <ul className="list-disc pl-6 space-y-2 text-muted-foreground mb-6">
+                <li><strong>Intégration au bâti (IAB)</strong> : Panneaux intégrés à la toiture, esthétique optimale</li>
+                <li><strong>Surimposition</strong> : Installation sur la toiture existante, solution économique</li>
+                <li><strong>Pergola solaire</strong> : Double usage avec espace ombragé fonctionnel</li>
+                <li><strong>Carport solaire</strong> : Protection véhicules et production d'électricité</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold mb-4 text-foreground">Démarches et installation</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Notre équipe certifiée RGE QualiPV prend en charge toutes les <strong>démarches administratives</strong> : 
+                déclaration préalable en mairie, raccordement Enedis, constitution des dossiers d'aides. 
+                L'installation physique dure 1 à 2 jours pour une maison individuelle, avec mise en service sous 4 à 8 semaines.
+              </p>
+
+              <h3 className="text-2xl font-semibold mb-4 text-foreground">Nos services complémentaires</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Découvrez nos solutions complètes : <Link to="/particuliers/batterie-solaire" className="story-link">stockage par batterie</Link> pour maximiser l'autoconsommation, 
+                <Link to="/particuliers/borne-recharge" className="story-link">borne de recharge électrique</Link> alimentée par le solaire, et solutions d'<Link to="/particuliers/installation-consommation" className="story-link">optimisation de la consommation</Link>. 
+                Besoin d'un devis personnalisé ? <Link to="/contact" className="story-link">Contactez nos experts</Link> ou utilisez notre <Link to="/simulateur" className="story-link">simulateur en ligne</Link>.
+              </p>
+            </article>
+          </div>
+        </section>
       </main>
 
       <SolarCallButton />
