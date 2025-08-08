@@ -2,10 +2,12 @@ import { Link } from "react-router-dom"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import ServiceCard from "@/components/ServiceCard"
+import StickyCTA from "@/components/StickyCTA"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Sun, Home, Zap, Battery, Car, CheckCircle } from "lucide-react"
-import happyFamilyImage from "@/assets/happy-family.jpg"
+import { Badge } from "@/components/ui/badge"
+import { Sun, Home, Zap, Battery, Car, CheckCircle, ArrowRight, Leaf, Euro, Shield, Monitor, TrendingUp, Calendar } from "lucide-react"
+import { Helmet } from "react-helmet-async"
 
 const Particuliers = () => {
   const services = [
@@ -80,65 +82,147 @@ const Particuliers = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Solutions Solaires pour Particuliers | Installations Photovoltaïques Domestiques</title>
+        <meta name="description" content="Découvrez nos solutions solaires pour particuliers : panneaux photovoltaïques, autoconsommation, batteries et bornes de recharge. Devis gratuit et installation clé en main." />
+        <link rel="canonical" href="https://votresite.com/particuliers" />
+      </Helmet>
+      
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="container">
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Solutions solaires pour 
-                <span className="block text-primary">particuliers</span>
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Produisez votre propre électricité verte et réduisez durablement vos factures énergétiques. 
-                Nos experts vous accompagnent dans votre projet solaire de A à Z.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild variant="hero" size="xl">
-                  <Link to="/contact">Devis gratuit</Link>
-                </Button>
-                <Button asChild variant="outline" size="xl">
-                  <Link to="#services">Découvrir nos services</Link>
-                </Button>
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/lovable-uploads/20f3f96b-5cc8-48a0-ad82-1d775c339015.png"
+            alt="Pergola solaire moderne avec panneaux photovoltaïques"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/60 to-background/30"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="container relative z-10">
+          <div className="max-w-4xl">
+            {/* Badge */}
+            <div className="mb-8 animate-fade-in">
+              <Badge variant="secondary" className="px-6 py-2 text-sm font-medium bg-primary/10 text-primary border-primary/20">
+                <Leaf className="w-4 h-4 mr-2" />
+                Solutions Écologiques & Économiques
+              </Badge>
+            </div>
+            
+            {/* Main Title */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight animate-fade-in">
+              L'énergie solaire
+              <span className="block bg-gradient-to-r from-primary via-primary-variant to-accent bg-clip-text text-transparent">
+                à votre domicile
+              </span>
+            </h1>
+            
+            {/* Description */}
+            <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl leading-relaxed animate-fade-in">
+              Transformez votre toit en centrale électrique. Produisez votre propre énergie verte, 
+              réduisez vos factures jusqu'à 70% et valorisez votre patrimoine.
+            </p>
+            
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 animate-fade-in">
+              <div className="text-center md:text-left">
+                <div className="text-4xl font-bold text-primary mb-2">70%</div>
+                <div className="text-muted-foreground">d'économies possibles</div>
+              </div>
+              <div className="text-center md:text-left">
+                <div className="text-4xl font-bold text-primary mb-2">25 ans</div>
+                <div className="text-muted-foreground">de garantie fabricant</div>
+              </div>
+              <div className="text-center md:text-left">
+                <div className="text-4xl font-bold text-primary mb-2">100%</div>
+                <div className="text-muted-foreground">clé en main</div>
               </div>
             </div>
             
-            <div className="relative">
-               <img 
-                 src={happyFamilyImage} 
-                 alt="Famille satisfaite devant leur maison équipée de panneaux solaires"
-                 className="rounded-lg shadow-strong w-full solar-hover"
-               />
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 animate-fade-in">
+              <Button asChild variant="hero" size="xl" className="group">
+                <Link to="/contact">
+                  Devis gratuit immédiat
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="xl" className="border-white/20 text-foreground hover:bg-white/10">
+                <Link to="#avantages">
+                  Découvrir les avantages
+                </Link>
+              </Button>
             </div>
+          </div>
+        </div>
+        
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-primary rounded-full mt-2"></div>
           </div>
         </div>
       </section>
 
       {/* Advantages Section */}
-      <section className="py-20 bg-muted/30">
+      <section id="avantages" className="py-24 bg-gradient-to-b from-background to-muted/30">
         <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Pourquoi choisir le solaire ?
+          <div className="text-center mb-20">
+            <Badge variant="outline" className="mb-4 px-4 py-2">
+              <TrendingUp className="w-4 h-4 mr-2" />
+              Avantages Solaires
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Pourquoi choisir le <span className="text-primary">solaire</span> ?
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Découvrez tous les avantages d'une installation solaire pour votre domicile
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Découvrez tous les avantages d'une installation solaire pour votre domicile et votre portefeuille
             </p>
           </div>
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {advantages.map((advantage, index) => (
-              <Card key={index} variant="gradient" className="text-center hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
-                <CardHeader>
-                  <div className="mx-auto mb-4 p-3 rounded-full bg-primary/10">
-                    <CheckCircle className="h-8 w-8 text-primary" />
+            {[
+              {
+                icon: Euro,
+                title: "Économies garanties",
+                description: "Réduisez vos factures d'électricité jusqu'à 70% dès la première année",
+                color: "text-green-500"
+              },
+              {
+                icon: Home,
+                title: "Installation clé en main",
+                description: "Nous nous occupons de tout : étude, pose, raccordement et démarches administratives",
+                color: "text-blue-500"
+              },
+              {
+                icon: Shield,
+                title: "Garanties complètes",
+                description: "Garantie fabricant 25 ans sur les panneaux et garantie pose 10 ans",
+                color: "text-purple-500"
+              },
+              {
+                icon: Monitor,
+                title: "Suivi et maintenance",
+                description: "Monitoring de votre installation et maintenance préventive incluse",
+                color: "text-orange-500"
+              }
+            ].map((advantage, index) => (
+              <Card key={index} className="group relative overflow-hidden border-0 bg-white/50 backdrop-blur-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-3">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardHeader className="relative">
+                  <div className={`mx-auto mb-6 p-4 rounded-2xl bg-white shadow-lg ${advantage.color}`}>
+                    <advantage.icon className="h-8 w-8" />
                   </div>
-                  <CardTitle className="text-xl">{advantage.title}</CardTitle>
+                  <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
+                    {advantage.title}
+                  </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-sm leading-relaxed">
+                <CardContent className="relative">
+                  <CardDescription className="text-muted-foreground leading-relaxed">
                     {advantage.description}
                   </CardDescription>
                 </CardContent>
@@ -149,18 +233,22 @@ const Particuliers = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20">
+      <section id="services" className="py-24 bg-muted/20">
         <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Nos services <span className="text-secondary">particuliers</span>
+          <div className="text-center mb-20">
+            <Badge variant="outline" className="mb-4 px-4 py-2">
+              <Sun className="w-4 h-4 mr-2" />
+              Nos Solutions
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Services <span className="text-primary">particuliers</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Solutions complètes pour répondre à tous vos besoins énergétiques domestiques
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Solutions complètes et personnalisées pour répondre à tous vos besoins énergétiques domestiques
             </p>
           </div>
           
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2">
             {services.map((service, index) => (
               <ServiceCard
                 key={index}
@@ -173,49 +261,65 @@ const Particuliers = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-24 bg-gradient-to-b from-background to-muted/30">
         <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Notre processus en 4 étapes
+          <div className="text-center mb-20">
+            <Badge variant="outline" className="mb-4 px-4 py-2">
+              <Calendar className="w-4 h-4 mr-2" />
+              Notre Méthode
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Votre projet en <span className="text-primary">4 étapes</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Un accompagnement complet pour votre projet solaire
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Un accompagnement complet et transparent pour votre transition énergétique
             </p>
           </div>
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                step: "1",
+                step: "01",
                 title: "Étude personnalisée",
-                description: "Analyse de votre consommation et étude de faisabilité gratuite"
+                description: "Analyse de votre consommation et étude de faisabilité gratuite sur votre toiture",
+                icon: Home
               },
               {
-                step: "2", 
+                step: "02", 
                 title: "Devis détaillé",
-                description: "Proposition technique et financière adaptée à vos besoins"
+                description: "Proposition technique et financière adaptée à vos besoins avec simulation de production",
+                icon: Euro
               },
               {
-                step: "3",
+                step: "03",
                 title: "Installation",
-                description: "Pose professionnelle par nos équipes certifiées"
+                description: "Pose professionnelle par nos équipes certifiées RGE avec matériel premium",
+                icon: Sun
               },
               {
-                step: "4",
+                step: "04",
                 title: "Mise en service",
-                description: "Raccordement, démarches administratives et formation"
+                description: "Raccordement, démarches administratives et formation à votre nouveau système",
+                icon: CheckCircle
               }
             ].map((process, index) => (
-              <Card key={index} className="text-center hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
-                <CardHeader>
-                  <div className="mx-auto mb-4 w-12 h-12 rounded-full bg-hero-gradient flex items-center justify-center text-white text-xl font-bold">
-                    {process.step}
+              <Card key={index} className="group relative text-center overflow-hidden border-0 bg-white/70 backdrop-blur-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-3">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardHeader className="relative">
+                  <div className="mx-auto mb-6 relative">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-variant flex items-center justify-center text-white text-xl font-bold shadow-lg">
+                      {process.step}
+                    </div>
+                    <div className="absolute -top-2 -right-2 p-2 bg-white rounded-full shadow-md">
+                      <process.icon className="h-5 w-5 text-primary" />
+                    </div>
                   </div>
-                  <CardTitle className="text-xl">{process.title}</CardTitle>
+                  <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
+                    {process.title}
+                  </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-sm leading-relaxed">
+                <CardContent className="relative">
+                  <CardDescription className="text-muted-foreground leading-relaxed">
                     {process.description}
                   </CardDescription>
                 </CardContent>
@@ -226,27 +330,49 @@ const Particuliers = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-24 bg-gradient-to-br from-primary/10 via-accent/5 to-background">
         <div className="container">
-          <Card variant="solar" className="p-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Votre projet solaire commence ici
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Obtenez votre étude personnalisée gratuite et découvrez le potentiel solaire de votre domicile.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild variant="hero" size="xl">
-                <Link to="/contact">Demander un devis</Link>
-              </Button>
-              <Button asChild variant="outline" size="xl">
-                <Link to="/zone-intervention">Vérifier ma zone</Link>
-              </Button>
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary via-primary-variant to-accent p-12 md:p-16 text-center text-white">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-4 left-4 w-32 h-32 rounded-full bg-white/20"></div>
+              <div className="absolute bottom-4 right-4 w-24 h-24 rounded-full bg-white/20"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-white/10"></div>
             </div>
-          </Card>
+            
+            <div className="relative z-10">
+              <Badge variant="secondary" className="mb-6 px-6 py-2 bg-white/20 text-white border-white/30">
+                <Leaf className="w-4 h-4 mr-2" />
+                Démarrez Maintenant
+              </Badge>
+              
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                Votre projet solaire commence <span className="block">maintenant</span>
+              </h2>
+              
+              <p className="text-xl md:text-2xl opacity-90 mb-10 max-w-3xl mx-auto leading-relaxed">
+                Obtenez votre étude personnalisée gratuite et découvrez le potentiel solaire de votre domicile en moins de 24h.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <Button asChild variant="secondary" size="xl" className="bg-white text-primary hover:bg-white/90 shadow-lg group">
+                  <Link to="/contact">
+                    Devis gratuit en 24h
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="xl" className="border-white/30 text-white hover:bg-white/10">
+                  <Link to="/zone-intervention">
+                    Vérifier ma zone
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
+      <StickyCTA />
       <Footer />
     </div>
   )
