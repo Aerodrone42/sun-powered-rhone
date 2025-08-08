@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import StickyCTA from "@/components/StickyCTA";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import panneauxSolairesProHero from "@/assets/panneaux-solaires-pro-hero.jpg";
 import { 
   Sun, 
@@ -155,13 +156,13 @@ const PanneauxSolairesPro = () => {
 
                 <div className="flex flex-wrap gap-4">
                   <Button asChild size="xl" variant="hero" className="group">
-                    <a href="/contact" className="flex items-center gap-2">
+                    <Link to="/contact" className="flex items-center gap-2">
                       Étude gratuite
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    </Link>
                   </Button>
                   <Button asChild size="xl" variant="outline" className="backdrop-blur-sm">
-                    <a href="/simulateur">Simuler mon projet</a>
+                    <Link to="/simulateur">Simuler mon projet</Link>
                   </Button>
                 </div>
 
@@ -540,10 +541,10 @@ const PanneauxSolairesPro = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="xl" variant="hero" className="group">
-                  <a href="/contact" className="flex items-center gap-2">
+                  <Link to="/contact" className="flex items-center gap-2">
                     <Building2 className="w-5 h-5" />
                     Étude gratuite
-                  </a>
+                  </Link>
                 </Button>
                 <Button asChild size="xl" variant="outline">
                   <a href="tel:0771418568">Conseil expert</a>

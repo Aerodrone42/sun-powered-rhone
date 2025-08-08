@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import StickyCTA from "@/components/StickyCTA";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { 
   Sun, 
   Zap, 
@@ -146,13 +147,13 @@ const InstallationConsommation = () => {
 
                 <div className="flex flex-wrap gap-4">
                   <Button asChild size="xl" variant="hero" className="group">
-                    <a href="/contact" className="flex items-center gap-2">
+                    <Link to="/contact" className="flex items-center gap-2">
                       Étude gratuite
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    </Link>
                   </Button>
                   <Button asChild size="xl" variant="outline" className="backdrop-blur-sm">
-                    <a href="/simulateur">Simuler mes économies</a>
+                    <Link to="/simulateur">Simuler mes économies</Link>
                   </Button>
                 </div>
 
@@ -419,10 +420,10 @@ const InstallationConsommation = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="xl" variant="hero" className="group">
-                  <a href="/contact" className="flex items-center gap-2">
+                  <Link to="/contact" className="flex items-center gap-2">
                     <Euro className="w-5 h-5" />
                     Calculer mes économies
-                  </a>
+                  </Link>
                 </Button>
                 <Button asChild size="xl" variant="outline">
                   <a href="tel:0771418568">Conseil gratuit</a>

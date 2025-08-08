@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import StickyCTA from "@/components/StickyCTA";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { 
   Zap, 
   Car, 
@@ -159,13 +160,13 @@ const BorneRecharge = () => {
 
                 <div className="flex flex-wrap gap-4">
                   <Button asChild size="xl" variant="hero" className="group">
-                    <a href="/contact" className="flex items-center gap-2">
+                    <Link to="/contact" className="flex items-center gap-2">
                       Devis gratuit
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    </Link>
                   </Button>
                   <Button asChild size="xl" variant="outline" className="backdrop-blur-sm">
-                    <a href="/simulateur">Calculer le coût</a>
+                    <Link to="/simulateur">Calculer le coût</Link>
                   </Button>
                 </div>
 
@@ -537,10 +538,10 @@ const BorneRecharge = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="xl" variant="hero" className="group">
-                  <a href="/contact" className="flex items-center gap-2">
+                  <Link to="/contact" className="flex items-center gap-2">
                     <Zap className="w-5 h-5" />
                     Obtenir mon devis
-                  </a>
+                  </Link>
                 </Button>
                 <Button asChild size="xl" variant="outline">
                   <a href="tel:0771418568">Conseil gratuit</a>

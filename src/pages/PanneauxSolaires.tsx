@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import StickyCTA from "@/components/StickyCTA";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { Sun, Zap, Shield, TrendingUp, Home, Users, Leaf, CheckCircle, Star, Award, Activity } from "lucide-react";
 
 const pergolaImg = "/lovable-uploads/37aeed72-e13c-4dd8-8b9d-f27d07561353.png";
@@ -141,13 +142,13 @@ const PanneauxSolaires = () => {
 
                 <div className="flex flex-wrap gap-4">
                   <Button asChild size="xl" variant="hero" className="group">
-                    <a href="/contact" className="flex items-center gap-2">
+                    <Link to="/contact" className="flex items-center gap-2">
                       Devis gratuit
                       <Zap className="w-5 h-5 group-hover:animate-pulse" />
-                    </a>
+                    </Link>
                   </Button>
                   <Button asChild size="xl" variant="outline" className="backdrop-blur-sm">
-                    <a href="/simulateur">Calculer mes économies</a>
+                    <Link to="/simulateur">Calculer mes économies</Link>
                   </Button>
                 </div>
 
@@ -358,10 +359,10 @@ const PanneauxSolaires = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="xl" variant="hero" className="group">
-                  <a href="/contact" className="flex items-center gap-2">
+                  <Link to="/contact" className="flex items-center gap-2">
                     <Sun className="w-5 h-5 group-hover:animate-spin" />
                     Obtenir mon devis gratuit
-                  </a>
+                  </Link>
                 </Button>
                 <Button asChild size="xl" variant="outline">
                   <a href="tel:0771418568">Appeler maintenant</a>
