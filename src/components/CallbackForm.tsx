@@ -74,6 +74,7 @@ const CallbackForm = () => {
               <Label htmlFor="firstName">Prénom *</Label>
               <Input
                 id="firstName"
+                className="solar-hover"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 placeholder="Votre prénom"
@@ -84,6 +85,7 @@ const CallbackForm = () => {
               <Label htmlFor="lastName">Nom *</Label>
               <Input
                 id="lastName"
+                className="solar-hover"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 placeholder="Votre nom"
@@ -98,6 +100,7 @@ const CallbackForm = () => {
               <Input
                 id="phone"
                 type="tel"
+                className="solar-hover"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="06 12 34 56 78"
@@ -109,6 +112,7 @@ const CallbackForm = () => {
               <Input
                 id="email"
                 type="email"
+                className="solar-hover"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="votre@email.com"
@@ -149,7 +153,7 @@ const CallbackForm = () => {
             <div className="space-y-2">
               <Label>Heure souhaitée *</Label>
               <Select value={time} onValueChange={setTime}>
-                <SelectTrigger>
+                <SelectTrigger className="solar-hover">
                   <Clock className="mr-2 h-4 w-4" />
                   <SelectValue placeholder="Choisir une heure" />
                 </SelectTrigger>
@@ -168,6 +172,7 @@ const CallbackForm = () => {
             <Label htmlFor="message">Message (optionnel)</Label>
             <Textarea
               id="message"
+              className="solar-hover"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Décrivez brièvement votre projet ou vos questions..."
@@ -175,7 +180,7 @@ const CallbackForm = () => {
             />
           </div>
 
-          <Button type="submit" className="w-full" size="lg">
+          <Button type="submit" className="w-full btn-solar" size="lg">
             Demander un rappel
           </Button>
 
