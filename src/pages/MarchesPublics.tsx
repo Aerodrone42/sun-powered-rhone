@@ -1,120 +1,86 @@
-import { Link } from "react-router-dom"
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
-import StickyCTA from "@/components/StickyCTA"
-import ServiceCard from "@/components/ServiceCard"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Helmet } from "react-helmet-async"
-import { MapPin, Building2, Sun, Landmark, TrendingUp, Shield, Users, FileText, Globe, Zap } from "lucide-react"
-
+import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import StickyCTA from "@/components/StickyCTA";
+import ServiceCard from "@/components/ServiceCard";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Helmet } from "react-helmet-async";
+import { MapPin, Building2, Sun, Landmark, TrendingUp, Shield, Users, FileText, Globe, Zap } from "lucide-react";
 const MarchesPublics = () => {
-  const services = [
-    {
-      title: "Bâtiments publics",
-      description: "Équipement solaire des mairies, écoles, gymnases",
-      icon: Building2,
-      href: "/professionnels/batiments-publics",
-      benefits: [
-        "Réduction des coûts énergétiques publics",
-        "Exemplarité environnementale",
-        "Sensibilisation citoyenne",
-        "Valorisation du patrimoine public"
-      ]
-    },
-    {
-      title: "Centrales solaires",
-      description: "Projets de grande envergure sur terrains communaux",
-      icon: Sun,
-      href: "/professionnels/centrales-solaires",
-      benefits: [
-        "Revenus locatifs pour la collectivité",
-        "Production d'énergie verte locale",
-        "Valorisation de terrains inutilisés",
-        "Indépendance énergétique territoriale"
-      ]
-    },
-    {
-      title: "Éclairage public solaire",
-      description: "Solutions autonomes pour l'éclairage urbain",
-      icon: Zap,
-      href: "/professionnels/eclairage-public",
-      benefits: [
-        "Réduction des coûts d'éclairage",
-        "Installation sans tranchées",
-        "Fonctionnement autonome",
-        "Technologie LED efficace"
-      ]
-    },
-    {
-      title: "Ombrières publiques",
-      description: "Parking et espaces publics avec production solaire",
-      icon: Landmark,
-      href: "/professionnels/ombrieres-publiques",
-      benefits: [
-        "Double fonctionnalité",
-        "Amélioration du confort usagers",
-        "Revenus pour la collectivité",
-        "Image moderne et durable"
-      ]
-    }
-  ]
-
-  const advantages = [
-    {
-      title: "Expertise publique",
-      description: "Connaissance des procédures et contraintes des marchés publics",
-      icon: Shield
-    },
-    {
-      title: "Accompagnement administratif",
-      description: "Support complet dans les démarches et réglementations",
-      icon: FileText
-    },
-    {
-      title: "Solutions clé en main",
-      description: "De l'étude à l'exploitation, nous gérons l'intégralité du projet",
-      icon: Users
-    }
-  ]
-
-  const processSteps = [
-    {
-      step: "1",
-      title: "Consultation publique",
-      description: "Réponse aux appels d'offres et marchés publics"
-    },
-    {
-      step: "2", 
-      title: "Étude de faisabilité",
-      description: "Analyse technique et financière du projet"
-    },
-    {
-      step: "3",
-      title: "Conception",
-      description: "Plans techniques et dossiers réglementaires"
-    },
-    {
-      step: "4",
-      title: "Réalisation",
-      description: "Installation et mise en service"
-    },
-    {
-      step: "5",
-      title: "Exploitation",
-      description: "Maintenance et suivi de performance"
-    }
-  ]
-
-  const stats = [
-    { number: "50+", label: "Collectivités partenaires" },
-    { number: "15MW", label: "Puissance publique installée" },
-    { number: "8", label: "Ans d'expérience publique" },
-    { number: "100%", label: "Projets publics réussis" }
-  ]
-
-  return (
-    <div className="min-h-screen">
+  const services = [{
+    title: "Bâtiments publics",
+    description: "Équipement solaire des mairies, écoles, gymnases",
+    icon: Building2,
+    href: "/professionnels/batiments-publics",
+    benefits: ["Réduction des coûts énergétiques publics", "Exemplarité environnementale", "Sensibilisation citoyenne", "Valorisation du patrimoine public"]
+  }, {
+    title: "Centrales solaires",
+    description: "Projets de grande envergure sur terrains communaux",
+    icon: Sun,
+    href: "/professionnels/centrales-solaires",
+    benefits: ["Revenus locatifs pour la collectivité", "Production d'énergie verte locale", "Valorisation de terrains inutilisés", "Indépendance énergétique territoriale"]
+  }, {
+    title: "Éclairage public solaire",
+    description: "Solutions autonomes pour l'éclairage urbain",
+    icon: Zap,
+    href: "/professionnels/eclairage-public",
+    benefits: ["Réduction des coûts d'éclairage", "Installation sans tranchées", "Fonctionnement autonome", "Technologie LED efficace"]
+  }, {
+    title: "Ombrières publiques",
+    description: "Parking et espaces publics avec production solaire",
+    icon: Landmark,
+    href: "/professionnels/ombrieres-publiques",
+    benefits: ["Double fonctionnalité", "Amélioration du confort usagers", "Revenus pour la collectivité", "Image moderne et durable"]
+  }];
+  const advantages = [{
+    title: "Expertise publique",
+    description: "Connaissance des procédures et contraintes des marchés publics",
+    icon: Shield
+  }, {
+    title: "Accompagnement administratif",
+    description: "Support complet dans les démarches et réglementations",
+    icon: FileText
+  }, {
+    title: "Solutions clé en main",
+    description: "De l'étude à l'exploitation, nous gérons l'intégralité du projet",
+    icon: Users
+  }];
+  const processSteps = [{
+    step: "1",
+    title: "Consultation publique",
+    description: "Réponse aux appels d'offres et marchés publics"
+  }, {
+    step: "2",
+    title: "Étude de faisabilité",
+    description: "Analyse technique et financière du projet"
+  }, {
+    step: "3",
+    title: "Conception",
+    description: "Plans techniques et dossiers réglementaires"
+  }, {
+    step: "4",
+    title: "Réalisation",
+    description: "Installation et mise en service"
+  }, {
+    step: "5",
+    title: "Exploitation",
+    description: "Maintenance et suivi de performance"
+  }];
+  const stats = [{
+    number: "50+",
+    label: "Collectivités partenaires"
+  }, {
+    number: "15MW",
+    label: "Puissance publique installée"
+  }, {
+    number: "8",
+    label: "Ans d'expérience publique"
+  }, {
+    number: "100%",
+    label: "Projets publics réussis"
+  }];
+  return <div className="min-h-screen">
       <Helmet>
         <title>Solutions Solaires Marchés Publics | WN Energies</title>
         <meta name="description" content="Spécialiste du photovoltaïque pour collectivités : bâtiments publics, centrales solaires, éclairage public. Expert des marchés publics et procédures administratives." />
@@ -140,7 +106,7 @@ const MarchesPublics = () => {
                   <Link to="/contact">Consultation publique</Link>
                 </Button>
                 <Button asChild variant="outline" size="xl">
-                  <Link to="#services">Nos références</Link>
+                  
                 </Button>
               </div>
             </div>
@@ -160,16 +126,14 @@ const MarchesPublics = () => {
       <section className="py-16 bg-muted/30">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
+            {stats.map((stat, index) => <div key={index} className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
                   {stat.number}
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground">
                   {stat.label}
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -187,8 +151,7 @@ const MarchesPublics = () => {
           </div>
           
           <div className="grid gap-8 md:grid-cols-3">
-            {advantages.map((advantage, index) => (
-              <Card key={index} variant="gradient" className="text-center hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
+            {advantages.map((advantage, index) => <Card key={index} variant="gradient" className="text-center hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
                 <CardHeader>
                   <div className="mx-auto mb-4 p-3 rounded-full bg-blue-100">
                     <advantage.icon className="h-8 w-8 text-blue-600" />
@@ -200,8 +163,7 @@ const MarchesPublics = () => {
                     {advantage.description}
                   </CardDescription>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -219,13 +181,7 @@ const MarchesPublics = () => {
           </div>
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                {...service}
-                variant="solar"
-              />
-            ))}
+            {services.map((service, index) => <ServiceCard key={index} {...service} variant="solar" />)}
           </div>
         </div>
       </section>
@@ -243,8 +199,7 @@ const MarchesPublics = () => {
           </div>
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
-            {processSteps.map((process, index) => (
-              <Card key={index} className="text-center hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
+            {processSteps.map((process, index) => <Card key={index} className="text-center hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
                 <CardHeader>
                   <div className="mx-auto mb-4 w-12 h-12 rounded-full bg-hero-gradient flex items-center justify-center text-white text-xl font-bold">
                     {process.step}
@@ -256,8 +211,7 @@ const MarchesPublics = () => {
                     {process.description}
                   </CardDescription>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -357,8 +311,6 @@ const MarchesPublics = () => {
 
       <StickyCTA />
       <Footer />
-    </div>
-  )
-}
-
-export default MarchesPublics
+    </div>;
+};
+export default MarchesPublics;
