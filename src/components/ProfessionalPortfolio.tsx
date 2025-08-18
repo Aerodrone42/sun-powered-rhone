@@ -15,7 +15,7 @@ const ProfessionalPortfolio = () => {
       description: "Installation haute performance en environnement montagnard"
     },
     {
-      src: "/lovable-uploads/2303f311-c023-4a11-b278-0c521ded6d5a.png", 
+      src: "/src/assets/carport-commercial-clean.jpg", 
       alt: "Carport solaire pour parking d'entreprise",
       title: "Carport commercial",
       description: "Protection véhicules et production d'énergie"
