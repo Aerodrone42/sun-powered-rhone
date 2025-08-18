@@ -101,7 +101,7 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
+      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <video className="absolute inset-0 w-full h-full object-cover object-center md:object-right" autoPlay loop muted playsInline preload="auto" poster={heroImage} style={{
         filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
         imageRendering: 'crisp-edges',
@@ -116,8 +116,21 @@ const Index = () => {
         {/* Overlay pour améliorer la lisibilité du texte */}
         <div className="absolute inset-0 bg-black/20"></div>
         
+        {/* Logo WNE positionné plus haut sur mobile */}
+        <div className="absolute top-20 md:top-32 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <div className="relative">
+                <Sun className="h-12 w-12 md:h-16 md:w-16 text-yellow-400 animate-spin" style={{ animationDuration: '8s' }} />
+                <div className="absolute inset-0 h-12 w-12 md:h-16 md:w-16 bg-yellow-400/20 rounded-full blur-xl animate-pulse"></div>
+              </div>
+              <span className="text-3xl md:text-5xl font-bold text-white drop-shadow-2xl tracking-wide">WNE</span>
+            </div>
+            <p className="text-sm md:text-base text-white/90 font-medium tracking-wider">WORLD NETWORK ENERGIES</p>
+          </div>
+        </div>
         
-        <div className="absolute inset-x-4 bottom-8 md:bottom-4 md:inset-x-8 z-10">
+        <div className="absolute inset-x-4 bottom-16 md:bottom-8 md:inset-x-8 z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
