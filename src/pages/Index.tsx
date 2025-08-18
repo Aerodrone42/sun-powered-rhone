@@ -281,9 +281,7 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Nos panneaux sont <span className="text-yellow-400">2x plus puissants</span> que la concurrence
             </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto">
-              Grâce à notre technologie bifaciale 2024, divisez par 2 le nombre de panneaux nécessaires
-            </p>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto">Grâce à notre technologie bifaciale 2025, divisez par 2 le nombre de panneaux nécessaires</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
