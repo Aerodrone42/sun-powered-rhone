@@ -117,9 +117,14 @@ const Index = () => {
         <div className="absolute bottom-8 left-4 right-4 md:left-8 md:top-1/2 md:transform md:-translate-y-1/2 md:right-auto z-10">
           <div className="max-w-md md:max-w-lg">
             <div className="text-center md:text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-400/90 to-orange-500/90 rounded-full mb-4 md:mb-6">
-                <span className="text-sm md:text-base font-bold text-black">🚀 PANNEAUX 2x PLUS PUISSANTS</span>
-                <span className="text-xs md:text-sm font-medium text-black/80">770-930W vs 400-500W</span>
+              <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl mb-4 md:mb-6 shadow-lg border border-orange-400/30 backdrop-blur-sm hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                  <span className="text-lg">🚀</span>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span className="text-sm md:text-base font-bold text-white">PANNEAUX 2x PLUS PUISSANTS</span>
+                  <span className="text-xs md:text-sm font-medium text-white/90">770-930W vs 400-500W standard</span>
+                </div>
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 leading-tight text-center md:text-left">
                 <span className="bg-hero-gradient bg-clip-text text-transparent drop-shadow-lg">L'énergie solaire</span>
