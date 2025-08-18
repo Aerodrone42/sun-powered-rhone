@@ -132,7 +132,7 @@ const Index = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button asChild variant="glass" size="lg" className="shadow-premium btn-solar">
-                  <Link to="/contact">Découvrez nos panneaux 2x plus puissants</Link>
+                  <Link to="/contact">Découvrez nos Panneaux Solaires</Link>
                 </Button>
                 <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25 btn-solar">
                   <Link to="/simulateur">Simulateur</Link>
