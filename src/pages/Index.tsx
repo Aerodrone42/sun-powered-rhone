@@ -367,7 +367,7 @@ const Index = () => {
 
               <div className="text-center mt-8">
                 <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold hover:from-yellow-500 hover:to-orange-600">
-                  <Link to="/contact">Découvrir notre technologie 2024</Link>
+                  <Link to="/contact">Découvrir notre technologie 2025</Link>
                 </Button>
               </div>
             </div>
