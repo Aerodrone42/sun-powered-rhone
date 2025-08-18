@@ -91,23 +91,35 @@ const AgriculturePortfolio = () => {
               >
                 {portfolioImages.map((image, index) => (
                   <div key={index} className="w-full flex-shrink-0 relative group">
-                    <div className="aspect-[16/9] relative overflow-hidden cursor-pointer">
+                    <div 
+                      className="aspect-[16/9] relative overflow-hidden cursor-pointer touch-manipulation"
+                      onClick={() => openModal(index)}
+                      onTouchEnd={(e) => {
+                        e.preventDefault();
+                        openModal(index);
+                      }}
+                    >
                       <img 
                         src={image.src}
                         alt={image.alt}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        onClick={() => openModal(index)}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 select-none"
+                        draggable={false}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:opacity-0 md:group-hover:opacity-100 opacity-50 transition-opacity duration-500" />
                       
-                      {/* Hover overlay */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                      {/* Hover overlay - always visible on mobile */}
+                      <div className="absolute inset-0 flex items-center justify-center md:opacity-0 md:group-hover:opacity-100 opacity-100 transition-all duration-500">
                         <Button 
                           variant="secondary" 
                           size="lg" 
-                          className="bg-white/90 text-black hover:bg-white"
+                          className="bg-white/90 text-black hover:bg-white touch-manipulation min-h-[48px] min-w-[120px]"
                           onClick={(e) => {
                             e.stopPropagation();
+                            openModal(index);
+                          }}
+                          onTouchEnd={(e) => {
+                            e.stopPropagation();
+                            e.preventDefault();
                             openModal(index);
                           }}
                         >
@@ -116,8 +128,8 @@ const AgriculturePortfolio = () => {
                         </Button>
                       </div>
                       
-                      {/* Image info */}
-                      <div className="absolute bottom-6 left-6 right-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                      {/* Image info - always visible on mobile */}
+                      <div className="absolute bottom-6 left-6 right-6 text-white md:transform md:translate-y-full md:group-hover:translate-y-0 transform translate-y-0 transition-transform duration-500">
                         <h3 className="text-2xl font-bold mb-2">{image.title}</h3>
                         <p className="text-white/90">{image.description}</p>
                       </div>
@@ -129,14 +141,22 @@ const AgriculturePortfolio = () => {
               {/* Navigation arrows */}
               <button
                 onClick={prevImage}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm hover:bg-white/90 rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110"
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  prevImage();
+                }}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm hover:bg-white/90 rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 touch-manipulation min-h-[48px] min-w-[48px]"
               >
                 <ChevronLeft className="w-6 h-6 text-gray-800" />
               </button>
               
               <button
                 onClick={nextImage}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm hover:bg-white/90 rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110"
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  nextImage();
+                }}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm hover:bg-white/90 rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 touch-manipulation min-h-[48px] min-w-[48px]"
               >
                 <ChevronRight className="w-6 h-6 text-gray-800" />
               </button>
