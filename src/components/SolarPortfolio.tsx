@@ -94,7 +94,7 @@ const SolarPortfolio = () => {
               Nos Réalisations
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Possibilités d'<span className="bg-gradient-to-r from-primary via-primary-variant to-accent bg-clip-text text-transparent">installations</span>
+              Possibilités d'<span className="bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-600 bg-clip-text text-transparent">installations</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Découvrez nos installations solaires réalisées chez nos clients particuliers
