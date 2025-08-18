@@ -101,50 +101,78 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
-        {/* Vidéo cachée sur mobile, visible sur desktop */}
-        <video className="absolute inset-0 w-full h-full object-cover hidden md:block" autoPlay loop muted playsInline preload="auto" poster={heroImage} style={{
-        filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
-        imageRendering: 'crisp-edges',
-        backfaceVisibility: 'hidden',
-        transform: 'translateZ(0)',
-        willChange: 'transform'
-      }}>
-          <source src="https://cdn.midjourney.com/video/f87b7039-d3ef-4bf4-a409-96b1ee509d06/0.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        
-        {/* Image de fond pour mobile */}
-        <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-center md:hidden"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-            filter: 'contrast(1.15) saturate(1.3) brightness(1.05)'
-          }}
-        ></div>
-        
-        {/* Overlay pour améliorer la lisibilité du texte */}
-        <div className="absolute inset-0 bg-black/20"></div>
-        
-        
-        <div className="absolute inset-x-4 bottom-8 md:bottom-4 md:inset-x-8 z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-                <span className="bg-hero-gradient bg-clip-text text-transparent drop-shadow-lg">L'énergie solaire</span>
+      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
+        {/* Layout mobile : video en haut, texte en bas */}
+        <div className="md:hidden">
+          {/* Zone vidéo - 60% de la hauteur */}
+          <div className="relative h-[60vh] overflow-hidden">
+            <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline preload="auto" poster={heroImage} style={{
+              filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
+              imageRendering: 'crisp-edges',
+              backfaceVisibility: 'hidden',
+              transform: 'translateZ(0)',
+              willChange: 'transform'
+            }}>
+              <source src="https://cdn.midjourney.com/video/f87b7039-d3ef-4bf4-a409-96b1ee509d06/0.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-black/20"></div>
+          </div>
+          
+          {/* Zone texte - 40% de la hauteur */}
+          <div className="relative h-[40vh] bg-gradient-to-b from-slate-900 to-slate-800 flex items-center justify-center px-4">
+            <div className="text-center text-white">
+              <h1 className="text-2xl font-bold mb-3 leading-tight">
+                <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">L'énergie solaire</span>
                 <br />
-                <span className="text-white drop-shadow-xl">pour votre avenir</span>
+                <span>pour votre avenir</span>
               </h1>
-              <p className="text-lg text-white/95 mb-6 leading-relaxed drop-shadow-lg max-w-3xl mx-auto">Spécialistes dans l'innovation, la vente et l'installation de panneaux solaires nouvelle génération en Rhône alpes et dans toute la France
-
-            </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button asChild variant="glass" size="lg" className="shadow-premium btn-solar">
+              <p className="text-sm mb-4 leading-relaxed max-w-sm mx-auto">
+                Spécialistes dans l'innovation, la vente et l'installation de panneaux solaires nouvelle génération en Rhône alpes et dans toute la France
+              </p>
+              <div className="flex flex-col gap-2">
+                <Button asChild variant="default" size="sm">
                   <Link to="/contact">Découvrez nos Panneaux Solaires</Link>
                 </Button>
-                <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25 btn-solar">
+                <Button asChild variant="outline" size="sm">
                   <Link to="/simulateur">Simulateur</Link>
                 </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Layout desktop : vidéo plein écran avec texte superposé */}
+        <div className="hidden md:flex items-center justify-center min-h-screen relative">
+          <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline preload="auto" poster={heroImage} style={{
+            filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
+            imageRendering: 'crisp-edges',
+            backfaceVisibility: 'hidden',
+            transform: 'translateZ(0)',
+            willChange: 'transform'
+          }}>
+            <source src="https://cdn.midjourney.com/video/f87b7039-d3ef-4bf4-a409-96b1ee509d06/0.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/20"></div>
+          
+          <div className="absolute inset-x-8 bottom-4 z-10">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center">
+                <h1 className="text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+                  <span className="bg-hero-gradient bg-clip-text text-transparent drop-shadow-lg">L'énergie solaire</span>
+                  <br />
+                  <span className="text-white drop-shadow-xl">pour votre avenir</span>
+                </h1>
+                <p className="text-lg text-white/95 mb-6 leading-relaxed drop-shadow-lg max-w-3xl mx-auto">
+                  Spécialistes dans l'innovation, la vente et l'installation de panneaux solaires nouvelle génération en Rhône alpes et dans toute la France
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Button asChild variant="glass" size="lg" className="shadow-premium btn-solar">
+                    <Link to="/contact">Découvrez nos Panneaux Solaires</Link>
+                  </Button>
+                  <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25 btn-solar">
+                    <Link to="/simulateur">Simulateur</Link>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
