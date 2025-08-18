@@ -15,7 +15,7 @@ const ProfessionalPortfolio = () => {
       description: "Installation haute performance en environnement montagnard"
     },
     {
-      src: "/src/assets/carport-commercial-clean.jpg", 
+      src: "/lovable-uploads/2303f311-c023-4a11-b278-0c521ded6d5a.png", 
       alt: "Carport solaire pour parking d'entreprise",
       title: "Carport commercial",
       description: "Protection véhicules et production d'énergie"
@@ -27,7 +27,7 @@ const ProfessionalPortfolio = () => {
       description: "Intégration architecturale et performance énergétique"
     },
     {
-      src: "/src/assets/usine-panneaux-solaires.jpg",
+      src: "/lovable-uploads/9e129e15-8825-49c4-bd31-b2bbd1099249.png",
       alt: "Installation solaire industrielle vue aérienne",
       title: "Site industriel",
       description: "Installation grande échelle pour industrie"
