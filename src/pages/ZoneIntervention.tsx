@@ -78,7 +78,7 @@ const ZoneIntervention = () => {
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
-                <span className="text-primary">Rhône-Alpes</span> et toute la <span className="text-secondary">France</span>
+                <span className="text-primary">Rhône-Alpes</span> et toute la <span className="text-primary">France</span>
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
