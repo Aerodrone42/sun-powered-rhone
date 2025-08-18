@@ -128,7 +128,7 @@ const CommercePro = () => {
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 Panneaux solaires pour 
-                <span className="block text-secondary">votre commerce</span>
+                <span className="block text-primary">votre commerce</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                 Réduisez drastiquement vos coûts énergétiques avec une installation photovoltaïque 
@@ -198,7 +198,7 @@ const CommercePro = () => {
 
             <div className="mt-12 p-6 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg border">
               <h3 className="text-xl font-semibold mb-4 text-center">
-                <Leaf className="inline mr-2 h-5 w-5 text-secondary" />
+                <Leaf className="inline mr-2 h-5 w-5 text-primary" />
                 Impact environnemental positif
               </h3>
               <p className="text-center text-muted-foreground leading-relaxed">
@@ -228,10 +228,10 @@ const CommercePro = () => {
               <Card key={index} className="text-center hover-scale animate-fade-in hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
                 <CardHeader>
                   <div className="mx-auto mb-4 p-3 rounded-full bg-secondary/10">
-                    <advantage.icon className="h-8 w-8 text-secondary" />
+                    <advantage.icon className="h-8 w-8 text-primary" />
                   </div>
                   <CardTitle className="text-lg">{advantage.title}</CardTitle>
-                  <div className="text-2xl font-bold text-secondary">{advantage.metric}</div>
+                  <div className="text-2xl font-bold text-primary">{advantage.metric}</div>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-sm leading-relaxed">
@@ -269,7 +269,7 @@ const CommercePro = () => {
                     <ul className="space-y-1">
                       {solution.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center text-sm">
-                          <CheckCircle className="h-4 w-4 text-secondary mr-2 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
                           {feature}
                         </li>
                       ))}
@@ -318,7 +318,7 @@ const CommercePro = () => {
                     {step.number}
                   </div>
                   <div className="mx-auto mb-4 p-2 rounded-full bg-secondary/10 w-fit">
-                    <step.icon className="h-6 w-6 text-secondary" />
+                    <step.icon className="h-6 w-6 text-primary" />
                   </div>
                   <CardTitle className="text-lg">{step.title}</CardTitle>
                 </CardHeader>

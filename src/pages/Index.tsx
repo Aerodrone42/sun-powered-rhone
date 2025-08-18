@@ -441,7 +441,7 @@ const Index = () => {
             <Card className="border-l-4 border-l-secondary solar-hover">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Zap className="h-6 w-6 text-secondary" />
+                  <Zap className="h-6 w-6 text-primary" />
                   Solutions complètes
                 </CardTitle>
               </CardHeader>

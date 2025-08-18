@@ -161,7 +161,7 @@ const Professionnels = () => {
                   <div className="text-blue-100 text-sm">Projets réalisés</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-secondary mb-2">50MW</div>
+                  <div className="text-4xl font-bold text-primary mb-2">50MW</div>
                   <div className="text-blue-100 text-sm">Installés</div>
                 </div>
                 <div className="text-center">
@@ -284,7 +284,7 @@ const Professionnels = () => {
                 <div className="relative mb-8">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
                   <div className="relative p-6 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-500 group-hover:scale-110">
-                    <advantage.icon className="h-12 w-12 text-primary group-hover:text-secondary transition-all duration-500 mx-auto" />
+                    <advantage.icon className="h-12 w-12 text-primary group-hover:text-primary transition-all duration-500 mx-auto" />
                   </div>
                 </div>
                 
@@ -378,7 +378,7 @@ const Professionnels = () => {
                 <Card className="border-l-4 border-l-secondary hover:shadow-glow transition-all duration-500">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Leaf className="h-6 w-6 text-secondary" />
+                      <Leaf className="h-6 w-6 text-primary" />
                       Performance énergétique
                     </CardTitle>
                   </CardHeader>

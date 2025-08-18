@@ -383,7 +383,7 @@ const PanneauxSolairesPro = () => {
 
             <div className="mt-12 p-6 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg border">
               <h3 className="text-xl font-semibold mb-4 text-center">
-                <TrendingUp className="inline mr-2 h-5 w-5 text-secondary" />
+                <TrendingUp className="inline mr-2 h-5 w-5 text-primary" />
                 Rentabilité et performance garanties
               </h3>
               <p className="text-center text-muted-foreground leading-relaxed">
