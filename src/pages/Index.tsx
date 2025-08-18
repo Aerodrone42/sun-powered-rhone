@@ -120,12 +120,12 @@ const Index = () => {
         <div className="absolute inset-x-4 bottom-8 md:inset-x-8 z-10">
           <div className="max-w-2xl mx-auto">
             <div className="text-center">
-              <h1 className="text-base font-bold mb-4 leading-tight">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-tight">
                 <span className="bg-hero-gradient bg-clip-text text-transparent drop-shadow-lg">L'énergie solaire</span>
                 <br />
                 <span className="text-white drop-shadow-xl">pour votre avenir</span>
               </h1>
-              <p className="text-base text-white/95 mb-6 leading-relaxed drop-shadow-lg max-w-lg mx-auto">Spécialistes dans l'innovation, la vente et l'installation de panneaux solaires nouvelle génération en Rhône alpes et dans toute la France
+              <p className="text-2xl md:text-3xl lg:text-4xl text-white/95 mb-6 leading-relaxed drop-shadow-lg max-w-lg mx-auto">Spécialistes dans l'innovation, la vente et l'installation de panneaux solaires nouvelle génération en Rhône alpes et dans toute la France
 
             </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
