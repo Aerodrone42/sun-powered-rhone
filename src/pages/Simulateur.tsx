@@ -31,7 +31,7 @@ const SolarSimulator = () => {
     roofOrientation: 'sud',
     roofInclination: '30',
     roofSurface: 60,
-    monthlyBill: 120,
+    monthlyBill: 120 as number | string,
     residents: '4',
     heating: 'electrique'
   });
@@ -420,7 +420,7 @@ const SolarSimulator = () => {
       optimalAngle
     } = locationData;
     const roofSurface = parseInt(formData.houseSurface) || 100; // Utilise la surface de toit sélectionnée
-    const monthlyBill = formData.monthlyBill;
+    const monthlyBill = Number(formData.monthlyBill) || 120;
     const residents = parseInt(formData.residents) || 4;
     const heating = formData.heating;
 
@@ -973,10 +973,10 @@ const SolarSimulator = () => {
                      Montant de votre facture électrique mensuelle
                    </label>
                    <div className="flex gap-2 items-center">
-                     <input type="number" min="50" max="5000" step="10" value={formData.monthlyBill} onChange={e => setFormData({
-                    ...formData,
-                    monthlyBill: parseInt(e.target.value) || 50
-                  })} className="flex-1 p-3 bg-background/90 backdrop-blur-xl border border-border rounded-xl focus:border-primary focus:outline-none text-foreground shadow-xl" placeholder="Ex: 150" />
+                      <input type="number" min="50" max="5000" step="10" value={formData.monthlyBill || ''} onChange={e => setFormData({
+                     ...formData,
+                     monthlyBill: e.target.value === '' ? '' : parseInt(e.target.value)
+                   })} className="flex-1 p-3 bg-background/90 backdrop-blur-xl border border-border rounded-xl focus:border-primary focus:outline-none text-foreground shadow-xl" placeholder="Ex: 150" />
                      <span className="text-foreground font-semibold">€/mois</span>
                    </div>
                    <div className="text-sm text-muted-foreground">
