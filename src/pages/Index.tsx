@@ -117,13 +117,13 @@ const Index = () => {
         <div className="absolute bottom-8 left-4 right-4 md:left-8 md:top-1/2 md:transform md:-translate-y-1/2 md:right-auto z-10">
           <div className="max-w-md md:max-w-lg">
             <div className="text-center md:text-left">
-              <div className="inline-flex items-center gap-3 px-4 py-2 bg-background/95 backdrop-blur-md rounded-full mb-4 md:mb-6 border border-border shadow-sm hover:shadow-md transition-all duration-300">
-                <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+              <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl mb-4 md:mb-6 shadow-lg border border-orange-400/30 backdrop-blur-sm hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
                   <span className="text-lg">🚀</span>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <span className="text-sm md:text-base font-semibold text-foreground">PANNEAUX 2x PLUS PUISSANTS</span>
-                  <span className="text-xs md:text-sm text-muted-foreground">770-930W vs 400-500W standard</span>
+                  <span className="text-sm md:text-base font-bold text-white">PANNEAUX 2x PLUS PUISSANTS</span>
+                  <span className="text-xs md:text-sm font-medium text-white/90">770-930W</span>
                 </div>
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 leading-tight text-center md:text-left">
@@ -500,7 +500,7 @@ const Index = () => {
       
 
       {/* Services Professionnels */}
-      <section className="py-12 relative overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-background">
+      <section className="py-24 relative overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-background">
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-10 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
