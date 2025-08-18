@@ -83,7 +83,7 @@ const Professionnels = () => {
   const stats = [
     { number: "200+", label: "Projets professionnels réalisés" },
     { number: "50MW", label: "Puissance totale installée" },
-    { number: "15", label: "Ans d'expertise industrielle" },
+    { number: "10", label: "Ans d'expertise industrielle" },
     { number: "100%", label: "Projets livrés en temps et en heure" }
   ]
 
@@ -165,7 +165,7 @@ const Professionnels = () => {
                   <div className="text-blue-100 text-sm">Installés</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-accent mb-2">15</div>
+                  <div className="text-4xl font-bold text-accent mb-2">10</div>
                   <div className="text-blue-100 text-sm">Ans d'expertise</div>
                 </div>
               </div>

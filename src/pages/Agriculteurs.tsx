@@ -82,7 +82,7 @@ const Agriculteurs = () => {
   const stats = [
     { number: "150+", label: "Exploitations équipées" },
     { number: "25MW", label: "Puissance agricole installée" },
-    { number: "12", label: "Ans d'expertise agricole" },
+    { number: "10", label: "Ans d'expertise agricole" },
     { number: "95%", label: "Agriculteurs satisfaits" }
   ]
 

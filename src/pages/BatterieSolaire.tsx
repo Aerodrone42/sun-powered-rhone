@@ -266,7 +266,7 @@ const BatterieSolaire = () => {
                   Technologies de batteries : lithium-ion et LFP
                 </h3>
                 <p>
-                  Nous privilégions les batteries lithium-ion et LFP (Lithium Fer Phosphate) pour leur durée de vie exceptionnelle (15-20 ans), 
+                  Nous privilégions les batteries lithium-ion et LFP (Lithium Fer Phosphate) pour leur durée de vie exceptionnelle (10-20 ans), 
                   leur efficacité énergétique supérieure à 95% et leur sécurité optimale. Ces technologies offrent plus de 6000 cycles de charge/décharge, 
                   garantissant un retour sur investissement optimal pour votre système de stockage d'énergie.
                 </p>
@@ -444,7 +444,7 @@ const BatterieSolaire = () => {
                   img: installationImage, 
                   title: "Installation professionnelle", 
                   subtitle: "Système de stockage intégré",
-                  features: ["Installation certifiée", "Garantie 15 ans", "Monitoring inclus"]
+                  features: ["Installation certifiée", "Garantie 10 ans", "Monitoring inclus"]
                 },
                 { 
                   img: monitoringImage, 

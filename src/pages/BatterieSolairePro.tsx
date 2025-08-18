@@ -478,7 +478,7 @@ const BatterieSolairePro = () => {
                 </h3>
                 <p>
                   Nos solutions utilisent des batteries lithium-ion de dernière génération, offrant une densité énergétique élevée, 
-                  une durée de vie supérieure à 15 ans et plus de 6000 cycles de charge/décharge. Les systèmes de gestion intelligente (BMS) 
+                  une durée de vie supérieure à 10 ans et plus de 6000 cycles de charge/décharge. Les systèmes de gestion intelligente (BMS) 
                   optimisent automatiquement les flux d'énergie selon les besoins de production, les tarifs électriques et les contraintes opérationnelles. 
                   L'intégration avec les installations solaires existantes permet une synergie optimale entre production et stockage.
                 </p>
