@@ -206,7 +206,7 @@ const Professionnels = () => {
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
             Transformez vos coûts énergétiques
           </h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
             en profits
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 text-lg md:text-xl text-foreground/80">
