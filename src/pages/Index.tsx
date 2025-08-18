@@ -432,9 +432,7 @@ const Index = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
-                  Intervention dans toute la France avec une expertise renforcée en Rhône-Alpes : Rhône (69), Isère (38), Loire (42), Ain (01), Savoie (73) et Haute-Savoie (74).
-                </p>
+                <p className="text-muted-foreground">Intervention dans toute la France avec une expertise renforcée en Rhône-Alpes : Rhône (69), Isère (38), Loire (42), Ain (01), Savoie (73) et Haute-Savoie (74) et sur toute la France</p>
               </CardContent>
             </Card>
           </div>
