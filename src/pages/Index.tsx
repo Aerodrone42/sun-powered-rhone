@@ -500,7 +500,7 @@ const Index = () => {
       
 
       {/* Services Professionnels */}
-      <section className="py-24 relative overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-background">
+      <section className="py-12 relative overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-background">
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-10 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
