@@ -114,28 +114,26 @@ const Index = () => {
         </video>
         
         
-        <div className="absolute inset-x-4 bottom-8 md:inset-x-8 md:bottom-16 z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20">
-              <div className="text-center">
-                <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 leading-tight">
-                  <span className="bg-hero-gradient bg-clip-text text-transparent drop-shadow-lg">L'énergie solaire</span>
-                  <br />
-                  <span className="text-white drop-shadow-xl">pour votre avenir</span>
-                </h1>
-                <p className="text-sm md:text-base lg:text-lg text-white/95 mb-6 md:mb-8 leading-relaxed drop-shadow-lg max-w-2xl mx-auto">
-                  Spécialiste de l'installation de <strong>panneaux solaires 2x plus puissants</strong> en Rhône-Alpes et dans toute la France.
-                  <br className="hidden lg:block" />
-                  <strong>Technologie 2024</strong> - Réduisez vos factures et participez à la transition énergétique.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-                  <Button asChild variant="glass" size="lg" className="shadow-premium btn-solar">
-                    <Link to="/contact">Découvrez nos panneaux 2x plus puissants</Link>
-                  </Button>
-                  <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25 btn-solar">
-                    <Link to="/simulateur">Simulateur</Link>
-                  </Button>
-                </div>
+        <div className="absolute top-8 left-4 right-4 md:left-8 md:top-16 z-10">
+          <div className="max-w-lg">
+            <div className="text-left">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-tight">
+                <span className="bg-hero-gradient bg-clip-text text-transparent drop-shadow-lg">L'énergie solaire</span>
+                <br />
+                <span className="text-white drop-shadow-xl">pour votre avenir</span>
+              </h1>
+              <p className="text-sm md:text-base text-white/95 mb-6 leading-relaxed drop-shadow-lg max-w-md">
+                Spécialiste de l'installation de <strong>panneaux solaires 2x plus puissants</strong> en Rhône-Alpes et dans toute la France.
+                <br />
+                <strong>Technologie 2024</strong> - Réduisez vos factures et participez à la transition énergétique.
+              </p>
+              <div className="flex flex-col gap-3">
+                <Button asChild variant="glass" size="lg" className="shadow-premium btn-solar w-fit">
+                  <Link to="/contact">Découvrez nos panneaux 2x plus puissants</Link>
+                </Button>
+                <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25 btn-solar w-fit">
+                  <Link to="/simulateur">Simulateur</Link>
+                </Button>
               </div>
             </div>
           </div>
