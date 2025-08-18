@@ -811,7 +811,7 @@ const SolarSimulator = () => {
                     🔬 {locationData.dataSource}
                   </div>
                   
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 place-items-center">
                     <div className="text-center bg-white rounded-xl p-4 hover-scale">
                       <div className="text-2xl font-bold text-orange-500">
                         {locationData.irradiation}
