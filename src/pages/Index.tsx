@@ -125,7 +125,7 @@ const Index = () => {
               <p className="text-sm md:text-base text-white/95 mb-6 leading-relaxed drop-shadow-lg max-w-lg mx-auto">
                 Spécialiste de l'installation de <strong>panneaux solaires 2x plus puissants</strong> en Rhône-Alpes et dans toute la France.
                 <br />
-                <strong>Technologie 2024</strong> - Réduisez vos factures et participez à la transition énergétique.
+                <strong>Technologie 2025</strong> - Réduisez vos factures et participez à la transition énergétique.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button asChild variant="glass" size="lg" className="shadow-premium btn-solar">
