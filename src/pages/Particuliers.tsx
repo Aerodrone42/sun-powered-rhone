@@ -178,7 +178,7 @@ const Particuliers = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10"></div>
         <div className="container relative z-10 text-center">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-            Jusqu'à <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">70%</span> d'économies
+            Jusqu'à <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">70%</span> d'économies
           </h2>
           <h3 className="text-3xl md:text-4xl font-bold mb-6 text-muted-foreground">
             sur vos factures d'électricité
