@@ -180,9 +180,22 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-16 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-white/60">
-              © 2025 WN Energies. Tous droits réservés. | Expert en solutions photovoltaïques
-            </p>
+            <div className="flex flex-col items-center md:items-start space-y-2">
+              <p className="text-sm text-white/60">
+                © 2025 WN Energies. Tous droits réservés. | Expert en solutions photovoltaïques
+              </p>
+              <p className="text-xs text-white/40">
+                Créé par{" "}
+                <a 
+                  href="https://www.site-internet-sans-abonnement.fr/site-internet"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white/60 transition-colors"
+                >
+                  Aerodrone multiservices
+                </a>
+              </p>
+            </div>
             <div className="flex space-x-6 text-sm">
               <Link to="/mentions-legales" className="text-white/60 hover:text-white transition-colors">
                 Mentions légales
