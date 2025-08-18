@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Euro, TrendingUp, Users, Zap, CheckCircle, Factory, Sprout } from "lucide-react";
+import SunParticles from "@/components/SunParticles";
 import heroImage from "@/assets/tarifs-aides-hero.jpg";
 
 const TarifsAides = () => {
@@ -26,26 +27,26 @@ const TarifsAides = () => {
               alt="Panneaux solaires et tarifs EDF" 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60 backdrop-blur-sm"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-background/30"></div>
           </div>
           
           {/* Content */}
           <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="backdrop-blur-sm bg-background/20 rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+            <div className="backdrop-blur-sm bg-background/20 rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl animate-fade-in">
+              <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight animate-scale-in">
                 Tarifs EDF OA & 
-                <span className="text-primary block mt-2 drop-shadow-lg">Aides Photovoltaïque 2025</span>
+                <span className="text-primary block mt-2 drop-shadow-lg solar-hover">Aides Photovoltaïque 2025</span>
               </h1>
-              <p className="text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed font-medium">
+              <p className="text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed font-medium animate-fade-in [animation-delay:200ms]">
                 Découvrez les tarifs de rachat garantis pendant 20 ans et les aides de l'État pour votre installation solaire
               </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                <Badge variant="secondary" className="text-lg px-6 py-3 bg-primary/20 text-primary border-primary/30">
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center animate-fade-in [animation-delay:400ms]">
+                <Badge variant="secondary" className="text-lg px-6 py-3 bg-primary/20 text-primary border-primary/30 hover-scale transition-all duration-300 hover:shadow-glow">
                   <Euro className="w-5 h-5 mr-2" />
                   Tarifs 2025 Actualisés
                 </Badge>
-                <Badge variant="secondary" className="text-lg px-6 py-3 bg-accent/20 text-accent-foreground border-accent/30">
+                <Badge variant="secondary" className="text-lg px-6 py-3 bg-accent/20 text-accent-foreground border-accent/30 hover-scale transition-all duration-300 hover:shadow-glow">
                   <CheckCircle className="w-5 h-5 mr-2" />
                   Aides de l'État
                 </Badge>
@@ -57,7 +58,7 @@ const TarifsAides = () => {
         {/* Introduction */}
         <section className="py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <Card className="backdrop-blur-lg bg-card/80 border-border/20 shadow-xl">
+            <Card className="backdrop-blur-lg bg-card/80 border-border/20 shadow-xl hover-scale transition-all duration-500 hover:shadow-2xl animate-fade-in">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
                   <TrendingUp className="h-6 w-6 text-primary" />
@@ -79,13 +80,13 @@ const TarifsAides = () => {
         {/* Tarifs de rachat */}
         <section className="py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in solar-hover">
               Tarifs de rachat EDF OA – 3ᵉ trimestre 2025
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8">
               {/* Vente du surplus */}
-              <Card className="backdrop-blur-lg bg-card/80 border-border/20 shadow-xl">
+              <Card className="backdrop-blur-lg bg-card/80 border-border/20 shadow-xl hover-scale transition-all duration-500 hover:shadow-2xl animate-fade-in [animation-delay:200ms]">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
                     <Zap className="h-6 w-6 text-primary" />
@@ -97,34 +98,34 @@ const TarifsAides = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <div className="border rounded-lg p-4 bg-background/50">
+                    <div className="border rounded-lg p-4 bg-background/50 hover-scale transition-all duration-300 hover:shadow-lg hover:bg-background/70">
                       <div className="flex justify-between items-start mb-2">
                         <span className="font-semibold">≤ 9 kWc</span>
-                        <Badge variant="secondary">0,40 €/kWh</Badge>
+                        <Badge variant="secondary" className="solar-hover">0,40 €/kWh</Badge>
                       </div>
                       <p className="text-sm text-muted-foreground">Prime : 80 €/kWc</p>
                     </div>
                     
-                    <div className="border rounded-lg p-4 bg-background/50">
+                    <div className="border rounded-lg p-4 bg-background/50 hover-scale transition-all duration-300 hover:shadow-lg hover:bg-background/70">
                       <div className="flex justify-between items-start mb-2">
                         <span className="font-semibold">9 à 36 kWc</span>
-                        <Badge variant="secondary">0,0731 €/kWh</Badge>
+                        <Badge variant="secondary" className="solar-hover">0,0731 €/kWh</Badge>
                       </div>
                       <p className="text-sm text-muted-foreground">Prime : 180 €/kWc</p>
                     </div>
                     
-                    <div className="border rounded-lg p-4 bg-background/50">
+                    <div className="border rounded-lg p-4 bg-background/50 hover-scale transition-all duration-300 hover:shadow-lg hover:bg-background/70">
                       <div className="flex justify-between items-start mb-2">
                         <span className="font-semibold">36 à 100 kWc</span>
-                        <Badge variant="secondary">0,0731 €/kWh</Badge>
+                        <Badge variant="secondary" className="solar-hover">0,0731 €/kWh</Badge>
                       </div>
                       <p className="text-sm text-muted-foreground">Prime : 90 €/kWc</p>
                     </div>
                     
-                    <div className="border rounded-lg p-4 bg-background/50">
+                    <div className="border rounded-lg p-4 bg-background/50 hover-scale transition-all duration-300 hover:shadow-lg hover:bg-background/70">
                       <div className="flex justify-between items-start mb-2">
                         <span className="font-semibold">100 à 500 kWc</span>
-                        <Badge variant="secondary">0,0886 €/kWh</Badge>
+                        <Badge variant="secondary" className="solar-hover">0,0886 €/kWh</Badge>
                       </div>
                       <p className="text-sm text-muted-foreground">Non éligible à la prime</p>
                     </div>
@@ -133,7 +134,7 @@ const TarifsAides = () => {
               </Card>
 
               {/* Vente en totalité */}
-              <Card className="backdrop-blur-lg bg-card/80 border-border/20 shadow-xl">
+              <Card className="backdrop-blur-lg bg-card/80 border-border/20 shadow-xl hover-scale transition-all duration-500 hover:shadow-2xl animate-fade-in [animation-delay:400ms]">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
                     <Euro className="h-6 w-6 text-primary" />
