@@ -550,15 +550,15 @@ const Professionnels = () => {
                 </div>
                 <div className="flex justify-between">
                   <span>Économies annuelles</span>
-                  <span className="font-semibold text-secondary">15 000 €</span>
+                  <span className="font-semibold text-primary">15 000 €</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Retour sur investissement</span>
-                  <span className="font-semibold text-secondary">6-7 ans</span>
+                  <span className="font-semibold text-primary">6-7 ans</span>
                 </div>
                 <div className="flex justify-between border-t pt-4">
                   <span>Bénéfices sur 25 ans</span>
-                  <span className="font-bold text-2xl text-secondary">275 000 €</span>
+                  <span className="font-bold text-2xl text-primary">275 000 €</span>
                 </div>
               </CardContent>
             </Card>
