@@ -26,6 +26,7 @@ import BatterieSolairePro from "./pages/BatterieSolairePro";
 import CommercePro from "./pages/CommercePro";
 import ZoneIntervention from "./pages/ZoneIntervention";
 import MentionsLegales from "./pages/MentionsLegales";
+import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -55,6 +56,7 @@ const App = () => (
             <Route path="/agriculteurs" element={<Agriculteurs />} />
             <Route path="/marches-publics" element={<MarchesPublics />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
+            <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
             <Route path="/simulateur" element={<Simulateur />} />
             <Route path="/zone-intervention" element={<ZoneIntervention />} />
             <Route path="/contact" element={<Contact />} />
