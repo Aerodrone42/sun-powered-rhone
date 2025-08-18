@@ -24,6 +24,7 @@ import InstallationConsommationPro from "./pages/InstallationConsommationPro";
 import BorneRechargePro from "./pages/BorneRechargePro";
 import BatterieSolairePro from "./pages/BatterieSolairePro";
 import CommercePro from "./pages/CommercePro";
+import ZoneIntervention from "./pages/ZoneIntervention";
 import MentionsLegales from "./pages/MentionsLegales";
 import NotFound from "./pages/NotFound";
 
@@ -55,6 +56,7 @@ const App = () => (
             <Route path="/marches-publics" element={<MarchesPublics />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/simulateur" element={<Simulateur />} />
+            <Route path="/zone-intervention" element={<ZoneIntervention />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/sitemap.xml" element={<SitemapRedirect />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

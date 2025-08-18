@@ -144,7 +144,7 @@ const Footer = () => {
               {[
                 { to: "/simulateur", label: "Simulateur solaire" },
                 { to: "/contact", label: "Contact & Devis" },
-                { to: "/", label: "Zone d'intervention" }
+                { to: "/zone-intervention", label: "Zone d'intervention" }
               ].map((link) => (
                 <Link 
                   key={link.to}
