@@ -8,7 +8,7 @@ const SunParticles = () => {
     canvas.style.top = '0';
     canvas.style.left = '0';
     canvas.style.pointerEvents = 'none';
-    canvas.style.zIndex = '9999';
+    canvas.style.zIndex = '1000'; // Réduire le z-index pour qu'il soit derrière le texte mais devant la vidéo
     document.body.appendChild(canvas);
     
     const ctx = canvas.getContext('2d');
