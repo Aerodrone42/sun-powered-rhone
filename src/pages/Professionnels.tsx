@@ -3,6 +3,7 @@ import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import SolarCallButton from "@/components/SolarCallButton"
 import ServiceCard from "@/components/ServiceCard"
+import ProfessionalPortfolio from "@/components/ProfessionalPortfolio"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Helmet } from "react-helmet-async"
@@ -194,6 +195,9 @@ const Professionnels = () => {
           </div>
         </div>
       </section>
+
+      {/* Professional Portfolio Section */}
+      <ProfessionalPortfolio />
 
       {/* Stats Section */}
       <section className="py-16 bg-card/50 backdrop-blur-sm">
