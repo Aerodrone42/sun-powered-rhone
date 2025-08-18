@@ -276,7 +276,9 @@ const Index = () => {
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 left-20 w-32 h-32 bg-yellow-400/30 rounded-full blur-2xl animate-float"></div>
-          <div className="absolute bottom-20 right-10 w-48 h-48 bg-orange-500/20 rounded-full blur-3xl animate-float" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-20 right-10 w-48 h-48 bg-orange-500/20 rounded-full blur-3xl animate-float" style={{
+          animationDelay: '1s'
+        }}></div>
         </div>
         
         <div className="container relative z-10">
@@ -303,7 +305,9 @@ const Index = () => {
                 <div className="text-center">
                   <div className="text-3xl font-bold text-gray-300 mb-2">400-500W</div>
                   <div className="w-full bg-gray-700 rounded-full h-4 mb-4">
-                    <div className="bg-gray-500 h-4 rounded-full" style={{width: '50%'}}></div>
+                    <div className="bg-gray-500 h-4 rounded-full" style={{
+                    width: '50%'
+                  }}></div>
                   </div>
                   <p className="text-gray-400">Performance standard</p>
                 </div>
@@ -320,9 +324,11 @@ const Index = () => {
                 <div className="text-center">
                   <div className="text-3xl font-bold text-yellow-400 mb-2">770-930W</div>
                   <div className="w-full bg-gray-700 rounded-full h-4 mb-4">
-                    <div className="bg-gradient-to-r from-yellow-400 to-orange-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                    <div className="bg-gradient-to-r from-yellow-400 to-orange-500 h-4 rounded-full" style={{
+                    width: '100%'
+                  }}></div>
                   </div>
-                  <p className="text-yellow-400 font-medium">Technologie bifaciale 2024</p>
+                  <p className="text-yellow-400 font-medium">Technologie bifaciale 2025</p>
                 </div>
               </div>
             </div>
