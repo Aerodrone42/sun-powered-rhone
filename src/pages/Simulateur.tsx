@@ -396,8 +396,8 @@ const SolarSimulator = () => {
       }
     } else {
       // Maison: calcul basé sur la surface de toit disponible
-      // Panneau 700-850W fait 2380 x 1300 mm = 3.094 m²
-      const panelSurface = 3.094;
+      // Panneau 700-850W fait 3.0 m² (spécification client)
+      const panelSurface = 3.0;
       // On utilise 65-70% de la surface de toit pour l'espacement, bords, obstacles
       const usableSurface = roofSurface * 0.68;
       const theoreticalPanels = Math.floor(usableSurface / panelSurface);
@@ -1013,7 +1013,7 @@ const SolarSimulator = () => {
                       </div>
                       <div className="flex justify-between items-center p-3 bg-background rounded-lg">
                         <span>Surface par panneau</span>
-                        <span className="font-bold">≈ 2.4 m²</span>
+                        <span className="font-bold">≈ 3.0 m²</span>
                       </div>
                       <div className="flex justify-between items-center p-3 bg-background rounded-lg">
                         <span>Rendement</span>
@@ -1042,7 +1042,7 @@ const SolarSimulator = () => {
                       <div className="flex justify-between items-center p-3 bg-background rounded-lg">
                         <span>Surface par panneau</span>
                         <span className="font-bold">
-                          ≈ 2.4 m² 
+                          ≈ 3.0 m² 
                           <span className="ml-2 bg-primary text-primary-foreground px-2 py-1 rounded-full text-xs">Même</span>
                         </span>
                       </div>
