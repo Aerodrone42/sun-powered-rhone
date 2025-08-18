@@ -117,19 +117,23 @@ const Index = () => {
         <div className="absolute bottom-8 left-4 right-4 md:left-8 md:top-1/2 md:transform md:-translate-y-1/2 md:right-auto z-10">
           <div className="max-w-md md:max-w-lg">
             <div className="text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-400/90 to-orange-500/90 rounded-full mb-4 md:mb-6">
+                <span className="text-sm md:text-base font-bold text-black">🚀 PANNEAUX 2x PLUS PUISSANTS</span>
+                <span className="text-xs md:text-sm font-medium text-black/80">770-930W vs 400-500W</span>
+              </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 leading-tight text-center md:text-left">
                 <span className="bg-hero-gradient bg-clip-text text-transparent drop-shadow-lg">L'énergie solaire</span>
                 <br />
                 <span className="text-white drop-shadow-xl">pour votre avenir</span>
               </h1>
               <p className="text-sm md:text-lg lg:text-xl text-white/95 mb-6 md:mb-8 leading-relaxed text-center md:text-left drop-shadow-lg">
-                Spécialiste de l'installation de panneaux solaires en Rhône-Alpes et dans toute la France.
+                Spécialiste de l'installation de <strong>panneaux solaires 2x plus puissants</strong> en Rhône-Alpes et dans toute la France.
                 <br className="hidden lg:block" />
-                Réduisez vos factures et participez à la transition énergétique.
+                <strong>Technologie 2024</strong> - Réduisez vos factures et participez à la transition énergétique.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start">
                 <Button asChild variant="glass" size="lg" className="shadow-premium btn-solar">
-                  <Link to="/contact">Devis gratuit</Link>
+                  <Link to="/contact">Découvrez nos panneaux 2x plus puissants</Link>
                 </Button>
                 <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25 btn-solar">
                   <Link to="/simulateur">Simulateur</Link>
@@ -258,6 +262,110 @@ const Index = () => {
                 </div>
               </div>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Avantage Technologique Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 left-20 w-32 h-32 bg-yellow-400/30 rounded-full blur-2xl animate-float"></div>
+          <div className="absolute bottom-20 right-10 w-48 h-48 bg-orange-500/20 rounded-full blur-3xl animate-float" style={{animationDelay: '1s'}}></div>
+        </div>
+        
+        <div className="container relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 border border-yellow-400/30 rounded-full mb-6">
+              <span className="text-yellow-400 font-bold">⚡ AVANTAGE TECHNOLOGIQUE</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Nos panneaux sont <span className="text-yellow-400">2x plus puissants</span> que la concurrence
+            </h2>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+              Grâce à notre technologie bifaciale 2024, divisez par 2 le nombre de panneaux nécessaires
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            {/* Comparison Visual */}
+            <div className="space-y-8">
+              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-8 border border-gray-700">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-gray-400 text-lg font-medium">Panneaux standard marché</span>
+                  <span className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">2020-2023</span>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-gray-300 mb-2">400-500W</div>
+                  <div className="w-full bg-gray-700 rounded-full h-4 mb-4">
+                    <div className="bg-gray-500 h-4 rounded-full" style={{width: '50%'}}></div>
+                  </div>
+                  <p className="text-gray-400">Performance standard</p>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-yellow-400/10 to-orange-500/10 rounded-3xl p-8 border-2 border-yellow-400/30 relative overflow-hidden">
+                <div className="absolute top-2 right-2">
+                  <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-black rounded-full text-sm font-bold">2x PLUS PUISSANT</span>
+                </div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-yellow-400 text-lg font-medium">Panneaux WN Energies</span>
+                  <span className="px-3 py-1 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 text-yellow-400 border border-yellow-400/30 rounded-full text-sm font-bold">2024</span>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-yellow-400 mb-2">770-930W</div>
+                  <div className="w-full bg-gray-700 rounded-full h-4 mb-4">
+                    <div className="bg-gradient-to-r from-yellow-400 to-orange-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                  </div>
+                  <p className="text-yellow-400 font-medium">Technologie bifaciale 2024</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Benefits */}
+            <div className="space-y-6">
+              <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-2xl p-6 border border-green-500/20">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-2xl">📊</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-green-400 mb-2">Production 2x supérieure</h3>
+                    <p className="text-gray-300">Même surface, production double grâce à la technologie bifaciale</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-2xl p-6 border border-blue-500/20">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-2xl">🏠</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-blue-400 mb-2">Moins de panneaux nécessaires</h3>
+                    <p className="text-gray-300">Divisez par 2 le nombre de panneaux pour la même production</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl p-6 border border-purple-500/20">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-2xl">💰</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-purple-400 mb-2">ROI accéléré</h3>
+                    <p className="text-gray-300">Retour sur investissement plus rapide grâce à la performance</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center mt-8">
+                <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold hover:from-yellow-500 hover:to-orange-600">
+                  <Link to="/contact">Découvrir notre technologie 2024</Link>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -420,20 +528,20 @@ const Index = () => {
               
               <div className="space-y-4 mb-8">
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 rounded-full bg-secondary" />
-                  <span>Expertise technique reconnue</span>
+                  <div className="w-2 h-2 rounded-full bg-yellow-500" />
+                  <span><strong>Panneaux bifaciaux 2x plus puissants</strong> - 770-930W vs 400-500W standard marché</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary" />
-                  <span>Installation et maintenance complètes</span>
+                  <span><strong>Technologie 2024</strong> - Innovation bifaciale dernière génération</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary" />
-                  <span>Accompagnement administratif</span>
+                  <span>Expertise technique reconnue et installation complète</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary" />
-                  <span>Garanties fabricant et pose</span>
+                  <span>Accompagnement administratif et garanties fabricant</span>
                 </div>
               </div>
               
