@@ -108,7 +108,7 @@ const Index = () => {
         backfaceVisibility: 'hidden',
         transform: 'translateZ(0)',
         willChange: 'transform',
-        objectPosition: 'center 20%' // Décale la vidéo vers le haut sur mobile
+        objectPosition: 'center 10%' // Remonte l'animation de la vidéo encore plus haut
       }}>
           <source src="https://cdn.midjourney.com/video/f87b7039-d3ef-4bf4-a409-96b1ee509d06/0.mp4" type="video/mp4" />
           Your browser does not support the video tag.
