@@ -544,7 +544,7 @@ const Index = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary" />
-                  <span><strong>Technologie 2024</strong> - Innovation bifaciale dernière génération</span>
+                  <span><strong>Technologie 2025</strong> - Innovation bifaciale dernière génération</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary" />
