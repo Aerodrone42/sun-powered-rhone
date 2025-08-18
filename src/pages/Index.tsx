@@ -593,7 +593,7 @@ const Index = () => {
                 <Link to="/contact">Devis gratuit</Link>
               </Button>
               <Button asChild variant="outline" size="xl" className="btn-solar">
-                <Link to="/zone-intervention">Zone d'intervention</Link>
+                <Link to="/contact">Zone d'intervention</Link>
               </Button>
             </div>
           </Card>
