@@ -296,7 +296,7 @@ const TarifsAides = () => {
                     <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold">Exonération d'impôt</h4>
-                      <p className="text-sm text-muted-foreground">Exonération partielle d'impôt sur les revenus issus de la revente pour les petites installations (< 3 kWc)</p>
+                      <p className="text-sm text-muted-foreground">Exonération partielle d&apos;impôt sur les revenus issus de la revente pour les petites installations (&lt; 3 kWc)</p>
                     </div>
                   </div>
                 </div>
