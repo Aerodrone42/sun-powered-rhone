@@ -101,24 +101,33 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
-        <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline preload="auto" poster={heroImage} style={{
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
+        {/* Vidéo cachée sur mobile, visible sur desktop */}
+        <video className="absolute inset-0 w-full h-full object-cover hidden md:block" autoPlay loop muted playsInline preload="auto" poster={heroImage} style={{
         filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
         imageRendering: 'crisp-edges',
         backfaceVisibility: 'hidden',
         transform: 'translateZ(0)',
-        willChange: 'transform',
-        objectPosition: 'center 10%' // Remonte l'animation de la vidéo encore plus haut
+        willChange: 'transform'
       }}>
           <source src="https://cdn.midjourney.com/video/f87b7039-d3ef-4bf4-a409-96b1ee509d06/0.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
+        {/* Image de fond pour mobile */}
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center md:hidden"
+          style={{
+            backgroundImage: `url(${heroImage})`,
+            filter: 'contrast(1.15) saturate(1.3) brightness(1.05)'
+          }}
+        ></div>
+        
         {/* Overlay pour améliorer la lisibilité du texte */}
         <div className="absolute inset-0 bg-black/20"></div>
         
         
-        <div className="absolute inset-x-4 bottom-2 md:bottom-4 md:inset-x-8 z-10">
+        <div className="absolute inset-x-4 bottom-8 md:bottom-4 md:inset-x-8 z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
