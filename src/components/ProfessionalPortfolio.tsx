@@ -27,7 +27,7 @@ const ProfessionalPortfolio = () => {
       description: "Intégration architecturale et performance énergétique"
     },
     {
-      src: "/lovable-uploads/9e129e15-8825-49c4-bd31-b2bbd1099249.png",
+      src: "/usine-solaire-clean.jpg",
       alt: "Installation solaire industrielle vue aérienne",
       title: "Site industriel",
       description: "Installation grande échelle pour industrie"
