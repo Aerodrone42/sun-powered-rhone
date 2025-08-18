@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import ServiceCard from "@/components/ServiceCard"
+import SolarPortfolio from "@/components/SolarPortfolio"
 
 import SolarCallButton from "@/components/SolarCallButton"
 import { Button } from "@/components/ui/button"
@@ -168,6 +169,9 @@ const Particuliers = () => {
           </div>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <SolarPortfolio />
 
       {/* Advantages Section */}
       <section id="avantages" className="py-24 relative overflow-hidden">
