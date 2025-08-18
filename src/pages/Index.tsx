@@ -102,7 +102,7 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
-        <video className="absolute inset-0 w-full h-full object-cover object-center md:object-right" autoPlay loop muted playsInline preload="auto" poster={heroImage} style={{
+        <video className="absolute inset-0 w-full h-full object-cover object-top md:object-center" autoPlay loop muted playsInline preload="auto" poster={heroImage} style={{
         filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
         imageRendering: 'crisp-edges',
         backfaceVisibility: 'hidden',
