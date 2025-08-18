@@ -121,7 +121,15 @@ const SolarPortfolio = () => {
                       
                       {/* Hover overlay */}
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-                        <Button variant="secondary" size="lg" className="bg-white/90 text-black hover:bg-white">
+                        <Button 
+                          variant="secondary" 
+                          size="lg" 
+                          className="bg-white/90 text-black hover:bg-white"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openModal(index);
+                          }}
+                        >
                           <ZoomIn className="w-5 h-5 mr-2" />
                           Voir en grand
                         </Button>
