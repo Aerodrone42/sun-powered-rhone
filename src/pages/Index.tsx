@@ -113,6 +113,9 @@ const Index = () => {
           Your browser does not support the video tag.
         </video>
         
+        {/* Overlay pour améliorer la lisibilité du texte */}
+        <div className="absolute inset-0 bg-black/20"></div>
+        
         
         <div className="absolute inset-x-4 bottom-8 md:inset-x-8 z-10">
           <div className="max-w-2xl mx-auto">
