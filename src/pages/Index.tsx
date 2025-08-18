@@ -118,7 +118,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/20"></div>
         
         
-        <div className="absolute inset-x-4 bottom-8 md:bottom-4 md:inset-x-8 z-10">
+        <div className="absolute inset-x-4 bottom-4 md:bottom-4 md:inset-x-8 z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
