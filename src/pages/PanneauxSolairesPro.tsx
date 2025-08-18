@@ -222,8 +222,8 @@ const PanneauxSolairesPro = () => {
                     </div>
 
                     <div className="pt-4 border-t border-border">
-                      <Button variant="outline" size="sm" className="w-full">
-                        Calculer mon ROI
+                      <Button variant="outline" size="sm" className="w-full" asChild>
+                        <Link to="/simulateur">Calculer mon ROI</Link>
                       </Button>
                     </div>
                   </CardContent>
