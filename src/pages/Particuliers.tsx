@@ -218,7 +218,7 @@ const Particuliers = () => {
               </Badge>
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Pourquoi choisir le <span className="bg-gradient-to-r from-primary via-primary-variant to-accent bg-clip-text text-transparent">solaire</span> ?
+              Pourquoi choisir le <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">solaire</span> ?
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Découvrez tous les avantages d'une installation solaire pour votre domicile et votre portefeuille
