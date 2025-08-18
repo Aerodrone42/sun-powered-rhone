@@ -173,6 +173,35 @@ const Particuliers = () => {
       {/* Portfolio Section */}
       <SolarPortfolio />
 
+      {/* Financial Slogan Section */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 via-secondary/5 to-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10"></div>
+        <div className="container relative z-10 text-center">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+            Jusqu'à <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">70%</span> d'économies
+          </h2>
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 text-muted-foreground">
+            sur vos factures d'électricité
+          </h3>
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 text-lg md:text-xl text-foreground/80">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-primary"></div>
+              <span className="font-semibold">Investissement rentable</span>
+            </div>
+            <div className="hidden md:block w-px h-6 bg-border"></div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-secondary"></div>
+              <span className="font-semibold">Remboursement en 8-12 ans</span>
+            </div>
+            <div className="hidden md:block w-px h-6 bg-border"></div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-accent"></div>
+              <span className="font-semibold">25 ans de garantie</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Advantages Section */}
       <section id="avantages" className="py-24 relative overflow-hidden">
         {/* Background Elements */}

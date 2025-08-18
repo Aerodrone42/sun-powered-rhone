@@ -199,6 +199,35 @@ const Professionnels = () => {
       {/* Professional Portfolio Section */}
       <ProfessionalPortfolio />
 
+      {/* Financial Slogan Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-500/5 via-emerald-500/5 to-slate-800/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10"></div>
+        <div className="container relative z-10 text-center">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+            Transformez vos coûts énergétiques
+          </h2>
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+            en profits
+          </h3>
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 text-lg md:text-xl text-foreground/80">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-primary"></div>
+              <span className="font-semibold">ROI optimisé</span>
+            </div>
+            <div className="hidden md:block w-px h-6 bg-border"></div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-secondary"></div>
+              <span className="font-semibold">Réduction jusqu'à 80% des factures</span>
+            </div>
+            <div className="hidden md:block w-px h-6 bg-border"></div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-accent"></div>
+              <span className="font-semibold">Avantage concurrentiel durable</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section className="py-16 bg-card/50 backdrop-blur-sm">
         <div className="container">

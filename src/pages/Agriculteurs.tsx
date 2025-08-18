@@ -203,6 +203,35 @@ const Agriculteurs = () => {
       {/* Portfolio Section */}
       <AgriculturePortfolio />
 
+      {/* Financial Slogan Section */}
+      <section className="py-20 bg-gradient-to-br from-emerald-500/5 via-green-500/5 to-yellow-500/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-transparent to-green-500/10"></div>
+        <div className="container relative z-10 text-center">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+            Réduisez vos charges
+          </h2>
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-emerald-600 via-green-600 to-yellow-600 bg-clip-text text-transparent">
+            et générez des revenus complémentaires
+          </h3>
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 text-lg md:text-xl text-foreground/80">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+              <span className="font-semibold">Moins de factures</span>
+            </div>
+            <div className="hidden md:block w-px h-6 bg-border"></div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              <span className="font-semibold">Plus de revenus</span>
+            </div>
+            <div className="hidden md:block w-px h-6 bg-border"></div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <span className="font-semibold">Exploitation rentable sur 25 ans</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SEO Content Section */}
       <section className="py-20">
         <div className="container">
