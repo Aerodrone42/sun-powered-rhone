@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
-
+import AgriculturePortfolio from "@/components/AgriculturePortfolio"
 import SolarCallButton from "@/components/SolarCallButton"
 import ServiceCard from "@/components/ServiceCard"
 import { Button } from "@/components/ui/button"
@@ -199,6 +199,9 @@ const Agriculteurs = () => {
           </div>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <AgriculturePortfolio />
 
       {/* SEO Content Section */}
       <section className="py-20">
