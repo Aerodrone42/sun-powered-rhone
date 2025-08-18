@@ -253,7 +253,7 @@ const ZoneIntervention = () => {
                 <Button variant="secondary" size="lg" asChild>
                   <Link to="/contact">Étude gratuite</Link>
                 </Button>
-                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary" asChild>
+                <Button variant="outline" size="lg" className="border-white/80 bg-white/10 text-white hover:bg-white hover:text-primary" asChild>
                   <Link to="/simulateur">Simulateur en ligne</Link>
                 </Button>
               </div>
