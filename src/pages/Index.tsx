@@ -151,7 +151,7 @@ const Index = () => {
       </section>
 
       {/* Choix de profil */}
-      <section className="py-12 relative overflow-hidden bg-gradient-to-br from-background via-primary/5 to-secondary/5">
+      <section className="py-8 relative overflow-hidden bg-gradient-to-br from-background via-primary/5 to-secondary/5">
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 left-20 w-32 h-32 bg-primary/20 rounded-full blur-2xl animate-float"></div>
@@ -164,7 +164,7 @@ const Index = () => {
         </div>
         
         <div className="container relative z-10">
-          <div className="text-center mb-20 relative">
+          <div className="text-center mb-12 relative">
             {/* Background geometric shapes */}
             <div className="absolute inset-0 -z-10">
               <div className="absolute top-0 left-1/4 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-float"></div>
@@ -272,7 +272,7 @@ const Index = () => {
       </section>
 
       {/* Avantage Technologique Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white relative overflow-hidden">
+      <section className="py-12 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 left-20 w-32 h-32 bg-yellow-400/30 rounded-full blur-2xl animate-float"></div>
