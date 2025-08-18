@@ -35,8 +35,8 @@ const TarifsAides = () => {
           <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="backdrop-blur-sm bg-background/20 rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl animate-fade-in">
               <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight animate-scale-in">
-                Tarifs EDF OA & 
-                <span className="text-primary block mt-2 drop-shadow-lg solar-hover">Aides Photovoltaïque 2025</span>
+                Tarifs obligations d'achats 
+                <span className="text-primary block mt-2 drop-shadow-lg solar-hover">vente électricité et subventions de l'état</span>
               </h1>
               <p className="text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed font-medium animate-fade-in [animation-delay:200ms]">
                 Découvrez les tarifs de rachat garantis pendant 20 ans et les aides de l'État pour votre installation solaire
