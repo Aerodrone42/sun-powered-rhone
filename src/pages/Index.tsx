@@ -125,7 +125,7 @@ const Index = () => {
                 <br />
                 <span className="text-white drop-shadow-xl">pour votre avenir</span>
               </h1>
-              <p className="text-2xl md:text-3xl lg:text-4xl text-white/95 mb-6 leading-relaxed drop-shadow-lg max-w-lg mx-auto">Spécialistes dans l'innovation, la vente et l'installation de panneaux solaires nouvelle génération en Rhône alpes et dans toute la France
+              <p className="text-lg text-white/95 mb-6 leading-relaxed drop-shadow-lg max-w-lg mx-auto">Spécialistes dans l'innovation, la vente et l'installation de panneaux solaires nouvelle génération en Rhône alpes et dans toute la France
 
             </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
