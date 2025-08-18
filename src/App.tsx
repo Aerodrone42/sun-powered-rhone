@@ -31,6 +31,7 @@ import NotFound from "./pages/NotFound";
 import TarifsAides from "./pages/TarifsAides";
 
 const queryClient = new QueryClient();
+// Force refresh for TarifsAides route
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
