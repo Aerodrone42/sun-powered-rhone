@@ -101,7 +101,7 @@ const TarifsAides = () => {
                     <div className="border rounded-lg p-4 bg-background/50 hover-scale transition-all duration-300 hover:shadow-lg hover:bg-background/70">
                       <div className="flex justify-between items-start mb-2">
                         <span className="font-semibold">≤ 9 kWc</span>
-                        <Badge variant="secondary" className="solar-hover">0,40 €/kWh</Badge>
+                        <Badge variant="secondary" className="solar-hover">0 €/kWh</Badge>
                       </div>
                       <p className="text-sm text-muted-foreground">Prime : 80 €/kWc</p>
                     </div>
