@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Euro, TrendingUp, Users, Zap, CheckCircle, Factory, Sprout } from "lucide-react";
+import heroImage from "@/assets/tarifs-aides-hero.jpg";
 
 const TarifsAides = () => {
   return (
@@ -17,15 +18,39 @@ const TarifsAides = () => {
       
       <main className="min-h-screen bg-gradient-subtle">
         {/* Hero Section */}
-        <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Tarifs EDF OA & 
-              <span className="text-primary block mt-2">Aides Photovoltaïque 2025</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Découvrez les tarifs de rachat garantis pendant 20 ans et les aides de l'État pour votre installation solaire
-            </p>
+        <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img 
+              src={heroImage} 
+              alt="Panneaux solaires et tarifs EDF" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-background/30"></div>
+          </div>
+          
+          {/* Content */}
+          <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="backdrop-blur-sm bg-background/20 rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
+              <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+                Tarifs EDF OA & 
+                <span className="text-primary block mt-2 drop-shadow-lg">Aides Photovoltaïque 2025</span>
+              </h1>
+              <p className="text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed font-medium">
+                Découvrez les tarifs de rachat garantis pendant 20 ans et les aides de l'État pour votre installation solaire
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <Badge variant="secondary" className="text-lg px-6 py-3 bg-primary/20 text-primary border-primary/30">
+                  <Euro className="w-5 h-5 mr-2" />
+                  Tarifs 2025 Actualisés
+                </Badge>
+                <Badge variant="secondary" className="text-lg px-6 py-3 bg-accent/20 text-accent-foreground border-accent/30">
+                  <CheckCircle className="w-5 h-5 mr-2" />
+                  Aides de l'État
+                </Badge>
+              </div>
+            </div>
           </div>
         </section>
 
