@@ -119,8 +119,8 @@ const SolarPortfolio = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       
-                      {/* Hover overlay */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                      {/* Hover overlay - desktop only */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 hidden md:flex">
                         <Button 
                           variant="secondary" 
                           size="lg" 
@@ -135,10 +135,26 @@ const SolarPortfolio = () => {
                         </Button>
                       </div>
                       
+                      {/* Mobile button - positioned in top right */}
+                      <div className="absolute top-4 right-4 md:hidden">
+                        <Button 
+                          variant="secondary" 
+                          size="sm" 
+                          className="bg-white/90 text-black hover:bg-white touch-manipulation min-h-[40px]"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openModal(index);
+                          }}
+                        >
+                          <ZoomIn className="w-4 h-4 mr-1" />
+                          Voir
+                        </Button>
+                      </div>
+                      
                       {/* Image info */}
-                      <div className="absolute bottom-6 left-6 right-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                        <h3 className="text-2xl font-bold mb-2">{image.title}</h3>
-                        <p className="text-white/90">{image.description}</p>
+                      <div className="absolute bottom-4 left-4 right-4 text-white md:transform md:translate-y-full md:group-hover:translate-y-0 transform translate-y-0 transition-transform duration-500">
+                        <h3 className="text-lg md:text-2xl font-bold mb-1 md:mb-2">{image.title}</h3>
+                        <p className="text-white/90 text-sm md:text-base">{image.description}</p>
                       </div>
                     </div>
                   </div>

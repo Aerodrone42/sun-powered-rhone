@@ -107,12 +107,30 @@ const AgriculturePortfolio = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:opacity-0 md:group-hover:opacity-100 opacity-50 transition-opacity duration-500" />
                       
-                      {/* Hover overlay - always visible on mobile */}
+                      {/* Hover overlay - repositioned on mobile */}
                       <div className="absolute inset-0 flex items-center justify-center md:opacity-0 md:group-hover:opacity-100 opacity-100 transition-all duration-500">
+                        <div className="md:block hidden">
+                          <Button 
+                            variant="secondary" 
+                            size="lg" 
+                            className="bg-white/90 text-black hover:bg-white touch-manipulation min-h-[48px] min-w-[120px]"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              openModal(index);
+                            }}
+                          >
+                            <ZoomIn className="w-5 h-5 mr-2" />
+                            Voir en grand
+                          </Button>
+                        </div>
+                      </div>
+                      
+                      {/* Mobile button - positioned in top right */}
+                      <div className="absolute top-4 right-4 md:hidden">
                         <Button 
                           variant="secondary" 
-                          size="lg" 
-                          className="bg-white/90 text-black hover:bg-white touch-manipulation min-h-[48px] min-w-[120px]"
+                          size="sm" 
+                          className="bg-white/90 text-black hover:bg-white touch-manipulation min-h-[40px]"
                           onClick={(e) => {
                             e.stopPropagation();
                             openModal(index);
@@ -123,15 +141,15 @@ const AgriculturePortfolio = () => {
                             openModal(index);
                           }}
                         >
-                          <ZoomIn className="w-5 h-5 mr-2" />
-                          Voir en grand
+                          <ZoomIn className="w-4 h-4 mr-1" />
+                          Voir
                         </Button>
                       </div>
                       
                       {/* Image info - always visible on mobile */}
-                      <div className="absolute bottom-6 left-6 right-6 text-white md:transform md:translate-y-full md:group-hover:translate-y-0 transform translate-y-0 transition-transform duration-500">
-                        <h3 className="text-2xl font-bold mb-2">{image.title}</h3>
-                        <p className="text-white/90">{image.description}</p>
+                      <div className="absolute bottom-4 left-4 right-4 text-white md:transform md:translate-y-full md:group-hover:translate-y-0 transform translate-y-0 transition-transform duration-500">
+                        <h3 className="text-lg md:text-2xl font-bold mb-1 md:mb-2">{image.title}</h3>
+                        <p className="text-white/90 text-sm md:text-base">{image.description}</p>
                       </div>
                     </div>
                   </div>
