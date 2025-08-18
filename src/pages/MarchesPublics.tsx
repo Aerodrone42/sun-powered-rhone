@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
+import PublicPortfolio from "@/components/PublicPortfolio";
 import SolarCallButton from "@/components/SolarCallButton";
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
@@ -195,6 +195,9 @@ const MarchesPublics = () => {
           </div>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <PublicPortfolio />
 
       {/* Stats Section */}
       <section className="py-16 bg-muted/30">
