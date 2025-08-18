@@ -396,8 +396,8 @@ const SolarSimulator = () => {
       }
     } else {
       // Maison: calcul basé sur la surface de toit disponible
-      // Panneau 700-850W fait 3.0 m² (spécification client)
-      const panelSurface = 3.0;
+      // Panneau concurrence 400-500W fait 2.5 m² vs nos panneaux 3.0 m²
+      const panelSurface = 2.5; // Surface concurrence
       // On utilise 65-70% de la surface de toit pour l'espacement, bords, obstacles
       const usableSurface = roofSurface * 0.68;
       const theoreticalPanels = Math.floor(usableSurface / panelSurface);
@@ -414,8 +414,8 @@ const SolarSimulator = () => {
       }
     }
     
-    // CORRECTION: Utilisation de puissance réaliste 700-850W (moyenne 775W)
-    const classicPower = Math.round(maxPanels * 0.775 * 100) / 100; // 775W moyenne, arrondi à 2 décimales
+    // PANNEAU CONCURRENCE: 400-500W (moyenne 450W)
+    const classicPower = Math.round(maxPanels * 0.450 * 100) / 100; // 450W moyenne concurrence
     const classicPanels = maxPanels;
     const classicSurface = availableSurface;
     
@@ -442,12 +442,12 @@ const SolarSimulator = () => {
     const classicSurplusMax = classicProductionMax - classicAutoconsumedMax;
     const classicSavingsMax = Math.round(classicAutoconsumedMax * electricityPrice + classicSurplusMax * surplusSellPrice);
 
-    // PANNEAUX 700-850W NOUVELLE GÉNÉRATION (même puissance + 25-30% rendement supplémentaire)
-    const newGenPower = classicPower; // Même puissance installée
+    // PANNEAUX BIFACIAUX 770-930W (moyenne 850W) - Presque 2x plus puissants
+    const newGenPower = Math.round(maxPanels * 0.850 * 100) / 100; // 850W moyenne bifacial
     const newGenPanels = classicPanels; // Même nombre de panneaux
-    const newGenSurface = classicSurface; // Même surface utilisée
-    const newGenProductionMin = Math.round(classicProductionMin * 1.25); // +25% de rendement
-    const newGenProductionMax = Math.round(classicProductionMax * 1.30); // +30% de rendement
+    const newGenSurface = Math.round(maxPanels * 3.0 * 100) / 100; // 3.0 m² par panneau bifacial
+    const newGenProductionMin = Math.round(newGenPower * officialProductionPerKwc * 0.95); // Production réelle bifacial
+    const newGenProductionMax = Math.round(newGenPower * officialProductionPerKwc * 0.98); // Production optimale bifacial
     
     // Calcul économies nouvelle génération avec nouveau tarif officiel 2025
     const newGenSurplusSellPrice = 0.04; // 4 centimes d'euro/kWh - Tarif uniforme
@@ -459,7 +459,7 @@ const SolarSimulator = () => {
     const newGenSurplusMax = Math.max(0, newGenProductionMax - annualConsumption);
     const newGenSavingsMax = Math.round(newGenAutoconsumedMax * 0.21 + newGenSurplusMax * newGenSurplusSellPrice);
 
-    // Avantages
+    // Avantages bifaciaux vs concurrence
     const productionGainMin = newGenProductionMin - classicProductionMax;
     const productionGainMax = newGenProductionMax - classicProductionMin;
     const savingsGainMin = newGenSavingsMin - classicSavingsMax;
@@ -485,7 +485,7 @@ const SolarSimulator = () => {
       // Calcul production mensuelle basée sur l'irradiation relative
       const monthlyProductionRatio = monthIrradiation / monthlyIrradiationBase.reduce((a, b) => a + b, 0);
       const monthClassicProduction = Math.round(classicProductionMin * monthlyProductionRatio);
-      const monthNewGenProduction = Math.round(monthClassicProduction * 1.275); // +27.5% moyenne
+      const monthNewGenProduction = Math.round(newGenProductionMin * monthlyProductionRatio); // Production bifaciale réelle
       const percentage = Math.round((monthNewGenProduction / newGenProductionMin) * 100);
       
       return {
@@ -529,7 +529,7 @@ const SolarSimulator = () => {
         spaceSaved: Math.round(roofSurface - newGenSurface),
         autonomy,
         co2Saved,
-        efficiency: '25-30%'
+        efficiency: '+80% à +100%'
       },
       monthlyData: monthlyProductionData
     };
@@ -996,24 +996,24 @@ const SolarSimulator = () => {
 
                 {/* Comparatif technologies */}
                 <h3 className="text-2xl font-bold text-foreground mt-8">
-                  🔬 Panneaux 700-850W : Standard vs Nouvelle Génération
+                  🔬 Comparaison : Concurrence 400-500W vs Nos panneaux bifaciaux 770-930W
                 </h3>
 
                 <div className="grid md:grid-cols-2 gap-6">
                    <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
-                    <h3 className="text-xl font-bold text-card-foreground mb-4">🔶 Panneaux 700-850W Standards</h3>
+                    <h3 className="text-xl font-bold text-card-foreground mb-4">🔶 Panneaux 400-500W Concurrence</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center p-3 bg-background rounded-lg">
                         <span>Puissance</span>
-                        <span className="font-bold">700-850W</span>
+                        <span className="font-bold">400-500W</span>
                       </div>
                       <div className="flex justify-between items-center p-3 bg-background rounded-lg">
                         <span>Technologie</span>
-                        <span className="font-bold">Standard actuelle</span>
+                        <span className="font-bold">Standard marché</span>
                       </div>
                       <div className="flex justify-between items-center p-3 bg-background rounded-lg">
                         <span>Surface par panneau</span>
-                        <span className="font-bold">≈ 3.0 m²</span>
+                        <span className="font-bold">≈ 2.5 m²</span>
                       </div>
                       <div className="flex justify-between items-center p-3 bg-background rounded-lg">
                         <span>Rendement</span>
@@ -1023,19 +1023,19 @@ const SolarSimulator = () => {
                   </div>
 
                    <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
-                    <h3 className="text-xl font-bold text-card-foreground mb-4">⚡ Panneaux 700-850W Nouvelle Génération</h3>
+                    <h3 className="text-xl font-bold text-card-foreground mb-4">⚡ Panneaux 770-930W Bifaciaux</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center p-3 bg-background rounded-lg">
                         <span>Puissance</span>
                         <span className="font-bold">
-                          700-850W 
-                          <span className="ml-2 bg-primary text-primary-foreground px-2 py-1 rounded-full text-xs">Même</span>
+                          770-930W 
+                          <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">x2</span>
                         </span>
                       </div>
                       <div className="flex justify-between items-center p-3 bg-background rounded-lg">
                         <span>Technologie</span>
                         <span className="font-bold">
-                          Nouvelle génération 
+                          Bifaciale avancée 
                           <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">2024</span>
                         </span>
                       </div>
@@ -1043,14 +1043,14 @@ const SolarSimulator = () => {
                         <span>Surface par panneau</span>
                         <span className="font-bold">
                           ≈ 3.0 m² 
-                          <span className="ml-2 bg-primary text-primary-foreground px-2 py-1 rounded-full text-xs">Même</span>
+                          <span className="ml-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs">Plus efficace</span>
                         </span>
                       </div>
                       <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                        <span>Rendement</span>
+                        <span>Rendement vs concurrence</span>
                         <span className="font-bold">
-                          +25% à +30% 
-                          <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">NOUVEAU</span>
+                          +80% à +100% 
+                          <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">BIFACIAL</span>
                         </span>
                       </div>
                     </div>
@@ -1137,7 +1137,8 @@ const SolarSimulator = () => {
                     </div>
                     <div className="ml-3">
                       <p className="text-sm text-blue-700">
-                        Les panneaux nouvelle génération offrent 25-30% de rendement supplémentaire à puissance égale !
+                        Nos panneaux bifaciaux 770-930W produisent 80-100% de plus que la concurrence 400-500W ! 
+                        La technologie bifaciale capture l'énergie des deux faces du panneau.
                       </p>
                     </div>
                   </div>
@@ -1173,7 +1174,7 @@ const SolarSimulator = () => {
               {/* Comparatif des résultats */}
               <div className="grid md:grid-cols-2 gap-6">
                  <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
-                  <h3 className="text-xl font-bold text-card-foreground mb-6">🔶 Panneaux 700-850W Standards</h3>
+                  <h3 className="text-xl font-bold text-card-foreground mb-6">🔶 Panneaux 400-500W Concurrence</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
                       <span>Puissance installée</span>
@@ -1199,7 +1200,7 @@ const SolarSimulator = () => {
                 </div>
 
                 <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
-                  <h3 className="text-xl font-bold text-card-foreground mb-6">⚡ Panneaux 700-850W Nouvelle Génération</h3>
+                  <h3 className="text-xl font-bold text-card-foreground mb-6">⚡ Panneaux 770-930W Bifaciaux</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
                       <span>Puissance installée</span>
@@ -1232,8 +1233,8 @@ const SolarSimulator = () => {
                 </div>
               </div>
 
-              {/* Avantages de la nouvelle génération */}
-              <h3 className="text-2xl font-bold text-foreground">💎 Avantages de la nouvelle génération</h3>
+              {/* Avantages de la technologie bifaciale */}
+              <h3 className="text-2xl font-bold text-foreground">💎 Avantages de nos panneaux bifaciaux</h3>
               
               <div className="grid md:grid-cols-3 gap-6">
                  <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
@@ -1311,11 +1312,11 @@ const SolarSimulator = () => {
                    <div className="flex-shrink-0">
                      <div className="text-2xl">📞</div>
                    </div>
-                   <div className="ml-3">
-                     <p className="text-sm text-blue-700">
-                       Contactez nos experts pour obtenir un devis détaillé avec les panneaux nouvelle génération !
-                     </p>
-                   </div>
+                    <div className="ml-3">
+                      <p className="text-sm text-blue-700">
+                        Contactez nos experts pour obtenir un devis détaillé avec nos panneaux bifaciaux haute performance !
+                      </p>
+                    </div>
                  </div>
                </div>
 
