@@ -75,7 +75,7 @@ const ProfessionalPortfolio = () => {
               Nos Réalisations Professionnelles
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Installations <span className="bg-gradient-to-r from-primary via-primary-variant to-accent bg-clip-text text-transparent">industrielles</span>
+              Installations <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">industrielles</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Découvrez nos installations solaires réalisées pour entreprises et collectivités
