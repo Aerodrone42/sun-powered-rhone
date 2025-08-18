@@ -117,15 +117,15 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/20"></div>
         
         
-        <div className="absolute inset-x-4 bottom-4 md:inset-x-8 z-10">
-          <div className="max-w-2xl mx-auto">
-            <div className="text-center bg-black/30 backdrop-blur-sm rounded-2xl p-6">
+        <div className="absolute inset-x-4 bottom-2 md:inset-x-8 z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center">
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-tight">
                 <span className="bg-hero-gradient bg-clip-text text-transparent drop-shadow-lg">L'énergie solaire</span>
                 <br />
                 <span className="text-white drop-shadow-xl">pour votre avenir</span>
               </h1>
-              <p className="text-lg text-white/95 mb-6 leading-relaxed drop-shadow-lg max-w-lg mx-auto">Spécialistes dans l'innovation, la vente et l'installation de panneaux solaires nouvelle génération en Rhône alpes et dans toute la France
+              <p className="text-lg text-white/95 mb-6 leading-relaxed drop-shadow-lg max-w-3xl mx-auto">Spécialistes dans l'innovation, la vente et l'installation de panneaux solaires nouvelle génération en Rhône alpes et dans toute la France
 
             </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
