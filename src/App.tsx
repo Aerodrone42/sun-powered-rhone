@@ -28,6 +28,7 @@ import ZoneIntervention from "./pages/ZoneIntervention";
 import MentionsLegales from "./pages/MentionsLegales";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import NotFound from "./pages/NotFound";
+import TarifsAides from "./pages/TarifsAides";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => (
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
             <Route path="/simulateur" element={<Simulateur />} />
             <Route path="/zone-intervention" element={<ZoneIntervention />} />
+            <Route path="/tarifs-aides" element={<TarifsAides />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/sitemap.xml" element={<SitemapRedirect />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

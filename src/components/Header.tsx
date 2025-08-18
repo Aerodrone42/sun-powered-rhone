@@ -47,6 +47,10 @@ const Header = () => {
       href: "/simulateur",
     },
     {
+      title: "Tarifs & Aides",
+      href: "/tarifs-aides",
+    },
+    {
       title: "Contact",
       href: "/contact",
     },
