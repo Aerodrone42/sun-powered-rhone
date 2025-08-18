@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CallbackForm from "@/components/CallbackForm";
 import SolarCallButton from "@/components/SolarCallButton";
-import { Sun, Home, Building, Zap, Battery, Car, Factory, Users, UserCheck, Briefcase, Tractor, MapPin } from "lucide-react";
+import { Sun, Home, Building, Zap, Battery, Car, Factory, Users, UserCheck, Briefcase, Tractor, MapPin, Rocket } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 import teamWorkImage from "@/assets/team-work.jpg";
 import happyFamilyImage from "@/assets/happy-family.jpg";
@@ -119,7 +119,7 @@ const Index = () => {
             <div className="text-center md:text-left">
               <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl mb-4 md:mb-6 shadow-lg border border-orange-400/30 backdrop-blur-sm hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105">
                 <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                  <span className="text-lg">🚀</span>
+                  <Rocket className="h-5 w-5 text-white" />
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="text-sm md:text-base font-bold text-white">PANNEAUX 2x PLUS PUISSANTS</span>
