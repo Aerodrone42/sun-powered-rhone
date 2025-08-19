@@ -417,7 +417,7 @@ const Index = () => {
               Installateur de panneaux solaires en <span className="text-primary">France</span> - Expert Lyon & Rhône-Alpes
             </h2>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Startup Lyonnaise, nous offrons une technologie encore inégalée. qui positionne nos produits en tant que leader sur le marché français. nous intervenons dans toute la France. 
+              Startup Lyonnaise, nous offrons une technologie encore inégalée. qui positionne nos produits en tant que leader sur le marché français, nous intervenons dans toute la France. 
               <strong>Installateur expert à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest</strong> et sur l'ensemble du territoire français, nous proposons des solutions sur-mesure pour votre indépendance énergétique.
             </p>
           </div>
