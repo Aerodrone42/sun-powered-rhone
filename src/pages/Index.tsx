@@ -106,16 +106,40 @@ const Index = () => {
         <div className="md:hidden">
           {/* Zone vidéo - 60% de la hauteur */}
           <div className="relative h-[60vh] overflow-hidden">
-            <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline preload="auto" poster={heroImage} style={{
-              filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
-              imageRendering: 'crisp-edges',
-              backfaceVisibility: 'hidden',
-              transform: 'translateZ(0)',
-              willChange: 'transform'
-            }}>
+            <video 
+              className="absolute inset-0 w-full h-full object-cover" 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              preload="metadata"
+              poster={heroImage}
+              onCanPlay={(e) => {
+                e.currentTarget.play().catch(() => {
+                  // Fallback si autoplay échoue
+                  console.log('Autoplay bloqué, utilisation du poster');
+                });
+              }}
+              onError={() => {
+                console.log('Erreur de chargement vidéo');
+              }}
+              style={{
+                filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
+                imageRendering: 'crisp-edges',
+                backfaceVisibility: 'hidden',
+                transform: 'translateZ(0)',
+                willChange: 'transform'
+              }}
+            >
               <source src="https://cdn.midjourney.com/video/f87b7039-d3ef-4bf4-a409-96b1ee509d06/0.mp4" type="video/mp4" />
+              {/* Fallback pour les navigateurs ne supportant pas la vidéo */}
+              <img src={heroImage} alt="Panneaux solaires" className="absolute inset-0 w-full h-full object-cover" />
             </video>
             <div className="absolute inset-0 bg-black/20"></div>
+            {/* Indicateur de lecture pour mobile */}
+            <div className="absolute bottom-4 right-4 bg-black/50 rounded-full p-2 text-white text-xs opacity-75">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            </div>
           </div>
           
           {/* Zone texte - 40% de la hauteur */}
@@ -143,14 +167,29 @@ const Index = () => {
 
         {/* Layout desktop : vidéo plein écran avec texte superposé */}
         <div className="hidden md:flex items-center justify-center min-h-screen relative">
-          <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline preload="auto" poster={heroImage} style={{
-            filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
-            imageRendering: 'crisp-edges',
-            backfaceVisibility: 'hidden',
-            transform: 'translateZ(0)',
-            willChange: 'transform'
-          }}>
+          <video 
+            className="absolute inset-0 w-full h-full object-cover" 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            preload="metadata"
+            poster={heroImage}
+            onCanPlay={(e) => {
+              e.currentTarget.play().catch(() => {
+                console.log('Autoplay bloqué sur desktop');
+              });
+            }}
+            style={{
+              filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
+              imageRendering: 'crisp-edges',
+              backfaceVisibility: 'hidden',
+              transform: 'translateZ(0)',
+              willChange: 'transform'
+            }}
+          >
             <source src="https://cdn.midjourney.com/video/f87b7039-d3ef-4bf4-a409-96b1ee509d06/0.mp4" type="video/mp4" />
+            <img src={heroImage} alt="Panneaux solaires" className="absolute inset-0 w-full h-full object-cover" />
           </video>
           <div className="absolute inset-0 bg-black/20"></div>
           
