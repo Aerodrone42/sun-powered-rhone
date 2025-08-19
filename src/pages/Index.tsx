@@ -319,7 +319,7 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Nos panneaux sont <span className="text-yellow-400">2x plus puissants</span> que la concurrence
             </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto">Grâce à notre technologie bifaciale 2025, divisez par 2 le nombre de panneaux nécessaires</p>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto">Grâce à notre technologie solaire 2025, divisez par 2 le nombre de panneaux nécessaires</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -356,7 +356,7 @@ const Index = () => {
                     width: '100%'
                   }}></div>
                   </div>
-                  <p className="text-yellow-400 font-medium">Technologie bifaciale 2025</p>
+                  <p className="text-yellow-400 font-medium">Technologie solaire 2025</p>
                 </div>
               </div>
             </div>
@@ -370,7 +370,7 @@ const Index = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-green-400 mb-2">Production 2x supérieure</h3>
-                    <p className="text-gray-300">Même surface, production double grâce à la technologie bifaciale</p>
+                    <p className="text-gray-300">Même surface, production double grâce à la technologie solaire</p>
                   </div>
                 </div>
               </div>
@@ -566,11 +566,11 @@ const Index = () => {
               <div className="space-y-4 mb-8">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 rounded-full bg-yellow-500" />
-                  <span><strong>Panneaux bifaciaux 2x plus puissants</strong> - 770-930W vs 400-500W standard marché</span>
+                  <span><strong>Panneaux solaires 2x plus puissants</strong> - 770-930W vs 400-500W standard marché</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary" />
-                  <span><strong>Technologie 2025</strong> - Innovation bifaciale dernière génération</span>
+                  <span><strong>Technologie 2025</strong> - Innovation solaire dernière génération</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary" />
