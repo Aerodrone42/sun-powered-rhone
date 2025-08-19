@@ -439,7 +439,7 @@ const InstallationConsommation = () => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <article className="max-w-5xl mx-auto">
               <h2 id="seo-installation-consommation" className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-                Installation autoconsommation solaire : guide expert 2025
+                Installation autoconsommation solaire : guide expert 2026
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 L'<strong>autoconsommation photovoltaïque</strong> représente l'avenir de la consommation énergétique domestique. 

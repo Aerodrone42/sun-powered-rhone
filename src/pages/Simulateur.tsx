@@ -514,7 +514,7 @@ const SolarSimulator = () => {
     const classicAutoconsumed = Math.round(classicProductionMin * selfConsumptionPercent);
     const classicSurplus = classicProductionMin - classicAutoconsumed;
 
-    // Nouveau tarif officiel 2025 (applicable après 27 mars 2025)
+    // Nouveau tarif officiel 2026 (applicable après 27 mars 2026)
     const surplusSellPrice = 0.04; // 4 centimes d'euro/kWh - Tarif uniforme
     const electricityPrice = 0.21; // Prix d'achat électricité
 
@@ -530,7 +530,7 @@ const SolarSimulator = () => {
     const newGenProductionMin = Math.round(newGenPower * officialProductionPerKwc * 0.95); // Production réelle solaire
     const newGenProductionMax = Math.round(newGenPower * officialProductionPerKwc * 0.98); // Production optimale solaire
 
-    // Calcul économies nouvelle génération avec nouveau tarif officiel 2025
+    // Calcul économies nouvelle génération avec nouveau tarif officiel 2026
     const newGenSurplusSellPrice = 0.04; // 4 centimes d'euro/kWh - Tarif uniforme
     const newGenAutoconsumed = Math.round(newGenProductionMin * selfConsumptionPercent);
     const newGenSurplus = newGenProductionMin - newGenAutoconsumed;
@@ -548,7 +548,7 @@ const SolarSimulator = () => {
     const co2Saved = Math.round((newGenProductionMin + newGenProductionMax) / 2 * 0.07);
 
     // Estimation des coûts d'installation (euros TTC)
-    const costPerKwc = 2500; // Prix moyen installation complète 2025
+    const costPerKwc = 2500; // Prix moyen installation complète 2026
     const classicInstallationCost = Math.round(classicPower * costPerKwc);
     const newGenInstallationCost = Math.round(newGenPower * costPerKwc * 1.15); // +15% surcoût technologie
 
@@ -1292,7 +1292,7 @@ const SolarSimulator = () => {
                       <p className="text-sm text-amber-700">
                         <strong>Autoconsommation ({selfConsumptionRate[0]}%) :</strong> {Math.round((results.classic.productionMin + results.classic.productionMax) / 2 * selfConsumptionRate[0] / 100).toLocaleString()} kWh/an à 0,21€/kWh
                         <br />
-                        <strong>Revente surplus ({100 - selfConsumptionRate[0]}%) :</strong> {Math.round((results.classic.productionMin + results.classic.productionMax) / 2 * (100 - selfConsumptionRate[0]) / 100).toLocaleString()} kWh/an à 0,04€/kWh (tarif 2025)
+                        <strong>Revente surplus ({100 - selfConsumptionRate[0]}%) :</strong> {Math.round((results.classic.productionMin + results.classic.productionMax) / 2 * (100 - selfConsumptionRate[0]) / 100).toLocaleString()} kWh/an à 0,04€/kWh (tarif 2026)
                       </p>
                    </div>
                  </div>

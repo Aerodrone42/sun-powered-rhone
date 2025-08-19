@@ -11,8 +11,8 @@ const TarifsAides = () => {
   return (
     <>
       <Helmet>
-        <title>Tarifs EDF OA & Aides Photovoltaïque 2025 | WNE</title>
-        <meta name="description" content="Découvrez les tarifs de rachat EDF OA 2025, les aides et subventions disponibles pour l'installation de panneaux solaires. Guide complet pour particuliers, professionnels et agriculteurs." />
+        <title>Tarifs EDF OA & Aides Photovoltaïque 2026 | WNE</title>
+        <meta name="description" content="Découvrez les tarifs de rachat EDF OA 2026, les aides et subventions disponibles pour l'installation de panneaux solaires. Guide complet pour particuliers, professionnels et agriculteurs." />
         <meta name="keywords" content="tarifs EDF OA, aides photovoltaïque, prime autoconsommation, agrivoltaïsme, rachat électricité, subventions solaires" />
       </Helmet>
       <Header />
@@ -44,7 +44,7 @@ const TarifsAides = () => {
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center animate-fade-in [animation-delay:400ms]">
                 <Badge variant="secondary" className="text-lg px-6 py-3 bg-primary/20 text-primary border-primary/30 hover-scale transition-all duration-300 hover:shadow-glow">
                   <Euro className="w-5 h-5 mr-2" />
-                  Tarifs 2025 Actualisés
+                  Tarifs 2026 Actualisés
                 </Badge>
                 <Badge variant="secondary" className="text-lg px-6 py-3 bg-accent/20 text-accent-foreground border-accent/30 hover-scale transition-all duration-300 hover:shadow-glow">
                   <CheckCircle className="w-5 h-5 mr-2" />
@@ -81,7 +81,7 @@ const TarifsAides = () => {
         <section className="py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in solar-hover">
-              Tarifs de rachat EDF OA – 3ᵉ trimestre 2025
+              Tarifs de rachat EDF OA – 3ᵉ trimestre 2026
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8">

@@ -44,7 +44,7 @@ const PanneauxSolaires = () => {
     },
     {
       q: "Puis-je stocker l'électricité produite ?",
-      a: "Oui, avec une batterie domestique (option). Sans batterie, le surplus est revendu à EDF OA au tarif réglementé (13 centimes/kWh en 2025). Beaucoup de nos clients choisissent d'abord l'autoconsommation simple.",
+      a: "Oui, avec une batterie domestique (option). Sans batterie, le surplus est revendu à EDF OA au tarif réglementé (13 centimes/kWh en 2026). Beaucoup de nos clients choisissent d'abord l'autoconsommation simple.",
     },
     {
       q: "Quelles aides financières puis-je obtenir ?",
@@ -129,7 +129,7 @@ const PanneauxSolaires = () => {
               <div className="space-y-8 animate-fade-in">
                 <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 text-sm font-medium text-primary">
                   <Sun className="w-4 h-4" />
-                  Révolution énergétique 2025
+                  Révolution énergétique 2026
                 </div>
                 
                 <h1 className="text-5xl lg:text-7xl font-bold leading-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
@@ -378,7 +378,7 @@ const PanneauxSolaires = () => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <article className="max-w-5xl mx-auto">
               <h2 id="seo-panneaux-solaires" className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-                Panneaux solaires photovoltaïques : guide complet 2025
+                Panneaux solaires photovoltaïques : guide complet 2026
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 L'installation de <strong>panneaux solaires photovoltaïques</strong> représente un investissement rentable et durable pour votre maison. 

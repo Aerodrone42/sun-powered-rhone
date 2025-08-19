@@ -367,7 +367,7 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Nos panneaux sont <span className="text-yellow-400">2x plus puissants</span> que la concurrence
             </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto">Grâce à notre technologie solaire 2025, divisez par 2 le nombre de panneaux nécessaires</p>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto">Grâce à notre technologie solaire 2026, divisez par 2 le nombre de panneaux nécessaires</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -404,7 +404,7 @@ const Index = () => {
                     width: '100%'
                   }}></div>
                   </div>
-                  <p className="text-yellow-400 font-medium">Technologie solaire 2025</p>
+                  <p className="text-yellow-400 font-medium">Technologie solaire 2026</p>
                 </div>
               </div>
             </div>
@@ -449,7 +449,7 @@ const Index = () => {
 
               <div className="text-center mt-8">
                 <Button asChild variant="default" size="lg" className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold hover:from-yellow-500 hover:to-orange-600">
-                  <Link to="/contact">Découvrir notre technologie 2025</Link>
+                  <Link to="/contact">Découvrir notre technologie 2026</Link>
                 </Button>
               </div>
             </div>
@@ -618,7 +618,7 @@ const Index = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary" />
-                  <span><strong>Technologie 2025</strong> - Innovation solaire dernière génération</span>
+                  <span><strong>Technologie 2026</strong> - Innovation solaire dernière génération</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary" />
