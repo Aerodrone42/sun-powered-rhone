@@ -1,89 +1,54 @@
-import { Link } from "react-router-dom"
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
-import ServiceCard from "@/components/ServiceCard"
-import SolarPortfolio from "@/components/SolarPortfolio"
-
-import SolarCallButton from "@/components/SolarCallButton"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Sun, Home, Zap, Battery, Car, CheckCircle, ArrowRight, Leaf, Euro, Shield, Monitor, TrendingUp, Calendar } from "lucide-react"
-import { Helmet } from "react-helmet-async"
-
+import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ServiceCard from "@/components/ServiceCard";
+import SolarPortfolio from "@/components/SolarPortfolio";
+import SolarCallButton from "@/components/SolarCallButton";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Sun, Home, Zap, Battery, Car, CheckCircle, ArrowRight, Leaf, Euro, Shield, Monitor, TrendingUp, Calendar } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 const Particuliers = () => {
-  const services = [
-    {
-      title: "Panneaux solaires",
-      description: "Installation de panneaux solaires photovoltaïques pour particuliers",
-      icon: Sun,
-      href: "/particuliers/panneaux-solaires",
-      benefits: [
-        "Réduction des factures d'électricité",
-        "Production d'énergie propre",
-        "Valorisation du bien immobilier",
-        "Aides financières disponibles"
-      ]
-    },
-    {
-      title: "Installation en consommation",
-      description: "Solutions d'autoconsommation pour optimiser votre production solaire",
-      icon: Zap,
-      href: "/particuliers/installation-consommation",
-      benefits: [
-        "Consommation directe de l'énergie produite",
-        "Réduction maximale des factures",
-        "Indépendance énergétique",
-        "Monitoring en temps réel"
-      ]
-    },
-    {
-      title: "Borne de recharge électrique",
-      description: "Installation de bornes de recharge alimentées par l'énergie solaire",
-      icon: Car,
-      href: "/particuliers/borne-recharge",
-      benefits: [
-        "Recharge écologique et économique",
-        "Intégration avec installation solaire",
-        "Différentes puissances disponibles",
-        "Installation professionnelle"
-      ]
-    },
-    {
-      title: "Batterie solaire",
-      description: "Solutions de stockage pour une autonomie énergétique maximale",
-      icon: Battery,
-      href: "/particuliers/batterie-solaire",
-      benefits: [
-        "Stockage de l'énergie excédentaire",
-        "Utilisation nocturne de l'énergie solaire",
-        "Sécurité en cas de coupure réseau",
-        "Optimisation de l'autoconsommation"
-      ]
-    }
-  ]
-
-  const advantages = [
-    {
-      title: "Économies garanties",
-      description: "Réduisez vos factures d'électricité jusqu'à 70% dès la première année"
-    },
-    {
-      title: "Installation clé en main",
-      description: "Nous nous occupons de tout : étude, pose, raccordement et démarches administratives"
-    },
-    {
-      title: "Garanties complètes",
-      description: "Garantie fabricant 25 ans sur les panneaux et garantie pose complète"
-    },
-    {
-      title: "Suivi et maintenance",
-      description: "Monitoring de votre installation et maintenance préventive incluse"
-    }
-  ]
-
-  return (
-    <div className="min-h-screen">
+  const services = [{
+    title: "Panneaux solaires",
+    description: "Installation de panneaux solaires photovoltaïques pour particuliers",
+    icon: Sun,
+    href: "/particuliers/panneaux-solaires",
+    benefits: ["Réduction des factures d'électricité", "Production d'énergie propre", "Valorisation du bien immobilier", "Aides financières disponibles"]
+  }, {
+    title: "Installation en consommation",
+    description: "Solutions d'autoconsommation pour optimiser votre production solaire",
+    icon: Zap,
+    href: "/particuliers/installation-consommation",
+    benefits: ["Consommation directe de l'énergie produite", "Réduction maximale des factures", "Indépendance énergétique", "Monitoring en temps réel"]
+  }, {
+    title: "Borne de recharge électrique",
+    description: "Installation de bornes de recharge alimentées par l'énergie solaire",
+    icon: Car,
+    href: "/particuliers/borne-recharge",
+    benefits: ["Recharge écologique et économique", "Intégration avec installation solaire", "Différentes puissances disponibles", "Installation professionnelle"]
+  }, {
+    title: "Batterie solaire",
+    description: "Solutions de stockage pour une autonomie énergétique maximale",
+    icon: Battery,
+    href: "/particuliers/batterie-solaire",
+    benefits: ["Stockage de l'énergie excédentaire", "Utilisation nocturne de l'énergie solaire", "Sécurité en cas de coupure réseau", "Optimisation de l'autoconsommation"]
+  }];
+  const advantages = [{
+    title: "Économies garanties",
+    description: "Réduisez vos factures d'électricité jusqu'à 70% dès la première année"
+  }, {
+    title: "Installation clé en main",
+    description: "Nous nous occupons de tout : étude, pose, raccordement et démarches administratives"
+  }, {
+    title: "Garanties complètes",
+    description: "Garantie fabricant 25 ans sur les panneaux et garantie pose complète"
+  }, {
+    title: "Suivi et maintenance",
+    description: "Monitoring de votre installation et maintenance préventive incluse"
+  }];
+  return <div className="min-h-screen">
       <Helmet>
         <title>Solutions Solaires pour Particuliers | Installations Photovoltaïques Domestiques</title>
         <meta name="description" content="Découvrez nos solutions solaires pour particuliers : panneaux photovoltaïques, autoconsommation, batteries et bornes de recharge. Devis gratuit et installation clé en main." />
@@ -96,11 +61,7 @@ const Particuliers = () => {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/lovable-uploads/20f3f96b-5cc8-48a0-ad82-1d775c339015.png"
-            alt="Pergola solaire moderne avec panneaux photovoltaïques"
-            className="w-full h-full object-cover"
-          />
+          <img src="/lovable-uploads/20f3f96b-5cc8-48a0-ad82-1d775c339015.png" alt="Pergola solaire moderne avec panneaux photovoltaïques" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/60 to-background/30"></div>
         </div>
         
@@ -124,7 +85,7 @@ const Particuliers = () => {
             </h1>
             
             {/* Description */}
-            <p className="text-xl md:text-2xl text-foreground/90 font-medium mb-12 max-w-3xl leading-relaxed animate-fade-in">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl leading-relaxed animate-fade-in">
               Transformez votre toit en centrale électrique. Produisez votre propre énergie verte, 
               réduisez vos factures jusqu'à 70% et valorisez votre patrimoine.
             </p>
@@ -226,41 +187,35 @@ const Particuliers = () => {
           </div>
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                icon: Euro,
-                title: "Économies garanties",
-                description: "Réduisez vos factures d'électricité jusqu'à 70% dès la première année",
-                gradient: "from-green-500/20 to-emerald-500/20",
-                iconBg: "bg-gradient-to-br from-green-500 to-emerald-600",
-                shadowColor: "group-hover:shadow-green-500/25"
-              },
-              {
-                icon: Home,
-                title: "Installation clé en main",
-                description: "Nous nous occupons de tout : étude, pose, raccordement et démarches administratives",
-                gradient: "from-blue-500/20 to-cyan-500/20",
-                iconBg: "bg-gradient-to-br from-blue-500 to-cyan-600",
-                shadowColor: "group-hover:shadow-blue-500/25"
-              },
-              {
-                icon: Shield,
-                title: "Garanties complètes",
-                description: "Garantie fabricant 25 ans sur les panneaux et garantie pose complète",
-                gradient: "from-purple-500/20 to-violet-500/20",
-                iconBg: "bg-gradient-to-br from-purple-500 to-violet-600",
-                shadowColor: "group-hover:shadow-purple-500/25"
-              },
-              {
-                icon: Monitor,
-                title: "Suivi et maintenance",
-                description: "Monitoring de votre installation et maintenance préventive incluse",
-                gradient: "from-orange-500/20 to-amber-500/20",
-                iconBg: "bg-gradient-to-br from-orange-500 to-amber-600",
-                shadowColor: "group-hover:shadow-orange-500/25"
-              }
-            ].map((advantage, index) => (
-              <div key={index} className={`group relative`}>
+            {[{
+            icon: Euro,
+            title: "Économies garanties",
+            description: "Réduisez vos factures d'électricité jusqu'à 70% dès la première année",
+            gradient: "from-green-500/20 to-emerald-500/20",
+            iconBg: "bg-gradient-to-br from-green-500 to-emerald-600",
+            shadowColor: "group-hover:shadow-green-500/25"
+          }, {
+            icon: Home,
+            title: "Installation clé en main",
+            description: "Nous nous occupons de tout : étude, pose, raccordement et démarches administratives",
+            gradient: "from-blue-500/20 to-cyan-500/20",
+            iconBg: "bg-gradient-to-br from-blue-500 to-cyan-600",
+            shadowColor: "group-hover:shadow-blue-500/25"
+          }, {
+            icon: Shield,
+            title: "Garanties complètes",
+            description: "Garantie fabricant 25 ans sur les panneaux et garantie pose complète",
+            gradient: "from-purple-500/20 to-violet-500/20",
+            iconBg: "bg-gradient-to-br from-purple-500 to-violet-600",
+            shadowColor: "group-hover:shadow-purple-500/25"
+          }, {
+            icon: Monitor,
+            title: "Suivi et maintenance",
+            description: "Monitoring de votre installation et maintenance préventive incluse",
+            gradient: "from-orange-500/20 to-amber-500/20",
+            iconBg: "bg-gradient-to-br from-orange-500 to-amber-600",
+            shadowColor: "group-hover:shadow-orange-500/25"
+          }].map((advantage, index) => <div key={index} className={`group relative`}>
                 {/* Animated Background */}
                 <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${advantage.gradient} opacity-0 group-hover:opacity-100 transition-all duration-700 blur-xl group-hover:blur-none`}></div>
                 
@@ -290,8 +245,7 @@ const Particuliers = () => {
                     </CardDescription>
                   </CardContent>
                 </Card>
-              </div>
-            ))}
+              </div>)}
           </div>
           
           {/* Bottom CTA */}
@@ -323,13 +277,7 @@ const Particuliers = () => {
           </div>
           
           <div className="grid gap-8 md:grid-cols-2">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                {...service}
-                variant="solar"
-              />
-            ))}
+            {services.map((service, index) => <ServiceCard key={index} {...service} variant="solar" />)}
           </div>
         </div>
       </section>
@@ -351,33 +299,27 @@ const Particuliers = () => {
           </div>
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                step: "01",
-                title: "Étude personnalisée",
-                description: "Analyse de votre consommation et étude de faisabilité gratuite sur votre toiture",
-                icon: Home
-              },
-              {
-                step: "02", 
-                title: "Devis détaillé",
-                description: "Proposition technique et financière adaptée à vos besoins avec simulation de production",
-                icon: Euro
-              },
-              {
-                step: "03",
-                title: "Installation",
-                description: "Pose professionnelle par nos équipes certifiées RGE avec matériel premium",
-                icon: Sun
-              },
-              {
-                step: "04",
-                title: "Mise en service",
-                description: "Raccordement, démarches administratives et formation à votre nouveau système",
-                icon: CheckCircle
-              }
-            ].map((process, index) => (
-              <Card key={index} className="group relative text-center overflow-hidden border-0 bg-white/70 backdrop-blur-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-3">
+            {[{
+            step: "01",
+            title: "Étude personnalisée",
+            description: "Analyse de votre consommation et étude de faisabilité gratuite sur votre toiture",
+            icon: Home
+          }, {
+            step: "02",
+            title: "Devis détaillé",
+            description: "Proposition technique et financière adaptée à vos besoins avec simulation de production",
+            icon: Euro
+          }, {
+            step: "03",
+            title: "Installation",
+            description: "Pose professionnelle par nos équipes certifiées RGE avec matériel premium",
+            icon: Sun
+          }, {
+            step: "04",
+            title: "Mise en service",
+            description: "Raccordement, démarches administratives et formation à votre nouveau système",
+            icon: CheckCircle
+          }].map((process, index) => <Card key={index} className="group relative text-center overflow-hidden border-0 bg-white/70 backdrop-blur-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-3">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <CardHeader className="relative">
                   <div className="mx-auto mb-6 relative">
@@ -397,8 +339,7 @@ const Particuliers = () => {
                     {process.description}
                   </CardDescription>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -463,9 +404,7 @@ const Particuliers = () => {
               <li>Technologies fiables: panneaux garantis 25 ans, onduleurs jusqu’à 20 ans</li>
             </ul>
             <h3 className="text-2xl font-semibold mb-3 text-foreground">Combien ça coûte et quel ROI ?</h3>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Le coût dépend de la puissance (3 à 9 kWc le plus souvent). Le retour sur investissement se situe généralement entre 7 et 12 ans selon votre profil de consommation, l’orientation de la toiture et les aides en vigueur.
-            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">Le coût dépend de la puissance (3 à 9 kWc le plus souvent). Le retour sur investissement se situe généralement entre 6 et 8 ans selon votre profil de consommation, l’orientation de la toiture et les aides en vigueur.</p>
             <h3 className="text-2xl font-semibold mb-3 text-foreground">Nos services pour particuliers</h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Découvrez nos <Link to="/particuliers/panneaux-solaires" className="story-link">panneaux solaires</Link>, nos solutions <Link to="/particuliers/installation-consommation" className="story-link">d’autoconsommation</Link>, le <Link to="/particuliers/batterie-solaire" className="story-link">stockage par batterie</Link> et l’<Link to="/particuliers/borne-recharge" className="story-link">installation de borne de recharge</Link>. Besoin d’un chiffrage ? <Link to="/contact" className="story-link">Demandez votre devis gratuit</Link>.
@@ -476,8 +415,6 @@ const Particuliers = () => {
 
       <SolarCallButton />
       <Footer />
-    </div>
-  )
-}
-
-export default Particuliers
+    </div>;
+};
+export default Particuliers;
