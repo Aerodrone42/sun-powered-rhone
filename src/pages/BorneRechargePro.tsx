@@ -152,7 +152,7 @@ const BorneRechargePro = () => {
                   <span className="text-primary block">professionnelle</span>
                 </h1>
                 
-                <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
+                <p className="text-xl text-foreground max-w-lg leading-relaxed">
                   Équipez vos locaux professionnels de bornes de recharge intelligentes. 
                   Solutions complètes pour employés, flottes d'entreprise et clients.
                 </p>
