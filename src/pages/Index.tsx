@@ -106,31 +106,20 @@ const Index = () => {
         <div className="md:hidden">
           {/* Zone vidéo - 60% de la hauteur */}
           <div className="relative h-[60vh] overflow-hidden">
-            <video 
-              className="absolute inset-0 w-full h-full object-cover" 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              preload="metadata"
-              poster={heroImage}
-              onCanPlay={(e) => {
-                e.currentTarget.play().catch(() => {
-                  // Fallback si autoplay échoue
-                  console.log('Autoplay bloqué, utilisation du poster');
-                });
-              }}
-              onError={() => {
-                console.log('Erreur de chargement vidéo');
-              }}
-              style={{
-                filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
-                imageRendering: 'crisp-edges',
-                backfaceVisibility: 'hidden',
-                transform: 'translateZ(0)',
-                willChange: 'transform'
-              }}
-            >
+            <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline preload="metadata" poster={heroImage} onCanPlay={e => {
+            e.currentTarget.play().catch(() => {
+              // Fallback si autoplay échoue
+              console.log('Autoplay bloqué, utilisation du poster');
+            });
+          }} onError={() => {
+            console.log('Erreur de chargement vidéo');
+          }} style={{
+            filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
+            imageRendering: 'crisp-edges',
+            backfaceVisibility: 'hidden',
+            transform: 'translateZ(0)',
+            willChange: 'transform'
+          }}>
               <source src="https://cdn.midjourney.com/video/f87b7039-d3ef-4bf4-a409-96b1ee509d06/0.mp4" type="video/mp4" />
               {/* Fallback pour les navigateurs ne supportant pas la vidéo */}
               <img src={heroImage} alt="Panneaux solaires" className="absolute inset-0 w-full h-full object-cover" />
@@ -167,27 +156,17 @@ const Index = () => {
 
         {/* Layout desktop : vidéo plein écran avec texte superposé */}
         <div className="hidden md:flex items-center justify-center min-h-screen relative">
-          <video 
-            className="absolute inset-0 w-full h-full object-cover" 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            preload="metadata"
-            poster={heroImage}
-            onCanPlay={(e) => {
-              e.currentTarget.play().catch(() => {
-                console.log('Autoplay bloqué sur desktop');
-              });
-            }}
-            style={{
-              filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
-              imageRendering: 'crisp-edges',
-              backfaceVisibility: 'hidden',
-              transform: 'translateZ(0)',
-              willChange: 'transform'
-            }}
-          >
+          <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline preload="metadata" poster={heroImage} onCanPlay={e => {
+          e.currentTarget.play().catch(() => {
+            console.log('Autoplay bloqué sur desktop');
+          });
+        }} style={{
+          filter: 'contrast(1.15) saturate(1.3) brightness(1.05) sharpen(1)',
+          imageRendering: 'crisp-edges',
+          backfaceVisibility: 'hidden',
+          transform: 'translateZ(0)',
+          willChange: 'transform'
+        }}>
             <source src="https://cdn.midjourney.com/video/f87b7039-d3ef-4bf4-a409-96b1ee509d06/0.mp4" type="video/mp4" />
             <img src={heroImage} alt="Panneaux solaires" className="absolute inset-0 w-full h-full object-cover" />
           </video>
@@ -454,7 +433,7 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Nos panneaux sont <span className="text-yellow-400">2x plus puissants</span> que la concurrence
             </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto">Grâce à notre technologie solaire 2026, divisez par 2 le nombre de panneaux nécessaires</p>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto">Grâce à notre technologie solaire novatrice, divisez par 2 le nombre de panneaux nécessaires</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
