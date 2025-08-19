@@ -124,7 +124,7 @@ const Professionnels = () => {
                 <span className="block text-white mb-4">
                   Énergie solaire
                 </span>
-                <span className="block bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-pulse">
+                <span className="block bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent font-black animate-pulse drop-shadow-lg">
                   industrielle
                 </span>
               </h1>
