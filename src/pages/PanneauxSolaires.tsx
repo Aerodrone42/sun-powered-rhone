@@ -137,7 +137,7 @@ const PanneauxSolaires = () => {
                   <span className="text-primary block">nouvelle génération</span>
                 </h1>
                 
-                <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
+                <p className="text-xl text-foreground/90 max-w-lg leading-relaxed font-medium">
                   Transformez votre toiture en centrale électrique avec nos solutions photovoltaïques ultra-performantes. Installation RGE garantie 25 ans.
                 </p>
 
