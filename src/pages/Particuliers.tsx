@@ -124,7 +124,7 @@ const Particuliers = () => {
             </h1>
             
             {/* Description */}
-            <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl leading-relaxed animate-fade-in">
+            <p className="text-xl md:text-2xl text-foreground/90 font-medium mb-12 max-w-3xl leading-relaxed animate-fade-in">
               Transformez votre toit en centrale électrique. Produisez votre propre énergie verte, 
               réduisez vos factures jusqu'à 70% et valorisez votre patrimoine.
             </p>
