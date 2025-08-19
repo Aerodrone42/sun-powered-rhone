@@ -245,104 +245,152 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             <Link to="/particuliers" className="group relative">
-              <div className="relative overflow-hidden bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-blue-200/50 dark:border-blue-800/50 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-[1.03] hover:shadow-[0_20px_80px_rgba(59,130,246,0.3)] hover:-translate-y-3 min-h-[200px] flex flex-col justify-center items-center group-hover:border-blue-400/70 before:absolute before:inset-0 before:bg-gradient-to-br before:from-blue-500/10 before:via-transparent before:to-blue-600/5 before:rounded-3xl before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-700">
-                {/* Glassmorphism effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 via-transparent to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
+              <div className="relative overflow-hidden min-h-[280px] transition-all duration-700 hover:scale-[1.02] hover:-translate-y-1">
+                {/* Neomorphic container */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl shadow-[inset_0_2px_4px_rgba(0,0,0,0.05),_0_20px_40px_rgba(59,130,246,0.1)] dark:shadow-[inset_0_2px_4px_rgba(255,255,255,0.05),_0_20px_40px_rgba(59,130,246,0.2)] group-hover:shadow-[inset_0_2px_8px_rgba(59,130,246,0.1),_0_32px_64px_rgba(59,130,246,0.25)] dark:group-hover:shadow-[inset_0_2px_8px_rgba(59,130,246,0.2),_0_32px_64px_rgba(59,130,246,0.35)] transition-all duration-700"></div>
                 
-                {/* Floating particles */}
-                <div className="absolute top-4 right-4 w-2 h-2 bg-blue-400 rounded-full opacity-60 group-hover:animate-bounce"></div>
-                <div className="absolute bottom-6 left-6 w-1 h-1 bg-blue-300 rounded-full opacity-40 group-hover:animate-pulse"></div>
-                <div className="absolute top-1/3 left-4 w-1.5 h-1.5 bg-blue-500 rounded-full opacity-50 group-hover:animate-ping"></div>
-                
-                <div className="relative z-10">
-                  <div className="mb-4 p-4 rounded-3xl bg-gradient-to-br from-blue-500 to-blue-600 group-hover:from-blue-600 group-hover:to-blue-700 transition-all duration-500 inline-block shadow-xl group-hover:shadow-2xl group-hover:shadow-blue-500/50">
-                    <UserCheck className="h-12 w-12 text-white group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500" />
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="font-bold text-xl leading-tight text-slate-800 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-500">Particulier</h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-400 group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors duration-300">Solutions résidentielles personnalisées</p>
-                  </div>
+                {/* Animated border gradient */}
+                <div className="absolute inset-0 rounded-3xl p-[2px] bg-gradient-to-br from-blue-400/40 via-blue-500/20 to-blue-600/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  <div className="w-full h-full bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl"></div>
                 </div>
                 
-                {/* Bottom accent line */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                {/* Content */}
+                <div className="relative p-8 flex flex-col items-center justify-center h-full text-center z-10">
+                  {/* Dynamic icon container */}
+                  <div className="mb-6 relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                    <div className="relative p-5 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 shadow-lg group-hover:shadow-xl group-hover:from-blue-600 group-hover:via-blue-700 group-hover:to-blue-800 transition-all duration-500">
+                      <UserCheck className="h-10 w-10 text-white group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                  </div>
+                  
+                  {/* Text content */}
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-bold bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 dark:from-white dark:via-blue-200 dark:to-white bg-clip-text text-transparent group-hover:from-blue-600 group-hover:via-blue-700 group-hover:to-blue-600 transition-all duration-500">
+                      Particulier
+                    </h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-48 group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors duration-300">
+                      Solutions résidentielles sur-mesure avec accompagnement personnalisé
+                    </p>
+                  </div>
+                  
+                  {/* Decorative elements */}
+                  <div className="absolute top-4 right-4 w-3 h-3 bg-blue-400/60 rounded-full group-hover:bg-blue-500 group-hover:scale-125 transition-all duration-300"></div>
+                  <div className="absolute bottom-4 left-4 w-2 h-2 bg-blue-300/40 rounded-full group-hover:bg-blue-400 group-hover:animate-pulse transition-all duration-300"></div>
+                </div>
               </div>
             </Link>
             
             <Link to="/professionnels" className="group relative">
-              <div className="relative overflow-hidden bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-emerald-200/50 dark:border-emerald-800/50 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-[1.03] hover:shadow-[0_20px_80px_rgba(16,185,129,0.3)] hover:-translate-y-3 min-h-[200px] flex flex-col justify-center items-center group-hover:border-emerald-400/70 before:absolute before:inset-0 before:bg-gradient-to-br before:from-emerald-500/10 before:via-transparent before:to-emerald-600/5 before:rounded-3xl before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-700">
-                {/* Glassmorphism effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/5 via-transparent to-emerald-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
+              <div className="relative overflow-hidden min-h-[280px] transition-all duration-700 hover:scale-[1.02] hover:-translate-y-1">
+                {/* Neomorphic container */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl shadow-[inset_0_2px_4px_rgba(0,0,0,0.05),_0_20px_40px_rgba(16,185,129,0.1)] dark:shadow-[inset_0_2px_4px_rgba(255,255,255,0.05),_0_20px_40px_rgba(16,185,129,0.2)] group-hover:shadow-[inset_0_2px_8px_rgba(16,185,129,0.1),_0_32px_64px_rgba(16,185,129,0.25)] dark:group-hover:shadow-[inset_0_2px_8px_rgba(16,185,129,0.2),_0_32px_64px_rgba(16,185,129,0.35)] transition-all duration-700"></div>
                 
-                {/* Floating particles */}
-                <div className="absolute top-4 right-4 w-2 h-2 bg-emerald-400 rounded-full opacity-60 group-hover:animate-bounce"></div>
-                <div className="absolute bottom-6 left-6 w-1 h-1 bg-emerald-300 rounded-full opacity-40 group-hover:animate-pulse"></div>
-                <div className="absolute top-1/3 left-4 w-1.5 h-1.5 bg-emerald-500 rounded-full opacity-50 group-hover:animate-ping"></div>
-                
-                <div className="relative z-10">
-                  <div className="mb-4 p-4 rounded-3xl bg-gradient-to-br from-emerald-500 to-emerald-600 group-hover:from-emerald-600 group-hover:to-emerald-700 transition-all duration-500 inline-block shadow-xl group-hover:shadow-2xl group-hover:shadow-emerald-500/50">
-                    <Briefcase className="h-12 w-12 text-white group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500" />
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="font-bold text-xl leading-tight text-slate-800 dark:text-slate-200 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors duration-500">Professionnel</h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-400 group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors duration-300">Solutions commerciales et industrielles</p>
-                  </div>
+                {/* Animated border gradient */}
+                <div className="absolute inset-0 rounded-3xl p-[2px] bg-gradient-to-br from-emerald-400/40 via-emerald-500/20 to-emerald-600/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  <div className="w-full h-full bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl"></div>
                 </div>
                 
-                {/* Bottom accent line */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                {/* Content */}
+                <div className="relative p-8 flex flex-col items-center justify-center h-full text-center z-10">
+                  {/* Dynamic icon container */}
+                  <div className="mb-6 relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                    <div className="relative p-5 rounded-2xl bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 shadow-lg group-hover:shadow-xl group-hover:from-emerald-600 group-hover:via-emerald-700 group-hover:to-emerald-800 transition-all duration-500">
+                      <Briefcase className="h-10 w-10 text-white group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                  </div>
+                  
+                  {/* Text content */}
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-bold bg-gradient-to-r from-slate-900 via-emerald-800 to-slate-900 dark:from-white dark:via-emerald-200 dark:to-white bg-clip-text text-transparent group-hover:from-emerald-600 group-hover:via-emerald-700 group-hover:to-emerald-600 transition-all duration-500">
+                      Professionnel
+                    </h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-48 group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors duration-300">
+                      Solutions commerciales et industrielles haute performance
+                    </p>
+                  </div>
+                  
+                  {/* Decorative elements */}
+                  <div className="absolute top-4 right-4 w-3 h-3 bg-emerald-400/60 rounded-full group-hover:bg-emerald-500 group-hover:scale-125 transition-all duration-300"></div>
+                  <div className="absolute bottom-4 left-4 w-2 h-2 bg-emerald-300/40 rounded-full group-hover:bg-emerald-400 group-hover:animate-pulse transition-all duration-300"></div>
+                </div>
               </div>
             </Link>
             
             <Link to="/agriculteurs" className="group relative">
-              <div className="relative overflow-hidden bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-amber-200/50 dark:border-amber-800/50 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-[1.03] hover:shadow-[0_20px_80px_rgba(245,158,11,0.3)] hover:-translate-y-3 min-h-[200px] flex flex-col justify-center items-center group-hover:border-amber-400/70 before:absolute before:inset-0 before:bg-gradient-to-br before:from-amber-500/10 before:via-transparent before:to-amber-600/5 before:rounded-3xl before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-700">
-                {/* Glassmorphism effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 via-transparent to-amber-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
+              <div className="relative overflow-hidden min-h-[280px] transition-all duration-700 hover:scale-[1.02] hover:-translate-y-1">
+                {/* Neomorphic container */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl shadow-[inset_0_2px_4px_rgba(0,0,0,0.05),_0_20px_40px_rgba(245,158,11,0.1)] dark:shadow-[inset_0_2px_4px_rgba(255,255,255,0.05),_0_20px_40px_rgba(245,158,11,0.2)] group-hover:shadow-[inset_0_2px_8px_rgba(245,158,11,0.1),_0_32px_64px_rgba(245,158,11,0.25)] dark:group-hover:shadow-[inset_0_2px_8px_rgba(245,158,11,0.2),_0_32px_64px_rgba(245,158,11,0.35)] transition-all duration-700"></div>
                 
-                {/* Floating particles */}
-                <div className="absolute top-4 right-4 w-2 h-2 bg-amber-400 rounded-full opacity-60 group-hover:animate-bounce"></div>
-                <div className="absolute bottom-6 left-6 w-1 h-1 bg-amber-300 rounded-full opacity-40 group-hover:animate-pulse"></div>
-                <div className="absolute top-1/3 left-4 w-1.5 h-1.5 bg-amber-500 rounded-full opacity-50 group-hover:animate-ping"></div>
-                
-                <div className="relative z-10">
-                  <div className="mb-4 p-4 rounded-3xl bg-gradient-to-br from-amber-500 to-amber-600 group-hover:from-amber-600 group-hover:to-amber-700 transition-all duration-500 inline-block shadow-xl group-hover:shadow-2xl group-hover:shadow-amber-500/50">
-                    <Tractor className="h-12 w-12 text-white group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500" />
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="font-bold text-xl leading-tight text-slate-800 dark:text-slate-200 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors duration-500">Agriculteur</h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-400 group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors duration-300">Solutions agricoles spécialisées</p>
-                  </div>
+                {/* Animated border gradient */}
+                <div className="absolute inset-0 rounded-3xl p-[2px] bg-gradient-to-br from-amber-400/40 via-amber-500/20 to-amber-600/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  <div className="w-full h-full bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl"></div>
                 </div>
                 
-                {/* Bottom accent line */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-amber-600 rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                {/* Content */}
+                <div className="relative p-8 flex flex-col items-center justify-center h-full text-center z-10">
+                  {/* Dynamic icon container */}
+                  <div className="mb-6 relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                    <div className="relative p-5 rounded-2xl bg-gradient-to-br from-amber-500 via-amber-600 to-amber-700 shadow-lg group-hover:shadow-xl group-hover:from-amber-600 group-hover:via-amber-700 group-hover:to-amber-800 transition-all duration-500">
+                      <Tractor className="h-10 w-10 text-white group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                  </div>
+                  
+                  {/* Text content */}
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-bold bg-gradient-to-r from-slate-900 via-amber-800 to-slate-900 dark:from-white dark:via-amber-200 dark:to-white bg-clip-text text-transparent group-hover:from-amber-600 group-hover:via-amber-700 group-hover:to-amber-600 transition-all duration-500">
+                      Agriculteur
+                    </h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-48 group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors duration-300">
+                      Solutions agrivoltaïques innovantes pour exploitations
+                    </p>
+                  </div>
+                  
+                  {/* Decorative elements */}
+                  <div className="absolute top-4 right-4 w-3 h-3 bg-amber-400/60 rounded-full group-hover:bg-amber-500 group-hover:scale-125 transition-all duration-300"></div>
+                  <div className="absolute bottom-4 left-4 w-2 h-2 bg-amber-300/40 rounded-full group-hover:bg-amber-400 group-hover:animate-pulse transition-all duration-300"></div>
+                </div>
               </div>
             </Link>
             
             <Link to="/marches-publics" className="group relative">
-              <div className="relative overflow-hidden bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-purple-200/50 dark:border-purple-800/50 rounded-3xl p-8 text-center transition-all duration-700 hover:scale-[1.03] hover:shadow-[0_20px_80px_rgba(147,51,234,0.3)] hover:-translate-y-3 min-h-[200px] flex flex-col justify-center items-center group-hover:border-purple-400/70 before:absolute before:inset-0 before:bg-gradient-to-br before:from-purple-500/10 before:via-transparent before:to-purple-600/5 before:rounded-3xl before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-700">
-                {/* Glassmorphism effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-400/5 via-transparent to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl"></div>
+              <div className="relative overflow-hidden min-h-[280px] transition-all duration-700 hover:scale-[1.02] hover:-translate-y-1">
+                {/* Neomorphic container */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl shadow-[inset_0_2px_4px_rgba(0,0,0,0.05),_0_20px_40px_rgba(147,51,234,0.1)] dark:shadow-[inset_0_2px_4px_rgba(255,255,255,0.05),_0_20px_40px_rgba(147,51,234,0.2)] group-hover:shadow-[inset_0_2px_8px_rgba(147,51,234,0.1),_0_32px_64px_rgba(147,51,234,0.25)] dark:group-hover:shadow-[inset_0_2px_8px_rgba(147,51,234,0.2),_0_32px_64px_rgba(147,51,234,0.35)] transition-all duration-700"></div>
                 
-                {/* Floating particles */}
-                <div className="absolute top-4 right-4 w-2 h-2 bg-purple-400 rounded-full opacity-60 group-hover:animate-bounce"></div>
-                <div className="absolute bottom-6 left-6 w-1 h-1 bg-purple-300 rounded-full opacity-40 group-hover:animate-pulse"></div>
-                <div className="absolute top-1/3 left-4 w-1.5 h-1.5 bg-purple-500 rounded-full opacity-50 group-hover:animate-ping"></div>
-                
-                <div className="relative z-10">
-                  <div className="mb-4 p-4 rounded-3xl bg-gradient-to-br from-purple-500 to-purple-600 group-hover:from-purple-600 group-hover:to-purple-700 transition-all duration-500 inline-block shadow-xl group-hover:shadow-2xl group-hover:shadow-purple-500/50">
-                    <MapPin className="h-12 w-12 text-white group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500" />
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="font-bold text-xl leading-tight text-slate-800 dark:text-slate-200 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors duration-500">Marché Public</h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-400 group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors duration-300">Solutions pour collectivités</p>
-                  </div>
+                {/* Animated border gradient */}
+                <div className="absolute inset-0 rounded-3xl p-[2px] bg-gradient-to-br from-purple-400/40 via-purple-500/20 to-purple-600/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  <div className="w-full h-full bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl"></div>
                 </div>
                 
-                {/* Bottom accent line */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-purple-600 rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                {/* Content */}
+                <div className="relative p-8 flex flex-col items-center justify-center h-full text-center z-10">
+                  {/* Dynamic icon container */}
+                  <div className="mb-6 relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                    <div className="relative p-5 rounded-2xl bg-gradient-to-br from-purple-500 via-purple-600 to-purple-700 shadow-lg group-hover:shadow-xl group-hover:from-purple-600 group-hover:via-purple-700 group-hover:to-purple-800 transition-all duration-500">
+                      <MapPin className="h-10 w-10 text-white group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                  </div>
+                  
+                  {/* Text content */}
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-bold bg-gradient-to-r from-slate-900 via-purple-800 to-slate-900 dark:from-white dark:via-purple-200 dark:to-white bg-clip-text text-transparent group-hover:from-purple-600 group-hover:via-purple-700 group-hover:to-purple-600 transition-all duration-500">
+                      Marché Public
+                    </h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-48 group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors duration-300">
+                      Solutions énergétiques pour collectivités et institutions
+                    </p>
+                  </div>
+                  
+                  {/* Decorative elements */}
+                  <div className="absolute top-4 right-4 w-3 h-3 bg-purple-400/60 rounded-full group-hover:bg-purple-500 group-hover:scale-125 transition-all duration-300"></div>
+                  <div className="absolute bottom-4 left-4 w-2 h-2 bg-purple-300/40 rounded-full group-hover:bg-purple-400 group-hover:animate-pulse transition-all duration-300"></div>
+                </div>
               </div>
             </Link>
           </div>
