@@ -227,7 +227,7 @@ const ZoneIntervention = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <Phone className="w-4 h-4" />
-                    <span>04 28 29 75 52</span>
+                    <span>07 71 41 85 68</span>
                   </div>
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <Mail className="w-4 h-4" />
