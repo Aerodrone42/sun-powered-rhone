@@ -513,6 +513,256 @@ export const cities: CityData[] = [
       "Installation de 110 systèmes résidentiels avec optimisation",
       "Projet de stockage d'énergie communautaire innovant"
     ]
+  },
+  {
+    name: "Bourgoin-Jallieu",
+    slug: "bourgoin-jallieu",
+    department: "Isère",
+    population: 28000,
+    latitude: 45.5833,
+    longitude: 5.2833,
+    description: "Ville industrielle dynamique au cœur de l'Isle Crémieu, Bourgoin-Jallieu mène une transition énergétique exemplaire dans le secteur manufacturier. Cette commune, réputée pour son tissu industriel diversifié et ses zones d'activités modernes, développe massivement le photovoltaïque sur ses sites de production. L'alliance entre tradition industrielle et innovation énergétique fait de Bourgoin-Jallieu un territoire pilote pour l'autoconsommation industrielle et les solutions solaires de grande puissance.",
+    ensoleillement: "2040+ heures/an",
+    potentielSolaire: "Excellent (1260-1360 kWh/kWc/an)",
+    particularites: [
+      "Pôle industriel majeur avec grandes toitures manufacturières disponibles",
+      "Zone d'activités Isle d'Abeau en développement avec projets solaires intégrés",
+      "Forte consommation énergétique industrielle adaptée à l'autoconsommation",
+      "Politique municipale de soutien aux entreprises investissant dans le solaire",
+      "Proximité des axes logistiques favorisant l'électromobilité industrielle",
+      "Potentiel exceptionnel pour installations photovoltaïques de plusieurs MWc"
+    ],
+    projetsRealises: [
+      "Installation de 2,5 MWc sur complexe industriel textile",
+      "Équipement de zone logistique en ombrières solaires (1,8 MWc)",
+      "Installation de 180 systèmes résidentiels avec stockage",
+      "Projet pilote de micro-réseau industriel avec stockage communautaire"
+    ]
+  },
+  {
+    name: "Vienne",
+    slug: "vienne",
+    department: "Isère",
+    population: 29000,
+    latitude: 45.5167,
+    longitude: 4.8667,
+    description: "Ville d'art et d'histoire aux portes de Lyon, Vienne conjugue patrimoine antique et modernité énergétique. Cette cité gallo-romaine, située sur les rives du Rhône, développe les énergies renouvelables dans le respect de son héritage architectural exceptionnel. Les solutions photovoltaïques intégrées et les projets d'autoconsommation collective transforment progressivement le paysage énergétique de cette ville touristique et résidentielle.",
+    ensoleillement: "2010+ heures/an",
+    potentielSolaire: "Excellent (1240-1340 kWh/kWc/an)",
+    particularites: [
+      "Patrimoine historique exceptionnel nécessitant des solutions esthétiques adaptées",
+      "Position stratégique sur le Rhône avec excellent potentiel d'ensoleillement",
+      "Centre-ville touristique développant l'électromobilité pour visiteurs",
+      "Quartiers résidentiels modernes en périphérie équipables en solaire",
+      "Politique de développement durable respectueuse du patrimoine",
+      "Projets innovants d'intégration architecturale du photovoltaïque"
+    ],
+    projetsRealises: [
+      "Installation discrète de 150 systèmes sur toitures résidentielles",
+      "Équipement de zone d'activités périurbaine (900 kWc)",
+      "Projet pilote de tuiles solaires sur bâtiment historique classé",
+      "Installation de bornes de recharge touristique alimentées par solaire"
+    ]
+  },
+  {
+    name: "Meylan",
+    slug: "meylan",
+    department: "Isère",
+    population: 18000,
+    latitude: 45.2167,
+    longitude: 5.7833,
+    description: "Commune résidentielle de prestige aux portes de Grenoble, Meylan bénéficie d'une situation privilégiée au pied des contreforts alpins. Cette ville, réputée pour ses quartiers pavillonnaires de standing et sa population aisée, constitue un marché premium pour les installations photovoltaïques haut de gamme. L'exposition exceptionnelle offerte par la topographie montagnarde et l'engagement environnemental des habitants créent des conditions idéales pour les solutions solaires innovantes.",
+    ensoleillement: "2060+ heures/an",
+    potentielSolaire: "Excellent (1280-1380 kWh/kWc/an)",
+    particularites: [
+      "Habitat pavillonnaire haut de gamme avec toitures optimalement exposées",
+      "Topographie montagnarde offrant des expositions sud exceptionnelles",
+      "Population à revenus élevés investissant dans les technologies avancées",
+      "Proximité de Grenoble avec accès aux innovations cleantech",
+      "Forte demande pour l'autoconsommation et l'indépendance énergétique",
+      "Développement de l'électromobilité de luxe nécessitant des bornes"
+    ],
+    projetsRealises: [
+      "Installation de 95 systèmes premium avec batteries et domotique",
+      "Projet d'autoconsommation collective sur résidence de standing",
+      "Équipement de villa pilote 100% autonome en énergie",
+      "Installation de bornes de recharge haut de gamme dans quartiers résidentiels"
+    ]
+  },
+  {
+    name: "Saint-Égrève",
+    slug: "saint-egreve",
+    department: "Isère",
+    population: 16500,
+    latitude: 45.2333,
+    longitude: 5.6833,
+    description: "Nichée entre l'Isère et les premiers contreforts du Vercors, Saint-Égrève développe une approche territoriale innovante des énergies renouvelables. Cette commune péri-urbaine, avec ses quartiers résidentiels diversifiés et ses zones d'activités, bénéficie d'un cadre naturel exceptionnel pour le photovoltaïque. La politique municipale volontariste et l'engagement citoyen fort accélèrent la transition vers l'autonomie énergétique locale.",
+    ensoleillement: "2050+ heures/an",
+    potentielSolaire: "Excellent (1270-1370 kWh/kWc/an)",
+    particularites: [
+      "Situation géographique privilégiée entre Isère et massif du Vercors",
+      "Quartiers résidentiels mixtes favorisant la diversité des projets solaires",
+      "Politique municipale pionnière en transition énergétique territoriale",
+      "Forte implication citoyenne dans les projets d'énergies renouvelables",
+      "Proximité de Grenoble avec accès aux technologies innovantes",
+      "Potentiel exceptionnel grâce aux expositions montagnardes"
+    ],
+    projetsRealises: [
+      "Installation de 120 systèmes résidentiels avec optimiseurs de puissance",
+      "Projet de ferme solaire citoyenne de 1,5 MWc en financement participatif",
+      "Équipement de complexe sportif municipal avec pédagogie énergétique",
+      "Installation de réseau de bornes de recharge intercommunal"
+    ]
+  },
+  {
+    name: "Seyssinet-Pariset",
+    slug: "seyssinet-pariset",
+    department: "Isère",
+    population: 12500,
+    latitude: 45.1667,
+    longitude: 5.6833,
+    description: "Commune résidentielle au cadre naturel préservé, Seyssinet-Pariset développe les énergies renouvelables dans une approche respectueuse de l'environnement. Cette ville, située aux portes du Vercors et proche de Grenoble, combine habitat pavillonnaire de qualité et engagement écologique exemplaire. La sensibilité environnementale de sa population et la beauté des paysages créent un contexte favorable aux projets solaires esthétiques et performants.",
+    ensoleillement: "2040+ heures/an",
+    potentielSolaire: "Excellent (1260-1360 kWh/kWc/an)",
+    particularites: [
+      "Cadre naturel préservé aux portes du Parc du Vercors",
+      "Habitat pavillonnaire de qualité avec propriétés bien exposées",
+      "Population très sensibilisée aux enjeux environnementaux",
+      "Politique municipale d'exemplarité écologique et énergétique",
+      "Proximité de Grenoble favorisant l'accès aux innovations",
+      "Demande forte pour solutions solaires esthétiques et discrètes"
+    ],
+    projetsRealises: [
+      "Installation de 75 systèmes résidentiels avec intégration paysagère",
+      "Projet d'autoconsommation collective sur éco-hameau",
+      "Équipement de bâtiments publics en solutions exemplaires",
+      "Installation de mobilier urbain solaire innovant"
+    ]
+  },
+  {
+    name: "La Tour-du-Pin",
+    slug: "la-tour-du-pin",
+    department: "Isère",
+    population: 8500,
+    latitude: 45.5667,
+    longitude: 5.4333,
+    description: "Charmante ville historique au cœur des Terres Froides, La Tour-du-Pin mène une politique énergétique ambitieuse adaptée à son territoire rural. Cette commune, avec son patrimoine médiéval préservé et ses espaces agricoles étendus, développe l'agrivoltaïsme et les solutions solaires respectueuses du paysage. L'alliance entre tradition rurale et innovation énergétique fait de cette ville un modèle de transition énergétique en milieu rural.",
+    ensoleillement: "2020+ heures/an",
+    potentielSolaire: "Excellent (1250-1350 kWh/kWc/an)",
+    particularites: [
+      "Territoire rural avec fort potentiel pour l'agrivoltaïsme",
+      "Patrimoine historique médiéval nécessitant des solutions adaptées",
+      "Exploitations agricoles innovantes adoptant le solaire",
+      "Politique de développement rural durable et énergétique",
+      "Espaces disponibles pour projets solaires de grande envergure",
+      "Population rurale engagée dans la transition énergétique"
+    ],
+    projetsRealises: [
+      "Installation agrivoltaïque pilote de 1,2 MWc sur exploitation céréalière",
+      "Équipement de 45 maisons individuelles rurales",
+      "Projet solaire sur bâtiments agricoles (élevage, stockage)",
+      "Installation de bornes de recharge rapide sur axes départementaux"
+    ]
+  },
+  {
+    name: "Villefontaine",
+    slug: "villefontaine",
+    department: "Isère",
+    population: 19000,
+    latitude: 45.6167,
+    longitude: 5.15,
+    description: "Ville nouvelle créée dans les années 1970, Villefontaine incarne la modernité urbaine et énergétique. Cette commune, planifiée selon les principes du développement durable avant l'heure, intègre massivement les énergies renouvelables dans son tissu urbain. Les grands ensembles, zones commerciales et équipements publics offrent un potentiel considérable pour les installations photovoltaïques de toutes envergures.",
+    ensoleillement: "2030+ heures/an",
+    potentielSolaire: "Excellent (1250-1350 kWh/kWc/an)",
+    particularites: [
+      "Ville nouvelle moderne avec urbanisme favorable au solaire",
+      "Grands ensembles et équipements publics aux toitures adaptées",
+      "Zone commerciale importante avec potentiel d'ombrières",
+      "Population jeune et sensibilisée aux enjeux énergétiques",
+      "Politique municipale d'innovation urbaine et énergétique",
+      "Proximité de pôles technologiques et d'innovation"
+    ],
+    projetsRealises: [
+      "Installation de 300 kWc sur centre commercial avec autoconsommation",
+      "Équipement de 8 copropriétés en autoconsommation collective",
+      "Projet de ferme solaire urbaine sur parking (800 kWc)",
+      "Installation de réseau de bornes de recharge municipales"
+    ]
+  },
+  {
+    name: "L'Isle-d'Abeau",
+    slug: "lisle-dabeau",
+    department: "Isère",
+    population: 16000,
+    latitude: 45.6167,
+    longitude: 5.2167,
+    description: "Commune de la communauté d'agglomération Porte de l'Isère, L'Isle-d'Abeau développe les énergies renouvelables dans une approche territoriale intégrée. Cette ville, située au cœur d'un bassin économique dynamique, combine zones résidentielles modernes et pôles d'activités innovants. Le développement urbain maîtrisé et l'engagement municipal créent des opportunités exceptionnelles pour le photovoltaïque résidentiel et tertiaire.",
+    ensoleillement: "2025+ heures/an",
+    potentielSolaire: "Excellent (1245-1345 kWh/kWc/an)",
+    particularites: [
+      "Développement urbain moderne avec intégration énergétique",
+      "Zones d'activités dynamiques demandant des solutions énergétiques",
+      "Quartiers résidentiels récents aux normes énergétiques élevées",
+      "Politique intercommunale de transition énergétique",
+      "Proximité du pôle logistique favorisant l'électromobilité",
+      "Potentiel important pour autoconsommation collective"
+    ],
+    projetsRealises: [
+      "Installation de 220 systèmes résidentiels sur constructions neuves",
+      "Équipement de zone d'activités en toitures solaires (1,1 MWc)",
+      "Projet d'autoconsommation collective sur nouveau quartier",
+      "Installation d'ombrières solaires sur parkings publics"
+    ]
+  },
+  {
+    name: "Sassenage",
+    slug: "sassenage",
+    department: "Isère",
+    population: 11500,
+    latitude: 45.2167,
+    longitude: 5.6667,
+    description: "Aux portes du Vercors et proche de Grenoble, Sassenage allie patrimoine naturel exceptionnel et innovation énergétique. Cette commune, célèbre pour ses grottes et ses paysages préservés, développe les énergies renouvelables dans le respect de son environnement remarquable. L'engagement écologique de sa population et la qualité de son cadre de vie créent un contexte favorable aux projets solaires respectueux et performants.",
+    ensoleillement: "2035+ heures/an",
+    potentielSolaire: "Excellent (1255-1355 kWh/kWc/an)",
+    particularites: [
+      "Situation exceptionnelle aux portes du Parc naturel du Vercors",
+      "Patrimoine naturel remarquable nécessitant des solutions respectueuses",
+      "Population très engagée dans la préservation environnementale",
+      "Habitat pavillonnaire de qualité avec expositions optimales",
+      "Politique municipale d'exemplarité écologique",
+      "Proximité de Grenoble avec accès aux technologies vertes"
+    ],
+    projetsRealises: [
+      "Installation de 85 systèmes résidentiels avec intégration paysagère",
+      "Projet solaire sur équipements touristiques (Grottes de Sassenage)",
+      "Équipement de bâtiments publics en solutions exemplaires",
+      "Installation de bornes de recharge pour tourisme vert"
+    ]
+  },
+  {
+    name: "Crolles",
+    slug: "crolles",
+    department: "Isère",
+    population: 9000,
+    latitude: 45.2833,
+    longitude: 6.0167,
+    description: "Commune technologique de pointe au pied de la Chartreuse, Crolles conjugue excellence industrielle et innovation énergétique. Cette ville, siège de STMicroelectronics et centre européen de la microélectronique, développe les énergies renouvelables avec une approche high-tech. L'écosystème technologique exceptionnel et la présence d'ingénieurs spécialisés favorisent l'adoption de solutions photovoltaïques avancées et intelligentes.",
+    ensoleillement: "2045+ heures/an",
+    potentielSolaire: "Excellent (1265-1365 kWh/kWc/an)",
+    particularites: [
+      "Pôle technologique mondial de la microélectronique",
+      "Présence de STMicroelectronics avec projets énergétiques innovants",
+      "Population d'ingénieurs et techniciens sensibilisés aux technologies vertes",
+      "Écosystème d'innovation favorable aux solutions solaires intelligentes",
+      "Situation géographique optimale au pied de la Chartreuse",
+      "Potentiel pour développement de technologies photovoltaïques avancées"
+    ],
+    projetsRealises: [
+      "Installation pilote de 1,5 MWc sur site industriel STMicroelectronics",
+      "Équipement de 65 maisons d'ingénieurs en systèmes intelligents",
+      "Projet de R&D sur cellules photovoltaïques de nouvelle génération",
+      "Installation de bornes de recharge ultra-rapides connectées"
+    ]
   }
 ];
 

@@ -16,6 +16,9 @@ import venissieuxHero from '../assets/venissieux-hero.jpg';
 import ecullyHero from '../assets/ecully-hero.jpg';
 import grenobleHero from '../assets/grenoble-hero.jpg';
 import tassinHero from '../assets/tassin-hero.jpg';
+import bourgoinJallieuHero from '../assets/bourgoin-jallieu-hero.jpg';
+import vienneHero from '../assets/vienne-hero.jpg';
+import meylanHero from '../assets/meylan-hero.jpg';
 
 const VillePage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -38,6 +41,9 @@ const VillePage = () => {
       case 'ecully': return ecullyHero;
       case 'grenoble': return grenobleHero;
       case 'tassin-la-demi-lune': return tassinHero;
+      case 'bourgoin-jallieu': return bourgoinJallieuHero;
+      case 'vienne': return vienneHero;
+      case 'meylan': return meylanHero;
       default: return lyonHero;
     }
   };
