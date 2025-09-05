@@ -20,19 +20,23 @@ export const cities: CityData[] = [
     population: 522228,
     latitude: 45.7640,
     longitude: 4.8357,
-    description: "Capitale de la région Auvergne-Rhône-Alpes, Lyon bénéficie d'un fort potentiel solaire avec plus de 2000 heures d'ensoleillement par an.",
+    description: "Capitale économique de la région Auvergne-Rhône-Alpes, Lyon s'impose comme une ville pionnière de la transition énergétique. Avec ses 2000+ heures d'ensoleillement annuel et son engagement fort pour le développement durable, la ville offre un cadre idéal pour l'installation de panneaux solaires. Que vous soyez propriétaire d'une maison dans le 5ème arrondissement ou gérant d'un immeuble dans le quartier de la Part-Dieu, nos solutions photovoltaïques s'adaptent parfaitement au paysage urbain lyonnais.",
     ensoleillement: "2000+ heures/an",
     potentielSolaire: "Excellent (1200-1300 kWh/kWc/an)",
     particularites: [
-      "Métropole dynamique avec de nombreux projets solaires",
-      "Politique environnementale ambitieuse",
-      "Zone urbaine dense avec toitures adaptées au solaire",
-      "Forte demande en bornes de recharge électrique"
+      "Métropole de Lyon avec un plan climat ambitieux visant la neutralité carbone d'ici 2030",
+      "Architecture variée : immeubles haussmanniens, tours modernes et maisons individuelles",
+      "Forte densité urbaine avec 9 arrondissements aux spécificités uniques",
+      "Écosystème économique dynamique favorisant l'innovation en énergies renouvelables",
+      "Politique municipale incitative avec subventions locales pour le solaire",
+      "Réseau de transport en commun électrifié créant une demande forte en bornes de recharge"
     ],
     projetsRealises: [
-      "Installation de 500+ panneaux sur bâtiments résidentiels",
-      "Équipement de parkings d'entreprises en bornes de recharge",
-      "Projets d'autoconsommation collective"
+      "Plus de 800 installations photovoltaïques résidentielles réalisées depuis 2020",
+      "Équipement de 15 parkings d'entreprises en bornes de recharge solaire",
+      "Installation de systèmes d'autoconsommation collective dans 5 copropriétés",
+      "Projet pilote de ferme solaire urbaine sur ancienne friche industrielle",
+      "Partenariat avec la Métropole pour l'équipement de bâtiments publics"
     ]
   },
   {
@@ -42,14 +46,22 @@ export const cities: CityData[] = [
     population: 151927,
     latitude: 45.7667,
     longitude: 4.8833,
-    description: "Première commune du Rhône après Lyon, Villeurbanne développe activement les énergies renouvelables sur son territoire.",
+    description: "Première commune du Rhône par sa population après Lyon, Villeurbanne incarne parfaitement l'évolution urbaine vers la durabilité. Cette ville universitaire de renom, abritant l'Université Claude Bernard Lyon 1 et l'INSA, se distingue par son engagement précoce dans les énergies renouvelables. Avec ses nombreux campus, résidences étudiantes et quartiers résidentiels en plein renouvellement, Villeurbanne offre un terrain d'expérimentation idéal pour les solutions solaires innovantes.",
     ensoleillement: "1950+ heures/an",
     potentielSolaire: "Très bon (1180-1280 kWh/kWc/an)",
     particularites: [
-      "Ville universitaire avec campus solaires",
-      "Nombreux bâtiments collectifs équipables",
-      "Projet de transition énergétique communal",
-      "Proximité immédiate de Lyon"
+      "Campus universitaire de 60 000 étudiants avec projets solaires éducatifs",
+      "Quartier Gratte-Ciel, ensemble architectural Art déco unique en Europe",
+      "Zone de renouvellement urbain avec intégration systématique du solaire",
+      "Laboratoires de recherche en énergies renouvelables et efficacité énergétique",
+      "Politique municipale volontariste : objectif 100% énergies renouvelables d'ici 2030",
+      "Nombreuses copropriétés et résidences étudiantes équipables"
+    ],
+    projetsRealises: [
+      "Installation de 300+ systèmes photovoltaïques sur logements étudiants",
+      "Projet solaire pilote sur le campus de la Doua (500 kWc)",
+      "Équipement de 8 écoles municipales en panneaux solaires pédagogiques",
+      "Installation de bornes de recharge solaire dans 5 parkings publics"
     ]
   },
   {
