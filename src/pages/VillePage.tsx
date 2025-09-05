@@ -30,6 +30,14 @@ import clusesHero from '../assets/cluses-hero.jpg';
 import bonnevilleHero from '../assets/bonneville-hero.jpg';
 import sallanchesHero from '../assets/sallanches-hero.jpg';
 import rumillyHero from '../assets/rumilly-hero.jpg';
+import cranGevrierHero from '../assets/cran-gevrier-hero.jpg';
+import saintPriestHero from '../assets/saint-priest-hero.jpg';
+import caluireEtCuireHero from '../assets/caluire-et-cuire-hero.jpg';
+import bronHero from '../assets/bron-hero.jpg';
+import meyzieuHero from '../assets/meyzieu-hero.jpg';
+import rillieuLaPapeHero from '../assets/rillieux-la-pape-hero.jpg';
+import decinesCharpieuHero from '../assets/decines-charpieu-hero.jpg';
+import oullinsHero from '../assets/oullins-hero.jpg';
 
 const VillePage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -66,6 +74,14 @@ const VillePage = () => {
       case 'bonneville': return bonnevilleHero;
       case 'sallanches': return sallanchesHero;
       case 'rumilly': return rumillyHero;
+      case 'cran-gevrier': return cranGevrierHero;
+      case 'saint-priest': return saintPriestHero;
+      case 'caluire-et-cuire': return caluireEtCuireHero;
+      case 'bron': return bronHero;
+      case 'meyzieu': return meyzieuHero;
+      case 'rillieux-la-pape': return rillieuLaPapeHero;
+      case 'decines-charpieu': return decinesCharpieuHero;
+      case 'oullins': return oullinsHero;
       default: return lyonHero;
     }
   };

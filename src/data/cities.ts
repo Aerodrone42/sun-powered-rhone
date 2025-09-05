@@ -1203,6 +1203,158 @@ export const cities: CityData[] = [
       "Projet de toitures solaires résidentielles",
       "Équipement de la salle de spectacles"
     ]
+  },
+  {
+    name: "Cran-Gevrier",
+    slug: "cran-gevrier",
+    department: "Haute-Savoie",
+    population: 18000,
+    latitude: 45.8985,
+    longitude: 6.1098,
+    description: "Commune résidentielle paisible située sur les rives du lac d'Annecy, Cran-Gevrier bénéficie d'un cadre exceptionnel pour le développement des énergies renouvelables. Avec ses maisons individuelles et ses résidences collectives offrant de belles expositions sud, cette ville de Haute-Savoie présente un potentiel solaire remarquable. Son climat alpin tempéré et ses 1900+ heures d'ensoleillement annuel en font un territoire idéal pour l'autoconsommation photovoltaïque et l'installation de bornes de recharge électrique.",
+    ensoleillement: "1900+ heures/an",
+    potentielSolaire: "Très bon (1150-1250 kWh/kWc/an)",
+    particularites: [
+      "Situation privilégiée au bord du lac d'Annecy avec microclimat favorable",
+      "Habitat principalement pavillonnaire avec toitures bien orientées",
+      "Proximité d'Annecy et développement du transport électrique",
+      "Commune engagée dans la transition énergétique locale",
+      "Architecture alpine traditionnelle adaptée aux installations solaires",
+      "Demande croissante en solutions d'autoconsommation résidentielle"
+    ]
+  },
+  {
+    name: "Saint-Priest",
+    slug: "saint-priest",
+    department: "Rhône",
+    population: 47000,
+    latitude: 45.6942,
+    longitude: 4.9417,
+    description: "Ville dynamique de l'est lyonnais, Saint-Priest se distingue par son tissu économique diversifié et ses nombreuses zones d'activités. Cette commune moderne du Rhône, avec ses quartiers résidentiels en expansion et ses infrastructures commerciales importantes, offre un potentiel considérable pour les installations photovoltaïques. Son ensoleillement généreux et sa position stratégique dans la métropole lyonnaise en font un territoire privilégié pour le développement des énergies renouvelables, tant pour les particuliers que pour les professionnels.",
+    ensoleillement: "2000+ heures/an",
+    potentielSolaire: "Excellent (1200-1300 kWh/kWc/an)",
+    particularites: [
+      "Zone d'activités importantes avec nombreuses toitures industrielles",
+      "Quartiers résidentiels modernes propices au solaire",
+      "Forte croissance démographique et urbaine",
+      "Développement du parc automobile électrique",
+      "Politique locale favorable aux énergies renouvelables",
+      "Proximité de l'aéroport Lyon-Saint-Exupéry"
+    ]
+  },
+  {
+    name: "Caluire-et-Cuire",
+    slug: "caluire-et-cuire",
+    department: "Rhône",
+    population: 42000,
+    latitude: 45.7975,
+    longitude: 4.8508,
+    description: "Commune résidentielle prisée du nord de Lyon, Caluire-et-Cuire bénéficie d'une situation géographique exceptionnelle sur les hauteurs de la Saône. Cette ville du Rhône, avec ses quartiers pavillonnaires et ses immeubles de standing, présente un potentiel solaire remarquable grâce à ses nombreuses toitures bien exposées. Son caractère résidentiel haut de gamme et sa proximité immédiate avec Lyon en font un territoire de choix pour les installations photovoltaïques et les solutions d'autoconsommation énergétique.",
+    ensoleillement: "1980+ heures/an",
+    potentielSolaire: "Très bon (1180-1280 kWh/kWc/an)",
+    particularites: [
+      "Commune résidentielle haut de gamme avec habitat pavillonnaire",
+      "Situation sur les hauteurs offrant une excellente exposition",
+      "Proximité immédiate du centre de Lyon",
+      "Population sensibilisée aux enjeux environnementaux",
+      "Architecture de qualité adaptée aux installations discrètes",
+      "Forte demande en solutions de recharge électrique"
+    ]
+  },
+  {
+    name: "Bron",
+    slug: "bron",
+    department: "Rhône",
+    population: 40000,
+    latitude: 45.7311,
+    longitude: 4.9111,
+    description: "Ville de l'est lyonnais en pleine mutation urbaine, Bron combine harmonieusement zones résidentielles, commerciales et d'activités. Cette commune du Rhône, connue pour son aéroport historique et ses quartiers en renouvellement, offre de nombreuses opportunités pour le développement des énergies renouvelables. Avec ses nouveaux éco-quartiers et ses infrastructures modernes, Bron s'impose comme un territoire d'innovation pour les solutions photovoltaïques et les systèmes de stockage énergétique.",
+    ensoleillement: "1950+ heures/an",
+    potentielSolaire: "Très bon (1150-1250 kWh/kWc/an)",
+    particularites: [
+      "Renouvellement urbain avec éco-quartiers innovants",
+      "Mix habitat individuel et collectif moderne",
+      "Présence de l'aéroport Lyon-Bron",
+      "Zones d'activités avec potentiel photovoltaïque",
+      "Politique locale d'accompagnement énergétique",
+      "Développement des mobilités douces et électriques"
+    ]
+  },
+  {
+    name: "Meyzieu",
+    slug: "meyzieu",
+    department: "Rhône",
+    population: 32000,
+    latitude: 45.7656,
+    longitude: 5.0231,
+    description: "Commune de l'est lyonnais au charme authentique, Meyzieu séduit par son cadre de vie préservé et ses quartiers résidentiels paisibles. Cette ville du Rhône, avec ses maisons individuelles et ses espaces verts généreux, présente un potentiel solaire intéressant pour les familles souhaitant s'orienter vers l'autoconsommation. Son développement maîtrisé et sa proximité avec les grands axes de communication en font un territoire propice à l'installation de panneaux photovoltaïques et de bornes de recharge domiciliaires.",
+    ensoleillement: "1920+ heures/an",
+    potentielSolaire: "Bon (1100-1200 kWh/kWc/an)",
+    particularites: [
+      "Ville résidentielle avec forte proportion de maisons individuelles",
+      "Cadre de vie préservé et espaces verts abondants",
+      "Population sensible aux questions environnementales",
+      "Développement de nouveaux quartiers durables",
+      "Desserte en transport en commun vers Lyon",
+      "Politique municipale d'accompagnement des projets verts"
+    ]
+  },
+  {
+    name: "Rillieux-la-Pape",
+    slug: "rillieux-la-pape",
+    department: "Rhône",
+    population: 30000,
+    latitude: 45.8197,
+    longitude: 4.8975,
+    description: "Commune du nord de Lyon en pleine transformation, Rillieux-la-Pape incarne la transition vers une ville durable et connectée. Cette ville du Rhône, avec ses quartiers diversifiés et ses projets de renouvellement urbain, offre de belles perspectives pour le développement des énergies renouvelables. Son engagement dans la smart city et ses nombreuses rénovations énergétiques en font un territoire d'expérimentation privilégié pour les solutions photovoltaïques innovantes et les systèmes de gestion intelligente de l'énergie.",
+    ensoleillement: "1940+ heures/an",
+    potentielSolaire: "Bon (1120-1220 kWh/kWc/an)",
+    particularites: [
+      "Ville en transition vers le numérique et l'énergie verte",
+      "Programmes de rénovation urbaine ambitieux",
+      "Mix architectural favorisant les installations solaires",
+      "Développement de la mobilité électrique",
+      "Partenariats avec la métropole pour l'énergie",
+      "Population jeune et sensibilisée aux enjeux climatiques"
+    ]
+  },
+  {
+    name: "Décines-Charpieu",
+    slug: "decines-charpieu",
+    department: "Rhône",
+    population: 27000,
+    latitude: 45.7711,
+    longitude: 4.9589,
+    description: "Ville sportive de l'est lyonnais, Décines-Charpieu rayonne bien au-delà de ses frontières grâce à son stade emblématique et ses infrastructures modernes. Cette commune dynamique du Rhône, avec ses quartiers résidentiels en expansion et ses équipements publics innovants, présente un potentiel remarquable pour les énergies renouvelables. Son image de ville moderne et son engagement dans le développement durable en font un territoire privilégié pour les installations photovoltaïques et les solutions de mobilité électrique.",
+    ensoleillement: "1960+ heures/an",
+    potentielSolaire: "Très bon (1160-1260 kWh/kWc/an)",
+    particularites: [
+      "Ville moderne avec infrastructures sportives de renommée",
+      "Quartiers résidentiels en développement",
+      "Politique énergétique ambitieuse",
+      "Forte visibilité médiatique favorable aux projets verts",
+      "Proximité des grands axes et de Lyon",
+      "Population active et engagée dans la transition énergétique"
+    ]
+  },
+  {
+    name: "Oullins",
+    slug: "oullins",
+    department: "Rhône",
+    population: 26000,
+    latitude: 45.7156,
+    longitude: 4.8083,
+    description: "Charmante commune du sud-ouest lyonnais, Oullins séduit par son patrimoine architectural et sa proximité avec le centre de Lyon. Cette ville du Rhône, avec ses maisons de caractère et ses immeubles bourgeois, offre un cadre idéal pour des installations photovoltaïques respectueuses du patrimoine. Son positionnement géographique privilégié et sa population consciente des enjeux environnementaux en font un territoire de choix pour le développement de l'autoconsommation solaire et des bornes de recharge électrique.",
+    ensoleillement: "1990+ heures/an",
+    potentielSolaire: "Très bon (1190-1290 kWh/kWc/an)",
+    particularites: [
+      "Patrimoine architectural préservé et valorisé",
+      "Proximité immédiate du centre de Lyon",
+      "Population aisée sensible à l'écologie",
+      "Architecture bourgeoise adaptée au solaire discret",
+      "Forte demande en solutions de recharge domiciliaire",
+      "Politique municipale d'accompagnement des projets durables"
+    ]
   }
 ];
 

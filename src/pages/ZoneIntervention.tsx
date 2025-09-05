@@ -12,9 +12,7 @@ import { cities } from '../data/cities';
 const ZoneIntervention = () => {
   // Autres villes importantes sans pages dédiées
   const autresVilles = [
-    // Autres villes importantes
-    "Cran-Gevrier", "Saint-Priest", "Caluire-et-Cuire", "Bron", "Meyzieu", 
-    "Rillieux-la-Pape", "Décines-Charpieu", "Oullins"
+    // Aucune ville supplémentaire pour le moment
   ];
 
   const servicesZone = [
