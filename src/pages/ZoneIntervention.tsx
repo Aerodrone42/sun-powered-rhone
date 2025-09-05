@@ -173,9 +173,9 @@ const ZoneIntervention = () => {
                   </div>
                 </Link>
               ))}
-               {villesRhoneAlpes.slice(10).map((ville, index) => (
+              {villesRhoneAlpes.slice(20).map((ville, index) => (
                 <div 
-                  key={index + 10}
+                  key={index + 20}
                   className="bg-card border border-border rounded-lg p-4 text-center hover:shadow-md transition-shadow"
                 >
                   <div className="flex items-center justify-center gap-2">

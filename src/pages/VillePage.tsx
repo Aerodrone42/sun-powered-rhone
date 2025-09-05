@@ -13,6 +13,9 @@ import { getCityBySlug } from '../data/cities';
 import lyonHero from '../assets/lyon-hero.jpg';
 import villeurbaneHero from '../assets/villeurbanne-hero.jpg';
 import venissieuxHero from '../assets/venissieux-hero.jpg';
+import ecullyHero from '../assets/ecully-hero.jpg';
+import grenobleHero from '../assets/grenoble-hero.jpg';
+import tassinHero from '../assets/tassin-hero.jpg';
 
 const VillePage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -32,6 +35,9 @@ const VillePage = () => {
       case 'lyon': return lyonHero;
       case 'villeurbanne': return villeurbaneHero;
       case 'venissieux': return venissieuxHero;
+      case 'ecully': return ecullyHero;
+      case 'grenoble': return grenobleHero;
+      case 'tassin-la-demi-lune': return tassinHero;
       default: return lyonHero;
     }
   };
