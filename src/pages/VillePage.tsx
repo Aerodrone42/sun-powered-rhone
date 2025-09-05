@@ -22,6 +22,14 @@ import meylanHero from '../assets/meylan-hero.jpg';
 import chamberyHero from '../assets/chambery-hero.jpg';
 import annecyHero from '../assets/annecy-hero.jpg';
 import aixLesBainsHero from '../assets/aix-les-bains-hero.jpg';
+import saintEtienneHero from '../assets/saint-etienne-hero.jpg';
+import roanneHero from '../assets/roanne-hero.jpg';
+import montbrisonHero from '../assets/montbrison-hero.jpg';
+import annemasseHero from '../assets/annemasse-hero.jpg';
+import clusesHero from '../assets/cluses-hero.jpg';
+import bonnevilleHero from '../assets/bonneville-hero.jpg';
+import sallanchesHero from '../assets/sallanches-hero.jpg';
+import rumillyHero from '../assets/rumilly-hero.jpg';
 
 const VillePage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -50,6 +58,14 @@ const VillePage = () => {
       case 'chambery': return chamberyHero;
       case 'annecy': return annecyHero;
       case 'aix-les-bains': return aixLesBainsHero;
+      case 'saint-etienne': return saintEtienneHero;
+      case 'roanne': return roanneHero;
+      case 'montbrison': return montbrisonHero;
+      case 'annemasse': return annemasseHero;
+      case 'cluses': return clusesHero;
+      case 'bonneville': return bonnevilleHero;
+      case 'sallanches': return sallanchesHero;
+      case 'rumilly': return rumillyHero;
       default: return lyonHero;
     }
   };

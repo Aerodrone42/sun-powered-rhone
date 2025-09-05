@@ -13,10 +13,8 @@ const ZoneIntervention = () => {
   // Autres villes importantes sans pages dédiées
   const autresVilles = [
     // Autres villes importantes
-    "Saint-Étienne", "Roanne", "Montbrison", "Annemasse", "Cluses", "Bonneville",
-    "Sallanches", "Rumilly", "Gaillard", "Seynod", "Cran-Gevrier",
-    "Saint-Priest", "Caluire-et-Cuire", "Bron", "Meyzieu", "Rillieux-la-Pape", 
-    "Décines-Charpieu", "Oullins"
+    "Cran-Gevrier", "Saint-Priest", "Caluire-et-Cuire", "Bron", "Meyzieu", 
+    "Rillieux-la-Pape", "Décines-Charpieu", "Oullins"
   ];
 
   const servicesZone = [

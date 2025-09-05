@@ -983,6 +983,226 @@ export const cities: CityData[] = [
       "Projet photovoltaïque thermal",
       "Installation résidentielle optimiseurs"
     ]
+  },
+  {
+    name: "Saint-Étienne",
+    slug: "saint-etienne",
+    department: "Loire",
+    population: 172565,
+    latitude: 45.4397,
+    longitude: 4.3872,
+    description: "Saint-Étienne, ancienne capitale industrielle française, se réinvente aujourd'hui comme ville créative et durable. Située dans le département de la Loire, cette métropole offre un potentiel solaire intéressant grâce à son climat continental et ses nombreux espaces urbains disponibles pour l'installation de panneaux photovoltaïques.",
+    ensoleillement: "1800 heures/an",
+    potentielSolaire: "Excellent potentiel avec 1800h de soleil annuel et de nombreuses toitures industrielles reconvertibles",
+    particularites: [
+      "Ancienne ville industrielle en reconversion énergétique",
+      "Nombreuses friches industrielles disponibles pour le solaire",
+      "Politique municipale favorable aux énergies renouvelables",
+      "Climat continental avec bon ensoleillement"
+    ],
+    projetsRealises: [
+      "Installation de 500 kWc sur le toit du centre commercial Steel",
+      "Projet de centrale solaire sur l'ancienne mine de Roche-la-Molière",
+      "Équipement solaire de l'école des Mines"
+    ]
+  },
+  {
+    name: "Roanne",
+    slug: "roanne",
+    department: "Loire",
+    population: 34663,
+    latitude: 46.0344,
+    longitude: 4.0731,
+    description: "Roanne, ville d'art et d'histoire située le long de la Loire, développe une politique énergétique ambitieuse. Cette commune de la Loire bénéficie d'un ensoleillement favorable et d'un patrimoine bâti adapté aux installations solaires, tant pour les particuliers que les entreprises.",
+    ensoleillement: "1850 heures/an",
+    potentielSolaire: "Très bon potentiel avec orientation sud privilégiée et patrimoine bâti adapté",
+    particularites: [
+      "Situation privilégiée en bord de Loire",
+      "Patrimoine architectural adapté au solaire",
+      "Soutien municipal aux projets d'autoconsommation",
+      "Zone d'activités propice aux installations industrielles"
+    ],
+    projetsRealises: [
+      "Installation sur le lycée Albert Thomas",
+      "Centrale solaire de 300 kWc sur zone industrielle",
+      "Équipement de la piscine municipale"
+    ]
+  },
+  {
+    name: "Montbrison",
+    slug: "montbrison",
+    department: "Loire",
+    population: 15478,
+    latitude: 45.6078,
+    longitude: 4.0647,
+    description: "Montbrison, ancienne capitale du Forez, conjugue patrimoine historique et transition énergétique. Cette ville de la Loire offre un cadre idéal pour le développement du solaire photovoltaïque, avec un ensoleillement généreux et une forte sensibilité environnementale de ses habitants.",
+    ensoleillement: "1820 heures/an",
+    potentielSolaire: "Bon potentiel avec exposition sud favorable et bâti traditionnel adaptable",
+    particularites: [
+      "Capitale historique du Forez",
+      "Architecture traditionnelle compatible avec le solaire",
+      "Population sensibilisée aux enjeux environnementaux",
+      "Cadre rural privilégié pour l'autoconsommation"
+    ],
+    projetsRealises: [
+      "Installation sur le collège Mario Meunier",
+      "Projet participatif de centrale villageoise",
+      "Équipement solaire de la mairie"
+    ]
+  },
+  {
+    name: "Annemasse",
+    slug: "annemasse",
+    department: "Haute-Savoie",
+    population: 36250,
+    latitude: 46.1936,
+    longitude: 6.2267,
+    description: "Annemasse, ville frontalière dynamique face à Genève, mise sur les énergies renouvelables dans sa stratégie de développement durable. Cette commune de Haute-Savoie bénéficie d'un ensoleillement alpin favorable et d'une forte demande pour l'autoconsommation solaire.",
+    ensoleillement: "1750 heures/an",
+    potentielSolaire: "Excellent potentiel avec exposition alpine et forte demande d'autoconsommation",
+    particularites: [
+      "Proximité de Genève et dynamisme économique",
+      "Ensoleillement alpin favorable",
+      "Population à fort pouvoir d'achat sensible à l'écologie",
+      "Nombreux projets de construction neuve intégrant le solaire"
+    ],
+    projetsRealises: [
+      "Installation sur le centre commercial Porte de Genève",
+      "Projet de quartier solaire aux Livrets",
+      "Équipement de l'hôtel de ville"
+    ]
+  },
+  {
+    name: "Cluses",
+    slug: "cluses",
+    department: "Haute-Savoie",
+    population: 17731,
+    latitude: 46.0617,
+    longitude: 6.5797,
+    description: "Cluses, capitale mondiale du décolletage, intègre l'innovation solaire dans son écosystème industriel. Cette ville de Haute-Savoie offre un potentiel remarquable pour les installations photovoltaïques, notamment sur les toitures industrielles et les bâtiments tertiaires.",
+    ensoleillement: "1780 heures/an",
+    potentielSolaire: "Très bon potentiel avec nombreuses toitures industrielles et exposition alpine",
+    particularites: [
+      "Pôle industriel du décolletage",
+      "Nombreuses toitures d'usines disponibles",
+      "Innovation technologique et transition énergétique",
+      "Vallée de l'Arve ensoleillée"
+    ],
+    projetsRealises: [
+      "Installation de 800 kWc sur l'usine Swatch Group",
+      "Projet solaire du lycée Charles Poncet",
+      "Centrale photovoltaïque sur la zone industrielle"
+    ]
+  },
+  {
+    name: "Bonneville",
+    slug: "bonneville",
+    department: "Haute-Savoie",
+    population: 12824,
+    latitude: 46.0747,
+    longitude: 6.4086,
+    description: "Bonneville, porte d'entrée de la vallée de l'Arve, développe une stratégie énergétique alpine ambitieuse. Cette commune de Haute-Savoie bénéficie d'un ensoleillement montagnard favorable et d'une position géographique idéale pour les projets solaires.",
+    ensoleillement: "1770 heures/an",
+    potentielSolaire: "Bon potentiel avec exposition sud-est et cadre montagnard ensoleillé",
+    particularites: [
+      "Porte d'entrée de la vallée de l'Arve",
+      "Ensoleillement montagnard privilégié",
+      "Bâti traditionnel alpin adaptable",
+      "Politique locale favorable aux énergies renouvelables"
+    ],
+    projetsRealises: [
+      "Installation sur le collège Guillaume Fichet",
+      "Projet de toiture solaire sur la salle polyvalente",
+      "Équipement photovoltaïque de la piscine"
+    ]
+  },
+  {
+    name: "Sallanches",
+    slug: "sallanches",
+    department: "Haute-Savoie",
+    population: 16358,
+    latitude: 45.9386,
+    longitude: 6.6331,
+    description: "Sallanches, au pied du Mont-Blanc, conjugue patrimoine montagnard et innovation énergétique. Cette ville de Haute-Savoie offre un cadre exceptionnel pour le développement du solaire, avec un ensoleillement alpin remarquable et une forte sensibilité environnementale.",
+    ensoleillement: "1850 heures/an",
+    potentielSolaire: "Excellent potentiel avec exposition alpine exceptionnelle et altitude favorable",
+    particularites: [
+      "Vue imprenable sur le Mont-Blanc",
+      "Altitude favorable à l'ensoleillement",
+      "Tourisme et économie locale dynamiques",
+      "Patrimoine montagnard compatible avec le solaire"
+    ],
+    projetsRealises: [
+      "Installation sur le centre aquatique Mont-Blanc",
+      "Projet solaire du lycée Mont-Blanc René Dayve",
+      "Centrale photovoltaïque sur la zone commerciale"
+    ]
+  },
+  {
+    name: "Rumilly",
+    slug: "rumilly",
+    department: "Haute-Savoie",
+    population: 15617,
+    latitude: 45.8611,
+    longitude: 5.9494,
+    description: "Rumilly, carrefour historique entre lac et montagne, mise sur les énergies renouvelables pour son avenir. Cette commune de Haute-Savoie bénéficie d'un microclimat favorable et d'un patrimoine bâti adapté aux installations solaires photovoltaïques.",
+    ensoleillement: "1790 heures/an",
+    potentielSolaire: "Très bon potentiel avec microclimat lacustre et exposition sud privilégiée",
+    particularites: [
+      "Carrefour entre Annecy et Aix-les-Bains",
+      "Microclimat lacustre favorable",
+      "Secteur tertiaire développé",
+      "Bâti traditionnel savoyard adaptable"
+    ],
+    projetsRealises: [
+      "Installation sur le collège Côte Rousse",
+      "Projet de centrale solaire participative",
+      "Équipement de la maison de santé"
+    ]
+  },
+  {
+    name: "Gaillard",
+    slug: "gaillard",
+    department: "Haute-Savoie",
+    population: 11843,
+    latitude: 46.1867,
+    longitude: 6.2069,
+    description: "Gaillard, commune frontalière de l'agglomération genevoise, développe une politique énergétique transfrontalière. Cette ville de Haute-Savoie offre un potentiel solaire remarquable, renforcé par une forte demande locale pour l'autoconsommation photovoltaïque.",
+    ensoleillement: "1760 heures/an",
+    potentielSolaire: "Excellent potentiel avec proximité genevoise et forte demande d'autoconsommation",
+    particularites: [
+      "Agglomération franco-genevoise",
+      "Population sensible à l'écologie",
+      "Forte demande d'autoconsommation",
+      "Bâti résidentiel moderne adapté au solaire"
+    ],
+    projetsRealises: [
+      "Installation sur l'école des Bossons",
+      "Projet de quartier solaire résidentiel",
+      "Équipement photovoltaïque de la médiathèque"
+    ]
+  },
+  {
+    name: "Seynod",
+    slug: "seynod",
+    department: "Haute-Savoie",
+    population: 22185,
+    latitude: 45.8797,
+    longitude: 6.0889,
+    description: "Seynod, commune résidentielle de l'agglomération annécienne, place la transition énergétique au cœur de ses priorités. Cette ville de Haute-Savoie bénéficie d'un ensoleillement lacustre favorable et d'une population engagée dans le développement durable.",
+    ensoleillement: "1810 heures/an",
+    potentielSolaire: "Très bon potentiel avec cadre lacustre et habitat pavillonnaire adapté",
+    particularites: [
+      "Agglomération d'Annecy",
+      "Cadre lacustre ensoleillé",
+      "Habitat pavillonnaire privilégié",
+      "Population engagée dans le développement durable"
+    ],
+    projetsRealises: [
+      "Installation sur le groupe scolaire des Balmettes",
+      "Projet de toitures solaires résidentielles",
+      "Équipement de la salle de spectacles"
+    ]
   }
 ];
 
