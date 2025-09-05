@@ -19,6 +19,9 @@ import tassinHero from '../assets/tassin-hero.jpg';
 import bourgoinJallieuHero from '../assets/bourgoin-jallieu-hero.jpg';
 import vienneHero from '../assets/vienne-hero.jpg';
 import meylanHero from '../assets/meylan-hero.jpg';
+import chamberyHero from '../assets/chambery-hero.jpg';
+import annecyHero from '../assets/annecy-hero.jpg';
+import aixLesBainsHero from '../assets/aix-les-bains-hero.jpg';
 
 const VillePage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -44,6 +47,9 @@ const VillePage = () => {
       case 'bourgoin-jallieu': return bourgoinJallieuHero;
       case 'vienne': return vienneHero;
       case 'meylan': return meylanHero;
+      case 'chambery': return chamberyHero;
+      case 'annecy': return annecyHero;
+      case 'aix-les-bains': return aixLesBainsHero;
       default: return lyonHero;
     }
   };

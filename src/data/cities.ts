@@ -763,6 +763,248 @@ export const cities: CityData[] = [
       "Projet de R&D sur cellules photovoltaïques de nouvelle génération",
       "Installation de bornes de recharge ultra-rapides connectées"
     ]
+  },
+  {
+    name: "Chambéry",
+    slug: "chambery",
+    department: "Savoie (73)",
+    population: 59000,
+    description: "Capitale historique de la Savoie, Chambéry allie patrimoine médiéval et modernité alpine. Cette ville dynamique, nichée entre les massifs des Bauges et de la Chartreuse, offre un cadre de vie exceptionnel pour l'installation de panneaux solaires.",
+    latitude: 45.5647,
+    longitude: 5.9178,
+    ensoleillement: "1850+ heures/an",
+    potentielSolaire: "Très bon (1150-1250 kWh/kWc/an)",
+    particularites: [
+      "Capitale historique de la Savoie avec un riche patrimoine",
+      "Climat alpin favorable au photovoltaïque",
+      "Ville universitaire dynamique et écologique",
+      "Proximité des stations de ski et parcs naturels"
+    ],
+    projetsRealises: [
+      "Installation 6 kWc sur maison savoyarde traditionnelle",
+      "Projet résidentiel avec batterie de stockage",
+      "Installation sur toiture terrasse en centre-ville"
+    ]
+  },
+  {
+    name: "Aix-les-Bains",
+    slug: "aix-les-bains",
+    department: "Savoie (73)",
+    population: 30000,
+    description: "Station thermale prestigieuse sur les rives du lac du Bourget, Aix-les-Bains conjugue thermalisme, tourisme et qualité de vie. Son ensoleillement exceptionnel en fait un territoire idéal pour le photovoltaïque.",
+    latitude: 45.6886,
+    longitude: 5.9155,
+    ensoleillement: "1900+ heures/an",
+    potentielSolaire: "Excellent (1200-1300 kWh/kWc/an)",
+    particularites: [
+      "Station thermale au bord du lac du Bourget",
+      "Ensoleillement exceptionnel pour la région alpine",
+      "Architecture Belle Époque et patrimoine thermal",
+      "Tourisme vert et développement durable"
+    ],
+    projetsRealises: [
+      "Installation 9 kWc sur villa avec vue lac",
+      "Projet photovoltaïque sur établissement thermal",
+      "Installation résidentielle avec optimiseurs"
+    ]
+  },
+  {
+    name: "La Motte-Servolex",
+    slug: "la-motte-servolex",
+    department: "Savoie (73)",
+    population: 12500,
+    description: "Commune résidentielle prisée proche de Chambéry, La Motte-Servolex offre un cadre de vie paisible au pied des Alpes. Son développement maîtrisé favorise les installations photovoltaïques durables.",
+    seoTitle: "Panneaux Solaires La Motte-Servolex (73) - Installation Photovoltaïque",
+    seoDescription: "Installation de panneaux solaires à La Motte-Servolex. Spécialiste photovoltaïque Savoie, devis gratuit, accompagnement complet. ☀️",
+    latitude: 45.5944,
+    longitude: 5.8747,
+    codePostal: "73290",
+    ensoleillement: "1820+ heures/an",
+    potentielSolaire: "Très bon (1130-1230 kWh/kWc/an)",
+    particularites: [
+      "Commune résidentielle en expansion",
+      "Proximité immédiate de Chambéry",
+      "Cadre alpin préservé",
+      "Politique environnementale volontariste"
+    ],
+    projetsRealises: [
+      "Installation 3 kWc sur maison neuve",
+      "Projet résidentiel avec autoconsommation",
+      "Installation sur pavillon familial"
+    ]
+  },
+  {
+    name: "Bourg-Saint-Maurice",
+    slug: "bourg-saint-maurice",
+    department: "Savoie (73)",
+    population: 7500,
+    description: "Porte d'entrée de la Tarentaise et des Arcs, Bourg-Saint-Maurice bénéficie d'un ensoleillement montagnard exceptionnel. Cette station de montagne mise sur les énergies renouvelables pour son développement durable.",
+    seoTitle: "Panneaux Solaires Bourg-Saint-Maurice (73) - Installation Photovoltaïque Tarentaise",
+    seoDescription: "Installation de panneaux solaires à Bourg-Saint-Maurice. Expert photovoltaïque Tarentaise, devis gratuit, montagne durable. ☀️",
+    latitude: 45.6197,
+    longitude: 6.7697,
+    codePostal: "73700",
+    ensoleillement: "2100+ heures/an",
+    potentielSolaire: "Excellent (1350-1450 kWh/kWc/an)",
+    particularites: [
+      "Porte d'entrée de la station Les Arcs",
+      "Ensoleillement montagnard optimal",
+      "Tourisme hivernal et estival",
+      "Développement des énergies vertes en montagne"
+    ],
+    projetsRealises: [
+      "Installation 12 kWc sur chalet d'altitude",
+      "Projet photovoltaïque avec stockage hivernal",
+      "Installation sur refuge de montagne"
+    ]
+  },
+  {
+    name: "Albertville",
+    slug: "albertville",
+    department: "Savoie (73)",
+    population: 19000,
+    description: "Ville olympique de 1992, Albertville est un centre économique majeur de la Tarentaise. Son engagement pour l'environnement et son ensoleillement alpin en font un territoire d'excellence pour le photovoltaïque.",
+    seoTitle: "Panneaux Solaires Albertville (73) - Installation Photovoltaïque Ville Olympique",
+    seoDescription: "Installation de panneaux solaires à Albertville. Spécialiste photovoltaïque ville olympique, devis gratuit, énergie durable. ☀️",
+    latitude: 45.6759,
+    longitude: 6.3964,
+    codePostal: "73200",
+    ensoleillement: "1950+ heures/an",
+    potentielSolaire: "Excellent (1250-1350 kWh/kWc/an)",
+    particularites: [
+      "Ville olympique des JO d'hiver 1992",
+      "Centre économique de la Tarentaise",
+      "Patrimoine médiéval de Conflans",
+      "Engagement fort pour la transition énergétique"
+    ],
+    projetsRealises: [
+      "Installation 15 kWc sur bâtiment olympique",
+      "Projet résidentiel quartier Conflans",
+      "Installation photovoltaïque avec monitoring"
+    ]
+  },
+  {
+    name: "Saint-Jean-de-Maurienne",
+    slug: "saint-jean-de-maurienne",
+    department: "Savoie (73)",
+    population: 8000,
+    description: "Capitale de la Maurienne, Saint-Jean-de-Maurienne est riche d'un patrimoine exceptionnel. Située dans une vallée ensoleillée, elle développe activement les énergies renouvelables.",
+    seoTitle: "Panneaux Solaires Saint-Jean-de-Maurienne (73) - Installation Photovoltaïque Maurienne",
+    seoDescription: "Installation de panneaux solaires à Saint-Jean-de-Maurienne. Expert photovoltaïque Maurienne, devis gratuit, vallée durable. ☀️",
+    latitude: 45.2761,
+    longitude: 6.3436,
+    codePostal: "73300",
+    ensoleillement: "2000+ heures/an",
+    potentielSolaire: "Excellent (1300-1400 kWh/kWc/an)",
+    particularites: [
+      "Capitale historique de la Maurienne",
+      "Cathédrale et patrimoine religieux exceptionnel",
+      "Vallée ensoleillée favorable au photovoltaïque",
+      "Carrefour des grandes traversées alpines"
+    ],
+    projetsRealises: [
+      "Installation 8 kWc sur maison mauriennaise",
+      "Projet photovoltaïque centre historique",
+      "Installation résidentielle avec batterie"
+    ]
+  },
+  {
+    name: "Ugine",
+    slug: "ugine",
+    department: "Savoie (73)",
+    population: 7000,
+    description: "Ville industrielle dynamique du Val d'Arly, Ugine concilie tradition métallurgique et innovation environnementale. Son engagement pour les énergies propres favorise le développement du photovoltaïque.",
+    seoTitle: "Panneaux Solaires Ugine (73) - Installation Photovoltaïque Val d'Arly",
+    seoDescription: "Installation de panneaux solaires à Ugine. Spécialiste photovoltaïque Val d'Arly, devis gratuit, industrie verte. ☀️",
+    latitude: 45.7542,
+    longitude: 6.4242,
+    codePostal: "73400",
+    ensoleillement: "1880+ heures/an",
+    potentielSolaire: "Très bon (1180-1280 kWh/kWc/an)",
+    particularites: [
+      "Centre industriel du Val d'Arly",
+      "Tradition métallurgique et innovation",
+      "Proximité des stations de ski",
+      "Transition vers l'industrie verte"
+    ],
+    projetsRealises: [
+      "Installation 5 kWc sur maison ouvrière",
+      "Projet industriel photovoltaïque",
+      "Installation résidentielle moderne"
+    ]
+  },
+  {
+    name: "Modane",
+    slug: "modane",
+    department: "Savoie (73)",
+    population: 3000,
+    description: "Ville frontière au cœur de la Haute-Maurienne, Modane bénéficie d'un ensoleillement montagnard exceptionnel. Cette commune de haute altitude mise sur les énergies renouvelables pour son avenir.",
+    seoTitle: "Panneaux Solaires Modane (73) - Installation Photovoltaïque Haute-Maurienne",
+    seoDescription: "Installation de panneaux solaires à Modane. Expert photovoltaïque Haute-Maurienne, devis gratuit, montagne durable. ☀️",
+    latitude: 45.1761,
+    longitude: 6.6547,
+    codePostal: "73500",
+    ensoleillement: "2200+ heures/an",
+    potentielSolaire: "Exceptionnel (1400-1500 kWh/kWc/an)",
+    particularites: [
+      "Ville frontière avec l'Italie",
+      "Altitude élevée et fort ensoleillement",
+      "Patrimoine ferroviaire historique",
+      "Parc national de la Vanoise proche"
+    ],
+    projetsRealises: [
+      "Installation 10 kWc maison d'altitude",
+      "Projet photovoltaïque avec neige",
+      "Installation résidentielle optimisée"
+    ]
+  },
+  {
+    name: "Annecy",
+    slug: "annecy",
+    department: "Haute-Savoie (74)",
+    population: 53000,
+    description: "Surnommée la 'Venise des Alpes', Annecy conjugue patrimoine exceptionnel et qualité de vie alpine. Son lac cristallin et ses canaux historiques font de cette ville un joyau pour l'installation de panneaux solaires.",
+    latitude: 45.8992,
+    longitude: 6.1294,
+    codePostal: "74000",
+    ensoleillement: "1920+ heures/an",
+    potentielSolaire: "Excellent (1220-1320 kWh/kWc/an)",
+    particularites: [
+      "Venise des Alpes avec lac cristallin",
+      "Patrimoine médiéval exceptionnel",
+      "Ville la plus propre d'Europe",
+      "Ensoleillement alpin optimal"
+    ],
+    projetsRealises: [
+      "Installation 12 kWc vue lac d'Annecy",
+      "Projet photovoltaïque vieille ville",
+      "Installation résidentielle avec stockage"
+    ]
+  },
+  {
+    name: "Thonon-les-Bains",
+    slug: "thonon-les-bains",
+    department: "Haute-Savoie (74)",
+    population: 35000,
+    description: "Station thermale réputée sur les rives du lac Léman, Thonon-les-Bains bénéficie d'un microclimat exceptionnel. Son orientation sud et sa proximité du lac en font un territoire idéal pour le photovoltaïque.",
+    seoTitle: "Panneaux Solaires Thonon-les-Bains (74) - Installation Photovoltaïque Lac Léman",
+    seoDescription: "Installation de panneaux solaires à Thonon-les-Bains. Expert photovoltaïque lac Léman, devis gratuit, station thermale verte. ☀️",
+    latitude: 46.3700,
+    longitude: 6.4811,
+    codePostal: "74200",
+    ensoleillement: "1950+ heures/an",
+    potentielSolaire: "Excellent (1250-1350 kWh/kWc/an)",
+    particularites: [
+      "Station thermale sur le lac Léman",
+      "Microclimat exceptionnel lac alpin",
+      "Port de plaisance et thermalisme",
+      "Développement durable lacustre"
+    ],
+    projetsRealises: [
+      "Installation 18 kWc villa lac Léman",
+      "Projet photovoltaïque thermal",
+      "Installation résidentielle optimiseurs"
+    ]
   }
 ];
 
