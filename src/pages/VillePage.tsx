@@ -186,7 +186,7 @@ const VillePage = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Users className="w-5 h-5 text-yellow-400" />
-                  <span className="font-medium">500+ installations réalisées</span>
+                  <span className="font-medium">Nouvelle entreprise locale</span>
                 </div>
               </div>
             </div>
