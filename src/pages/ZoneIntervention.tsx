@@ -10,28 +10,13 @@ import { Link } from 'react-router-dom';
 import { cities } from '../data/cities';
 
 const ZoneIntervention = () => {
-  // 50 villes principales du Rhône-Alpes
-  const villesRhoneAlpes = [
-    // Métropole de Lyon et environs
-    "Lyon", "Villeurbanne", "Vénissieux", "Saint-Priest", "Caluire-et-Cuire", 
-    "Bron", "Meyzieu", "Rillieux-la-Pape", "Décines-Charpieu", "Oullins",
-    "Écully", "Tassin-la-Demi-Lune", "Saint-Fons", "Givors", "Genas",
-    
-    // Isère
-    "Grenoble", "Saint-Martin-d'Hères", "Échirolles", "Fontaine", "Voiron",
-    "Bourgoin-Jallieu", "Vienne", "Meylan", "Saint-Égrève", "Seyssinet-Pariset",
-    "La Tour-du-Pin", "Villefontaine", "L'Isle-d'Abeau", "Sassenage", "Crolles",
-    
-    // Savoie
-    "Chambéry", "Aix-les-Bains", "La Motte-Servolex", "Bourg-Saint-Maurice",
-    "Albertville", "Saint-Jean-de-Maurienne", "Ugine", "Modane",
-    
-    // Haute-Savoie
-    "Annecy", "Thonon-les-Bains", "Annemasse", "Cluses", "Bonneville",
-    "Sallanches", "Rumilly", "Gaillard", "Seynod", "Cran-Gevrier",
-    
+  // Autres villes importantes sans pages dédiées
+  const autresVilles = [
     // Autres villes importantes
-    "Saint-Étienne", "Roanne", "Montbrison"
+    "Saint-Étienne", "Roanne", "Montbrison", "Annemasse", "Cluses", "Bonneville",
+    "Sallanches", "Rumilly", "Gaillard", "Seynod", "Cran-Gevrier",
+    "Saint-Priest", "Caluire-et-Cuire", "Bron", "Meyzieu", "Rillieux-la-Pape", 
+    "Décines-Charpieu", "Oullins"
   ];
 
   const servicesZone = [
@@ -104,7 +89,7 @@ const ZoneIntervention = () => {
           <div className="container">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">50+</div>
+                <div className="text-4xl font-bold text-primary mb-2">{cities.length + autresVilles.length}+</div>
                 <div className="text-muted-foreground">Villes en Rhône-Alpes</div>
               </div>
               <div className="text-center">
@@ -156,11 +141,12 @@ const ZoneIntervention = () => {
                 Principales villes d'intervention en <span className="text-primary">Rhône-Alpes</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Nous intervenons dans plus de 50 villes de la région Rhône-Alpes pour tous vos projets solaires.
+                Nous intervenons dans plus de {cities.length + autresVilles.length} villes de la région Rhône-Alpes pour tous vos projets solaires.
               </p>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {/* Villes avec pages dédiées (liens fonctionnels) */}
               {cities.map((city, index) => (
                 <Link 
                   key={index}
@@ -173,14 +159,16 @@ const ZoneIntervention = () => {
                   </div>
                 </Link>
               ))}
-              {villesRhoneAlpes.slice(20).map((ville, index) => (
+              
+              {/* Autres villes (sans pages dédiées) */}
+              {autresVilles.map((ville, index) => (
                 <div 
-                  key={index + 20}
+                  key={index + cities.length}
                   className="bg-card border border-border rounded-lg p-4 text-center hover:shadow-md transition-shadow"
                 >
                   <div className="flex items-center justify-center gap-2">
-                    <MapPin className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-medium text-foreground">{ville}</span>
+                    <MapPin className="w-4 h-4 text-muted-foreground" />
+                    <span className="text-sm font-medium text-muted-foreground">{ville}</span>
                   </div>
                 </div>
               ))}
