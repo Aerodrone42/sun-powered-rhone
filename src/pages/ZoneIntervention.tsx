@@ -160,9 +160,34 @@ const ZoneIntervention = () => {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {villesRhoneAlpes.map((ville, index) => (
+              {villesRhoneAlpes.slice(0, 10).map((ville, index) => {
+                const citySlug = ville.toLowerCase()
+                  .replace(/[àáâãäå]/g, 'a')
+                  .replace(/[èéêë]/g, 'e')
+                  .replace(/[ìíîï]/g, 'i')
+                  .replace(/[òóôõö]/g, 'o')
+                  .replace(/[ùúûü]/g, 'u')
+                  .replace(/[ç]/g, 'c')
+                  .replace(/[^a-z0-9]/g, '-')
+                  .replace(/-+/g, '-')
+                  .replace(/^-|-$/g, '');
+                
+                return (
+                  <Link 
+                    key={index}
+                    to={`/ville/${citySlug}`}
+                    className="bg-card border border-border rounded-lg p-4 text-center hover:shadow-md transition-all hover:border-primary/50 group"
+                  >
+                    <div className="flex items-center justify-center gap-2">
+                      <MapPin className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
+                      <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">{ville}</span>
+                    </div>
+                  </Link>
+                );
+              })}
+              {villesRhoneAlpes.slice(10).map((ville, index) => (
                 <div 
-                  key={index}
+                  key={index + 10}
                   className="bg-card border border-border rounded-lg p-4 text-center hover:shadow-md transition-shadow"
                 >
                   <div className="flex items-center justify-center gap-2">
