@@ -38,6 +38,7 @@ import meyzieuHero from '../assets/meyzieu-hero.jpg';
 import rillieuLaPapeHero from '../assets/rillieux-la-pape-hero.jpg';
 import decinesCharpieuHero from '../assets/decines-charpieu-hero.jpg';
 import oullinsHero from '../assets/oullins-hero.jpg';
+import laTourDuPinHero from '../assets/la-tour-du-pin-hero.jpg';
 
 const VillePage = () => {
   const { citySlug } = useParams<{ citySlug: string }>();
@@ -82,6 +83,7 @@ const VillePage = () => {
       case 'rillieux-la-pape': return rillieuLaPapeHero;
       case 'decines-charpieu': return decinesCharpieuHero;
       case 'oullins': return oullinsHero;
+      case 'la-tour-du-pin': return laTourDuPinHero;
       default: return lyonHero;
     }
   };
