@@ -210,7 +210,7 @@ const Agriculteurs = () => {
               
               <h3 className="text-2xl font-bold text-foreground mb-4">Rentabilité et revenus complémentaires</h3>
               <p className="mb-6">
-                Réduisez jusqu'à 80% vos factures électriques et générez des revenus complémentaires grâce à la revente 
+                Réduisez vos factures électriques et générez des revenus complémentaires grâce à la revente 
                 d'électricité. Nos installations offrent un retour sur investissement attractif de 8 à 12 ans selon la configuration, 
                 avec une durée de vie garantie de 25 ans minimum.
               </p>
