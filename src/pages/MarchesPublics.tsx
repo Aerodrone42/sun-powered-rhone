@@ -314,7 +314,7 @@ const MarchesPublics = () => {
                 <Card className="border-l-4 border-l-green-500 hover:shadow-glow transition-all duration-500">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Globe className="h-6 w-6 text-green-500" />
+                      
                       Exemplarité territoriale
                     </CardTitle>
                   </CardHeader>
