@@ -42,7 +42,7 @@ const Index = () => {
     description: "Installation de panneaux solaires photovoltaïques pour particuliers",
     icon: Sun,
     href: "/particuliers/panneaux-solaires",
-    benefits: ["Réduction des factures d'électricité", "Production d'énergie propre", "Valorisation du bien immobilier", "Aides financières disponibles"]
+    benefits: ["Réduction des factures d'électricité", "Production d'énergie propre", "Valorisation du bien immobilier"]
   }, {
     title: "Installation en consommation",
     description: "Solutions d'autoconsommation pour optimiser votre production solaire",
