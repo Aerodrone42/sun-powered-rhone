@@ -683,10 +683,7 @@ const SolarSimulator = () => {
             <p className="text-xl opacity-90 drop-shadow-md">
               Découvrez la puissance des panneaux nouvelle génération !
             </p>
-            <div className="inline-flex items-center bg-background/20 backdrop-blur-xl border border-border text-foreground px-4 py-2 rounded-full text-sm font-semibold mt-3 shadow-xl">
-              <Zap className="w-4 h-4 mr-2" />
-              700-850W | Rendement +30%
-            </div>
+            
             
             {/* Bandeau d'information élégant */}
             <div className="mt-6 relative overflow-hidden rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 shadow-xl">
@@ -974,9 +971,9 @@ const SolarSimulator = () => {
                    </label>
                    <div className="flex gap-2 items-center">
                       <input type="number" min="50" max="5000" step="10" value={formData.monthlyBill || ''} onChange={e => setFormData({
-                     ...formData,
-                     monthlyBill: e.target.value === '' ? '' : parseInt(e.target.value)
-                   })} className="flex-1 p-3 bg-background/90 backdrop-blur-xl border border-border rounded-xl focus:border-primary focus:outline-none text-foreground shadow-xl" placeholder="Ex: 150" />
+                    ...formData,
+                    monthlyBill: e.target.value === '' ? '' : parseInt(e.target.value)
+                  })} className="flex-1 p-3 bg-background/90 backdrop-blur-xl border border-border rounded-xl focus:border-primary focus:outline-none text-foreground shadow-xl" placeholder="Ex: 150" />
                      <span className="text-foreground font-semibold">€/mois</span>
                    </div>
                    <div className="text-sm text-muted-foreground">
