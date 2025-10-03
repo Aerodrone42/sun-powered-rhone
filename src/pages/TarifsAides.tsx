@@ -6,10 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Euro, TrendingUp, Users, Zap, CheckCircle, Factory, Sprout } from "lucide-react";
 import SunParticles from "@/components/SunParticles";
 import heroImage from "@/assets/tarifs-aides-hero.jpg";
-
 const TarifsAides = () => {
-  return (
-    <>
+  return <>
       <Helmet>
         <title>Tarifs EDF OA & Aides Photovoltaïque 2026 | WNE</title>
         <meta name="description" content="Découvrez les tarifs de rachat EDF OA 2026, les aides et subventions disponibles pour l'installation de panneaux solaires. Guide complet pour particuliers, professionnels et agriculteurs." />
@@ -22,11 +20,7 @@ const TarifsAides = () => {
         <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
           {/* Background Image */}
           <div className="absolute inset-0">
-            <img 
-              src={heroImage} 
-              alt="Panneaux solaires et tarifs EDF" 
-              className="w-full h-full object-cover"
-            />
+            <img src={heroImage} alt="Panneaux solaires et tarifs EDF" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60 backdrop-blur-sm"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-background/30"></div>
           </div>
@@ -80,9 +74,7 @@ const TarifsAides = () => {
         {/* Tarifs de rachat */}
         <section className="py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in solar-hover">
-              Tarifs de rachat EDF OA – 3ᵉ trimestre 2026
-            </h2>
+            <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in solar-hover">Tarifs de rachat EDF OA – 4ᵉ trimestre 2025</h2>
             
             <div className="grid md:grid-cols-2 gap-8">
               {/* Vente du surplus */}
@@ -355,8 +347,6 @@ const TarifsAides = () => {
       </main>
 
       <Footer />
-    </>
-  );
+    </>;
 };
-
 export default TarifsAides;
