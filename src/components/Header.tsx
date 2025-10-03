@@ -3,8 +3,9 @@ import { Link, useLocation } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu"
-import { Menu, Sun, Phone, Mail } from "lucide-react"
+import { Menu } from "lucide-react"
 import { cn } from "@/lib/utils"
+import wneLogoImage from "@/assets/wne-logo.webp"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -60,24 +61,11 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/70 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/70 shadow-lg shadow-primary/5">
       <div className="container flex h-20 items-center justify-between">
         <Link to="/" className="flex items-center space-x-3 group">
-          <div className="relative">
-            <Sun className="h-12 w-12 text-primary transition-all duration-700 group-hover:scale-110 group-hover:rotate-12 group-hover:text-yellow-400 drop-shadow-[0_0_20px_rgba(251,191,36,0.6)]" />
-            <div className="absolute inset-0 h-12 w-12 bg-yellow-400/30 rounded-full blur-xl transition-all duration-700 group-hover:bg-yellow-400/60 group-hover:animate-pulse"></div>
-            {/* Rayons d'irradiation */}
-            <div className="absolute -inset-4 opacity-30 group-hover:opacity-60 transition-opacity duration-700">
-              <div className="absolute top-0 left-1/2 w-0.5 h-4 bg-gradient-to-t from-yellow-400 to-transparent transform -translate-x-1/2 animate-pulse"></div>
-              <div className="absolute bottom-0 left-1/2 w-0.5 h-4 bg-gradient-to-b from-yellow-400 to-transparent transform -translate-x-1/2 animate-pulse"></div>
-              <div className="absolute left-0 top-1/2 h-0.5 w-4 bg-gradient-to-l from-yellow-400 to-transparent transform -translate-y-1/2 animate-pulse"></div>
-              <div className="absolute right-0 top-1/2 h-0.5 w-4 bg-gradient-to-r from-yellow-400 to-transparent transform -translate-y-1/2 animate-pulse"></div>
-              <div className="absolute top-1 right-1 w-0.5 h-3 bg-gradient-to-tr from-yellow-400 to-transparent transform rotate-45 animate-pulse"></div>
-              <div className="absolute top-1 left-1 w-0.5 h-3 bg-gradient-to-tl from-yellow-400 to-transparent transform -rotate-45 animate-pulse"></div>
-              <div className="absolute bottom-1 right-1 w-0.5 h-3 bg-gradient-to-br from-yellow-400 to-transparent transform -rotate-45 animate-pulse"></div>
-              <div className="absolute bottom-1 left-1 w-0.5 h-3 bg-gradient-to-bl from-yellow-400 to-transparent transform rotate-45 animate-pulse"></div>
-            </div>
-          </div>
-          <span className="text-2xl font-bold text-primary tracking-tight">
-            WNE
-          </span>
+          <img 
+            src={wneLogoImage} 
+            alt="WNE - World Network Energies" 
+            className="h-14 w-auto transition-all duration-500 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -102,7 +90,11 @@ const Header = () => {
                               to={item.href}
                             >
                               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                              <Sun className="h-8 w-8 text-white relative z-10 transition-transform duration-500 group-hover:rotate-12" />
+                              <img 
+                                src={wneLogoImage} 
+                                alt="WNE" 
+                                className="h-12 w-auto relative z-10 transition-transform duration-500 group-hover:scale-110 brightness-0 invert"
+                              />
                               <div className="mb-2 mt-6 text-xl font-bold text-white relative z-10">
                                 {item.title}
                               </div>
