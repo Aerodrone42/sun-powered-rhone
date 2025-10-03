@@ -165,7 +165,7 @@ const Agriculteurs = () => {
             Réduisez vos charges
           </h2>
           <h3 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-emerald-600 via-green-600 to-yellow-600 bg-clip-text text-transparent">
-            et générez des revenus complémentaires
+            générez de revenus complémentaires
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 text-lg md:text-xl text-foreground/80">
             <div className="flex items-center gap-2">
