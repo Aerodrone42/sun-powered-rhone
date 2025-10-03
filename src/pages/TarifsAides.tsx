@@ -271,57 +271,7 @@ const TarifsAides = () => {
         </section>
 
         {/* Aides et subventions */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <Card className="backdrop-blur-lg bg-card/80 border-border/20 shadow-xl">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-3">
-                  <CheckCircle className="h-6 w-6 text-primary" />
-                  Aides et subventions de l'État
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-6">
-                  En plus des tarifs de rachat, plusieurs aides existent :
-                </p>
-                
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3 p-4 border rounded-lg bg-background/50">
-                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold">Prime à l'autoconsommation</h4>
-                      <p className="text-sm text-muted-foreground">Versée en une fois ou étalée sur 5 ans (jusqu'à 80 €/kWc)</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3 p-4 border rounded-lg bg-background/50">
-                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold">TVA réduite à 10 %</h4>
-                      <p className="text-sm text-muted-foreground">Pour les installations ≤ 3 kWc</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3 p-4 border rounded-lg bg-background/50">
-                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold">Éco-PTZ</h4>
-                      <p className="text-sm text-muted-foreground">Éco-prêt à taux zéro possible pour financer une partie de l'installation</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3 p-4 border rounded-lg bg-background/50">
-                    <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold">Exonération d'impôt</h4>
-                      <p className="text-sm text-muted-foreground">Exonération partielle d&apos;impôt sur les revenus issus de la revente pour les petites installations (&lt; 3 kWc)</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
+        
 
         {/* Conclusion */}
         <section className="py-12 px-4 sm:px-6 lg:px-8">
