@@ -1,93 +1,66 @@
-import { Link } from "react-router-dom"
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
-import AgriculturePortfolio from "@/components/AgriculturePortfolio"
-import SolarCallButton from "@/components/SolarCallButton"
-import ServiceCard from "@/components/ServiceCard"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Helmet } from "react-helmet-async"
-import { Tractor, Sun, Factory, Wheat, TrendingUp, Shield, Users, Euro, Leaf, Zap } from "lucide-react"
-
+import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import AgriculturePortfolio from "@/components/AgriculturePortfolio";
+import SolarCallButton from "@/components/SolarCallButton";
+import ServiceCard from "@/components/ServiceCard";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Helmet } from "react-helmet-async";
+import { Tractor, Sun, Factory, Wheat, TrendingUp, Shield, Users, Euro, Leaf, Zap } from "lucide-react";
 const Agriculteurs = () => {
-  const services = [
-    {
-      title: "Panneaux solaires agricoles",
-      description: "Installation sur toitures de bâtiments agricoles",
-      icon: Sun,
-      href: "/professionnels/panneaux-solaires",
-      benefits: [
-        "Réduction des coûts électriques",
-        "Revenu complémentaire via revente",
-        "Protection du matériel agricole",
-        "Amélioration du bilan énergétique"
-      ]
-    },
-    {
-      title: "Ombrières photovoltaïques",
-      description: "Protection du bétail et des équipements avec production d'énergie",
-      icon: Factory,
-      href: "/professionnels/ombrieres",
-      benefits: [
-        "Double fonction : ombrage et production",
-        "Protection des animaux et machines",
-        "Valorisation des espaces inutilisés",
-        "Installation adaptée à l'activité"
-      ]
-    },
-    {
-      title: "Agrivoltaïsme",
-      description: "Panneaux solaires compatibles avec l'agriculture",
-      icon: Wheat,
-      href: "/professionnels/agrivoltaisme",
-      benefits: [
-        "Continuité de l'activité agricole",
-        "Protection des cultures",
-        "Réduction de l'évaporation",
-        "Innovation et durabilité"
-      ]
-    },
-    {
-      title: "Autoconsommation agricole",
-      description: "Solutions de stockage et gestion énergétique",
-      icon: Zap,
-      href: "/professionnels/installation-consommation",
-      benefits: [
-        "Autonomie énergétique renforcée",
-        "Gestion intelligente des consommations",
-        "Stockage pour irrigation",
-        "Monitoring et optimisation"
-      ]
-    }
-  ]
-
-  const advantages = [
-    {
-      title: "Rentabilité optimisée",
-      description: "ROI attractif avec des installations dimensionnées pour vos besoins agricoles",
-      icon: TrendingUp
-    },
-    {
-      title: "Expertise agricole",
-      description: "Connaissance spécifique des contraintes et besoins du secteur agricole",
-      icon: Shield
-    },
-    {
-      title: "Accompagnement dédié",
-      description: "Support technique et administratif adapté aux exploitations agricoles",
-      icon: Users
-    }
-  ]
-
-  const stats = [
-    { number: "150+", label: "Exploitations équipées" },
-    { number: "25MW", label: "Puissance agricole installée" },
-    { number: "10", label: "Ans d'expertise agricole" },
-    { number: "95%", label: "Agriculteurs satisfaits" }
-  ]
-
-  return (
-    <div className="min-h-screen">
+  const services = [{
+    title: "Panneaux solaires agricoles",
+    description: "Installation sur toitures de bâtiments agricoles",
+    icon: Sun,
+    href: "/professionnels/panneaux-solaires",
+    benefits: ["Réduction des coûts électriques", "Revenu complémentaire via revente", "Protection du matériel agricole", "Amélioration du bilan énergétique"]
+  }, {
+    title: "Ombrières photovoltaïques",
+    description: "Protection du bétail et des équipements avec production d'énergie",
+    icon: Factory,
+    href: "/professionnels/ombrieres",
+    benefits: ["Double fonction : ombrage et production", "Protection des animaux et machines", "Valorisation des espaces inutilisés", "Installation adaptée à l'activité"]
+  }, {
+    title: "Agrivoltaïsme",
+    description: "Panneaux solaires compatibles avec l'agriculture",
+    icon: Wheat,
+    href: "/professionnels/agrivoltaisme",
+    benefits: ["Continuité de l'activité agricole", "Protection des cultures", "Réduction de l'évaporation", "Innovation et durabilité"]
+  }, {
+    title: "Autoconsommation agricole",
+    description: "Solutions de stockage et gestion énergétique",
+    icon: Zap,
+    href: "/professionnels/installation-consommation",
+    benefits: ["Autonomie énergétique renforcée", "Gestion intelligente des consommations", "Stockage pour irrigation", "Monitoring et optimisation"]
+  }];
+  const advantages = [{
+    title: "Rentabilité optimisée",
+    description: "ROI attractif avec des installations dimensionnées pour vos besoins agricoles",
+    icon: TrendingUp
+  }, {
+    title: "Expertise agricole",
+    description: "Connaissance spécifique des contraintes et besoins du secteur agricole",
+    icon: Shield
+  }, {
+    title: "Accompagnement dédié",
+    description: "Support technique et administratif adapté aux exploitations agricoles",
+    icon: Users
+  }];
+  const stats = [{
+    number: "150+",
+    label: "Exploitations équipées"
+  }, {
+    number: "25MW",
+    label: "Puissance agricole installée"
+  }, {
+    number: "10",
+    label: "Ans d'expertise agricole"
+  }, {
+    number: "95%",
+    label: "Agriculteurs satisfaits"
+  }];
+  return <div className="min-h-screen">
       <Helmet>
         <title>Solutions Solaires pour Agriculteurs | WN Energies</title>
         <meta name="description" content="Spécialiste du photovoltaïque agricole : panneaux solaires sur bâtiments, ombrières, agrivoltaïsme. Réduisez vos coûts et générez des revenus complémentaires." />
@@ -100,11 +73,7 @@ const Agriculteurs = () => {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background with overlay */}
         <div className="absolute inset-0">
-          <img 
-            src="/lovable-uploads/be80a198-7de3-4811-a266-aa904b6cd664.png"
-            alt="Serre agricole équipée de panneaux solaires photovoltaïques"
-            className="w-full h-full object-cover"
-          />
+          <img src="/lovable-uploads/be80a198-7de3-4811-a266-aa904b6cd664.png" alt="Serre agricole équipée de panneaux solaires photovoltaïques" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/95 via-emerald-800/80 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         </div>
@@ -183,22 +152,7 @@ const Agriculteurs = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-emerald-600 mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-sm md:text-base text-muted-foreground">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Portfolio Section */}
       <AgriculturePortfolio />
@@ -285,8 +239,7 @@ const Agriculteurs = () => {
           </div>
           
           <div className="grid gap-8 md:grid-cols-3">
-            {advantages.map((advantage, index) => (
-              <Card key={index} variant="gradient" className="text-center hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
+            {advantages.map((advantage, index) => <Card key={index} variant="gradient" className="text-center hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
                 <CardHeader>
                   <div className="mx-auto mb-4 p-3 rounded-full bg-emerald-100">
                     <advantage.icon className="h-8 w-8 text-emerald-600" />
@@ -298,8 +251,7 @@ const Agriculteurs = () => {
                     {advantage.description}
                   </CardDescription>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -317,13 +269,7 @@ const Agriculteurs = () => {
           </div>
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                {...service}
-                variant="solar"
-              />
-            ))}
+            {services.map((service, index) => <ServiceCard key={index} {...service} variant="solar" />)}
           </div>
         </div>
       </section>
@@ -423,8 +369,6 @@ const Agriculteurs = () => {
 
       <SolarCallButton />
       <Footer />
-    </div>
-  )
-}
-
-export default Agriculteurs
+    </div>;
+};
+export default Agriculteurs;
