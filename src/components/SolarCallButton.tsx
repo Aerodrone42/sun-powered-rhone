@@ -521,9 +521,9 @@ const SolarCallButton = () => {
       
       
       <div className="solar-widget">
-        <div className="phone-display">07 71 41 85 68</div>
+        <div className="phone-display">07 65 56 10 50</div>
         <a 
-          href="tel:0771418568" 
+          href="tel:0765561050"
           className="sun-button" 
           ref={sunButtonRef}
           onClick={createSolarExplosion}

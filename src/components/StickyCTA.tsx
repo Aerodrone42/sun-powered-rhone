@@ -6,7 +6,7 @@ interface StickyCTAProps {
   quoteHref?: string;
 }
 
-const StickyCTA = ({ phone = "07 71 41 85 68", quoteHref = "/contact" }: StickyCTAProps) => {
+const StickyCTA = ({ phone = "07 65 56 10 50", quoteHref = "/contact" }: StickyCTAProps) => {
   const tel = phone ? `tel:${phone.replace(/\s+/g, "")}` : undefined;
   return (
     <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 animate-fade-in">

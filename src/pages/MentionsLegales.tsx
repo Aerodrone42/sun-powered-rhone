@@ -43,7 +43,7 @@ const MentionsLegales = () => {
                 <p><strong>Forme juridique :</strong> Entreprise individuelle</p>
                 <p><strong>Activité :</strong> Installation et maintenance de systèmes photovoltaïques</p>
                 <p><strong>Email :</strong> <a href="mailto:contact@wn-energies.fr" className="text-primary hover:underline">contact@wn-energies.fr</a></p>
-                <p><strong>Téléphone :</strong> <a href="tel:0771418568" className="text-primary hover:underline">07 71 41 85 68</a></p>
+                <p><strong>Téléphone :</strong> <a href="tel:0765561050" className="text-primary hover:underline">07 65 56 10 50</a></p>
                 <p><strong>Zone d'intervention :</strong> Rhône-Alpes, France</p>
               </div>
             </section>
@@ -161,7 +161,7 @@ const MentionsLegales = () => {
                 </p>
                 <div className="space-y-2">
                   <p><strong>Email :</strong> <a href="mailto:contact@wn-energies.fr" className="text-primary hover:underline">contact@wn-energies.fr</a></p>
-                  <p><strong>Téléphone :</strong> <a href="tel:0771418568" className="text-primary hover:underline">07 71 41 85 68</a></p>
+                  <p><strong>Téléphone :</strong> <a href="tel:0765561050" className="text-primary hover:underline">07 65 56 10 50</a></p>
                   <p><strong>Formulaire de contact :</strong> <Link to="/contact" className="text-primary hover:underline">Nous écrire</Link></p>
                 </div>
               </div>

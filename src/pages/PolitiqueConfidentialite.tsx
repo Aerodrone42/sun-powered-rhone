@@ -170,7 +170,7 @@ const PolitiqueConfidentialite = () => {
                   <div className="bg-primary/5 rounded-lg p-4 space-y-2">
                     <p><strong>WN Energies</strong></p>
                     <p>Email : <a href="mailto:contact@wn-energies.fr" className="text-primary hover:underline">contact@wn-energies.fr</a></p>
-                    <p>Téléphone : <a href="tel:0771418568" className="text-primary hover:underline">07 71 41 85 68</a></p>
+                    <p>Téléphone : <a href="tel:0765561050" className="text-primary hover:underline">07 65 56 10 50</a></p>
                   </div>
                 </div>
               </div>

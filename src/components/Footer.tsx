@@ -69,11 +69,11 @@ const Footer = () => {
             {/* Contact Info Cards */}
             <div className="space-y-3">
               <a 
-                href="tel:0771418568" 
+                href="tel:0765561050" 
                 className="flex items-center space-x-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 group"
               >
                 <Phone className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-                <span className="font-medium">07 71 41 85 68</span>
+                <span className="font-medium">07 65 56 10 50</span>
               </a>
               <a 
                 href="mailto:contact@wn-energies.fr" 
