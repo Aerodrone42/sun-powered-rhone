@@ -297,7 +297,7 @@ const Contact = () => {
             {[
               {
                 question: "Combien coûte une installation solaire ?",
-                answer: "Le coût varie selon la puissance et le type d'installation. Pour une maison individuelle, comptez entre 8 000€ et 20 000€ avant aides. Notre devis gratuit vous donnera un prix précis."
+                answer: "Le coût varie selon la puissance et le type d'installation. Pour une maison individuelle, comptez entre 8 000€ et 15 000€ avant aides. Notre devis gratuit vous donnera un prix précis."
               },
               {
                 question: "Quelle est la rentabilité des panneaux solaires ?",
