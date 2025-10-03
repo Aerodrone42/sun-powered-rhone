@@ -38,7 +38,7 @@ const TarifsAides = () => {
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center animate-fade-in [animation-delay:400ms]">
                 <Badge variant="secondary" className="text-lg px-6 py-3 bg-primary/20 text-primary border-primary/30 hover-scale transition-all duration-300 hover:shadow-glow">
                   <Euro className="w-5 h-5 mr-2" />
-                  Tarifs 2026 Actualisés
+                  Tarifs 2025 Actualisés
                 </Badge>
                 <Badge variant="secondary" className="text-lg px-6 py-3 bg-accent/20 text-accent-foreground border-accent/30 hover-scale transition-all duration-300 hover:shadow-glow">
                   <CheckCircle className="w-5 h-5 mr-2" />
