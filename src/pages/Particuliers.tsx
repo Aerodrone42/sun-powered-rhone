@@ -27,7 +27,7 @@ const Particuliers = () => {
     description: "Installation de bornes de recharge alimentées par l'énergie solaire",
     icon: Car,
     href: "/particuliers/borne-recharge",
-    benefits: ["Recharge écologique et économique", "Intégration avec installation solaire", "Différentes puissances disponibles", "Installation professionnelle"]
+    benefits: ["Recharge écologique et économique", "Intégration avec installation solaire", "Différentes puissances disponibles"]
   }, {
     title: "Batterie solaire",
     description: "Solutions de stockage pour une autonomie énergétique maximale",
