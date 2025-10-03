@@ -15,7 +15,7 @@ const Particuliers = () => {
     description: "Installation de panneaux solaires photovoltaïques pour particuliers",
     icon: Sun,
     href: "/particuliers/panneaux-solaires",
-    benefits: ["Réduction des factures d'électricité", "Production d'énergie propre", "Valorisation du bien immobilier"]
+    benefits: ["Réduction des factures d'électricité", "Production d'énergie propre", "Valorisation du bien immobilier", "Aides financières disponibles"]
   }, {
     title: "Installation en consommation",
     description: "Solutions d'autoconsommation pour optimiser votre production solaire",
@@ -27,7 +27,7 @@ const Particuliers = () => {
     description: "Installation de bornes de recharge alimentées par l'énergie solaire",
     icon: Car,
     href: "/particuliers/borne-recharge",
-    benefits: ["Recharge écologique et économique", "Intégration avec installation solaire", "Différentes puissances disponibles"]
+    benefits: ["Recharge écologique et économique", "Intégration avec installation solaire", "Différentes puissances disponibles", "Installation professionnelle"]
   }, {
     title: "Batterie solaire",
     description: "Solutions de stockage pour une autonomie énergétique maximale",
@@ -138,12 +138,8 @@ const Particuliers = () => {
       <section className="py-20 bg-gradient-to-br from-primary/5 via-secondary/5 to-background relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10"></div>
         <div className="container relative z-10 text-center">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-            Jusqu'à <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">70%</span> d'économies
-          </h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-6 text-muted-foreground">
-            sur vos factures d'électricité
-          </h3>
+          
+          
           <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 text-lg md:text-xl text-foreground/80">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-primary"></div>
