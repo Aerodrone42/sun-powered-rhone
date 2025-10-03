@@ -58,12 +58,6 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: Phone,
-      title: "Téléphone",
-      content: "07 71 41 85 68",
-      description: "Du lundi au vendredi, 8h-18h"
-    },
-    {
       icon: Mail,
       title: "Email",
       content: "contact@wn-energies.fr",
