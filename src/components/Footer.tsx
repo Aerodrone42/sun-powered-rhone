@@ -181,9 +181,9 @@ const Footer = () => {
         <div className="mt-16 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-col items-center md:items-start space-y-2">
-               <p className="text-sm text-white/60">
-                © 2026 WN Energies. Tous droits réservés. | Expert en solutions photovoltaïques
-               </p>
+                <p className="text-sm text-white/60">
+                 © 2025 WN Energies. Tous droits réservés. | Expert en solutions photovoltaïques
+                </p>
               <p className="text-xs text-white/40">
                 Créé par{" "}
                 <a 

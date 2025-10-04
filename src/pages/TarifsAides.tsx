@@ -9,8 +9,8 @@ import heroImage from "@/assets/tarifs-aides-hero.jpg";
 const TarifsAides = () => {
   return <>
       <Helmet>
-        <title>Tarifs EDF OA & Aides Photovoltaïque 2026 | WNE</title>
-        <meta name="description" content="Découvrez les tarifs de rachat EDF OA 2026, les aides et subventions disponibles pour l'installation de panneaux solaires. Guide complet pour particuliers, professionnels et agriculteurs." />
+        <title>Tarifs EDF OA & Aides Photovoltaïque 2025 | WNE</title>
+        <meta name="description" content="Découvrez les tarifs de rachat EDF OA 2025, les aides et subventions disponibles pour l'installation de panneaux solaires. Guide complet pour particuliers, professionnels et agriculteurs." />
         <meta name="keywords" content="tarifs EDF OA, aides photovoltaïque, prime autoconsommation, agrivoltaïsme, rachat électricité, subventions solaires" />
       </Helmet>
       <Header />

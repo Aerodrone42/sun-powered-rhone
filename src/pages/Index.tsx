@@ -470,7 +470,7 @@ const Index = () => {
                     width: '100%'
                   }}></div>
                   </div>
-                  <p className="text-yellow-400 font-medium">Technologie solaire 2026</p>
+                  <p className="text-yellow-400 font-medium">Technologie solaire 2025</p>
                 </div>
               </div>
             </div>
@@ -684,7 +684,7 @@ const Index = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary" />
-                  <span><strong>Technologie 2026</strong> - Innovation solaire dernière génération</span>
+                  <span><strong>Technologie 2025</strong> - Innovation solaire dernière génération</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary" />

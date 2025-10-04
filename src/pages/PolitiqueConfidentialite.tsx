@@ -178,7 +178,7 @@ const PolitiqueConfidentialite = () => {
               {/* Footer */}
               <div className="text-center mt-16 p-8 bg-muted/50 rounded-2xl">
                 <p className="text-sm text-muted-foreground">
-                  Cette politique de confidentialité a été mise à jour le 18 août 2026.
+                  Cette politique de confidentialité a été mise à jour le 18 août 2025.
                 </p>
                 <div className="mt-4 flex justify-center gap-4">
                   <Link 
