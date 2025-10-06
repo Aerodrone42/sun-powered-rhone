@@ -1,94 +1,67 @@
-import { Link } from "react-router-dom"
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
-import SolarCallButton from "@/components/SolarCallButton"
-import ServiceCard from "@/components/ServiceCard"
-import ProfessionalPortfolio from "@/components/ProfessionalPortfolio"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Helmet } from "react-helmet-async"
-import { Building, Factory, Wheat, Building2, TrendingUp, Shield, Users, Euro, Leaf, Zap, CheckCircle } from "lucide-react"
-import commercialBuildingImage from "@/assets/commercial-building.jpg"
-
+import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import SolarCallButton from "@/components/SolarCallButton";
+import ServiceCard from "@/components/ServiceCard";
+import ProfessionalPortfolio from "@/components/ProfessionalPortfolio";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Helmet } from "react-helmet-async";
+import { Building, Factory, Wheat, Building2, TrendingUp, Shield, Users, Euro, Leaf, Zap, CheckCircle } from "lucide-react";
+import commercialBuildingImage from "@/assets/commercial-building.jpg";
 const Professionnels = () => {
-  const services = [
-    {
-      title: "Commerce",
-      description: "Solutions solaires pour magasins, restaurants et services",
-      icon: Building,
-      href: "/professionnels/commerce",
-      benefits: [
-        "Réduction jusqu'à 70% des factures électriques",
-        "Image de marque éco-responsable",
-        "Valorisation immobilière du local commercial",
-        "Synchronisation parfaite production/consommation"
-      ]
-    },
-    {
-      title: "Autoconsommation", 
-      description: "Optimisez votre consommation électrique industrielle",
-      icon: Factory,
-      href: "/professionnels/installation-consommation",
-      benefits: [
-        "Autonomie énergétique maximisée",
-        "Réduction des coûts de production",
-        "Stockage intelligent de l'énergie",
-        "Solutions de monitoring avancées"
-      ]
-    },
-    {
-      title: "Borne de Recharge",
-      description: "Infrastructure de recharge électrique pour véhicules d'entreprise",
-      icon: Wheat,
-      href: "/professionnels/borne-recharge",
-      benefits: [
-        "Bornes haute puissance",
-        "Gestion intelligente des charges",
-        "Solutions pour flottes professionnelles",
-        "Intégration avec installation solaire"
-      ]
-    },
-    {
-      title: "Batterie Solaire",
-      description: "Stockage d'énergie industriel et solutions de sauvegarde",
-      icon: Building2,
-      href: "/professionnels/batterie-solaire",
-      benefits: [
-        "Stockage haute capacité",
-        "Sécurisation énergétique",
-        "Optimisation des coûts énergétiques",
-        "Solutions de sauvegarde professionnelles"
-      ]
-    }
-  ]
-
-  const advantages = [
-    {
-      title: "Rentabilité optimisée",
-      description: "ROI attractif avec des installations dimensionnées pour vos besoins industriels",
-      icon: TrendingUp
-    },
-    {
-      title: "Expertise technique",
-      description: "Études de faisabilité complètes et installations haute performance",
-      icon: Shield
-    },
-    {
-      title: "Accompagnement complet",
-      description: "De l'étude à la maintenance, nous gérons tous les aspects de votre projet",
-      icon: Users
-    }
-  ]
-
-  const stats = [
-    { number: "200+", label: "Projets professionnels réalisés" },
-    { number: "50MW", label: "Puissance totale installée" },
-    { number: "10", label: "Ans d'expertise industrielle" },
-    { number: "100%", label: "Projets livrés en temps et en heure" }
-  ]
-
-  return (
-    <div className="min-h-screen">
+  const services = [{
+    title: "Commerce",
+    description: "Solutions solaires pour magasins, restaurants et services",
+    icon: Building,
+    href: "/professionnels/commerce",
+    benefits: ["Réduction jusqu'à 70% des factures électriques", "Image de marque éco-responsable", "Valorisation immobilière du local commercial", "Synchronisation parfaite production/consommation"]
+  }, {
+    title: "Autoconsommation",
+    description: "Optimisez votre consommation électrique industrielle",
+    icon: Factory,
+    href: "/professionnels/installation-consommation",
+    benefits: ["Autonomie énergétique maximisée", "Réduction des coûts de production", "Stockage intelligent de l'énergie", "Solutions de monitoring avancées"]
+  }, {
+    title: "Borne de Recharge",
+    description: "Infrastructure de recharge électrique pour véhicules d'entreprise",
+    icon: Wheat,
+    href: "/professionnels/borne-recharge",
+    benefits: ["Bornes haute puissance", "Gestion intelligente des charges", "Solutions pour flottes professionnelles", "Intégration avec installation solaire"]
+  }, {
+    title: "Batterie Solaire",
+    description: "Stockage d'énergie industriel et solutions de sauvegarde",
+    icon: Building2,
+    href: "/professionnels/batterie-solaire",
+    benefits: ["Stockage haute capacité", "Sécurisation énergétique", "Optimisation des coûts énergétiques", "Solutions de sauvegarde professionnelles"]
+  }];
+  const advantages = [{
+    title: "Rentabilité optimisée",
+    description: "ROI attractif avec des installations dimensionnées pour vos besoins industriels",
+    icon: TrendingUp
+  }, {
+    title: "Expertise technique",
+    description: "Études de faisabilité complètes et installations haute performance",
+    icon: Shield
+  }, {
+    title: "Accompagnement complet",
+    description: "De l'étude à la maintenance, nous gérons tous les aspects de votre projet",
+    icon: Users
+  }];
+  const stats = [{
+    number: "200+",
+    label: "Projets professionnels réalisés"
+  }, {
+    number: "50MW",
+    label: "Puissance totale installée"
+  }, {
+    number: "10",
+    label: "Ans d'expertise industrielle"
+  }, {
+    number: "100%",
+    label: "Projets livrés en temps et en heure"
+  }];
+  return <div className="min-h-screen">
       <Helmet>
         <title>Solutions Solaires Professionnelles | WN Energies</title>
         <meta name="description" content="Installations solaires industrielles sur-mesure pour entreprises, commerces et collectivités. Réduisez vos coûts énergétiques avec nos solutions photovoltaïques professionnelles." />
@@ -173,11 +146,7 @@ const Professionnels = () => {
             
             <div className="relative">
               <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-                <img 
-                  src={commercialBuildingImage} 
-                  alt="Installation solaire sur bâtiment commercial"
-                  className="w-full h-[600px] object-cover hover-scale"
-                />
+                <img src={commercialBuildingImage} alt="Installation solaire sur bâtiment commercial" className="w-full h-[600px] object-cover hover-scale" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
                 <div className="absolute bottom-8 left-8 right-8 text-white">
                   <h3 className="text-3xl font-bold mb-3">Solutions industrielles</h3>
@@ -229,22 +198,7 @@ const Professionnels = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-card/50 backdrop-blur-sm">
-        <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center bg-background/80 backdrop-blur-sm rounded-lg p-6 shadow-lg border border-border/20">
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-sm md:text-base text-foreground font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Advantages Section */}
       <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-emerald-50/30 relative overflow-hidden">
@@ -271,12 +225,9 @@ const Professionnels = () => {
           </div>
           
           <div className="grid gap-8 md:grid-cols-3">
-            {advantages.map((advantage, index) => (
-              <div 
-                key={index} 
-                className="group relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-700 hover:-translate-y-6 border border-white/50 hover:border-primary/20 animate-fade-in"
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
+            {advantages.map((advantage, index) => <div key={index} className="group relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-700 hover:-translate-y-6 border border-white/50 hover:border-primary/20 animate-fade-in" style={{
+            animationDelay: `${index * 200}ms`
+          }}>
                 {/* Background gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
@@ -304,8 +255,7 @@ const Professionnels = () => {
                 
                 {/* Bottom accent line */}
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-primary to-secondary rounded-full group-hover:w-24 transition-all duration-500" />
-              </div>
-            ))}
+              </div>)}
           </div>
           
           {/* Bottom decorative section */}
@@ -332,13 +282,7 @@ const Professionnels = () => {
           </div>
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={index}
-                {...service}
-                variant="solar"
-              />
-            ))}
+            {services.map((service, index) => <ServiceCard key={index} {...service} variant="solar" />)}
           </div>
         </div>
       </section>
@@ -457,34 +401,27 @@ const Professionnels = () => {
           </div>
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
-            {[
-              {
-                step: "1",
-                title: "Audit énergétique",
-                description: "Analyse détaillée de vos consommations et besoins"
-              },
-              {
-                step: "2", 
-                title: "Étude de faisabilité",
-                description: "Dimensionnement et simulation de rentabilité"
-              },
-              {
-                step: "3",
-                title: "Conception",
-                description: "Plans techniques et dossiers administratifs"
-              },
-              {
-                step: "4",
-                title: "Installation",
-                description: "Réalisation par nos équipes certifiées"
-              },
-              {
-                step: "5",
-                title: "Exploitation",
-                description: "Mise en service, formation et maintenance"
-              }
-            ].map((process, index) => (
-              <Card key={index} className="text-center hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
+            {[{
+            step: "1",
+            title: "Audit énergétique",
+            description: "Analyse détaillée de vos consommations et besoins"
+          }, {
+            step: "2",
+            title: "Étude de faisabilité",
+            description: "Dimensionnement et simulation de rentabilité"
+          }, {
+            step: "3",
+            title: "Conception",
+            description: "Plans techniques et dossiers administratifs"
+          }, {
+            step: "4",
+            title: "Installation",
+            description: "Réalisation par nos équipes certifiées"
+          }, {
+            step: "5",
+            title: "Exploitation",
+            description: "Mise en service, formation et maintenance"
+          }].map((process, index) => <Card key={index} className="text-center hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
                 <CardHeader>
                   <div className="mx-auto mb-4 w-12 h-12 rounded-full bg-hero-gradient flex items-center justify-center text-white text-xl font-bold">
                     {process.step}
@@ -496,8 +433,7 @@ const Professionnels = () => {
                     {process.description}
                   </CardDescription>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -590,8 +526,6 @@ const Professionnels = () => {
 
       <SolarCallButton />
       <Footer />
-    </div>
-  )
-}
-
-export default Professionnels
+    </div>;
+};
+export default Professionnels;
