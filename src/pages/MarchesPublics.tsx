@@ -327,24 +327,12 @@ const MarchesPublics = () => {
                 </Card>
               </div>
               
-              <h3 className="text-2xl font-bold mb-4">Avantages spécifiques aux marchés publics</h3>
+              
               <ul className="space-y-3 text-muted-foreground mb-6">
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                  <span><strong>Transparence :</strong> Procédures d'appels d'offres respectant le code des marchés publics</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                  <span><strong>Financement :</strong> Solutions sans apport initial pour les collectivités</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                  <span><strong>Garanties :</strong> Assurances et garanties renforcées pour le secteur public</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
-                  <span><strong>Maintenance :</strong> Contrats de maintenance longue durée adaptés aux contraintes publiques</span>
-                </li>
+                
+                
+                
+                
               </ul>
             </div>
           </div>
