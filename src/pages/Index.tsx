@@ -233,7 +233,7 @@ const Index = () => {
                     Pourquoi payer l'énergie quand vous pouvez la produire ? Un toit, des panneaux, et vos factures fondent dès le premier jour
                   </span>
                 </p>
-                <p className="text-sm text-muted-foreground/70 max-w-4xl mx-auto mt-2">*dépend du nombre de panneaux installés</p>
+                
                 
                 {/* Titre profil déplacé ici */}
                 <div className="mt-12">
