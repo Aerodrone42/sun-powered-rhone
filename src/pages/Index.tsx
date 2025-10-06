@@ -154,8 +154,8 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Layout desktop : vidéo plein écran avec texte superposé */}
-        <div className="hidden md:flex items-center justify-center min-h-screen relative">
+        {/* Layout desktop : vidéo plein écran */}
+        <div className="hidden md:block min-h-screen relative">
           <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline preload="metadata" poster={heroImage} onCanPlay={e => {
           e.currentTarget.play().catch(() => {
             console.log('Autoplay bloqué sur desktop');
@@ -171,31 +171,32 @@ const Index = () => {
             <img src={heroImage} alt="Panneaux solaires" className="absolute inset-0 w-full h-full object-cover" />
           </video>
           <div className="absolute inset-0 bg-black/20"></div>
-          
-          <div className="absolute inset-x-8 bottom-4 z-10">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center">
-                <h1 className="text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-                  <span className="bg-hero-gradient bg-clip-text text-transparent drop-shadow-lg">L'énergie solaire</span>
-                  <br />
-                  <span className="text-white drop-shadow-xl">pour votre avenir</span>
-                </h1>
-                <p className="text-lg text-white/95 mb-6 leading-relaxed drop-shadow-lg max-w-3xl mx-auto">
-                  Spécialistes dans l'innovation, la vente et l'installation de panneaux solaires nouvelle génération en Rhône alpes et dans toute la France
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Button asChild variant="glass" size="lg" className="shadow-premium btn-solar">
-                    <Link to="/contact">Découvrez nos Panneaux Solaires</Link>
-                  </Button>
-                  <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25 btn-solar">
-                    <Link to="/simulateur">Simulateur</Link>
-                  </Button>
-                </div>
-              </div>
+        </div>
+            
+      </section>
+
+      {/* Hero Text Section - Desktop */}
+      <section className="hidden md:block py-16 bg-gradient-to-b from-slate-900 to-slate-800">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+              <span className="bg-hero-gradient bg-clip-text text-transparent">L'énergie solaire</span>
+              <br />
+              <span className="text-white">pour votre avenir</span>
+            </h1>
+            <p className="text-lg text-white/95 mb-8 leading-relaxed max-w-3xl mx-auto">
+              Spécialistes dans l'innovation, la vente et l'installation de panneaux solaires nouvelle génération en Rhône alpes et dans toute la France
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild variant="glass" size="lg" className="shadow-premium btn-solar">
+                <Link to="/contact">Découvrez nos Panneaux Solaires</Link>
+              </Button>
+              <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25 btn-solar">
+                <Link to="/simulateur">Simulateur</Link>
+              </Button>
             </div>
           </div>
         </div>
-            
       </section>
 
       {/* Choix de profil */}
