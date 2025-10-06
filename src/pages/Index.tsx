@@ -419,12 +419,7 @@ const Index = () => {
       {/* Avantage Technologique Section */}
       <section className="py-12 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white relative overflow-hidden">
         {/* Animated background elements */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-10 left-20 w-32 h-32 bg-yellow-400/30 rounded-full blur-2xl animate-float"></div>
-          <div className="absolute bottom-20 right-10 w-48 h-48 bg-orange-500/20 rounded-full blur-3xl animate-float" style={{
-          animationDelay: '1s'
-        }}></div>
-        </div>
+        
         
         <div className="container relative z-10">
           <div className="text-center mb-16">
