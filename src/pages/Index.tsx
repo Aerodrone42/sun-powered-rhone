@@ -230,7 +230,7 @@ const Index = () => {
               <div className="relative mb-8">
                 <p className="text-2xl md:text-3xl lg:text-4xl max-w-4xl mx-auto leading-relaxed font-bold relative">
                   <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent animate-pulse">
-                    Dites adieu à vos factures… et gagnez entre 3000€ et 15 000 € par an grâce au solaire !*
+                    Pourquoi payer l'énergie quand vous pouvez la produire ? Un toit, des panneaux, et vos factures fondent dès le premier jour
                   </span>
                 </p>
                 <p className="text-sm text-muted-foreground/70 max-w-4xl mx-auto mt-2">*dépend du nombre de panneaux installés</p>
