@@ -492,7 +492,7 @@ const Index = () => {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    <span><strong>Aides financières :</strong> Bénéficiez des primes à l'autoconsommation, du tarif de rachat EDF et du crédit d'impôt</span>
+                    <span><strong>Aides financières :</strong> Bénéficiez des primes à l'autoconsommation, du tarif de rachat EDF</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
