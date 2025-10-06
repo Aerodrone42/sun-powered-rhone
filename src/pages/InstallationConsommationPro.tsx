@@ -216,12 +216,6 @@ const InstallationConsommationPro = () => {
                         <span className="font-semibold text-primary">Significatives</span>
                       </div>
                     </div>
-
-                    <div className="pt-4 border-t border-border">
-                      <Button variant="outline" size="sm" className="w-full">
-                        Voir le détail
-                      </Button>
-                    </div>
                   </CardContent>
                 </Card>
               </div>
