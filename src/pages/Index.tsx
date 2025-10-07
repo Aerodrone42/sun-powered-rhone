@@ -560,49 +560,7 @@ const Index = () => {
       
 
       {/* About Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container">
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Pourquoi choisir <span className="text-primary font-extrabold">WN Energies</span> ?
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Entreprise spécialisée dans la vente et pose de panneaux solaires, 
-                nous accompagnons particuliers et professionnels dans leur transition énergétique 
-                en Rhône-Alpes.
-              </p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 rounded-full bg-yellow-500" />
-                  <span><strong>Panneaux solaires 2x plus puissants</strong> - 770-930W vs 400-500W standard marché</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 rounded-full bg-secondary" />
-                  <span><strong>Technologie 2025</strong> - Innovation solaire dernière génération</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 rounded-full bg-secondary" />
-                  <span>Expertise technique reconnue et installation complète</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 rounded-full bg-secondary" />
-                  <span>Accompagnement administratif et garanties fabricant</span>
-                </div>
-              </div>
-              
-              <Button asChild variant="secondary" size="lg" className="btn-solar">
-                <Link to="/contact">Contactez-nous</Link>
-              </Button>
-            </div>
-            
-            <div className="relative">
-              <img src={teamWorkImage} alt="Équipe professionnelle WN Energies au travail" className="rounded-lg shadow-strong w-full solar-hover" />
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Callback Form Section */}
       <section className="py-20 bg-muted/30">
