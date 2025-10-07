@@ -186,7 +186,7 @@ const Professionnels = () => {
             <div className="hidden md:block w-px h-6 bg-border"></div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-secondary"></div>
-              <span className="font-semibold">Réduction jusqu'à 80% des factures</span>
+              <span className="font-semibold">Réduction des factures</span>
             </div>
             <div className="hidden md:block w-px h-6 bg-border"></div>
             <div className="flex items-center gap-2">
