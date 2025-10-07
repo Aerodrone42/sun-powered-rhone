@@ -298,10 +298,7 @@ const Agriculteurs = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">
-                      Réduction jusqu'à 80% des factures électriques et génération de revenus complémentaires 
-                      via la revente d'électricité. ROI moyen de 8-12 ans selon la configuration.
-                    </p>
+                    <p className="text-muted-foreground">Réduction des factures électriques et génération de revenus complémentaires via la revente d'électricité. ROI moyen de 8-12 ans selon la configuration.</p>
                   </CardContent>
                 </Card>
 
