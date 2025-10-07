@@ -441,64 +441,7 @@ const Professionnels = () => {
       {/* Financing Section */}
       <section className="py-20 bg-muted/30">
         <div className="container">
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Solutions de <span className="text-foreground">financement</span>
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Nous vous accompagnons dans le financement de votre projet avec des solutions 
-                adaptées à votre activité et votre situation financière.
-              </p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 rounded-full bg-accent" />
-                  <span>Financement par tiers investisseur</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 rounded-full bg-accent" />
-                  <span>Location avec option d'achat</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 rounded-full bg-accent" />
-                  <span>Crédit bancaire professionnel</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 rounded-full bg-accent" />
-                  <span>Aides et subventions disponibles</span>
-                </div>
-              </div>
-              
-              <Button asChild variant="secondary" size="lg">
-                <Link to="/contact">Étudier mon financement</Link>
-              </Button>
-            </div>
-            
-            <Card variant="solar" className="p-8">
-              <CardHeader>
-                <CardTitle className="text-2xl text-center">Exemple de rentabilité</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex justify-between">
-                  <span>Investissement initial</span>
-                  <span className="font-semibold">100 000 €</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Économies annuelles</span>
-                  <span className="font-semibold text-primary">15 000 €</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Retour sur investissement</span>
-                  <span className="font-semibold text-primary">6-7 ans</span>
-                </div>
-                <div className="flex justify-between border-t pt-4">
-                  <span>Bénéfices sur 25 ans</span>
-                  <span className="font-bold text-2xl text-primary">275 000 €</span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+          
         </div>
       </section>
 
