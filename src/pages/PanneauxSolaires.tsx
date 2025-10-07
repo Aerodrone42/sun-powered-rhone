@@ -208,8 +208,8 @@ const PanneauxSolaires = () => {
                     </div>
 
                     <div className="pt-4 border-t border-border">
-                      <Button variant="outline" size="sm" className="w-full">
-                        Voir le détail
+                      <Button variant="outline" size="sm" className="w-full" asChild>
+                        <Link to="/simulateur">Voir le détail</Link>
                       </Button>
                     </div>
                   </CardContent>
