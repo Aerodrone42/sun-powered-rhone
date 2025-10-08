@@ -454,7 +454,7 @@ const Index = () => {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    <span><strong>Économies substantielles :</strong> Réduction jusqu'à 70% de vos factures d'électricité grâce à l'autoconsommation</span>
+                    <span><strong>Économies substantielles :</strong> Réduction de vos factures d'électricité grâce à l'autoconsommation</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
