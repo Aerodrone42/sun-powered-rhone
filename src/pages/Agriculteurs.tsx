@@ -179,8 +179,8 @@ const Agriculteurs = () => {
             </div>
             <div className="hidden md:block w-px h-6 bg-border"></div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <span className="font-semibold">Exploitation rentable sur 25 ans</span>
+              
+              
             </div>
           </div>
         </div>
