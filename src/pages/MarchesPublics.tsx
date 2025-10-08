@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PublicPortfolio from "@/components/PublicPortfolio";
 import SolarCallButton from "@/components/SolarCallButton";
+import { CertificationBadges } from "@/components/CertificationBadges";
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -107,6 +108,8 @@ const MarchesPublics = () => {
         <div className="container relative z-10">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div className="animate-fade-in">
+              <CertificationBadges />
+              
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/20">
                 <Landmark className="h-4 w-4 text-white" />
                 <span className="text-white text-sm font-medium">Expertise Marchés Publics</span>

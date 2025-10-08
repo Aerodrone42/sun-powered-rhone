@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SolarCallButton from "@/components/SolarCallButton";
+import { CertificationBadges } from "@/components/CertificationBadges";
 import ServiceCard from "@/components/ServiceCard";
 import ProfessionalPortfolio from "@/components/ProfessionalPortfolio";
 import { Button } from "@/components/ui/button";
@@ -87,6 +88,8 @@ const Professionnels = () => {
         <div className="container relative z-10">
           <div className="grid gap-16 lg:grid-cols-2 items-center">
             <div>
+              <CertificationBadges />
+              
               {/* Badge */}
               <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-2 mb-8 animate-fade-in">
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />

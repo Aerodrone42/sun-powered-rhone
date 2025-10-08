@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
 import SolarPortfolio from "@/components/SolarPortfolio";
 import SolarCallButton from "@/components/SolarCallButton";
+import { CertificationBadges } from "@/components/CertificationBadges";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -68,6 +69,8 @@ const Particuliers = () => {
         {/* Content */}
         <div className="container relative z-10">
           <div className="max-w-4xl">
+            <CertificationBadges />
+            
             {/* Badge */}
             <div className="mb-8 animate-fade-in">
               <Badge variant="secondary" className="px-6 py-2 text-sm font-medium bg-primary/10 text-primary border-primary/20">

@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AgriculturePortfolio from "@/components/AgriculturePortfolio";
 import SolarCallButton from "@/components/SolarCallButton";
+import { CertificationBadges } from "@/components/CertificationBadges";
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -85,6 +86,8 @@ const Agriculteurs = () => {
 
         <div className="container relative z-10">
           <div className="max-w-4xl">
+            <CertificationBadges />
+            
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-emerald-500/20 backdrop-blur-sm border border-emerald-400/30 rounded-full px-6 py-2 mb-8 animate-fade-in">
               <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
