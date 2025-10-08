@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CallbackForm from "@/components/CallbackForm";
 import SolarCallButton from "@/components/SolarCallButton";
+import { CertificationBadges } from "@/components/CertificationBadges";
 import { Sun, Home, Building, Zap, Battery, Car, Factory, Users, UserCheck, Briefcase, Tractor, MapPin } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 import teamWorkImage from "@/assets/team-work.jpg";
@@ -113,6 +114,7 @@ const Index = () => {
           {/* Zone texte - 40% de la hauteur */}
           <div className="relative h-[40vh] bg-gradient-to-b from-slate-900 to-slate-800 flex items-center justify-center px-4">
             <div className="text-center text-white">
+              <CertificationBadges />
               <h1 className="text-2xl font-bold mb-3 leading-tight">
                 <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">L'énergie solaire</span>
                 <br />
@@ -145,6 +147,7 @@ const Index = () => {
       <section className="hidden md:block py-16 bg-gradient-to-b from-slate-900 to-slate-800">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
+            <CertificationBadges />
             <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
               <span className="bg-hero-gradient bg-clip-text text-transparent">L'énergie solaire</span>
               <br />
