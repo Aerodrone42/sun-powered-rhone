@@ -15,7 +15,7 @@ const Professionnels = () => {
     description: "Solutions solaires pour magasins, restaurants et services",
     icon: Building,
     href: "/professionnels/commerce",
-    benefits: ["Réduction jusqu'à 70% des factures électriques", "Image de marque éco-responsable", "Valorisation immobilière du local commercial", "Synchronisation parfaite production/consommation"]
+    benefits: ["Réduction des factures électriques", "Image de marque éco-responsable", "Valorisation immobilière du local commercial", "Synchronisation parfaite production/consommation"]
   }, {
     title: "Autoconsommation",
     description: "Optimisez votre consommation électrique industrielle",
