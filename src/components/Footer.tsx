@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import { Sun, Phone, Mail, MapPin, ArrowRight, Star } from "lucide-react"
 import { Button } from "./ui/button"
-import { CertificationBadges } from "./CertificationBadges"
 
 const Footer = () => {
   return (
@@ -178,13 +177,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Certifications */}
-        <div className="mt-12">
-          <CertificationBadges />
-        </div>
-
         {/* Bottom Section */}
-        <div className="mt-8 pt-8 border-t border-white/10">
+        <div className="mt-16 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-col items-center md:items-start space-y-2">
                 <p className="text-sm text-white/60">

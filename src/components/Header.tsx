@@ -6,6 +6,7 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import { Menu } from "lucide-react"
 import { cn } from "@/lib/utils"
 import wneLogoImage from "@/assets/wne-logo.webp"
+import { CertificationBadges } from "./CertificationBadges"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -60,13 +61,18 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/70 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/70 shadow-lg shadow-primary/5">
       <div className="container flex h-20 items-center justify-between">
-        <Link to="/" className="flex items-center space-x-3 group">
-          <img 
-            src={wneLogoImage} 
-            alt="WNE - World Network Energies" 
-            className="h-14 w-auto transition-all duration-500 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]"
-          />
-        </Link>
+        <div className="flex items-center gap-6">
+          <Link to="/" className="flex items-center space-x-3 group">
+            <img 
+              src={wneLogoImage} 
+              alt="WNE - World Network Energies" 
+              className="h-14 w-auto transition-all duration-500 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+            />
+          </Link>
+          <div className="hidden xl:block">
+            <CertificationBadges />
+          </div>
+        </div>
 
         {/* Desktop Navigation */}
         <NavigationMenu className="hidden lg:flex">
