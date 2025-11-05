@@ -7,35 +7,28 @@ interface MonthlyData {
   month: string;
   irradiation: number;
   production: number;
-  classicProduction: number;
-  newGenProduction: number;
   percentage: number;
 }
 
 interface MonthlyProductionChartProps {
   monthlyData: MonthlyData[];
-  classicPower: number;
-  newGenPower: number;
-  classicSavings: number;
-  newGenSavings: number;
+  solarPower: number;
+  solarSavings: number;
 }
 
 type ChartType = 'production' | 'irradiation' | 'comparison';
 
 export const MonthlyProductionChart: React.FC<MonthlyProductionChartProps> = ({
   monthlyData,
-  classicPower,
-  newGenPower,
-  classicSavings,
-  newGenSavings
+  solarPower,
+  solarSavings
 }) => {
   const [chartType, setChartType] = useState<ChartType>('production');
 
   // Calcul des statistiques annuelles
-  const totalClassicProduction = monthlyData.reduce((sum, month) => sum + month.classicProduction, 0);
-  const totalNewGenProduction = monthlyData.reduce((sum, month) => sum + month.newGenProduction, 0);
-  const averageMonthlyProduction = Math.round(totalNewGenProduction / 12);
-  const productionPerKwc = Math.round(totalNewGenProduction / newGenPower);
+  const totalProduction = monthlyData.reduce((sum, month) => sum + month.production, 0);
+  const averageMonthlyProduction = Math.round(totalProduction / 12);
+  const productionPerKwc = Math.round(totalProduction / solarPower);
 
   const renderChart = () => {
     switch (chartType) {
@@ -61,27 +54,19 @@ export const MonthlyProductionChart: React.FC<MonthlyProductionChartProps> = ({
                   borderRadius: '8px',
                   boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
                 }}
-                formatter={(value: number, name: string) => [
+                formatter={(value: number) => [
                   `${value.toLocaleString()} kWh`,
-                  name === 'classicProduction' ? 'Panneaux standards' : 'Nouvelle génération'
+                  'Production solaire'
                 ]}
               />
               <Legend />
               <Line 
                 type="monotone" 
-                dataKey="classicProduction" 
-                stroke="#3b82f6" 
-                strokeWidth={3}
-                dot={{ fill: '#3b82f6', strokeWidth: 2, r: 4 }}
-                name="Panneaux standards"
-              />
-              <Line 
-                type="monotone" 
-                dataKey="newGenProduction" 
+                dataKey="production" 
                 stroke="#10b981" 
                 strokeWidth={3}
                 dot={{ fill: '#10b981', strokeWidth: 2, r: 4 }}
-                name="Nouvelle génération"
+                name="Production solaire"
               />
             </LineChart>
           </ResponsiveContainer>
@@ -155,7 +140,7 @@ export const MonthlyProductionChart: React.FC<MonthlyProductionChartProps> = ({
               <Legend />
               <Bar 
                 yAxisId="left"
-                dataKey="newGenProduction" 
+                dataKey="production" 
                 fill="#10b981" 
                 radius={[2, 2, 0, 0]}
                 name="Production (kWh)"
@@ -184,7 +169,7 @@ export const MonthlyProductionChart: React.FC<MonthlyProductionChartProps> = ({
       <div className="text-center">
         <h3 className="text-2xl font-bold text-foreground mb-2">🌞 Production Solaire Mensuelle</h3>
         <p className="text-muted-foreground">
-          Installation {newGenPower} kWc - Variabilité saisonnière
+          Installation {solarPower} kWc - Variabilité saisonnière
         </p>
       </div>
 
@@ -222,7 +207,7 @@ export const MonthlyProductionChart: React.FC<MonthlyProductionChartProps> = ({
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <Card className="p-4 text-center bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
           <div className="text-2xl font-bold text-blue-700">
-            {totalNewGenProduction.toLocaleString()}
+            {totalProduction.toLocaleString()}
           </div>
           <div className="text-sm text-blue-600">Production annuelle (kWh)</div>
         </Card>
@@ -243,7 +228,7 @@ export const MonthlyProductionChart: React.FC<MonthlyProductionChartProps> = ({
         
         <Card className="p-4 text-center bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200">
           <div className="text-2xl font-bold text-orange-700">
-            {newGenSavings.toLocaleString()} €
+            {solarSavings.toLocaleString()} €
           </div>
           <div className="text-sm text-orange-600">Économies annuelles</div>
         </Card>
@@ -258,17 +243,14 @@ export const MonthlyProductionChart: React.FC<MonthlyProductionChartProps> = ({
               <tr className="border-b-2 border-border">
                 <th className="text-left p-3 font-semibold">Mois</th>
                 <th className="text-center p-3 font-semibold">Irradiation (kWh/m²)</th>
-                <th className="text-center p-3 font-semibold">Production Standard (kWh)</th>
-                <th className="text-center p-3 font-semibold">Production Nouvelle Gen. (kWh)</th>
+                <th className="text-center p-3 font-semibold">Production (kWh)</th>
                 <th className="text-center p-3 font-semibold">% Annuel</th>
-                <th className="text-center p-3 font-semibold">Gain</th>
               </tr>
             </thead>
             <tbody>
               {monthlyData.map((month, index) => {
                 const isWinter = index < 2 || index > 9;
                 const isSummer = index >= 5 && index <= 7;
-                const gain = month.newGenProduction - month.classicProduction;
                 
                 return (
                   <tr 
@@ -281,10 +263,8 @@ export const MonthlyProductionChart: React.FC<MonthlyProductionChartProps> = ({
                   >
                     <td className="p-3 font-medium">{month.month}</td>
                     <td className="p-3 text-center">{month.irradiation}</td>
-                    <td className="p-3 text-center text-blue-600">{month.classicProduction.toLocaleString()}</td>
-                    <td className="p-3 text-center text-green-600 font-semibold">{month.newGenProduction.toLocaleString()}</td>
+                    <td className="p-3 text-center text-green-600 font-semibold">{month.production.toLocaleString()}</td>
                     <td className="p-3 text-center">{month.percentage}%</td>
-                    <td className="p-3 text-center text-green-600 font-semibold">+{gain.toLocaleString()}</td>
                   </tr>
                 );
               })}

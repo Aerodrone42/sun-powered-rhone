@@ -548,7 +548,6 @@ const SolarSimulator = () => {
         month,
         irradiation: monthIrradiation,
         production: monthSolarProduction,
-        newGenProduction: monthSolarProduction,
         percentage
       };
     });
@@ -1112,7 +1111,7 @@ const SolarSimulator = () => {
               </div>
 
               {/* Production mensuelle avec graphique interactif */}
-              {results.monthlyData && results.monthlyData.length > 0 && <MonthlyProductionChart monthlyData={results.monthlyData} classicPower={results.solar.power} newGenPower={results.solar.power} classicSavings={(results.solar.savingsMin + results.solar.savingsMax) / 2} newGenSavings={(results.solar.savingsMin + results.solar.savingsMax) / 2} />}
+              {results.monthlyData && results.monthlyData.length > 0 && <MonthlyProductionChart monthlyData={results.monthlyData} solarPower={results.solar.power} solarSavings={(results.solar.savingsMin + results.solar.savingsMax) / 2} />}
 
                <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded">
                  <div className="flex">
@@ -1123,11 +1122,11 @@ const SolarSimulator = () => {
                      <p className="text-sm text-amber-700 font-semibold mb-1">
                        * Explication des économies annuelles :
                      </p>
-                      <p className="text-sm text-amber-700">
-                        <strong>Autoconsommation ({selfConsumptionRate[0]}%) :</strong> {Math.round((results.classic.productionMin + results.classic.productionMax) / 2 * selfConsumptionRate[0] / 100).toLocaleString()} kWh/an à 0,21€/kWh
-                        <br />
-                        <strong>Revente surplus ({100 - selfConsumptionRate[0]}%) :</strong> {Math.round((results.classic.productionMin + results.classic.productionMax) / 2 * (100 - selfConsumptionRate[0]) / 100).toLocaleString()} kWh/an à 0,04€/kWh (tarif 2025)
-                      </p>
+                     <p className="text-sm text-amber-700">
+                         <strong>Autoconsommation ({selfConsumptionRate[0]}%) :</strong> {Math.round((results.solar.productionMin + results.solar.productionMax) / 2 * selfConsumptionRate[0] / 100).toLocaleString()} kWh/an à 0,21€/kWh
+                         <br />
+                         <strong>Revente surplus ({100 - selfConsumptionRate[0]}%) :</strong> {Math.round((results.solar.productionMin + results.solar.productionMax) / 2 * (100 - selfConsumptionRate[0]) / 100).toLocaleString()} kWh/an à 0,04€/kWh (tarif 2025)
+                       </p>
                    </div>
                  </div>
                </div>
