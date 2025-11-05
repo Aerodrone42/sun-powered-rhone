@@ -460,7 +460,7 @@ const SolarSimulator = () => {
     const irradiationFactor = irradiation / 1400; // Normalisation par rapport à une bonne région (1400 kWh/m²/an)
     const temperatureFactor = temperature ? 1.0 - (temperature - 25) * 0.004 : 1.0; // -0.4% par degré au-dessus de 25°C
 
-    // PANNEAUX 700-850W STANDARDS (technologie actuelle) - Calcul réaliste selon type logement
+    // PANNEAUX 500W STANDARDS - Calcul réaliste selon type logement
     let maxPanels;
     let availableSurface;
     if (formData.houseType === 'appartement') {
@@ -478,8 +478,8 @@ const SolarSimulator = () => {
       }
     } else {
       // Maison: calcul basé sur la surface de toit disponible
-      // Panneau concurrence 400-500W fait 2.5 m² vs nos panneaux 3.0 m²
-      const panelSurface = 2.5; // Surface concurrence
+      // Panneau 500W fait 2.4 m²
+      const panelSurface = 2.4; // Surface panneau 500W
       // On utilise 65-70% de la surface de toit pour l'espacement, bords, obstacles
       const usableSurface = roofSurface * 0.68;
       const theoreticalPanels = Math.floor(usableSurface / panelSurface);
@@ -496,67 +496,45 @@ const SolarSimulator = () => {
       }
     }
 
-    // PANNEAU CONCURRENCE: 400-500W (moyenne 450W)
-    const classicPower = Math.round(maxPanels * 0.450 * 100) / 100; // 450W moyenne concurrence
-    const classicPanels = maxPanels;
-    const classicSurface = availableSurface;
+    // PANNEAUX SOLAIRES 500W
+    const solarPower = Math.round(maxPanels * 0.500 * 100) / 100; // 500W
+    const solarPanels = maxPanels;
+    const solarSurface = availableSurface;
 
     // UTILISATION DIRECTE des données PVGIS officielles (Commission Européenne)
     const officialProductionPerKwc = locationData?.production || 1200; // Données PVGIS réelles en kWh/kWc/an
 
     // Calcul direct sans facteurs approximatifs - PVGIS intègre déjà orientation/inclinaison optimales
-    const classicProductionMin = Math.round(classicPower * officialProductionPerKwc * 0.95); // -5% pertes système réalistes
-    const classicProductionMax = Math.round(classicPower * officialProductionPerKwc * 0.98); // -2% pertes minimales
+    const solarProductionMin = Math.round(solarPower * officialProductionPerKwc * 0.95); // -5% pertes système réalistes
+    const solarProductionMax = Math.round(solarPower * officialProductionPerKwc * 0.98); // -2% pertes minimales
+    
     // CORRECTION: Calcul des économies réalistes avec taux d'autoconsommation variable
     const selfConsumptionPercent = selfConsumptionRate[0] / 100; // Conversion pourcentage
 
     // Calcul autoconsommation et surplus selon le slider
-    const classicAutoconsumed = Math.round(classicProductionMin * selfConsumptionPercent);
-    const classicSurplus = classicProductionMin - classicAutoconsumed;
+    const solarAutoconsumed = Math.round(solarProductionMin * selfConsumptionPercent);
+    const solarSurplus = solarProductionMin - solarAutoconsumed;
 
     // Nouveau tarif officiel 2025 (applicable après 27 mars 2025)
     const surplusSellPrice = 0.04; // 4 centimes d'euro/kWh - Tarif uniforme
     const electricityPrice = 0.21; // Prix d'achat électricité
 
-    const classicSavingsMin = Math.round(classicAutoconsumed * electricityPrice + classicSurplus * surplusSellPrice);
-    const classicAutoconsumedMax = Math.round(classicProductionMax * selfConsumptionPercent);
-    const classicSurplusMax = classicProductionMax - classicAutoconsumedMax;
-    const classicSavingsMax = Math.round(classicAutoconsumedMax * electricityPrice + classicSurplusMax * surplusSellPrice);
+    const solarSavingsMin = Math.round(solarAutoconsumed * electricityPrice + solarSurplus * surplusSellPrice);
+    const solarAutoconsumedMax = Math.round(solarProductionMax * selfConsumptionPercent);
+    const solarSurplusMax = solarProductionMax - solarAutoconsumedMax;
+    const solarSavingsMax = Math.round(solarAutoconsumedMax * electricityPrice + solarSurplusMax * surplusSellPrice);
 
-    // PANNEAUX SOLAIRES 770-930W (moyenne 850W) - Presque 2x plus puissants
-    const newGenPower = Math.round(maxPanels * 0.850 * 100) / 100; // 850W moyenne solaire
-    const newGenPanels = classicPanels; // Même nombre de panneaux
-    const newGenSurface = Math.round(maxPanels * 3.0 * 100) / 100; // 3.0 m² par panneau solaire
-    const newGenProductionMin = Math.round(newGenPower * officialProductionPerKwc * 0.95); // Production réelle solaire
-    const newGenProductionMax = Math.round(newGenPower * officialProductionPerKwc * 0.98); // Production optimale solaire
-
-    // Calcul économies nouvelle génération avec nouveau tarif officiel 2025
-    const newGenSurplusSellPrice = 0.04; // 4 centimes d'euro/kWh - Tarif uniforme
-    const newGenAutoconsumed = Math.round(newGenProductionMin * selfConsumptionPercent);
-    const newGenSurplus = newGenProductionMin - newGenAutoconsumed;
-    const newGenSavingsMin = Math.round(newGenAutoconsumed * electricityPrice + newGenSurplus * newGenSurplusSellPrice);
-    const newGenAutoconsumedMax = Math.min(newGenProductionMax, annualConsumption);
-    const newGenSurplusMax = Math.max(0, newGenProductionMax - annualConsumption);
-    const newGenSavingsMax = Math.round(newGenAutoconsumedMax * 0.21 + newGenSurplusMax * newGenSurplusSellPrice);
-
-    // Avantages solaires vs concurrence
-    const productionGainMin = newGenProductionMin - classicProductionMax;
-    const productionGainMax = newGenProductionMax - classicProductionMin;
-    const savingsGainMin = newGenSavingsMin - classicSavingsMax;
-    const savingsGainMax = newGenSavingsMax - classicSavingsMin;
-    const autonomy = Math.round((newGenProductionMin + newGenProductionMax) / 2 / annualConsumption * 100);
-    const co2Saved = Math.round((newGenProductionMin + newGenProductionMax) / 2 * 0.07);
+    const autonomy = Math.round((solarProductionMin + solarProductionMax) / 2 / annualConsumption * 100);
+    const co2Saved = Math.round((solarProductionMin + solarProductionMax) / 2 * 0.07);
 
     // Estimation des coûts d'installation (euros TTC)
     const costPerKwc = 2500; // Prix moyen installation complète 2025
-    const classicInstallationCost = Math.round(classicPower * costPerKwc);
-    const newGenInstallationCost = Math.round(newGenPower * costPerKwc * 1.15); // +15% surcoût technologie
+    const solarInstallationCost = Math.round(solarPower * costPerKwc);
 
     // Calcul du retour sur investissement
-    const classicROI = Math.round(classicInstallationCost / ((classicSavingsMin + classicSavingsMax) / 2) * 10) / 10;
-    const newGenROI = Math.round(newGenInstallationCost / ((newGenSavingsMin + newGenSavingsMax) / 2) * 10) / 10;
+    const solarROI = Math.round(solarInstallationCost / ((solarSavingsMin + solarSavingsMax) / 2) * 10) / 10;
 
-    // Données mensuelles pour la nouvelle génération
+    // Données mensuelles
     const monthNames = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'];
     const monthlyIrradiationBase = [67.4, 89.2, 133.6, 166.8, 192.3, 208.2, 227.4, 201.9, 159.0, 109.3, 73.2, 58.9]; // Données moyennes France
 
@@ -564,51 +542,30 @@ const SolarSimulator = () => {
       const monthIrradiation = monthlyIrradiationBase[index];
       // Calcul production mensuelle basée sur l'irradiation relative
       const monthlyProductionRatio = monthIrradiation / monthlyIrradiationBase.reduce((a, b) => a + b, 0);
-      const monthClassicProduction = Math.round(classicProductionMin * monthlyProductionRatio);
-      const monthNewGenProduction = Math.round(newGenProductionMin * monthlyProductionRatio); // Production solaire réelle
-      const percentage = Math.round(monthNewGenProduction / newGenProductionMin * 100);
+      const monthSolarProduction = Math.round(solarProductionMin * monthlyProductionRatio);
+      const percentage = Math.round(monthSolarProduction / solarProductionMin * 100);
       return {
         month,
         irradiation: monthIrradiation,
-        production: monthNewGenProduction,
-        classicProduction: monthClassicProduction,
-        newGenProduction: monthNewGenProduction,
+        production: monthSolarProduction,
+        newGenProduction: monthSolarProduction,
         percentage
       };
     });
     const calculatedResults = {
-      classic: {
-        power: classicPower,
-        panels: classicPanels,
-        surface: classicSurface,
-        productionMin: classicProductionMin,
-        productionMax: classicProductionMax,
-        savingsMin: classicSavingsMin,
-        savingsMax: classicSavingsMax,
-        installationCost: classicInstallationCost,
-        roi: classicROI
+      solar: {
+        power: solarPower,
+        panels: solarPanels,
+        surface: solarSurface,
+        productionMin: solarProductionMin,
+        productionMax: solarProductionMax,
+        savingsMin: solarSavingsMin,
+        savingsMax: solarSavingsMax,
+        installationCost: solarInstallationCost,
+        roi: solarROI
       },
-      newGen: {
-        power: newGenPower,
-        panels: newGenPanels,
-        surface: newGenSurface,
-        productionMin: newGenProductionMin,
-        productionMax: newGenProductionMax,
-        savingsMin: newGenSavingsMin,
-        savingsMax: newGenSavingsMax,
-        installationCost: newGenInstallationCost,
-        roi: newGenROI
-      },
-      advantages: {
-        productionGainMin,
-        productionGainMax,
-        savingsGainMin,
-        savingsGainMax,
-        spaceSaved: Math.round(roofSurface - newGenSurface),
-        autonomy,
-        co2Saved,
-        efficiency: '+80% à +100%'
-      },
+      autonomy,
+      co2Saved,
       monthlyData: monthlyProductionData
     };
     setResults(calculatedResults);
@@ -681,7 +638,7 @@ const SolarSimulator = () => {
               Simulateur Panneaux Solaires
             </h1>
             <p className="text-xl opacity-90 drop-shadow-md">
-              Découvrez la puissance des panneaux nouvelle génération !
+              Estimez votre production solaire et vos économies !
             </p>
             
             
@@ -1015,68 +972,6 @@ const SolarSimulator = () => {
                   </div>
                 </div>
 
-                {/* Comparatif technologies */}
-                <h3 className="text-2xl font-bold text-foreground mt-8">
-                  🔬 Comparaison : Concurrence 400-500W vs Nos panneaux solaires 770-930W
-                </h3>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                   <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
-                    <h3 className="text-xl font-bold text-card-foreground mb-4">🔶 Panneaux 400-500W Concurrence</h3>
-                    <div className="space-y-3">
-                      <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                        <span>Puissance</span>
-                        <span className="font-bold">400-500W</span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                        <span>Technologie</span>
-                        <span className="font-bold">Standard marché</span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                        <span>Surface par panneau</span>
-                        <span className="font-bold">≈ 2.5 m²</span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                        <span>Rendement</span>
-                        <span className="font-bold">Standard</span>
-                      </div>
-                    </div>
-                  </div>
-
-                   <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
-                    <h3 className="text-xl font-bold text-card-foreground mb-4">⚡ Panneaux 770-930W Solaires</h3>
-                    <div className="space-y-3">
-                      <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                        <span>Puissance</span>
-                        <span className="font-bold">
-                          770-930W 
-                          <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">x2</span>
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                        <span>Technologie</span>
-                        <span className="font-bold">
-                          Solaire avancée 
-                          <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">2024</span>
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                        <span>Surface par panneau</span>
-                        <span className="font-bold">
-                          ≈ 3.0 m² 
-                          <span className="ml-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs">Plus efficace</span>
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                        <span>Rendement vs concurrence</span>
-                        <span className="font-bold">
-                          +80% à +100% 
-                          <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">SOLAIRE</span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
                 {/* Configuration avancée */}
                 <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 border border-blue-200">
@@ -1135,19 +1030,6 @@ const SolarSimulator = () => {
                   </div>
                 </div>
 
-                <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
-                  <div className="flex">
-                    <div className="flex-shrink-0">
-                      <TrendingUp className="h-5 w-5 text-blue-400" />
-                    </div>
-                    <div className="ml-3">
-                      <p className="text-sm text-blue-700">
-                        Nos panneaux solaires 770-930W produisent 80-100% de plus que la concurrence 400-500W ! 
-                        La technologie solaire capture l'énergie optimisée du panneau.
-                      </p>
-                    </div>
-                  </div>
-                </div>
 
                 <div className="flex justify-between">
                   <button onClick={prevStep} className="bg-secondary hover:bg-secondary-hover text-secondary-foreground px-8 py-3 rounded-xl font-semibold transition-all">
@@ -1167,100 +1049,47 @@ const SolarSimulator = () => {
                 Votre simulation personnalisée
               </h2>
 
-              {/* Comparatif des résultats */}
-              <div className="grid md:grid-cols-2 gap-6">
-                 <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
-                  <h3 className="text-xl font-bold text-card-foreground mb-6">🔶 Panneaux 400-500W Concurrence</h3>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                      <span>Puissance installée</span>
-                      <span className="font-bold">{results.classic.power} kWc</span>
-                    </div>
-                    <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                      <span>Nombre de panneaux</span>
-                      <span className="font-bold">{results.classic.panels}</span>
-                    </div>
-                    <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                      <span>Production annuelle</span>
-                      <span className="font-bold">{results.classic.productionMin.toLocaleString()} - {results.classic.productionMax.toLocaleString()} kWh</span>
-                    </div>
-                    <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                      <span>Surface utilisée</span>
-                      <span className="font-bold">{results.classic.surface} m²</span>
-                    </div>
-                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                       <span>Économies annuelles*</span>
-                       <span className="font-bold">{results.classic.savingsMin} - {results.classic.savingsMax} €</span>
-                     </div>
+              {/* Résultats de votre installation */}
+              <div className="bg-card border-2 border-primary rounded-2xl p-8 hover:shadow-glow transition-all duration-500">
+                <h3 className="text-2xl font-bold text-card-foreground mb-6 flex items-center gap-2">
+                  ⚡ Votre Installation Solaire
+                </h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="flex justify-between items-center p-4 bg-background rounded-lg">
+                    <span className="font-medium">Puissance installée</span>
+                    <span className="font-bold text-primary">{results.solar.power} kWc</span>
                   </div>
-                </div>
-
-                <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
-                  <h3 className="text-xl font-bold text-card-foreground mb-6">⚡ Panneaux 770-930W Solaires</h3>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                      <span>Puissance installée</span>
-                      <span className="font-bold">{results.newGen.power} kWc</span>
-                    </div>
-                    <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                      <span>Nombre de panneaux</span>
-                      <span className="font-bold">{results.newGen.panels}</span>
-                    </div>
-                    <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                      <span>Production annuelle</span>
-                      <span className="font-bold">{results.newGen.productionMin.toLocaleString()} - {results.newGen.productionMax.toLocaleString()} kWh</span>
-                    </div>
-                    <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                      <span>Surface utilisée</span>
-                      <span className="font-bold">{results.newGen.surface} m²</span>
-                    </div>
-                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                       <span>Économies annuelles*</span>
-                       <span className="font-bold">{results.newGen.savingsMin} - {results.newGen.savingsMax} €</span>
-                     </div>
-                     <div className="flex justify-between items-center p-3 bg-background rounded-lg">
-                       <span>Rendement supérieur</span>
-                       <span className="font-bold text-green-600">
-                         +{results.advantages.efficiency}
-                         <span className="ml-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">NOUVEAU</span>
-                       </span>
-                     </div>
+                  <div className="flex justify-between items-center p-4 bg-background rounded-lg">
+                    <span className="font-medium">Nombre de panneaux</span>
+                    <span className="font-bold text-primary">{results.solar.panels} × 500W</span>
+                  </div>
+                  <div className="flex justify-between items-center p-4 bg-background rounded-lg">
+                    <span className="font-medium">Production annuelle</span>
+                    <span className="font-bold text-primary">{results.solar.productionMin.toLocaleString()} - {results.solar.productionMax.toLocaleString()} kWh</span>
+                  </div>
+                  <div className="flex justify-between items-center p-4 bg-background rounded-lg">
+                    <span className="font-medium">Surface utilisée</span>
+                    <span className="font-bold text-primary">{results.solar.surface} m²</span>
+                  </div>
+                  <div className="flex justify-between items-center p-4 bg-background rounded-lg">
+                    <span className="font-medium">Économies annuelles*</span>
+                    <span className="font-bold text-green-600">{results.solar.savingsMin} - {results.solar.savingsMax} €</span>
+                  </div>
+                  <div className="flex justify-between items-center p-4 bg-background rounded-lg">
+                    <span className="font-medium">Coût d'installation</span>
+                    <span className="font-bold text-primary">{results.solar.installationCost.toLocaleString()} €</span>
                   </div>
                 </div>
               </div>
 
-              {/* Avantages de la technologie solaire */}
-              <h3 className="text-2xl font-bold text-foreground">💎 Avantages de nos panneaux solaires</h3>
+              {/* Indicateurs clés */}
+              <h3 className="text-2xl font-bold text-foreground">📊 Vos indicateurs clés</h3>
               
               <div className="grid md:grid-cols-3 gap-6">
-                 <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
-                  <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-card-foreground mb-2">
-                    +{results.advantages.productionGainMin.toLocaleString()} à +{results.advantages.productionGainMax.toLocaleString()}
-                  </div>
-                  <div className="text-muted-foreground font-medium">kWh/an supplémentaires</div>
-                </div>
-
-                 <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
-                  <div className="text-4xl mb-4">💰</div>
-                  <div className="text-3xl font-bold text-card-foreground mb-2">
-                    +{results.advantages.savingsGainMin} à +{results.advantages.savingsGainMax} €
-                  </div>
-                  <div className="text-muted-foreground font-medium">d'économies annuelles</div>
-                </div>
-
-                 <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
-                  <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-card-foreground mb-2">
-                    {results.advantages.efficiency}
-                  </div>
-                  <div className="text-muted-foreground font-medium">de rendement supérieur</div>
-                </div>
-
-                 <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
+                <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
                   <Battery className="w-12 h-12 text-primary mx-auto mb-4" />
                   <div className="text-3xl font-bold text-card-foreground mb-2">
-                    {results.advantages.autonomy}%
+                    {results.autonomy}%
                   </div>
                   <div className="text-muted-foreground font-medium">d'autonomie énergétique</div>
                 </div>
@@ -1268,14 +1097,22 @@ const SolarSimulator = () => {
                 <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
                   <Leaf className="w-12 h-12 text-green-500 mx-auto mb-4" />
                   <div className="text-3xl font-bold text-card-foreground mb-2">
-                    {results.advantages.co2Saved} kg
+                    {results.co2Saved} kg
                   </div>
                   <div className="text-muted-foreground font-medium">CO₂ évité/an</div>
+                </div>
+
+                <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
+                  <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
+                  <div className="text-3xl font-bold text-card-foreground mb-2">
+                    {results.solar.roi} ans
+                  </div>
+                  <div className="text-muted-foreground font-medium">Retour sur investissement</div>
                 </div>
               </div>
 
               {/* Production mensuelle avec graphique interactif */}
-              {results.monthlyData && results.monthlyData.length > 0 && <MonthlyProductionChart monthlyData={results.monthlyData} classicPower={results.classic.power} newGenPower={results.newGen.power} classicSavings={(results.classic.savingsMin + results.classic.savingsMax) / 2} newGenSavings={(results.newGen.savingsMin + results.newGen.savingsMax) / 2} />}
+              {results.monthlyData && results.monthlyData.length > 0 && <MonthlyProductionChart monthlyData={results.monthlyData} classicPower={results.solar.power} newGenPower={results.solar.power} classicSavings={(results.solar.savingsMin + results.solar.savingsMax) / 2} newGenSavings={(results.solar.savingsMin + results.solar.savingsMax) / 2} />}
 
                <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded">
                  <div className="flex">
