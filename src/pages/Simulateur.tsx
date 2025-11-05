@@ -464,19 +464,19 @@ const SolarSimulator = () => {
       // Appartement: limité par les balcons/terrasses ou copropriété
       const houseSurfaceNum = parseInt(formData.houseSurface) || 60;
       if (houseSurfaceNum <= 60) {
-        maxPanels = 2; // 2 panneaux max sur balcon/terrasse (6.2 m²)
-        availableSurface = 6.2;
+        maxPanels = 2; // 2 panneaux max sur balcon/terrasse
+        availableSurface = 4.0; // 2 × 2m²
       } else if (houseSurfaceNum <= 100) {
-        maxPanels = 3; // Grande terrasse (9.3 m²)
-        availableSurface = 9.3;
+        maxPanels = 3; // Grande terrasse
+        availableSurface = 6.0; // 3 × 2m²
       } else {
-        maxPanels = 4; // Très grand appartement avec terrasse (12.4 m²)
-        availableSurface = 12.4;
+        maxPanels = 4; // Très grand appartement avec terrasse
+        availableSurface = 8.0; // 4 × 2m²
       }
     } else {
       // Maison: calcul basé sur la surface de toit disponible
-      // Panneau 500W fait 2.4 m²
-      const panelSurface = 2.4; // Surface panneau 500W
+      // Panneau 500W fait environ 2m² (1.72m × 1.13m ≈ 1.95m²)
+      const panelSurface = 2.0; // Surface réelle panneau 500W
       // On utilise 65-70% de la surface de toit pour l'espacement, bords, obstacles
       const usableSurface = roofSurface * 0.68;
       const theoreticalPanels = Math.floor(usableSurface / panelSurface);
@@ -501,7 +501,7 @@ const SolarSimulator = () => {
     // Appliquer le minimum entre surface disponible et besoin réel
     if (maxPanelsByConsumption > 0 && maxPanelsByConsumption < maxPanels) {
       maxPanels = Math.max(maxPanelsByConsumption, 4); // Minimum 4 panneaux (2 kWc)
-      availableSurface = Math.round(maxPanels * 2.4 * 100) / 100;
+      availableSurface = Math.round(maxPanels * 2.0 * 100) / 100;
     }
 
     // PANNEAUX SOLAIRES 500W
