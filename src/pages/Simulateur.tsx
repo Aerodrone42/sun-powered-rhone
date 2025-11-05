@@ -515,9 +515,19 @@ const SolarSimulator = () => {
     const solarAutoconsumed = Math.round(solarProductionMin * selfConsumptionPercent);
     const solarSurplus = solarProductionMin - solarAutoconsumed;
 
-    // Nouveau tarif officiel 2025 (applicable après 27 mars 2025)
-    const surplusSellPrice = 0.04; // 4 centimes d'euro/kWh - Tarif uniforme
-    const electricityPrice = 0.21; // Prix d'achat électricité
+    // Tarifs officiels 2025 selon puissance (arrêté tarifaire)
+    let surplusSellPrice;
+    if (solarPower <= 9) {
+      surplusSellPrice = 0.04; // ≤ 9 kWc
+    } else if (solarPower <= 36) {
+      surplusSellPrice = 0.0731; // 9-36 kWc  
+    } else if (solarPower <= 100) {
+      surplusSellPrice = 0.0731; // 36-100 kWc
+    } else {
+      surplusSellPrice = 0.0886; // 100-500 kWc
+    }
+    
+    const electricityPrice = 0.2516; // Tarif réglementé base TTC 2025 (source: CRE)
 
     const solarSavingsMin = Math.round(solarAutoconsumed * electricityPrice + solarSurplus * surplusSellPrice);
     const solarAutoconsumedMax = Math.round(solarProductionMax * selfConsumptionPercent);
@@ -565,7 +575,11 @@ const SolarSimulator = () => {
       },
       autonomy,
       co2Saved,
-      monthlyData: monthlyProductionData
+      monthlyData: monthlyProductionData,
+      tariffs: {
+        electricityPrice,
+        surplusSellPrice
+      }
     };
     setResults(calculatedResults);
     setLoading(false);
@@ -1122,11 +1136,11 @@ const SolarSimulator = () => {
                      <p className="text-sm text-amber-700 font-semibold mb-1">
                        * Explication des économies annuelles :
                      </p>
-                     <p className="text-sm text-amber-700">
-                         <strong>Autoconsommation ({selfConsumptionRate[0]}%) :</strong> {Math.round((results.solar.productionMin + results.solar.productionMax) / 2 * selfConsumptionRate[0] / 100).toLocaleString()} kWh/an à 0,21€/kWh
-                         <br />
-                         <strong>Revente surplus ({100 - selfConsumptionRate[0]}%) :</strong> {Math.round((results.solar.productionMin + results.solar.productionMax) / 2 * (100 - selfConsumptionRate[0]) / 100).toLocaleString()} kWh/an à 0,04€/kWh (tarif 2025)
-                       </p>
+                      <p className="text-sm text-amber-700">
+                          <strong>Autoconsommation ({selfConsumptionRate[0]}%) :</strong> {Math.round((results.solar.productionMin + results.solar.productionMax) / 2 * selfConsumptionRate[0] / 100).toLocaleString()} kWh/an à {results.tariffs?.electricityPrice?.toFixed(4)}€/kWh
+                          <br />
+                          <strong>Revente surplus ({100 - selfConsumptionRate[0]}%) :</strong> {Math.round((results.solar.productionMin + results.solar.productionMax) / 2 * (100 - selfConsumptionRate[0]) / 100).toLocaleString()} kWh/an à {results.tariffs?.surplusSellPrice?.toFixed(4)}€/kWh (tarif 2025)
+                        </p>
                    </div>
                  </div>
                </div>
