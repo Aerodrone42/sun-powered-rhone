@@ -424,10 +424,14 @@ const SolarSimulator = () => {
     const residents = parseInt(formData.residents) || 4;
     const heating = formData.heating;
 
-    // Calcul consommation plus précis selon habitants et chauffage
-    let baseConsumption = monthlyBill * 12 / 0.17;
+    // Calcul consommation réelle basée sur le tarif réglementé 2025 TTC
+    let baseConsumption = monthlyBill * 12 / 0.2516; // Tarif base 2025
+    
+    // Ajustement selon le type de chauffage
     if (heating === 'electrique') {
-      baseConsumption *= 1.3; // +30% pour chauffage électrique
+      baseConsumption *= 1.15; // +15% pour pics de consommation hivernaux
+    } else if (heating === 'gaz' || heating === 'fioul') {
+      baseConsumption *= 0.85; // -15% car pas de chauffage électrique dans la facture
     }
 
     // Ajustement selon le type de logement
@@ -529,16 +533,37 @@ const SolarSimulator = () => {
     
     const electricityPrice = 0.2516; // Tarif réglementé base TTC 2025 (source: CRE)
 
-    const solarSavingsMin = Math.round(solarAutoconsumed * electricityPrice + solarSurplus * surplusSellPrice);
+    // Calcul des économies
+    let solarSavingsMin = Math.round(solarAutoconsumed * electricityPrice + solarSurplus * surplusSellPrice);
     const solarAutoconsumedMax = Math.round(solarProductionMax * selfConsumptionPercent);
     const solarSurplusMax = solarProductionMax - solarAutoconsumedMax;
-    const solarSavingsMax = Math.round(solarAutoconsumedMax * electricityPrice + solarSurplusMax * surplusSellPrice);
+    let solarSavingsMax = Math.round(solarAutoconsumedMax * electricityPrice + solarSurplusMax * surplusSellPrice);
+
+    // Validation de cohérence : les économies ne peuvent pas dépasser significativement la facture annuelle
+    const annualBill = monthlyBill * 12;
+    const maxRealisticSavings = annualBill * 1.2; // Maximum 120% de la facture (autoconso + revente surplus)
+    
+    if (solarSavingsMin > maxRealisticSavings) {
+      console.warn('⚠️ Installation surdimensionnée : économies ajustées pour rester réalistes');
+      const correctionFactor = maxRealisticSavings / solarSavingsMin;
+      solarSavingsMin = Math.round(solarSavingsMin * correctionFactor);
+      solarSavingsMax = Math.round(solarSavingsMax * correctionFactor);
+    }
 
     const autonomy = Math.round((solarProductionMin + solarProductionMax) / 2 / annualConsumption * 100);
     const co2Saved = Math.round((solarProductionMin + solarProductionMax) / 2 * 0.07);
 
-    // Estimation des coûts d'installation (euros TTC)
-    const costPerKwc = 2500; // Prix moyen installation complète 2025
+    // Estimation des coûts d'installation (euros TTC) - Prix dégressif marché 2025
+    let costPerKwc;
+    if (solarPower <= 3) {
+      costPerKwc = 2400; // Petites installations : coûts fixes élevés
+    } else if (solarPower <= 9) {
+      costPerKwc = 2100; // Résidentiel standard
+    } else if (solarPower <= 18) {
+      costPerKwc = 2000; // Grande résidentiel / petit tertiaire
+    } else {
+      costPerKwc = 1900; // Installations professionnelles (économies d'échelle)
+    }
     const solarInstallationCost = Math.round(solarPower * costPerKwc);
 
     // Calcul du retour sur investissement
