@@ -434,15 +434,8 @@ const SolarSimulator = () => {
       baseConsumption *= 0.85; // -15% car pas de chauffage électrique dans la facture
     }
 
-    // Ajustement selon le type de logement
-    let annualConsumption;
-    if (formData.houseType === 'exploitation' || formData.houseType === 'hangar' || formData.houseType === 'batiment_pro') {
-      // Pour les entreprises : pas d'ajustement par habitants
-      annualConsumption = baseConsumption;
-    } else {
-      // Pour les particuliers : ajustement selon nombre d'habitants
-      annualConsumption = baseConsumption * (residents / 4);
-    }
+    // Pas d'ajustement par habitants : la facture reflète déjà la consommation réelle
+    const annualConsumption = baseConsumption;
 
     // Facteurs d'orientation
     const orientationFactors = {
@@ -500,6 +493,17 @@ const SolarSimulator = () => {
       }
     }
 
+    // Limitation par la consommation réelle pour éviter le surdimensionnement
+    const prodPerKwcMin = (locationData?.production || 1200) * 0.95;
+    const maxPowerByConsumption = annualConsumption / (prodPerKwcMin * 0.70); // 70% autoconso par défaut
+    const maxPanelsByConsumption = Math.floor(maxPowerByConsumption / 0.5); // Panneaux de 500W
+    
+    // Appliquer le minimum entre surface disponible et besoin réel
+    if (maxPanelsByConsumption > 0 && maxPanelsByConsumption < maxPanels) {
+      maxPanels = Math.max(maxPanelsByConsumption, 4); // Minimum 4 panneaux (2 kWc)
+      availableSurface = Math.round(maxPanels * 2.4 * 100) / 100;
+    }
+
     // PANNEAUX SOLAIRES 500W
     const solarPower = Math.round(maxPanels * 0.500 * 100) / 100; // 500W
     const solarPanels = maxPanels;
@@ -516,7 +520,9 @@ const SolarSimulator = () => {
     const selfConsumptionPercent = selfConsumptionRate[0] / 100; // Conversion pourcentage
 
     // Calcul autoconsommation et surplus selon le slider
-    const solarAutoconsumed = Math.round(solarProductionMin * selfConsumptionPercent);
+    // L'autoconsommation ne peut pas dépasser la consommation annuelle réelle !
+    const theoreticalAutoconsumed = solarProductionMin * selfConsumptionPercent;
+    const solarAutoconsumed = Math.round(Math.min(theoreticalAutoconsumed, annualConsumption));
     const solarSurplus = solarProductionMin - solarAutoconsumed;
 
     // Tarifs officiels 2025 selon puissance (arrêté tarifaire)
@@ -534,21 +540,12 @@ const SolarSimulator = () => {
     const electricityPrice = 0.2516; // Tarif réglementé base TTC 2025 (source: CRE)
 
     // Calcul des économies
-    let solarSavingsMin = Math.round(solarAutoconsumed * electricityPrice + solarSurplus * surplusSellPrice);
-    const solarAutoconsumedMax = Math.round(solarProductionMax * selfConsumptionPercent);
-    const solarSurplusMax = solarProductionMax - solarAutoconsumedMax;
-    let solarSavingsMax = Math.round(solarAutoconsumedMax * electricityPrice + solarSurplusMax * surplusSellPrice);
-
-    // Validation de cohérence : les économies ne peuvent pas dépasser significativement la facture annuelle
-    const annualBill = monthlyBill * 12;
-    const maxRealisticSavings = annualBill * 1.2; // Maximum 120% de la facture (autoconso + revente surplus)
+    const solarSavingsMin = Math.round(solarAutoconsumed * electricityPrice + solarSurplus * surplusSellPrice);
     
-    if (solarSavingsMin > maxRealisticSavings) {
-      console.warn('⚠️ Installation surdimensionnée : économies ajustées pour rester réalistes');
-      const correctionFactor = maxRealisticSavings / solarSavingsMin;
-      solarSavingsMin = Math.round(solarSavingsMin * correctionFactor);
-      solarSavingsMax = Math.round(solarSavingsMax * correctionFactor);
-    }
+    const theoreticalAutoconsumedMax = solarProductionMax * selfConsumptionPercent;
+    const solarAutoconsumedMax = Math.round(Math.min(theoreticalAutoconsumedMax, annualConsumption));
+    const solarSurplusMax = solarProductionMax - solarAutoconsumedMax;
+    const solarSavingsMax = Math.round(solarAutoconsumedMax * electricityPrice + solarSurplusMax * surplusSellPrice);
 
     const autonomy = Math.round((solarProductionMin + solarProductionMax) / 2 / annualConsumption * 100);
     const co2Saved = Math.round((solarProductionMin + solarProductionMax) / 2 * 0.07);
