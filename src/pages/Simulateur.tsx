@@ -526,17 +526,9 @@ const SolarSimulator = () => {
     const solarAutoconsumed = Math.round(Math.min(theoreticalAutoconsumed, annualConsumption));
     const solarSurplus = solarProductionMin - solarAutoconsumed;
 
-    // Tarifs officiels 2025 selon puissance (arrêté tarifaire)
-    let surplusSellPrice;
-    if (solarPower <= 9) {
-      surplusSellPrice = 0.04; // ≤ 9 kWc
-    } else if (solarPower <= 36) {
-      surplusSellPrice = 0.0731; // 9-36 kWc  
-    } else if (solarPower <= 100) {
-      surplusSellPrice = 0.0731; // 36-100 kWc
-    } else {
-      surplusSellPrice = 0.0886; // 100-500 kWc
-    }
+        // Tarif officiel 2025 pour la vente du surplus (source: Service Public)
+        // Le tarif d'achat du surplus est fixé à 4 centimes d'euro par kWh
+        const surplusSellPrice = 0.04; // Tarif unique pour toutes les puissances
     
     const electricityPrice = 0.2516; // Tarif réglementé base TTC 2025 (source: CRE)
 
