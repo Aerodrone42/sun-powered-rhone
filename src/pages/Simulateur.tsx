@@ -1180,15 +1180,29 @@ const SolarSimulator = () => {
                     
                     {/* Rectangle représentant le panneau avec proportions respectées */}
                     <div className="flex items-center justify-center h-48">
-                      <div className="relative" style={{ width: '140px', height: '85px' }}>
+                      <div className="relative group cursor-pointer" style={{ width: '140px', height: '85px' }}>
                         {/* Bordure du panneau */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg shadow-lg"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-blue-400/50"></div>
                         
                         {/* Grille photovoltaïque */}
                         <div className="absolute inset-2 grid grid-cols-6 grid-rows-10 gap-0.5">
                           {Array.from({ length: 60 }).map((_, i) => (
-                            <div key={i} className="bg-blue-900/40 rounded-sm"></div>
+                            <div 
+                              key={i} 
+                              className="bg-blue-900/40 rounded-sm transition-all duration-200 hover:bg-blue-400 hover:shadow-lg hover:shadow-blue-300/50 hover:scale-110 hover:z-10"
+                              style={{
+                                animationDelay: `${i * 15}ms`
+                              }}
+                            ></div>
                           ))}
+                        </div>
+                        
+                        {/* Effet de brillance au survol */}
+                        <div className="absolute inset-2 bg-gradient-to-br from-yellow-300/0 via-yellow-200/0 to-yellow-300/0 rounded opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none"></div>
+
+                        {/* Animation de vague lumineuse */}
+                        <div className="absolute inset-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer rounded"></div>
                         </div>
                         
                         {/* Dimensions annotées */}
@@ -1202,13 +1216,13 @@ const SolarSimulator = () => {
                         </div>
                         
                         {/* Badge puissance */}
-                        <div className="absolute bottom-1 right-1 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-0.5 rounded">
+                        <div className="absolute bottom-1 right-1 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-0.5 rounded transition-all duration-300 group-hover:bg-yellow-300 group-hover:scale-110 group-hover:shadow-lg">
                           500W
                         </div>
                       </div>
                     </div>
                     
-                    <div className="text-xs text-center text-gray-500 dark:text-gray-400 mt-3">
+                    <div className="text-xs text-center text-gray-500 dark:text-gray-400 mt-3 transition-all duration-300">
                       💡 Panneau photovoltaïque monocristallin
                     </div>
                   </div>
