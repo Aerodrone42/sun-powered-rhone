@@ -192,17 +192,13 @@ const Contact = () => {
                       </div>
                       
                       <div className="space-y-2">
-                        <Label htmlFor="typeProjet">Type de projet *</Label>
+                        <Label htmlFor="typeProjet">Vous êtes *</Label>
                         <select name="typeProjet" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 solar-hover" required>
-                          <option value="">Sélectionnez votre projet</option>
-                          <option value="particulier-panneaux">Particulier - Panneaux solaires</option>
-                          <option value="particulier-autoconsommation">Particulier - Autoconsommation</option>
-                          <option value="particulier-borne">Particulier - Borne de recharge</option>
-                          <option value="particulier-batterie">Particulier - Batterie solaire</option>
-                          <option value="professionnel-commerce">Professionnel - Commerce</option>
-                          <option value="professionnel-entreprise">Professionnel - Entreprise</option>
-                          <option value="professionnel-agriculteur">Professionnel - Agriculteur</option>
-                          <option value="professionnel-collectivite">Professionnel - Collectivité</option>
+                          <option value="">Sélectionnez votre profil</option>
+                          <option value="particulier">🏠 Particulier</option>
+                          <option value="professionnel">🏢 Professionnel</option>
+                          <option value="agriculteur">🚜 Agriculteur</option>
+                          <option value="autre">💬 Autre</option>
                         </select>
                       </div>
                     </div>
@@ -213,7 +209,7 @@ const Contact = () => {
                         id="message"
                         name="message"
                         rows={4}
-                        placeholder="Décrivez votre projet, vos besoins spécifiques..."
+                        placeholder="Décrivez votre projet (panneaux solaires, borne de recharge, batterie...) et vos besoins spécifiques..."
                         className="solar-hover"
                       />
                     </div>
