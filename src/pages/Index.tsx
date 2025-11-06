@@ -156,11 +156,11 @@ const Index = () => {
             <p className="text-lg text-white/95 mb-8 leading-relaxed max-w-3xl mx-auto">
               Spécialistes dans l'innovation, la vente et l'installation de panneaux solaires nouvelle génération en Rhône alpes et dans toute la France
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild variant="glass" size="lg" className="shadow-premium btn-solar">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-2xl mx-auto px-4">
+              <Button asChild variant="glass" size="lg" className="shadow-premium btn-solar w-full sm:w-auto">
                 <Link to="/contact">Découvrez nos Panneaux Solaires</Link>
               </Button>
-              <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25 btn-solar">
+              <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25 btn-solar w-full sm:w-auto">
                 <Link to="/simulateur">Simulateur</Link>
               </Button>
             </div>
