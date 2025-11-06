@@ -1132,6 +1132,101 @@ const SolarSimulator = () => {
                 </div>
               </div>
 
+              {/* Indicateur visuel des panneaux */}
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 border-2 border-blue-200 dark:border-blue-800 rounded-2xl p-6">
+                <h4 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
+                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3zM14 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1h-4a1 1 0 01-1-1v-3z" />
+                  </svg>
+                  Dimensions des panneaux
+                </h4>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Partie gauche : Infos textuelles */}
+                  <div className="space-y-3">
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
+                      <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Dimensions unitaires</div>
+                      <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                        1900 × 1150 mm
+                      </div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                        (1,9 m × 1,15 m)
+                      </div>
+                    </div>
+                    
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
+                      <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Surface par panneau</div>
+                      <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                        2,2 m²
+                      </div>
+                    </div>
+                    
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
+                      <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Capacité de votre surface</div>
+                      <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                        {results.solar.panels} panneaux
+                      </div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                        sur {results.solar.surface} m² disponibles
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Partie droite : Représentation visuelle */}
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
+                    <div className="text-sm text-gray-600 dark:text-gray-400 mb-3 text-center font-medium">
+                      Vue schématique d'un panneau
+                    </div>
+                    
+                    {/* Rectangle représentant le panneau avec proportions respectées */}
+                    <div className="flex items-center justify-center h-48">
+                      <div className="relative" style={{ width: '140px', height: '85px' }}>
+                        {/* Bordure du panneau */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg shadow-lg"></div>
+                        
+                        {/* Grille photovoltaïque */}
+                        <div className="absolute inset-2 grid grid-cols-6 grid-rows-10 gap-0.5">
+                          {Array.from({ length: 60 }).map((_, i) => (
+                            <div key={i} className="bg-blue-900/40 rounded-sm"></div>
+                          ))}
+                        </div>
+                        
+                        {/* Dimensions annotées */}
+                        <div className="absolute -top-6 left-0 right-0 text-center text-xs font-bold text-gray-700 dark:text-gray-300">
+                          1900 mm
+                        </div>
+                        <div className="absolute -right-12 top-0 bottom-0 flex items-center">
+                          <div className="text-xs font-bold text-gray-700 dark:text-gray-300 transform -rotate-90">
+                            1150 mm
+                          </div>
+                        </div>
+                        
+                        {/* Badge puissance */}
+                        <div className="absolute bottom-1 right-1 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-0.5 rounded">
+                          500W
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="text-xs text-center text-gray-500 dark:text-gray-400 mt-3">
+                      💡 Panneau photovoltaïque monocristallin
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Calcul de disposition */}
+                <div className="mt-4 p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl border border-blue-200 dark:border-blue-700">
+                  <div className="flex items-start gap-3">
+                    <div className="text-2xl">📐</div>
+                    <div className="flex-1 text-sm text-gray-700 dark:text-gray-300">
+                      <strong>Optimisation de l'espace :</strong> Sur votre surface de {results.solar.surface} m², 
+                      nous pouvons installer jusqu'à {results.solar.panels} panneaux en tenant compte de l'espacement 
+                      nécessaire, de l'orientation et des contraintes techniques (bordures, obstacles, circulation d'air).
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Indicateurs clés */}
               <h3 className="text-2xl font-bold text-foreground">📊 Vos indicateurs clés</h3>
               
