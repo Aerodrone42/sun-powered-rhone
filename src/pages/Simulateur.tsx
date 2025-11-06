@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import OpenStreetMap from '../components/OpenStreetMap';
 import { MonthlyProductionChart } from '../components/MonthlyProductionChart';
+import { useCounterAnimation } from '../hooks/useCounterAnimation';
 import { Skeleton } from '../components/ui/skeleton';
 const SolarSimulator = () => {
   const navigate = useNavigate();
@@ -653,6 +654,81 @@ const SolarSimulator = () => {
     });
   };
   const progressPercentage = (currentStep - 1) / (totalSteps - 1) * 100;
+  
+  // Composants animés pour les résultats
+  const AnimatedResults = ({ results }: any) => {
+    const power = useCounterAnimation({ end: results.solar.power, duration: 1500, decimals: 1 });
+    const panels = useCounterAnimation({ end: results.solar.panels, duration: 1500 });
+    const productionMin = useCounterAnimation({ end: results.solar.productionMin, duration: 2000 });
+    const productionMax = useCounterAnimation({ end: results.solar.productionMax, duration: 2000 });
+    const surface = useCounterAnimation({ end: results.solar.surface, duration: 1500 });
+    const savingsMin = useCounterAnimation({ end: results.solar.savingsMin, duration: 2000 });
+    const savingsMax = useCounterAnimation({ end: results.solar.savingsMax, duration: 2000 });
+    const installationCost = useCounterAnimation({ end: results.solar.installationCost, duration: 2000 });
+
+    return (
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="flex justify-between items-center p-4 bg-background rounded-lg">
+          <span className="font-medium">Puissance installée</span>
+          <span className="font-bold text-primary">{power} kWc</span>
+        </div>
+        <div className="flex justify-between items-center p-4 bg-background rounded-lg">
+          <span className="font-medium">Nombre de panneaux</span>
+          <span className="font-bold text-primary">{panels} × 500W</span>
+        </div>
+        <div className="flex justify-between items-center p-4 bg-background rounded-lg">
+          <span className="font-medium">Production annuelle</span>
+          <span className="font-bold text-primary">{Number(productionMin).toLocaleString()} - {Number(productionMax).toLocaleString()} kWh</span>
+        </div>
+        <div className="flex justify-between items-center p-4 bg-background rounded-lg">
+          <span className="font-medium">Surface utilisée</span>
+          <span className="font-bold text-primary">{surface} m²</span>
+        </div>
+        <div className="flex justify-between items-center p-4 bg-background rounded-lg">
+          <span className="font-medium">Économies annuelles*</span>
+          <span className="font-bold text-green-600">{savingsMin} - {savingsMax} €</span>
+        </div>
+        <div className="flex justify-between items-center p-4 bg-background rounded-lg">
+          <span className="font-medium">Coût d'installation</span>
+          <span className="font-bold text-primary">{Number(installationCost).toLocaleString()} €</span>
+        </div>
+      </div>
+    );
+  };
+
+  const AnimatedKeyIndicators = ({ results }: any) => {
+    const autonomy = useCounterAnimation({ end: results.autonomy, duration: 2000 });
+    const co2Saved = useCounterAnimation({ end: results.co2Saved, duration: 2000 });
+    const roi = useCounterAnimation({ end: results.solar.roi, duration: 2000 });
+
+    return (
+      <div className="grid md:grid-cols-3 gap-6">
+        <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
+          <Battery className="w-12 h-12 text-primary mx-auto mb-4" />
+          <div className="text-3xl font-bold text-card-foreground mb-2">
+            {autonomy}%
+          </div>
+          <div className="text-muted-foreground font-medium">d'autonomie énergétique</div>
+        </div>
+
+        <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
+          <Leaf className="w-12 h-12 text-green-500 mx-auto mb-4" />
+          <div className="text-3xl font-bold text-card-foreground mb-2">
+            {co2Saved} kg
+          </div>
+          <div className="text-muted-foreground font-medium">CO₂ évité/an</div>
+        </div>
+
+        <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
+          <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
+          <div className="text-3xl font-bold text-card-foreground mb-2">
+            {roi} ans
+          </div>
+          <div className="text-muted-foreground font-medium">Retour sur investissement</div>
+        </div>
+      </div>
+    );
+  };
   return <div className="min-h-screen flex flex-col">
       <Header />
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
@@ -1104,32 +1180,7 @@ const SolarSimulator = () => {
                 <h3 className="text-2xl font-bold text-card-foreground mb-6 flex items-center gap-2">
                   ⚡ Votre Installation Solaire
                 </h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="flex justify-between items-center p-4 bg-background rounded-lg">
-                    <span className="font-medium">Puissance installée</span>
-                    <span className="font-bold text-primary">{results.solar.power} kWc</span>
-                  </div>
-                  <div className="flex justify-between items-center p-4 bg-background rounded-lg">
-                    <span className="font-medium">Nombre de panneaux</span>
-                    <span className="font-bold text-primary">{results.solar.panels} × 500W</span>
-                  </div>
-                  <div className="flex justify-between items-center p-4 bg-background rounded-lg">
-                    <span className="font-medium">Production annuelle</span>
-                    <span className="font-bold text-primary">{results.solar.productionMin.toLocaleString()} - {results.solar.productionMax.toLocaleString()} kWh</span>
-                  </div>
-                  <div className="flex justify-between items-center p-4 bg-background rounded-lg">
-                    <span className="font-medium">Surface utilisée</span>
-                    <span className="font-bold text-primary">{results.solar.surface} m²</span>
-                  </div>
-                  <div className="flex justify-between items-center p-4 bg-background rounded-lg">
-                    <span className="font-medium">Économies annuelles*</span>
-                    <span className="font-bold text-green-600">{results.solar.savingsMin} - {results.solar.savingsMax} €</span>
-                  </div>
-                  <div className="flex justify-between items-center p-4 bg-background rounded-lg">
-                    <span className="font-medium">Coût d'installation</span>
-                    <span className="font-bold text-primary">{results.solar.installationCost.toLocaleString()} €</span>
-                  </div>
-                </div>
+                <AnimatedResults results={results} />
               </div>
 
               {/* Indicateur visuel des panneaux */}
@@ -1244,31 +1295,7 @@ const SolarSimulator = () => {
               {/* Indicateurs clés */}
               <h3 className="text-2xl font-bold text-foreground">📊 Vos indicateurs clés</h3>
               
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
-                  <Battery className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-card-foreground mb-2">
-                    {results.autonomy}%
-                  </div>
-                  <div className="text-muted-foreground font-medium">d'autonomie énergétique</div>
-                </div>
-
-                <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
-                  <Leaf className="w-12 h-12 text-green-500 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-card-foreground mb-2">
-                    {results.co2Saved} kg
-                  </div>
-                  <div className="text-muted-foreground font-medium">CO₂ évité/an</div>
-                </div>
-
-                <div className="bg-card rounded-2xl p-6 text-center shadow-lg hover:shadow-glow transition-all duration-500 hover:-translate-y-2 border border-border hover:border-primary">
-                  <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-card-foreground mb-2">
-                    {results.solar.roi} ans
-                  </div>
-                  <div className="text-muted-foreground font-medium">Retour sur investissement</div>
-                </div>
-              </div>
+              <AnimatedKeyIndicators results={results} />
 
               {/* Production mensuelle avec graphique interactif */}
               {results.monthlyData && results.monthlyData.length > 0 && <MonthlyProductionChart monthlyData={results.monthlyData} solarPower={results.solar.power} solarSavings={(results.solar.savingsMin + results.solar.savingsMax) / 2} />}
