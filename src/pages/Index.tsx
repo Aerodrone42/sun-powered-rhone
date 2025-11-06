@@ -102,7 +102,7 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
+      <section className="relative min-h-screen overflow-visible md:overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
         {/* Layout mobile : video en haut, texte en bas */}
         <div className="md:hidden">
           {/* Zone vidéo - 60% de la hauteur */}
@@ -112,7 +112,7 @@ const Index = () => {
           </div>
           
           {/* Zone texte - 40% de la hauteur */}
-          <div className="relative h-[40vh] bg-gradient-to-b from-slate-900 to-slate-800 flex items-center justify-center px-4">
+          <div className="relative bg-gradient-to-b from-slate-900 to-slate-800 flex items-center justify-center px-4 py-8">
             <div className="text-center text-white">
               <CertificationBadges />
               <h1 className="text-2xl font-bold mb-3 leading-tight">
@@ -124,10 +124,10 @@ const Index = () => {
                 Spécialistes dans l'innovation, la vente et l'installation de panneaux solaires nouvelle génération en Rhône alpes et dans toute la France
               </p>
               <div className="flex flex-col gap-2">
-                <Button asChild variant="default" size="sm">
+                <Button asChild variant="default" size="sm" className="w-full">
                   <Link to="/contact">Découvrez nos Panneaux Solaires</Link>
                 </Button>
-                <Button asChild variant="glass" size="sm" className="bg-white/15 border-white/20 text-white hover:bg-white/25">
+                <Button asChild variant="glass" size="sm" className="w-full bg-white/15 border-white/20 text-white hover:bg-white/25">
                   <Link to="/simulateur">Simulateur</Link>
                 </Button>
               </div>
