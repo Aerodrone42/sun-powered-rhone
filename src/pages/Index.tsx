@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import CallbackForm from "@/components/CallbackForm";
 import SolarCallButton from "@/components/SolarCallButton";
 import { CertificationBadges } from "@/components/CertificationBadges";
-import { Sun, Home, Building, Zap, Battery, Car, Factory, Users, UserCheck, Briefcase, Tractor, MapPin } from "lucide-react";
+import { Sun, Home, Building, Zap, Battery, Car, Factory, Users, UserCheck, Briefcase, Tractor, MapPin, Instagram } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 import teamWorkImage from "@/assets/team-work.jpg";
 import happyFamilyImage from "@/assets/happy-family.jpg";
@@ -204,6 +204,18 @@ const Index = () => {
                   </span>
                 </p>
                 
+                {/* Instagram Link */}
+                <div className="mt-6 flex justify-center">
+                  <a 
+                    href="https://www.instagram.com/wnenergies/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-950 dark:to-purple-950 border border-pink-200 dark:border-pink-800 rounded-full hover:shadow-lg transition-all duration-300"
+                  >
+                    <Instagram className="h-5 w-5 text-pink-600 dark:text-pink-400 group-hover:scale-110 transition-transform" />
+                    <span className="text-sm font-medium text-pink-600 dark:text-pink-400">Suivez-nous sur Instagram</span>
+                  </a>
+                </div>
                 
                 {/* Titre profil déplacé ici */}
                 <div className="mt-12">
