@@ -127,8 +127,8 @@ const Index = () => {
                 <Button asChild variant="default" size="sm">
                   <Link to="/contact">Découvrez nos Panneaux Solaires</Link>
                 </Button>
-                <Button asChild variant="outline" size="sm" className="border-orange-500 hover:bg-orange-500 hover:text-white">
-                  <Link to="/simulateur" className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent font-bold hover:text-white">Simulateur</Link>
+                <Button asChild variant="glass" size="sm" className="bg-white/15 border-white/20 text-white hover:bg-white/25">
+                  <Link to="/simulateur">Simulateur</Link>
                 </Button>
               </div>
             </div>
