@@ -160,8 +160,8 @@ const Index = () => {
               <Button asChild variant="glass" size="lg" className="shadow-premium btn-solar w-full sm:w-auto">
                 <Link to="/contact">Découvrez nos Panneaux Solaires</Link>
               </Button>
-              <Button asChild variant="glass" size="lg" className="bg-white/15 border-white/20 text-white hover:bg-white/25 btn-solar w-full sm:w-auto">
-                <Link to="/simulateur">Simulateur</Link>
+              <Button asChild variant="default" size="xl" className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-slate-900 font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 btn-solar w-full sm:w-auto">
+                <Link to="/simulateur">🔆 Simulateur Gratuit</Link>
               </Button>
             </div>
           </div>
