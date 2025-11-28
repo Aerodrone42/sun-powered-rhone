@@ -22,3 +22,9 @@ export const useMetaPixelLead = () => {
     }
   }, [searchParams, location]);
 };
+
+// Composant wrapper qui doit être utilisé à l'intérieur du Router
+export const MetaPixelTracker = () => {
+  useMetaPixelLead();
+  return null;
+};
