@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./components/ScrollToTop";
 import SunParticles from "./components/SunParticles";
 import CookieConsent from "./components/CookieConsent";
+import { useMetaPixelLead } from "./hooks/useMetaPixel";
 import Index from "./pages/Index";
 import Particuliers from "./pages/Particuliers";
 import Professionnels from "./pages/Professionnels";
@@ -34,16 +35,19 @@ import VillePage from "./pages/VillePage";
 const queryClient = new QueryClient();
 // Force refresh for TarifsAides route
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <HelmetProvider>
-        <BrowserRouter>
-          
-          <ScrollToTop />
-          <Routes>
+const App = () => {
+  useMetaPixelLead();
+  
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <HelmetProvider>
+          <BrowserRouter>
+            
+            <ScrollToTop />
+            <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/particuliers" element={<Particuliers />} />
             <Route path="/particuliers/panneaux-solaires" element={<PanneauxSolaires />} />
@@ -75,6 +79,7 @@ const App = () => (
       </HelmetProvider>
     </TooltipProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;
