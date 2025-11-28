@@ -402,7 +402,7 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Installateur de panneaux solaires en <span className="text-primary">France</span> - Expert Lyon & Rhône-Alpes
             </h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">Startup Lyonnaise, nous offrons une technologie encore inégalée qui positionne nos produits en tant que leader sur le marché français, nous intervenons dans toute la France. Installateur expert à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest et sur l'ensemble du territoire français, nous proposons des solutions sur-mesure pour votre indépendance énergétique.<strong>Installateur expert à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest</strong> et sur l'ensemble du territoire français, nous proposons des solutions sur-mesure pour votre indépendance énergétique.
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">Startup Lyonnaise, nous offrons une technologie encore inégalée qui positionne nos produits en tant que leader sur le marché français, nous intervenons dans toute la France. Installateur expert à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest et sur l'ensemble du territoire français, nous proposons des solutions sur-mesure pour votre indépendance énergétique. <strong>Installateur expert à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest</strong> et sur l'ensemble du territoire français, nous proposons des solutions sur-mesure pour votre indépendance énergétique.
             </p>
           </div>
 
