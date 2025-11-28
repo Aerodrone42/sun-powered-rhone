@@ -206,12 +206,7 @@ const Index = () => {
                 
                 {/* Instagram Link */}
                 <div className="mt-6 flex justify-center">
-                  <a 
-                    href="https://www.instagram.com/wnenergies/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-950 dark:to-purple-950 border border-pink-200 dark:border-pink-800 rounded-full hover:shadow-lg transition-all duration-300"
-                  >
+                  <a href="https://www.instagram.com/wnenergies/" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-950 dark:to-purple-950 border border-pink-200 dark:border-pink-800 rounded-full hover:shadow-lg transition-all duration-300">
                     <Instagram className="h-5 w-5 text-pink-600 dark:text-pink-400 group-hover:scale-110 transition-transform" />
                     <span className="text-sm font-medium text-pink-600 dark:text-pink-400">Suivez-nous sur Instagram</span>
                   </a>
@@ -407,9 +402,7 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Installateur de panneaux solaires en <span className="text-primary">France</span> - Expert Lyon & Rhône-Alpes
             </h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Startup Lyonnaise, nous offrons une technologie encore inégalée. qui positionne nos produits en tant que leader sur le marché français, nous intervenons dans toute la France. 
-              <strong>Installateur expert à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest</strong> et sur l'ensemble du territoire français, nous proposons des solutions sur-mesure pour votre indépendance énergétique.
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">Startup Lyonnaise, nous offrons une technologie encore inégalée qui positionne nos produits en tant que leader sur le marché français, nous intervenons dans toute la France. Installateur expert à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest et sur l'ensemble du territoire français, nous proposons des solutions sur-mesure pour votre indépendance énergétique.<strong>Installateur expert à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest</strong> et sur l'ensemble du territoire français, nous proposons des solutions sur-mesure pour votre indépendance énergétique.
             </p>
           </div>
 
