@@ -12,7 +12,6 @@ import heroImage from "@/assets/hero-image.jpg";
 import teamWorkImage from "@/assets/team-work.jpg";
 import happyFamilyImage from "@/assets/happy-family.jpg";
 import commercialBuildingImage from "@/assets/commercial-building.jpg";
-
 const Index = () => {
   const professionnelServices = [{
     title: "Solutions industrielles",
@@ -39,7 +38,6 @@ const Index = () => {
     href: "/professionnels/centrales",
     benefits: ["Production d'énergie à grande échelle", "Investissement rentable", "Étude de faisabilité complète", "Gestion administrative complète"]
   }];
-
   const particulierServices = [{
     title: "Panneaux solaires",
     description: "Installation de panneaux solaires photovoltaïques pour particuliers",
@@ -65,7 +63,6 @@ const Index = () => {
     href: "/particuliers/batterie-solaire",
     benefits: ["Stockage de l'énergie excédentaire", "Utilisation nocturne de l'énergie solaire", "Sécurité en cas de coupure réseau", "Optimisation de l'autoconsommation"]
   }];
-
   const collectiviteServices = [{
     title: "Équipements publics",
     description: "Solutions solaires pour bâtiments et équipements municipaux",
@@ -91,7 +88,6 @@ const Index = () => {
     href: "/collectivites/participatifs",
     benefits: ["Implication citoyenne", "Revenus pour la collectivité", "Transition énergétique locale", "Animation territoriale"]
   }];
-
   const stats = [{
     number: "500+",
     label: "Installations réalisées"
@@ -102,7 +98,6 @@ const Index = () => {
     number: "50+",
     label: "Villes en Rhône-Alpes"
   }];
-
   return <div className="min-h-screen">
       <Header />
       
@@ -367,9 +362,7 @@ const Index = () => {
       <section className="py-16 bg-gradient-to-br from-blue-50/50 via-white to-green-50/50">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Installateur de panneaux solaires à Lyon & Rhône-Alpes - Expert Lyon & Rhône-Alpes
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Installateur de panneaux solaires à Lyon & Rhône-Alpes </h2>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Startup Lyonnaise, nous offrons une technologie encore inégalée qui positionne nos produits en tant que leader sur le marché français. 
               <strong> Installateur expert à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest</strong> et sur l'ensemble du territoire français, 
@@ -531,5 +524,4 @@ const Index = () => {
       <Footer />
     </div>;
 };
-
 export default Index;
