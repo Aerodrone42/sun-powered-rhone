@@ -12,6 +12,7 @@ import heroImage from "@/assets/hero-image.jpg";
 import teamWorkImage from "@/assets/team-work.jpg";
 import happyFamilyImage from "@/assets/happy-family.jpg";
 import commercialBuildingImage from "@/assets/commercial-building.jpg";
+
 const Index = () => {
   const professionnelServices = [{
     title: "Solutions industrielles",
@@ -38,6 +39,7 @@ const Index = () => {
     href: "/professionnels/centrales",
     benefits: ["Production d'énergie à grande échelle", "Investissement rentable", "Étude de faisabilité complète", "Gestion administrative complète"]
   }];
+
   const particulierServices = [{
     title: "Panneaux solaires",
     description: "Installation de panneaux solaires photovoltaïques pour particuliers",
@@ -63,6 +65,7 @@ const Index = () => {
     href: "/particuliers/batterie-solaire",
     benefits: ["Stockage de l'énergie excédentaire", "Utilisation nocturne de l'énergie solaire", "Sécurité en cas de coupure réseau", "Optimisation de l'autoconsommation"]
   }];
+
   const collectiviteServices = [{
     title: "Équipements publics",
     description: "Solutions solaires pour bâtiments et équipements municipaux",
@@ -88,6 +91,7 @@ const Index = () => {
     href: "/collectivites/participatifs",
     benefits: ["Implication citoyenne", "Revenus pour la collectivité", "Transition énergétique locale", "Animation territoriale"]
   }];
+
   const stats = [{
     number: "500+",
     label: "Installations réalisées"
@@ -98,20 +102,19 @@ const Index = () => {
     number: "50+",
     label: "Villes en Rhône-Alpes"
   }];
+
   return <div className="min-h-screen">
       <Header />
       
       {/* Hero Section */}
       <section className="relative min-h-screen overflow-visible md:overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
-        {/* Layout mobile : video en haut, texte en bas */}
+        {/* Hero layout mobile and desktop */}
         <div className="md:hidden">
-          {/* Zone vidéo - 60% de la hauteur */}
           <div className="relative h-[60vh] overflow-hidden">
             <img src={heroImage} alt="Panneaux solaires" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/20"></div>
           </div>
           
-          {/* Zone texte - 40% de la hauteur */}
           <div className="relative bg-gradient-to-b from-slate-900 to-slate-800 flex items-center justify-center px-4 py-8">
             <div className="text-center text-white">
               <CertificationBadges />
@@ -135,7 +138,6 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Layout desktop : vidéo plein écran */}
         <div className="hidden md:block min-h-screen relative">
           <img src={heroImage} alt="Panneaux solaires" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/20"></div>
@@ -168,9 +170,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Choix de profil */}
+      {/* Profile selection section lines 171-393 */}
       <section className="py-8 relative overflow-hidden bg-gradient-to-br from-background via-primary/5 to-secondary/5">
-        {/* Animated background elements */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 left-20 w-32 h-32 bg-primary/20 rounded-full blur-2xl animate-float"></div>
           <div className="absolute bottom-20 right-10 w-48 h-48 bg-secondary/15 rounded-full blur-3xl animate-float" style={{
@@ -183,7 +184,6 @@ const Index = () => {
         
         <div className="container relative z-10">
           <div className="text-center mb-12 relative">
-            {/* Background geometric shapes */}
             <div className="absolute inset-0 -z-10">
               <div className="absolute top-0 left-1/4 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-float"></div>
               <div className="absolute top-10 right-1/4 w-24 h-24 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-full blur-2xl animate-float" style={{
@@ -195,8 +195,6 @@ const Index = () => {
             </div>
             
             <div className="relative">
-              
-              {/* Enhanced description */}
               <div className="relative mb-8">
                 <p className="text-2xl md:text-3xl lg:text-4xl max-w-4xl mx-auto leading-relaxed font-bold relative">
                   <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent animate-pulse">
@@ -204,7 +202,6 @@ const Index = () => {
                   </span>
                 </p>
                 
-                {/* Instagram Link */}
                 <div className="mt-6 flex justify-center">
                   <a href="https://www.instagram.com/wnenergies/" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-950 dark:to-purple-950 border border-pink-200 dark:border-pink-800 rounded-full hover:shadow-lg transition-all duration-300">
                     <Instagram className="h-5 w-5 text-pink-600 dark:text-pink-400 group-hover:scale-110 transition-transform" />
@@ -212,7 +209,6 @@ const Index = () => {
                   </a>
                 </div>
                 
-                {/* Titre profil déplacé ici */}
                 <div className="mt-12">
                   <h2 className="text-2xl md:text-3xl font-bold mb-4 relative">
                     <span className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent dark:from-white dark:via-blue-100 dark:to-white">
@@ -221,7 +217,6 @@ const Index = () => {
                   </h2>
                 </div>
                 
-                {/* Animated underline */}
                 <div className="mt-6 flex justify-center">
                   <div className="relative">
                     <div className="h-1 w-32 bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500 rounded-full"></div>
@@ -232,7 +227,6 @@ const Index = () => {
                 </div>
               </div>
               
-              {/* Subtle badge */}
               <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-50 to-emerald-50 dark:from-blue-950 dark:to-emerald-950 border border-blue-200 dark:border-blue-800 rounded-full">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 <span className="text-sm font-medium text-muted-foreground">4 profils disponibles</span>
@@ -240,20 +234,17 @@ const Index = () => {
             </div>
           </div>
           
+          {/* Profile cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             <Link to="/particuliers" className="group relative">
               <div className="relative overflow-hidden min-h-[280px] transition-all duration-700 hover:scale-[1.02] hover:-translate-y-1">
-                {/* Neomorphic container */}
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl shadow-[inset_0_2px_4px_rgba(0,0,0,0.05),_0_20px_40px_rgba(59,130,246,0.1)] dark:shadow-[inset_0_2px_4px_rgba(255,255,255,0.05),_0_20px_40px_rgba(59,130,246,0.2)] group-hover:shadow-[inset_0_2px_8px_rgba(59,130,246,0.1),_0_32px_64px_rgba(59,130,246,0.25)] dark:group-hover:shadow-[inset_0_2px_8px_rgba(59,130,246,0.2),_0_32px_64px_rgba(59,130,246,0.35)] transition-all duration-700"></div>
                 
-                {/* Animated border gradient */}
                 <div className="absolute inset-0 rounded-3xl p-[2px] bg-gradient-to-br from-blue-400/40 via-blue-500/20 to-blue-600/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                   <div className="w-full h-full bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl"></div>
                 </div>
                 
-                {/* Content */}
                 <div className="relative p-8 flex flex-col items-center justify-center h-full text-center z-10">
-                  {/* Dynamic icon container */}
                   <div className="mb-6 relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                     <div className="relative p-5 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 shadow-lg group-hover:shadow-xl group-hover:from-blue-600 group-hover:via-blue-700 group-hover:to-blue-800 transition-all duration-500">
@@ -261,7 +252,6 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  {/* Text content */}
                   <div className="space-y-3">
                     <h3 className="text-xl font-bold bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 dark:from-white dark:via-blue-200 dark:to-white bg-clip-text text-transparent group-hover:from-blue-600 group-hover:via-blue-700 group-hover:to-blue-600 transition-all duration-500">
                       Particulier
@@ -271,7 +261,6 @@ const Index = () => {
                     </p>
                   </div>
                   
-                  {/* Decorative elements */}
                   <div className="absolute top-4 right-4 w-3 h-3 bg-blue-400/60 rounded-full group-hover:bg-blue-500 group-hover:scale-125 transition-all duration-300"></div>
                   <div className="absolute bottom-4 left-4 w-2 h-2 bg-blue-300/40 rounded-full group-hover:bg-blue-400 group-hover:animate-pulse transition-all duration-300"></div>
                 </div>
@@ -280,17 +269,13 @@ const Index = () => {
             
             <Link to="/professionnels" className="group relative">
               <div className="relative overflow-hidden min-h-[280px] transition-all duration-700 hover:scale-[1.02] hover:-translate-y-1">
-                {/* Neomorphic container */}
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl shadow-[inset_0_2px_4px_rgba(0,0,0,0.05),_0_20px_40px_rgba(16,185,129,0.1)] dark:shadow-[inset_0_2px_4px_rgba(255,255,255,0.05),_0_20px_40px_rgba(16,185,129,0.2)] group-hover:shadow-[inset_0_2px_8px_rgba(16,185,129,0.1),_0_32px_64px_rgba(16,185,129,0.25)] dark:group-hover:shadow-[inset_0_2px_8px_rgba(16,185,129,0.2),_0_32px_64px_rgba(16,185,129,0.35)] transition-all duration-700"></div>
                 
-                {/* Animated border gradient */}
                 <div className="absolute inset-0 rounded-3xl p-[2px] bg-gradient-to-br from-emerald-400/40 via-emerald-500/20 to-emerald-600/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                   <div className="w-full h-full bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl"></div>
                 </div>
                 
-                {/* Content */}
                 <div className="relative p-8 flex flex-col items-center justify-center h-full text-center z-10">
-                  {/* Dynamic icon container */}
                   <div className="mb-6 relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                     <div className="relative p-5 rounded-2xl bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 shadow-lg group-hover:shadow-xl group-hover:from-emerald-600 group-hover:via-emerald-700 group-hover:to-emerald-800 transition-all duration-500">
@@ -298,7 +283,6 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  {/* Text content */}
                   <div className="space-y-3">
                     <h3 className="text-xl font-bold bg-gradient-to-r from-slate-900 via-emerald-800 to-slate-900 dark:from-white dark:via-emerald-200 dark:to-white bg-clip-text text-transparent group-hover:from-emerald-600 group-hover:via-emerald-700 group-hover:to-emerald-600 transition-all duration-500">
                       Professionnel
@@ -308,7 +292,6 @@ const Index = () => {
                     </p>
                   </div>
                   
-                  {/* Decorative elements */}
                   <div className="absolute top-4 right-4 w-3 h-3 bg-emerald-400/60 rounded-full group-hover:bg-emerald-500 group-hover:scale-125 transition-all duration-300"></div>
                   <div className="absolute bottom-4 left-4 w-2 h-2 bg-emerald-300/40 rounded-full group-hover:bg-emerald-400 group-hover:animate-pulse transition-all duration-300"></div>
                 </div>
@@ -317,17 +300,13 @@ const Index = () => {
             
             <Link to="/agriculteurs" className="group relative">
               <div className="relative overflow-hidden min-h-[280px] transition-all duration-700 hover:scale-[1.02] hover:-translate-y-1">
-                {/* Neomorphic container */}
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl shadow-[inset_0_2px_4px_rgba(0,0,0,0.05),_0_20px_40px_rgba(245,158,11,0.1)] dark:shadow-[inset_0_2px_4px_rgba(255,255,255,0.05),_0_20px_40px_rgba(245,158,11,0.2)] group-hover:shadow-[inset_0_2px_8px_rgba(245,158,11,0.1),_0_32px_64px_rgba(245,158,11,0.25)] dark:group-hover:shadow-[inset_0_2px_8px_rgba(245,158,11,0.2),_0_32px_64px_rgba(245,158,11,0.35)] transition-all duration-700"></div>
                 
-                {/* Animated border gradient */}
                 <div className="absolute inset-0 rounded-3xl p-[2px] bg-gradient-to-br from-amber-400/40 via-amber-500/20 to-amber-600/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                   <div className="w-full h-full bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl"></div>
                 </div>
                 
-                {/* Content */}
                 <div className="relative p-8 flex flex-col items-center justify-center h-full text-center z-10">
-                  {/* Dynamic icon container */}
                   <div className="mb-6 relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                     <div className="relative p-5 rounded-2xl bg-gradient-to-br from-amber-500 via-amber-600 to-amber-700 shadow-lg group-hover:shadow-xl group-hover:from-amber-600 group-hover:via-amber-700 group-hover:to-amber-800 transition-all duration-500">
@@ -335,7 +314,6 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  {/* Text content */}
                   <div className="space-y-3">
                     <h3 className="text-xl font-bold bg-gradient-to-r from-slate-900 via-amber-800 to-slate-900 dark:from-white dark:via-amber-200 dark:to-white bg-clip-text text-transparent group-hover:from-amber-600 group-hover:via-amber-700 group-hover:to-amber-600 transition-all duration-500">
                       Agriculteur
@@ -345,7 +323,6 @@ const Index = () => {
                     </p>
                   </div>
                   
-                  {/* Decorative elements */}
                   <div className="absolute top-4 right-4 w-3 h-3 bg-amber-400/60 rounded-full group-hover:bg-amber-500 group-hover:scale-125 transition-all duration-300"></div>
                   <div className="absolute bottom-4 left-4 w-2 h-2 bg-amber-300/40 rounded-full group-hover:bg-amber-400 group-hover:animate-pulse transition-all duration-300"></div>
                 </div>
@@ -354,17 +331,13 @@ const Index = () => {
             
             <Link to="/marches-publics" className="group relative">
               <div className="relative overflow-hidden min-h-[280px] transition-all duration-700 hover:scale-[1.02] hover:-translate-y-1">
-                {/* Neomorphic container */}
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl shadow-[inset_0_2px_4px_rgba(0,0,0,0.05),_0_20px_40px_rgba(147,51,234,0.1)] dark:shadow-[inset_0_2px_4px_rgba(255,255,255,0.05),_0_20px_40px_rgba(147,51,234,0.2)] group-hover:shadow-[inset_0_2px_8px_rgba(147,51,234,0.1),_0_32px_64px_rgba(147,51,234,0.25)] dark:group-hover:shadow-[inset_0_2px_8px_rgba(147,51,234,0.2),_0_32px_64px_rgba(147,51,234,0.35)] transition-all duration-700"></div>
                 
-                {/* Animated border gradient */}
                 <div className="absolute inset-0 rounded-3xl p-[2px] bg-gradient-to-br from-purple-400/40 via-purple-500/20 to-purple-600/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                   <div className="w-full h-full bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 rounded-3xl"></div>
                 </div>
                 
-                {/* Content */}
                 <div className="relative p-8 flex flex-col items-center justify-center h-full text-center z-10">
-                  {/* Dynamic icon container */}
                   <div className="mb-6 relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                     <div className="relative p-5 rounded-2xl bg-gradient-to-br from-purple-500 via-purple-600 to-purple-700 shadow-lg group-hover:shadow-xl group-hover:from-purple-600 group-hover:via-purple-700 group-hover:to-purple-800 transition-all duration-500">
@@ -372,7 +345,6 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  {/* Text content */}
                   <div className="space-y-3">
                     <h3 className="text-xl font-bold bg-gradient-to-r from-slate-900 via-purple-800 to-slate-900 dark:from-white dark:via-purple-200 dark:to-white bg-clip-text text-transparent group-hover:from-purple-600 group-hover:via-purple-700 group-hover:to-purple-600 transition-all duration-500">
                       Marché Public
@@ -382,7 +354,6 @@ const Index = () => {
                     </p>
                   </div>
                   
-                  {/* Decorative elements */}
                   <div className="absolute top-4 right-4 w-3 h-3 bg-purple-400/60 rounded-full group-hover:bg-purple-500 group-hover:scale-125 transition-all duration-300"></div>
                   <div className="absolute bottom-4 left-4 w-2 h-2 bg-purple-300/40 rounded-full group-hover:bg-purple-400 group-hover:animate-pulse transition-all duration-300"></div>
                 </div>
@@ -392,19 +363,21 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Avantage Technologique Section */}
-      
-
       {/* Zone géographique et contenu SEO */}
       <section className="py-16 bg-gradient-to-br from-blue-50/50 via-white to-green-50/50">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Installateur de panneaux solaires à Lyon & Rhône-Alpes<span className="text-primary">France</span> - Expert Lyon & Rhône-Alpes
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Installateur de panneaux solaires à Lyon & Rhône-Alpes<span className="text-primary">France</span> - Expert Lyon & Rhône-Alpes
             </h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">Startup Lyonnaise, nous offrons une technologie encore inégalée qui positionne nos produits en tant que leader sur le marché français, nous intervenons dans toute la France. Installateur expert à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest et sur l'ensemble du territoire français, nous proposons des solutions sur-mesure pour votre indépendance énergétique. Installateur de panneaux solaires à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest et sur l'ensemble du territoire français, nous proposons des solutions sur-mesure pour votre indépendance énergétique.<strong>Installateur expert à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest</strong> et sur l'ensemble du territoire français, nous proposons des solutions sur-mesure pour votre indépendance énergétique.
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Startup Lyonnaise, nous offrons une technologie encore inégalée qui positionne nos produits en tant que leader sur le marché français. 
+              <strong> Installateur expert à Lyon, Corbas, Saint-Symphorien-d'Ozon, Mions, Limonest</strong> et sur l'ensemble du territoire français, 
+              nous proposons des solutions sur-mesure pour votre indépendance énergétique.
             </p>
           </div>
 
+          {/* cards and remaining content */}
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <Card className="border-l-4 border-l-primary solar-hover">
               <CardHeader>
@@ -485,10 +458,6 @@ const Index = () => {
         </div>
       </section>
 
-
-
-
-
       {/* Stats Section */}
       <section className="py-8 bg-muted/30">
         <div className="container">
@@ -505,12 +474,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Particuliers */}
-      
-
       {/* Services Professionnels */}
       <section className="py-8 relative overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-background">
-        {/* Animated background elements */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-10 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{
@@ -521,19 +486,8 @@ const Index = () => {
         }}></div>
         </div>
         
-        
-        
-        {/* Decorative grid pattern */}
-        <div className="absolute inset-0 opacity-5">
-          
-        </div>
+        <div className="absolute inset-0 opacity-5"></div>
       </section>
-
-      {/* Services Collectivités */}
-      
-
-      {/* About Section */}
-      
 
       {/* Callback Form Section */}
       <section className="py-20 bg-muted/30">
@@ -577,4 +531,5 @@ const Index = () => {
       <Footer />
     </div>;
 };
+
 export default Index;
