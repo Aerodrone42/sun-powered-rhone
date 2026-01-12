@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Sun, Zap, Home, Calculator, MapPin, Battery, Leaf, TrendingUp, Settings } from 'lucide-react';
+import { useNavigate, Link } from 'react-router-dom';
+import { Sun, Zap, Home, Calculator, MapPin, Battery, Leaf, TrendingUp, Settings, Phone } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -680,9 +680,23 @@ const SolarSimulator = () => {
           <span className="font-medium">Économies annuelles*</span>
           <span className="font-bold text-green-600">{savingsMin} - {savingsMax} €</span>
         </div>
-        <div className="flex justify-between items-center p-4 bg-background rounded-lg">
-          <span className="font-medium">Coût d'installation</span>
-          <span className="font-bold text-primary">{Number(installationCost).toLocaleString()} €</span>
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 p-4 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg col-span-full">
+          <span className="font-medium text-primary">Obtenez votre devis personnalisé</span>
+          <div className="flex gap-3">
+            <a 
+              href="tel:+33769936498" 
+              className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-all"
+            >
+              <Phone className="w-4 h-4" />
+              Appeler
+            </a>
+            <Link 
+              to="/contact"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-semibold transition-all"
+            >
+              Demander un devis
+            </Link>
+          </div>
         </div>
       </div>
     );
