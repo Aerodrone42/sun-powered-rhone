@@ -684,7 +684,7 @@ const SolarSimulator = () => {
           <span className="font-medium text-primary">Obtenez votre devis personnalisé</span>
           <div className="flex gap-3">
             <a 
-              href="tel:+33769936498" 
+              href="tel:0765561050" 
               className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-all"
             >
               <Phone className="w-4 h-4" />
