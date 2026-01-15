@@ -219,7 +219,7 @@ const VillePage = () => {
               "addressRegion": city.department
             },
             "serviceType": "Installation panneaux solaires",
-            "telephone": "+33771418568",
+            "telephone": "+33765561050",
             "email": "contact@wn-energies.fr",
             "url": `https://wn-energies.fr/ville/${city.slug}`,
             "priceRange": "€€",

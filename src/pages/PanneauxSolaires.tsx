@@ -366,7 +366,7 @@ const PanneauxSolaires = () => {
                   </Link>
                 </Button>
                 <Button asChild size="xl" variant="outline">
-                  <a href="tel:0771418568">Appeler maintenant</a>
+                  <a href="tel:0765561050">Appeler maintenant</a>
                 </Button>
               </div>
             </div>

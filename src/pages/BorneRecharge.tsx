@@ -545,7 +545,7 @@ const BorneRecharge = () => {
                   </Link>
                 </Button>
                 <Button asChild size="xl" variant="outline">
-                  <a href="tel:0771418568">Conseil gratuit</a>
+                  <a href="tel:0765561050">Conseil gratuit</a>
                 </Button>
               </div>
             </div>
