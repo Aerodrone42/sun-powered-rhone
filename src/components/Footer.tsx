@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom"
-import { Sun, Phone, Mail, MapPin, ArrowRight, Star } from "lucide-react"
-import { Button } from "./ui/button"
-
+import { Link } from "react-router-dom";
+import { Sun, Phone, Mail, MapPin, ArrowRight, Star } from "lucide-react";
+import { Button } from "./ui/button";
 const Footer = () => {
-  return (
-    <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+  return <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
@@ -50,11 +48,7 @@ const Footer = () => {
           <div className="lg:col-span-1 space-y-6">
             <Link to="/" className="flex items-center space-x-3 group">
               <div className="relative">
-                <img 
-                  src="/lovable-uploads/9df28706-b68f-46d6-8389-66ff785af37b.png" 
-                  alt="WN Energies Logo" 
-                  className="h-10 w-10 object-contain transition-all duration-300 group-hover:scale-110"
-                />
+                <img src="/lovable-uploads/9df28706-b68f-46d6-8389-66ff785af37b.png" alt="WN Energies Logo" className="h-10 w-10 object-contain transition-all duration-300 group-hover:scale-110" />
                 <div className="absolute inset-0 h-10 w-10 bg-primary/20 rounded-full blur-xl transition-all duration-300 group-hover:bg-primary/40"></div>
               </div>
               <span className="text-2xl font-bold text-primary">
@@ -68,17 +62,11 @@ const Footer = () => {
             
             {/* Contact Info Cards */}
             <div className="space-y-3">
-              <a 
-                href="tel:0765561050" 
-                className="flex items-center space-x-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 group"
-              >
+              <a href="tel:0765561050" className="flex items-center space-x-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 group">
                 <Phone className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
                 <span className="font-medium">07 65 56 10 50</span>
               </a>
-              <a 
-                href="mailto:contact@wn-energies.fr" 
-                className="flex items-center space-x-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 group"
-              >
+              <a href="mailto:contact@wn-energies.fr" className="flex items-center space-x-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 group">
                 <Mail className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
                 <span className="font-medium">contact@wn-energies.fr</span>
               </a>
@@ -93,23 +81,24 @@ const Footer = () => {
           <div className="space-y-6">
             <h3 className="text-xl font-bold text-white">Services Particuliers</h3>
             <nav className="space-y-3">
-              {[
-                { to: "/particuliers/panneaux-solaires", label: "Panneaux solaires" },
-                { to: "/particuliers/installation-consommation", label: "Autoconsommation" },
-                { to: "/particuliers/borne-recharge", label: "Borne de recharge" },
-                { to: "/particuliers/batterie-solaire", label: "Batterie solaire" }
-              ].map((link) => (
-                <Link 
-                  key={link.to}
-                  to={link.to} 
-                  className="block text-white/70 hover:text-white hover:translate-x-2 transition-all duration-300 group"
-                >
+              {[{
+              to: "/particuliers/panneaux-solaires",
+              label: "Panneaux solaires"
+            }, {
+              to: "/particuliers/installation-consommation",
+              label: "Autoconsommation"
+            }, {
+              to: "/particuliers/borne-recharge",
+              label: "Borne de recharge"
+            }, {
+              to: "/particuliers/batterie-solaire",
+              label: "Batterie solaire"
+            }].map(link => <Link key={link.to} to={link.to} className="block text-white/70 hover:text-white hover:translate-x-2 transition-all duration-300 group">
                   <span className="flex items-center">
                     {link.label}
                     <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                   </span>
-                </Link>
-              ))}
+                </Link>)}
             </nav>
           </div>
 
@@ -117,23 +106,24 @@ const Footer = () => {
           <div className="space-y-6">
             <h3 className="text-xl font-bold text-white">Services Professionnels</h3>
             <nav className="space-y-3">
-              {[
-                { to: "/professionnels/commerce", label: "Commerce" },
-                { to: "/professionnels/panneaux-solaires", label: "Industrie" },
-                { to: "/agriculteurs", label: "Agriculteurs" },
-                { to: "/marches-publics", label: "Marchés publics" }
-              ].map((link) => (
-                <Link 
-                  key={link.to}
-                  to={link.to} 
-                  className="block text-white/70 hover:text-white hover:translate-x-2 transition-all duration-300 group"
-                >
+              {[{
+              to: "/professionnels/commerce",
+              label: "Commerce"
+            }, {
+              to: "/professionnels/panneaux-solaires",
+              label: "Industrie"
+            }, {
+              to: "/agriculteurs",
+              label: "Agriculteurs"
+            }, {
+              to: "/marches-publics",
+              label: "Marchés publics"
+            }].map(link => <Link key={link.to} to={link.to} className="block text-white/70 hover:text-white hover:translate-x-2 transition-all duration-300 group">
                   <span className="flex items-center">
                     {link.label}
                     <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                   </span>
-                </Link>
-              ))}
+                </Link>)}
             </nav>
           </div>
 
@@ -141,22 +131,21 @@ const Footer = () => {
           <div className="space-y-6">
             <h3 className="text-xl font-bold text-white">Informations</h3>
             <nav className="space-y-3">
-              {[
-                { to: "/simulateur", label: "Simulateur solaire" },
-                { to: "/contact", label: "Contact & Devis" },
-                { to: "/zone-intervention", label: "Zone d'intervention" }
-              ].map((link) => (
-                <Link 
-                  key={link.to}
-                  to={link.to} 
-                  className="block text-white/70 hover:text-white hover:translate-x-2 transition-all duration-300 group"
-                >
+              {[{
+              to: "/simulateur",
+              label: "Simulateur solaire"
+            }, {
+              to: "/contact",
+              label: "Contact & Devis"
+            }, {
+              to: "/zone-intervention",
+              label: "Zone d'intervention"
+            }].map(link => <Link key={link.to} to={link.to} className="block text-white/70 hover:text-white hover:translate-x-2 transition-all duration-300 group">
                   <span className="flex items-center">
                     {link.label}
                     <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                   </span>
-                </Link>
-              ))}
+                </Link>)}
             </nav>
             
             {/* Trust Indicators */}
@@ -186,12 +175,7 @@ const Footer = () => {
                 </p>
               <p className="text-xs text-white/40">
                 Créé par{" "}
-                <a 
-                  href="https://www.site-internet-sans-abonnement.fr/site-internet"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white/60 transition-colors"
-                >
+                <a target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors" href="https://www.createur-site-vitrine.fr/">
                   Aerodrone multiservices
                 </a>
               </p>
@@ -207,8 +191,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  )
-}
-
-export default Footer
+    </footer>;
+};
+export default Footer;
