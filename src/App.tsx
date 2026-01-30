@@ -31,6 +31,7 @@ import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import NotFound from "./pages/NotFound";
 import TarifsAides from "./pages/TarifsAides";
 import VillePage from "./pages/VillePage";
+import Blog from "./pages/Blog";
 
 const queryClient = new QueryClient();
 // Force refresh for TarifsAides route
@@ -65,6 +66,7 @@ const App = () => (
             <Route path="/simulateur" element={<Simulateur />} />
             <Route path="/zone-intervention" element={<ZoneIntervention />} />
             <Route path="/tarifs-aides" element={<TarifsAides />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/ville/:citySlug" element={<VillePage />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/sitemap.xml" element={<SitemapRedirect />} />
