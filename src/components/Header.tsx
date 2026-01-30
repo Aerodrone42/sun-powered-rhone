@@ -52,6 +52,10 @@ const Header = () => {
       href: "/tarifs-aides",
     },
     {
+      title: "Blog",
+      href: "/blog",
+    },
+    {
       title: "Contact",
       href: "/contact",
     },
