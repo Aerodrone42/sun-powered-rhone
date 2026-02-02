@@ -88,6 +88,8 @@ const Index = () => {
     href: "/collectivites/participatifs",
     benefits: ["Implication citoyenne", "Revenus pour la collectivité", "Transition énergétique locale", "Animation territoriale"]
   }];
+  // Temporarily removed per client request.
+  /*
   const stats = [{
     number: "500+",
     label: "Installations réalisées"
@@ -98,6 +100,7 @@ const Index = () => {
     number: "50+",
     label: "Villes en Rhône-Alpes"
   }];
+  */
   return <div className="min-h-screen">
       <Header />
       
@@ -455,7 +458,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Stats Section (temporarily removed per client request) */}
+      {/*
       <section className="py-8 bg-muted/30">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -470,6 +474,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+      */}
 
       {/* Services Professionnels */}
       <section className="py-8 relative overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-background">

@@ -69,19 +69,24 @@ const MarchesPublics = () => {
     title: "Exploitation",
     description: "Maintenance et suivi de performance"
   }];
-  const stats = [{
-    number: "50+",
-    label: "Collectivités partenaires"
-  }, {
-    number: "15MW",
-    label: "Puissance publique installée"
-  }, {
-    number: "8",
-    label: "Ans d'expérience publique"
-  }, {
-    number: "100%",
-    label: "Projets publics réussis"
-  }];
+  const stats = [
+    /*
+    {
+      number: "50+",
+      label: "Collectivités partenaires"
+    },
+    */
+    {
+      number: "15MW",
+      label: "Puissance publique installée"
+    }, {
+      number: "8",
+      label: "Ans d'expérience publique"
+    }, {
+      number: "100%",
+      label: "Projets publics réussis"
+    }
+  ];
   return <div className="min-h-screen">
       <Helmet>
         <title>Solutions Solaires Marchés Publics | WN Energies</title>
@@ -140,10 +145,13 @@ const MarchesPublics = () => {
 
               {/* Stats Row */}
               <div className="grid grid-cols-3 gap-6">
+                {/* Temporarily removed per client request */}
+                {/*
                 <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                   <div className="text-2xl font-bold text-white">50+</div>
                   <div className="text-sm text-blue-200">Collectivités</div>
                 </div>
+                */}
                 <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                   <div className="text-2xl font-bold text-white">15MW</div>
                   <div className="text-sm text-blue-200">Installés</div>

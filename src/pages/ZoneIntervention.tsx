@@ -84,10 +84,13 @@ const ZoneIntervention = () => {
         <section className="py-16 bg-background">
           <div className="container">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              {/* Temporarily removed per client request */}
+              {/*
               <div className="text-center">
                 <div className="text-4xl font-bold text-primary mb-2">{cities.length + autresVilles.length}+</div>
                 <div className="text-muted-foreground">Villes en Rhône-Alpes</div>
               </div>
+              */}
               <div className="text-center">
                 <div className="text-4xl font-bold text-primary mb-2">100%</div>
                 <div className="text-muted-foreground">Couverture France</div>
